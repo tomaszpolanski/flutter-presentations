@@ -1,0 +1,20 @@
+name: flutter_presentations
+description: Presentations made with Flutter
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.0
+  android_intent: "^0.2.0"
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+
+  uses-material-design: true
+  assets:
+    - assets/google.png
