@@ -32,6 +32,7 @@ class MyHomePage extends StatelessWidget {
         children: <Widget>[
           new ListTile(
             title: new Text(SliversPage.title),
+            subtitle: new Text(SliversPage.subtitle),
             onTap: () {
               Navigator
                   .of(context)

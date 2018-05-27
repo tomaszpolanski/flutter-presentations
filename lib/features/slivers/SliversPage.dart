@@ -11,6 +11,7 @@ import 'package:flutter_presentations/features/slivers/pages/WhatIsSliver.dart';
 
 class SliversPage extends StatelessWidget {
   static final String title = 'Slivers!';
+  static final String subtitle = '(not Silvers)';
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +36,7 @@ class SliversPage extends StatelessWidget {
             new SimpleDemo(),
             new ImplementingHeader(),
             new DemoTime("Advance Demo Time!"),
+
             new Thanks(),
           ]),
         ),
