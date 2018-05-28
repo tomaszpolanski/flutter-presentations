@@ -74,8 +74,9 @@ class SimpleDemo extends StatelessWidget {
         ),
         new SliverToBoxAdapter(
           child: new Center(
-              child: new Padding(
+              child: new Container(
             padding: const EdgeInsets.all(8.0),
+            color: Colors.yellowAccent,
             child: new Text(
               "SliverToBoxAdapter",
               style: Theme.of(context).textTheme.title,

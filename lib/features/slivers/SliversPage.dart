@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/features/slivers/pages/CheatSheet.dart';
 import 'package:flutter_presentations/features/slivers/pages/Definition.dart';
 import 'package:flutter_presentations/features/slivers/pages/DemoTime.dart';
 import 'package:flutter_presentations/features/slivers/pages/ImplementingHeader.dart';
@@ -29,12 +30,14 @@ class SliversPage extends StatelessWidget {
           },
           body: new PageView(children: [
             new TitlePage(),
-            new DemoTime("Demo Time!"),
-            new Definition(),
             new WhatIsSliver(),
+            new Definition(),
+            new DemoTime("Demo Time!"),
             new SliverTypesPage(),
             new SimpleDemo(),
             new ImplementingHeader(),
+
+            new CheatSheet(),
             new DemoTime("Advance Demo Time!"),
 
             new Thanks(),

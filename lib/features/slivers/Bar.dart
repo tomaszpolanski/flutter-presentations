@@ -7,20 +7,6 @@ class Bar extends StatelessWidget {
   final Color start;
   final Color end;
 
-  static Widget createSettings({
-    double minExtent,
-    double maxExtent,
-    @required double currentExtent,
-    @required Widget child,
-  }) {
-    assert(currentExtent != null);
-    return new _BarSettings(
-      minExtent: minExtent ?? currentExtent,
-      maxExtent: maxExtent ?? currentExtent,
-      currentExtent: currentExtent,
-      child: child,
-    );
-  }
 
   Widget build(BuildContext context) {
     final _BarSettings settings =
@@ -37,6 +23,21 @@ class Bar extends StatelessWidget {
             .clamp(0.0, 1.0);
 
     return new Container(color: Color.lerp(start, end, t));
+  }
+
+  static Widget createSettings({
+    double minExtent,
+    double maxExtent,
+    @required double currentExtent,
+    @required Widget child,
+  }) {
+    assert(currentExtent != null);
+    return new _BarSettings(
+      minExtent: minExtent ?? currentExtent,
+      maxExtent: maxExtent ?? currentExtent,
+      currentExtent: currentExtent,
+      child: child,
+    );
   }
 }
 

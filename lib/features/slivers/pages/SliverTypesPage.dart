@@ -131,21 +131,19 @@ class SliverTypesPage extends StatelessWidget {
 
   _sliverTypeDelegate(List<String> data) {
     return (BuildContext context, int index) {
-      final background = Colors.green[100 + 100 * (index % 8)];
-      return new Container(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        alignment: Alignment.center,
-        color: background,
-        child: new Text(
-          data[index],
-          style: Theme
-              .of(context)
-              .textTheme
-              .title
-              .copyWith(
-            color: background.computeLuminance() >= 0.3
-                ? Colors.black
-                : Colors.white,
+      return new Card(
+        child: new Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          alignment: Alignment.center,
+          child: new Text(
+            data[index],
+            style: Theme
+                .of(context)
+                .textTheme
+                .title
+                .copyWith(
+              color: Colors.black
+            ),
           ),
         ),
       );

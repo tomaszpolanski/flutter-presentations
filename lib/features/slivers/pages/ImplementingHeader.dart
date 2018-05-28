@@ -11,10 +11,10 @@ class ImplementingHeader extends StatelessWidget {
         slivers: <Widget>[
           new SliverPersistentHeader(
             delegate: new CustomAppBarDelegate(
-              expandedHeight: 250.0,
+              expandedHeight: 200.0,
               flexibleSpace: new Bar(
                 start: Colors.red,
-                end: Colors.purple,
+                end: Colors.blue,
               ),
             ),
           ),
