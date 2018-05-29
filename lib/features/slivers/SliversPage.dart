@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/slivers/pages/CheatSheet.dart';
+import 'package:flutter_presentations/features/slivers/pages/CustomMultiChildLayoutExample.dart';
 import 'package:flutter_presentations/features/slivers/pages/Definition.dart';
 import 'package:flutter_presentations/features/slivers/pages/DemoTime.dart';
 import 'package:flutter_presentations/features/slivers/pages/ImplementingHeader.dart';
@@ -36,8 +37,8 @@ class SliversPage extends StatelessWidget {
             new SliverTypesPage(),
             new SimpleDemo(),
             new ImplementingHeader(),
-
             new CheatSheet(),
+            new CustomMultiChildLayoutExample(),
             new DemoTime("Advance Demo Time!"),
 
             new Thanks(),
