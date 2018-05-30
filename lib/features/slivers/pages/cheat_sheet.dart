@@ -4,9 +4,7 @@ import 'package:flutter_presentations/shared/presentation_page.dart';
 
 class CheatSheet extends StatefulWidget {
   @override
-  CheatSheetState createState() {
-    return new CheatSheetState();
-  }
+  CheatSheetState createState() => new CheatSheetState();
 }
 
 class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
@@ -32,12 +30,10 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
     return new Tween<Offset>(
       begin: const Offset(1.0, 0.0),
       end: Offset.zero,
-    ).animate(
-      new CurvedAnimation(
-        parent: controller,
-        curve: new ElasticOutCurve(),
-      ),
-    );
+    ).animate(new CurvedAnimation(
+      parent: controller,
+      curve: new ElasticOutCurve(),
+    ));
   }
 
   @override
@@ -87,38 +83,6 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
   }
 }
 
-class CurvedController implements ValueListenable<double> {
-  final AnimationController _controller;
-  final Curve curve;
-
-  CurvedController({
-    @required TickerProvider vsync,
-    @required Duration duration,
-    @required this.curve,
-  }) : _controller = new AnimationController(duration: duration, vsync: vsync);
-
-  @override
-  void addListener(VoidCallback listener) {
-    _controller.addListener(listener);
-  }
-
-  @override
-  void removeListener(VoidCallback listener) {
-    _controller.removeListener(listener);
-  }
-
-  @override
-  double get value => curve.transform(_controller.value);
-
-  void dispose() {
-    _controller.dispose();
-  }
-
-  void start() {
-    _controller.forward();
-  }
-}
-
 class CardElement extends StatelessWidget {
   final String text;
 
@@ -131,13 +95,9 @@ class CardElement extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Padding(
       padding: const EdgeInsets.all(30.0),
-      child: new Container(
-        height: double.infinity,
-        width: double.infinity,
-        child: new Card(
-          child: new Center(
-            child: new Text(text, style: new TextStyle(fontSize: 30.0)),
-          ),
+      child: new Card(
+        child: new Center(
+          child: new Text(text, style: new TextStyle(fontSize: 30.0)),
         ),
       ),
     );

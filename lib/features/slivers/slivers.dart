@@ -29,7 +29,6 @@ class Slivers extends StatelessWidget {
             ];
           },
           body: new PageView(children: [
-            new CheatSheet(),
             new TitlePage(),
             new WhatIsSliver(),
             new SliverTypesPage(),
@@ -37,6 +36,7 @@ class Slivers extends StatelessWidget {
             new DemoTime("Demo Time!"),
             new SimpleDemo(),
             new ImplementingHeader(),
+            new CheatSheet(),
             new CustomMultiChildLayoutExample(),
             new DemoTime("Advance Demo Time!"),
             new Thanks(),

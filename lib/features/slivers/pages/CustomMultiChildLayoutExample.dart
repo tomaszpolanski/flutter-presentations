@@ -12,28 +12,28 @@ class CustomMultiChildLayoutExample extends StatelessWidget {
           delegate: new _Layout(),
           children: <Widget>[
             new LayoutId(
-                id: '2',
+                id: Colors.red,
                 child: new Container(
                   width: 40.0,
                   height: 40.0,
                   color: Colors.red,
                 )),
             new LayoutId(
-                id: '1',
+                id: Colors.blue,
                 child: new Container(
                   width: 40.0,
                   height: 75.0,
                   color: Colors.blue,
                 )),
             new LayoutId(
-                id: '3',
+                id: Colors.orange,
                 child: new Container(
                   width: 300.0,
                   height: 15.0,
                   color: Colors.orange,
                 )),
             new LayoutId(
-                id: '4',
+                id: Colors.green,
                 child: new Container(
                   width: 50.0,
                   height: 100.0,
@@ -51,20 +51,20 @@ class _Layout extends MultiChildLayoutDelegate {
   @override
   void performLayout(Size size) {
     var offset = new Offset(0.0, 0.0);
-    var itemSize = layoutChild('1', new BoxConstraints());
-    positionChild('1', offset);
+    var itemSize = layoutChild(Colors.blue, new BoxConstraints());
+    positionChild(Colors.blue, offset);
 
     offset += new Offset(itemSize.width, itemSize.height);
-    itemSize = layoutChild('2', new BoxConstraints());
-    positionChild('2', offset);
+    itemSize = layoutChild(Colors.red, new BoxConstraints());
+    positionChild(Colors.red, offset);
 
     offset += new Offset(itemSize.width, itemSize.height);
-    itemSize = layoutChild('3', new BoxConstraints());
-    positionChild('3', offset);
+    itemSize = layoutChild(Colors.orange, new BoxConstraints());
+    positionChild(Colors.orange, offset);
 
     offset += new Offset(itemSize.width, itemSize.height);
-    itemSize = layoutChild('4', new BoxConstraints());
-    positionChild('4', offset);
+    itemSize = layoutChild(Colors.green, new BoxConstraints());
+    positionChild(Colors.green, offset);
   }
 
   @override

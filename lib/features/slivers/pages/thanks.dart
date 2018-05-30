@@ -10,40 +10,33 @@ class Thanks extends StatelessWidget {
       children: [
         new Center(
           child: new Column(
-
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               new Text(
                 "Thank you!",
-                textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.display3.copyWith(
                       color: const Color(0xFF6AA84F),
                       fontWeight: FontWeight.bold,
                     ),
               ),
-              new Row(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  new Text(
-                    "...questions",
-                    style: Theme.of(context).textTheme.headline.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
-                  ),
-                  new Shake(
-                    duration: const Duration(milliseconds: 1000),
-                    child: new Text(
-                      "?",
-                      style: Theme.of(context).textTheme.headline.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
+              new DefaultTextStyle(
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .headline
+                    .copyWith(fontWeight: FontWeight.bold),
+                child: new Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    const Text("...questions"),
+                    new Shake(
+                      duration: const Duration(milliseconds: 1000),
+                      child: const Text("?"),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
-
-              mainAxisSize: MainAxisSize.min
           ),
         ),
         new Align(
@@ -69,13 +62,13 @@ class Shake extends StatefulWidget {
   const Shake({Key key, this.duration, this.child}) : super(key: key);
 
   @override
-  ShakeState createState() {
-    return new ShakeState();
-  }
+  ShakeState createState() => new ShakeState();
 }
 
 class ShakeState extends State<Shake> with TickerProviderStateMixin {
   AnimationController controller;
+
+  double get angle => math.sin(controller.value * math.pi * 2) * 0.5;
 
   @override
   void initState() {
@@ -83,14 +76,10 @@ class ShakeState extends State<Shake> with TickerProviderStateMixin {
     controller = new AnimationController(
       duration: widget.duration,
       vsync: this,
-    )..addListener(() {
-        setState(() {});
-      });
-
-    controller.repeat();
+    )
+      ..addListener(() => setState(() {}))
+      ..repeat();
   }
-
-  double _angle() => math.sin(controller.value * math.pi * 2) * 0.5;
 
   @override
   void dispose() {
@@ -99,10 +88,6 @@ class ShakeState extends State<Shake> with TickerProviderStateMixin {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return new Transform.rotate(
-      angle: _angle(),
-      child: widget.child,
-    );
-  }
+  Widget build(BuildContext context) =>
+      new Transform.rotate(angle: angle, child: widget.child);
 }
