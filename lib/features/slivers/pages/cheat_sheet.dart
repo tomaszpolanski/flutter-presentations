@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/shared/presentation_page.dart';
 
 class CheatSheet extends StatefulWidget {
   @override
@@ -9,78 +10,76 @@ class CheatSheet extends StatefulWidget {
 }
 
 class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
-  CurvedController firstItemController;
-  CurvedController secondItemController;
+  AnimationController pageViewController;
+  AnimationController multiChildController;
 
   @override
   void initState() {
     super.initState();
 
-    firstItemController = new CurvedController(
+    pageViewController = new AnimationController(
       duration: const Duration(milliseconds: 800),
-      curve: new ElasticOutCurve(),
       vsync: this,
     );
-    secondItemController = new CurvedController(
+
+    multiChildController = new AnimationController(
       duration: const Duration(milliseconds: 800),
-      curve: new ElasticOutCurve(),
       vsync: this,
+    );
+  }
+
+  Animation<Offset> _createAnimation(AnimationController controller) {
+    return new Tween<Offset>(
+      begin: const Offset(1.0, 0.0),
+      end: Offset.zero,
+    ).animate(
+      new CurvedAnimation(
+        parent: controller,
+        curve: new ElasticOutCurve(),
+      ),
     );
   }
 
   @override
   void dispose() {
-    firstItemController.dispose();
-    secondItemController.dispose();
+    pageViewController.dispose();
+    multiChildController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-
-    return new GestureDetector(
-      onTap: () {
-        if (firstItemController.value == 0.0) {
-          firstItemController.start();
-        } else {
-          secondItemController.start();
-        }
-      },
-      child: new ClipRect(
-        child: new Container(
-          color: Colors.transparent,
-          child: new Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              new Flexible(
-                child: new AnimatedBuilder(
-                  animation: firstItemController,
-                  child: new CardElement('CustomMultiChildLayout'),
-                  builder: (BuildContext context, Widget child) {
-                    return new Transform.translate(
-                      offset:
-                          new Offset(width * (1 - firstItemController.value), .0),
-                      child: child,
-                    );
-                  },
+    return new PresentationPage(
+      title: const Text('Cheat Sheet'),
+      child: new GestureDetector(
+        onTap: () {
+          if (pageViewController.status == AnimationStatus.dismissed) {
+            pageViewController.forward();
+          } else if (multiChildController.status != AnimationStatus.completed) {
+            multiChildController.forward();
+          }
+        },
+        child: new ClipRect(
+          child: new Container(
+            color: Colors.transparent,
+            child: new Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                new Flexible(
+                  child: new SlideTransition(
+                    position: _createAnimation(pageViewController),
+                    child: new CardElement('PageView'),
+                  ),
                 ),
-              ),
-              new Flexible(
-                child: new AnimatedBuilder(
-                  animation: secondItemController,
-                  child: new CardElement('PageView'),
-                  builder: (BuildContext context, Widget child) {
-                    return new Transform.translate(
-                      offset: new Offset(
-                          width * (1 - secondItemController.value), .0),
-                      child: child,
-                    );
-                  },
+                new Flexible(
+                  child: new SlideTransition(
+                    position: _createAnimation(multiChildController),
+                    child: new CardElement('CustomMultiChildLayout'),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

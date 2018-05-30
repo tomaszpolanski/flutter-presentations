@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/slivers/pages/CheatSheet.dart';
 import 'package:flutter_presentations/features/slivers/pages/CustomMultiChildLayoutExample.dart';
-import 'package:flutter_presentations/features/slivers/pages/Definition.dart';
-import 'package:flutter_presentations/features/slivers/pages/DemoTime.dart';
-import 'package:flutter_presentations/features/slivers/pages/ImplementingHeader.dart';
-import 'package:flutter_presentations/features/slivers/pages/SimpleDemo.dart';
-import 'package:flutter_presentations/features/slivers/pages/SliverTypesPage.dart';
-import 'package:flutter_presentations/features/slivers/pages/Thanks.dart';
-import 'package:flutter_presentations/features/slivers/pages/TitlePage.dart';
-import 'package:flutter_presentations/features/slivers/pages/WhatIsSliver.dart';
+import 'package:flutter_presentations/features/slivers/pages/cheat_sheet.dart';
+import 'package:flutter_presentations/features/slivers/pages/definition.dart';
+import 'package:flutter_presentations/features/slivers/pages/demo_button.dart';
+import 'package:flutter_presentations/features/slivers/pages/examples.dart';
+import 'package:flutter_presentations/features/slivers/pages/implementing_header.dart';
+import 'package:flutter_presentations/features/slivers/pages/thanks.dart';
+import 'package:flutter_presentations/features/slivers/pages/title.dart';
+import 'package:flutter_presentations/features/slivers/pages/types.dart';
+import 'package:flutter_presentations/features/slivers/pages/what_is_sliver.dart';
 
-
-class SliversPage extends StatelessWidget {
+class Slivers extends StatelessWidget {
   static final String title = 'Slivers!';
   static final String subtitle = '(not Silvers)';
 
@@ -30,17 +29,16 @@ class SliversPage extends StatelessWidget {
             ];
           },
           body: new PageView(children: [
+            new CheatSheet(),
             new TitlePage(),
             new WhatIsSliver(),
+            new SliverTypesPage(),
             new Definition(),
             new DemoTime("Demo Time!"),
-            new SliverTypesPage(),
             new SimpleDemo(),
             new ImplementingHeader(),
-            new CheatSheet(),
             new CustomMultiChildLayoutExample(),
             new DemoTime("Advance Demo Time!"),
-
             new Thanks(),
           ]),
         ),

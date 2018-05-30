@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/shared/presentation_page.dart';
 
 class WhatIsSliver extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-        centerTitle: true,
-        title: new Text(
-          'What is a Sliver?',
-          style: Theme.of(context).textTheme.display1.copyWith(
-              color: const Color(0xFF6AA84F), fontWeight: FontWeight.bold),
-        ),
-      ),
-      body: new Row(
+    return new PresentationPage(
+      title: new Text('What is a Sliver?'),
+      child: new Row(
         children: <Widget>[
           new Flexible(
             flex: 1,

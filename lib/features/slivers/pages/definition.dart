@@ -19,10 +19,15 @@ class Definition extends StatelessWidget {
                   .display1
                   .copyWith(fontStyle: FontStyle.italic),
             ),
-            new Align(
-              alignment: Alignment.centerRight,
-              child: new Image.asset('assets/google.png',
-              height: 40.0,),
+            new Padding(
+              padding: const EdgeInsets.only(top: 12.0),
+              child: new Align(
+                alignment: Alignment.centerRight,
+                child: new Image.asset(
+                  'assets/google.png',
+                  height: 40.0,
+                ),
+              ),
             ),
           ],
         ),
