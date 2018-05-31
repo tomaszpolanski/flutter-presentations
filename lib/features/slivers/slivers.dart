@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/slivers/pages/CustomMultiChildLayoutExample.dart';
 import 'package:flutter_presentations/features/slivers/pages/cheat_sheet.dart';
+import 'package:flutter_presentations/features/slivers/pages/code.dart';
 import 'package:flutter_presentations/features/slivers/pages/definition.dart';
 import 'package:flutter_presentations/features/slivers/pages/demo_button.dart';
 import 'package:flutter_presentations/features/slivers/pages/examples.dart';
@@ -30,6 +31,7 @@ class Slivers extends StatelessWidget {
           },
           body: new PageView(children: [
             new TitlePage(),
+            new LoadsOfCode(),
             new WhatIsSliver(),
             new SliverTypesPage(),
             new Definition(),
