@@ -12,33 +12,37 @@ class CustomMultiChildLayoutExample extends StatelessWidget {
           delegate: new _Layout(),
           children: <Widget>[
             new LayoutId(
-                id: Colors.red,
-                child: new Container(
-                  width: 40.0,
-                  height: 40.0,
-                  color: Colors.red,
-                )),
+              id: Colors.red,
+              child: new Container(
+                width: 40.0,
+                height: 40.0,
+                color: Colors.red,
+              ),
+            ),
             new LayoutId(
-                id: Colors.blue,
-                child: new Container(
-                  width: 40.0,
-                  height: 75.0,
-                  color: Colors.blue,
-                )),
+              id: Colors.blue,
+              child: new Container(
+                width: 40.0,
+                height: 75.0,
+                color: Colors.blue,
+              ),
+            ),
             new LayoutId(
-                id: Colors.orange,
-                child: new Container(
-                  width: 300.0,
-                  height: 15.0,
-                  color: Colors.orange,
-                )),
+              id: Colors.orange,
+              child: new Container(
+                width: 300.0,
+                height: 15.0,
+                color: Colors.orange,
+              ),
+            ),
             new LayoutId(
-                id: Colors.green,
-                child: new Container(
-                  width: 50.0,
-                  height: 100.0,
-                  color: Colors.green,
-                )),
+              id: Colors.green,
+              child: new Container(
+                width: 50.0,
+                height: 100.0,
+                color: Colors.green,
+              ),
+            ),
           ],
         ),
       ),
@@ -47,7 +51,6 @@ class CustomMultiChildLayoutExample extends StatelessWidget {
 }
 
 class _Layout extends MultiChildLayoutDelegate {
-
   @override
   void performLayout(Size size) {
     var offset = new Offset(0.0, 0.0);

@@ -21,19 +21,18 @@ class ImplementingHeader extends StatelessWidget {
           new SliverFixedExtentList(
             itemExtent: 50.0,
             delegate: new SliverChildBuilderDelegate(
-                    (BuildContext context, int index) {
-                  return new Container(
-                    alignment: Alignment.center,
-                    color: Colors.lightBlue[100 * (index % 9)],
-                    child: new Text(
-                      'list item $index',
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .title,
-                    ),
-                  );
-                }, childCount: 10),
+              (BuildContext context, int index) {
+                return new Container(
+                  alignment: Alignment.center,
+                  color: Colors.lightBlue[100 * (index % 9)],
+                  child: new Text(
+                    'list item $index',
+                    style: Theme.of(context).textTheme.title,
+                  ),
+                );
+              },
+              childCount: 10,
+            ),
           ),
         ],
       ),

@@ -16,7 +16,9 @@ class SimpleDemo extends StatelessWidget {
             title: new Text(
               'Sliver Examples',
               style: Theme.of(context).textTheme.display1.copyWith(
-                  color: const Color(0xFF6AA84F), fontWeight: FontWeight.bold),
+                    color: const Color(0xFF6AA84F),
+                    fontWeight: FontWeight.bold,
+                  ),
             ),
           ),
         ),
@@ -43,17 +45,19 @@ class SimpleDemo extends StatelessWidget {
         ),
         new SliverFixedExtentList(
           itemExtent: 50.0,
-          delegate:
-              new SliverChildBuilderDelegate((BuildContext context, int index) {
-            return new Container(
-              alignment: Alignment.center,
-              color: Colors.lightBlue[100 * (index % 9)],
-              child: new Text(
-                'list item $index',
-                style: Theme.of(context).textTheme.title,
-              ),
-            );
-          }, childCount: 10),
+          delegate: new SliverChildBuilderDelegate(
+            (BuildContext context, int index) {
+              return new Container(
+                alignment: Alignment.center,
+                color: Colors.lightBlue[100 * (index % 9)],
+                child: new Text(
+                  'list item $index',
+                  style: Theme.of(context).textTheme.title,
+                ),
+              );
+            },
+            childCount: 10,
+          ),
         ),
         new SliverPadding(
           padding: const EdgeInsets.all(20.0),
@@ -74,14 +78,15 @@ class SimpleDemo extends StatelessWidget {
         ),
         new SliverToBoxAdapter(
           child: new Center(
-              child: new Container(
-            padding: const EdgeInsets.all(8.0),
-            color: Colors.yellowAccent,
-            child: new Text(
-              "SliverToBoxAdapter",
-              style: Theme.of(context).textTheme.title,
+            child: new Container(
+              padding: const EdgeInsets.all(8.0),
+              color: Colors.yellowAccent,
+              child: new Text(
+                "SliverToBoxAdapter",
+                style: Theme.of(context).textTheme.title,
+              ),
             ),
-          )),
+          ),
         ),
         new SliverFillViewport(
           delegate: new SliverChildBuilderDelegate(
