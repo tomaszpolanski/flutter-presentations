@@ -17,19 +17,18 @@ class Slivers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new DefaultTabController(
-      length: 2,
-      child: new Scaffold(
-        body: new NestedScrollView(
-          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-            return <Widget>[
-              new SliverOverlapAbsorber(
-                handle:
-                    NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-              ),
-            ];
-          },
-          body: new PageView(children: [
+    return new Scaffold(
+      body: new NestedScrollView(
+        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+          return <Widget>[
+            new SliverOverlapAbsorber(
+              handle:
+                  NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+            ),
+          ];
+        },
+        body: new PageView(
+          children: [
             new TitlePage(),
             new LoadsOfCode(),
             new Definition(),
@@ -39,9 +38,9 @@ class Slivers extends StatelessWidget {
             new ImplementingHeader(),
             new CheatSheet(),
             new CustomMultiChildLayoutExample(),
-            new DemoTime("Advance Demo Time!"),
+            new DemoTime(),
             new Thanks(),
-          ]),
+          ],
         ),
       ),
     );
