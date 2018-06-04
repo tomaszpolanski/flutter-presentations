@@ -61,11 +61,11 @@ class SimpleDemo extends StatelessWidget {
         ),
         new SliverPadding(
           padding: const EdgeInsets.all(20.0),
-          sliver: new SliverFixedExtentList(
-            itemExtent: 50.0,
+          sliver: new SliverList(
             delegate: new SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
               return new Container(
+                padding: new EdgeInsets.symmetric(vertical: index.toDouble() * 2),
                 alignment: Alignment.center,
                 color: Colors.lightBlue[100 * (index % 9)],
                 child: new Text(

@@ -46,7 +46,9 @@ class Thanks extends StatelessWidget {
             child: new Text(
               '@tpolansk',
               style: Theme.of(context).textTheme.title.copyWith(
-                  color: Colors.blueAccent, fontWeight: FontWeight.bold),
+                    color: Colors.blueAccent,
+                    fontWeight: FontWeight.bold,
+                  ),
             ),
           ),
         )

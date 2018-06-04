@@ -49,13 +49,26 @@ class TitlePage extends StatelessWidget {
           alignment: Alignment.bottomRight,
           child: new Padding(
             padding: const EdgeInsets.only(right: 18.0, bottom: 18.0),
-            child: new Text(
-              'Tomek Polański',
+            child: new DefaultTextStyle(
               style: Theme
                   .of(context)
                   .textTheme
                   .title
-                  .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
+                  .copyWith(fontWeight: FontWeight.bold),
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  new Text(
+                    'Tomek Polański',
+                    style: new TextStyle(color: Colors.black),
+                  ),
+                  new Text(
+                    '@tpolansk',
+                    style: new TextStyle(color: Colors.blueAccent),
+                  ),
+                ],
+              ),
             ),
           ),
         )

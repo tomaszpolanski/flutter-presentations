@@ -6,7 +6,6 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.0
-  android_intent: "^0.2.0"
 
 dev_dependencies:
   flutter_test:

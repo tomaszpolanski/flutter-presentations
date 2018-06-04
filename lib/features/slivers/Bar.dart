@@ -2,15 +2,18 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Bar extends StatelessWidget {
-  const Bar({Key key, this.start, this.end}) : super(key: key);
+  const Bar({
+    Key key,
+    this.start,
+    this.end,
+  }) : super(key: key);
 
   final Color start;
   final Color end;
 
-
   Widget build(BuildContext context) {
-    final _BarSettings settings =
-        context.inheritFromWidgetOfExactType(_BarSettings);
+    final BarSettings settings =
+        context.inheritFromWidgetOfExactType(BarSettings);
     assert(settings != null,
         'A Bar must be wrapped in the widget returned by Bar.createSettings().');
 
@@ -24,25 +27,10 @@ class Bar extends StatelessWidget {
 
     return new Container(color: Color.lerp(start, end, t));
   }
-
-  static Widget createSettings({
-    double minExtent,
-    double maxExtent,
-    @required double currentExtent,
-    @required Widget child,
-  }) {
-    assert(currentExtent != null);
-    return new _BarSettings(
-      minExtent: minExtent ?? currentExtent,
-      maxExtent: maxExtent ?? currentExtent,
-      currentExtent: currentExtent,
-      child: child,
-    );
-  }
 }
 
-class _BarSettings extends InheritedWidget {
-  const _BarSettings({
+class BarSettings extends InheritedWidget {
+  const BarSettings({
     Key key,
     this.minExtent,
     this.maxExtent,
@@ -55,9 +43,7 @@ class _BarSettings extends InheritedWidget {
   final double currentExtent;
 
   @override
-  bool updateShouldNotify(_BarSettings oldWidget) {
-    return minExtent != oldWidget.minExtent ||
-        maxExtent != oldWidget.maxExtent ||
-        currentExtent != oldWidget.currentExtent;
+  bool updateShouldNotify(BarSettings oldWidget) {
+    return true;
   }
 }
