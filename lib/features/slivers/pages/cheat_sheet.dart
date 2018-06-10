@@ -97,7 +97,11 @@ class CardElement extends StatelessWidget {
       padding: const EdgeInsets.all(30.0),
       child: new Card(
         child: new Center(
-          child: new Text(text, style: new TextStyle(fontSize: 30.0)),
+          child: new Text(
+            text,
+            textAlign: TextAlign.center,
+            style: new TextStyle(fontSize: 30.0),
+          ),
         ),
       ),
     );

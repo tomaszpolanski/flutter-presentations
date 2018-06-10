@@ -9,17 +9,13 @@ class SimpleDemo extends StatelessWidget {
           floating: true,
           snap: true,
           backgroundColor: Colors.white,
-          automaticallyImplyLeading: false,
-          centerTitle: false,
-          flexibleSpace: new FlexibleSpaceBar(
-            centerTitle: true,
-            title: new Text(
-              'Sliver Examples',
-              style: Theme.of(context).textTheme.display1.copyWith(
-                    color: const Color(0xFF6AA84F),
-                    fontWeight: FontWeight.bold,
-                  ),
-            ),
+          centerTitle: true,
+          title: new Text(
+            'Sliver Examples',
+            style: Theme.of(context).textTheme.display1.copyWith(
+                  color: const Color(0xFF6AA84F),
+                  fontWeight: FontWeight.bold,
+                ),
           ),
         ),
         new SliverGrid(
@@ -65,7 +61,8 @@ class SimpleDemo extends StatelessWidget {
             delegate: new SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
               return new Container(
-                padding: new EdgeInsets.symmetric(vertical: index.toDouble() * 2),
+                padding:
+                    new EdgeInsets.symmetric(vertical: index.toDouble() * 2),
                 alignment: Alignment.center,
                 color: Colors.lightBlue[100 * (index % 9)],
                 child: new Text(

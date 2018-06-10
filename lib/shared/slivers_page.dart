@@ -19,13 +19,11 @@ class SliverPage extends StatelessWidget {
           pinned: true,
           automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
-          flexibleSpace: new FlexibleSpaceBar(
-            centerTitle: true,
-            title: new DefaultTextStyle(
-              style: Theme.of(context).textTheme.display1.copyWith(
-                  color: const Color(0xFF6AA84F), fontWeight: FontWeight.bold),
-              child: title,
-            ),
+          centerTitle: true,
+          title: new DefaultTextStyle(
+            style: Theme.of(context).textTheme.display1.copyWith(
+                color: const Color(0xFF6AA84F), fontWeight: FontWeight.bold),
+            child: title,
           ),
         ),
       ]..addAll(slivers),

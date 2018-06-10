@@ -5,7 +5,11 @@ class CustomMultiChildLayoutExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new PresentationPage(
-      title: const Text('CustomMultiChildLayout'),
+      title: const Text(
+        'CustomMultiChildLayout',
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
       child: new Padding(
         padding: const EdgeInsets.all(8.0),
         child: new CustomMultiChildLayout(
