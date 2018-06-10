@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_presentations/shared/slivers_page.dart';
 
 class SliverTypesPage extends StatelessWidget {
+
+  // Can you spot the typos? :)
   static const _kMostUsed = const [
     'SilverList',
     'SliverFixedExtentList',

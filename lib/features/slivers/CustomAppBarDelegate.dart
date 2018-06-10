@@ -15,11 +15,11 @@ class CustomAppBarDelegate extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
 
   @override
-  double get minExtent => kToolbarHeight;
+  double get minExtent => 0.0;
 
   @override
   double get maxExtent =>
-      math.max((expandedHeight ?? kToolbarHeight), minExtent);
+      math.max(expandedHeight, minExtent);
 
   @override
   Widget build(
