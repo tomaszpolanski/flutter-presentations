@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_presentations/features/slivers/pages/CustomMultiChildLayoutExample.dart';
 import 'package:flutter_presentations/features/slivers/pages/cheat_sheet.dart';
 import 'package:flutter_presentations/features/slivers/pages/code.dart';
@@ -11,6 +10,7 @@ import 'package:flutter_presentations/features/slivers/pages/thanks.dart';
 import 'package:flutter_presentations/features/slivers/pages/title.dart';
 import 'package:flutter_presentations/features/slivers/pages/types.dart';
 import 'package:flutter_presentations/features/slivers/pages/what_is_sliver.dart';
+import 'package:flutter_presentations/shared/presentation_controller.dart';
 
 class Slivers extends StatefulWidget {
   static const String title = 'Slivers!';
@@ -24,54 +24,20 @@ class Slivers extends StatefulWidget {
 
 class SliversState extends State<Slivers> {
   PageController controller;
-  final RawKeyboard _keyboard = RawKeyboard.instance;
+  PresentationController presentationController;
 
   @override
   void initState() {
     super.initState();
-    controller = new PageController();
-    _keyboard.addListener(_handleKey);
+    controller = PageController();
+    presentationController = PresentationController(controller: controller);
   }
 
   @override
   void dispose() {
-    _keyboard.removeListener(_handleKey);
+    presentationController.dispose();
     controller.dispose();
     super.dispose();
-  }
-
-  void _handleKey(RawKeyEvent value) {
-    if (value is RawKeyUpEvent) {
-      if (value.data is RawKeyEventDataAndroid) {
-        final RawKeyEventDataAndroid data = value.data;
-        switch (data.keyCode) {
-          case 20:
-          case 21:
-            _previous();
-            break;
-          case 19:
-          case 22:
-            _next();
-            break;
-          default:
-            break;
-        }
-      }
-    }
-  }
-
-  void _previous() {
-    controller.previousPage(
-      duration: Duration(milliseconds: 300),
-      curve: Curves.easeOut,
-    );
-  }
-
-  void _next() {
-    controller.nextPage(
-      duration: Duration(milliseconds: 300),
-      curve: Curves.easeOut,
-    );
   }
 
   @override
@@ -89,13 +55,13 @@ class SliversState extends State<Slivers> {
           controller: controller,
           children: [
             new TitlePage(),
-            new LoadsOfCode(onNext: _next),
+            new LoadsOfCode(onNext: presentationController.next),
             new Definition(),
             new WhatIsSliver(),
             new SimpleDemo(),
             new SliverTypesPage(),
             new ImplementingHeader(),
-            new CheatSheet(onNext: _next),
+            new CheatSheet(onNext: presentationController.next),
             new CustomMultiChildLayoutExample(),
             new DemoTime(),
             new Thanks(),
