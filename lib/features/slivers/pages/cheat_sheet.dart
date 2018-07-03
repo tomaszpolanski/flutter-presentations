@@ -1,11 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_page.dart';
 
 class CheatSheet extends StatefulWidget {
-  final VoidCallback onNext;
+  final PresentationController controller;
 
-  const CheatSheet({Key key, @required this.onNext}) : super(key: key);
+  const CheatSheet({Key key, @required this.controller}) : super(key: key);
 
   @override
   CheatSheetState createState() => new CheatSheetState();
@@ -28,6 +29,25 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 800),
       vsync: this,
     );
+    widget.controller.addListener(_next);
+  }
+
+  @override
+  void dispose() {
+    pageViewController.dispose();
+    multiChildController.dispose();
+    widget.controller.removeListener(_next);
+    super.dispose();
+  }
+
+  void _next() {
+    if (pageViewController.status == AnimationStatus.dismissed) {
+      pageViewController.forward();
+    } else if (multiChildController.status != AnimationStatus.completed) {
+      multiChildController.forward();
+    } else {
+      widget.controller.next();
+    }
   }
 
   Animation<Offset> _createAnimation(AnimationController controller) {
@@ -41,26 +61,11 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
   }
 
   @override
-  void dispose() {
-    pageViewController.dispose();
-    multiChildController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return new PresentationPage(
       title: const Text('Cheat Sheet'),
       child: new GestureDetector(
-        onTap: () {
-          if (pageViewController.status == AnimationStatus.dismissed) {
-            pageViewController.forward();
-          } else if (multiChildController.status != AnimationStatus.completed) {
-            multiChildController.forward();
-          } else {
-            widget.onNext();
-          }
-        },
+        onTap: _next,
         child: new ClipRect(
           child: new Container(
             color: Colors.transparent,

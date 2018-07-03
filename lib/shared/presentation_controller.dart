@@ -4,10 +4,19 @@ import 'package:flutter/services.dart';
 class PresentationController {
   final PageController controller;
   final RawKeyboard _keyboard = RawKeyboard.instance;
+  final List<VoidCallback> _listeners = <VoidCallback>[];
 
   PresentationController({@required this.controller})
       : assert(controller != null) {
     _keyboard.addListener(_handleKey);
+  }
+
+  void addListener(VoidCallback listener) {
+    _listeners.add(listener);
+  }
+
+  void removeListener(VoidCallback listener) {
+    _listeners.remove(listener);
   }
 
   void dispose() {
@@ -25,7 +34,7 @@ class PresentationController {
             break;
           case 19:
           case 22:
-            next();
+            _next();
             break;
           default:
             break;
@@ -34,17 +43,36 @@ class PresentationController {
     }
   }
 
+  void _next() {
+    final page = controller.page;
+    if (page.floor() - page == 0.0) {
+      if (_listeners.isEmpty) {
+        next();
+      } else {
+        for (VoidCallback listener in _listeners) {
+          listener();
+        }
+      }
+    }
+  }
+
   void previous() {
-    controller.previousPage(
-      duration: Duration(milliseconds: 300),
-      curve: Curves.easeOut,
-    );
+    final page = controller.page;
+    if (page.floor() - page == 0.0) {
+      controller.previousPage(
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+      );
+    }
   }
 
   void next() {
-    controller.nextPage(
-      duration: Duration(milliseconds: 300),
-      curve: Curves.easeOut,
-    );
+    final page = controller.page;
+    if (page.floor() - page == 0.0) {
+      controller.nextPage(
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+      );
+    }
   }
 }

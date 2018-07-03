@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/shared/presentation_controller.dart';
 
 class LoadsOfCode extends StatefulWidget {
-  final VoidCallback onNext;
+  final PresentationController controller;
 
-  const LoadsOfCode({Key key, @required this.onNext}) : super(key: key);
+  const LoadsOfCode({Key key, @required this.controller}) : super(key: key);
   @override
   _LoadsOfCodeState createState() => new _LoadsOfCodeState();
 }
@@ -38,24 +39,28 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
       curve: new Interval(0.0, .1),
     ))
       ..addListener(() => setState(() {}));
+    widget.controller.addListener(_next);
   }
 
   @override
   void dispose() {
+    widget.controller.removeListener(_next);
     _controller.dispose();
     super.dispose();
+  }
+
+  void _next() {
+    if (_controller.status != AnimationStatus.completed) {
+      _controller.forward(from: .0);
+    } else {
+      widget.controller.next();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return new GestureDetector(
-      onTap: () {
-        if (_controller.status != AnimationStatus.completed) {
-          _controller.forward(from: .0);
-        } else {
-          widget.onNext();
-        }
-      },
+      onTap: _next,
       child: new Container(
         decoration: new BoxDecoration(
           image: new DecorationImage(
