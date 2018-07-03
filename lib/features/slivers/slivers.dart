@@ -41,14 +41,15 @@ class SliversState extends State<Slivers> {
   }
 
   void _handleKey(RawKeyEvent value) {
-    print(controller.page);
     if (value is RawKeyUpEvent) {
       if (value.data is RawKeyEventDataAndroid) {
         final RawKeyEventDataAndroid data = value.data;
         switch (data.keyCode) {
+          case 20:
           case 21:
             _previous();
             break;
+          case 19:
           case 22:
             _next();
             break;
