@@ -14,7 +14,7 @@ class TitlePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 new Text(
-                  "Slivers!",
+                  'Slivers!',
                   style: Theme.of(context).textTheme.display3.copyWith(
                       color: const Color(0xFF6AA84F),
                       fontWeight: FontWeight.bold),
@@ -26,17 +26,17 @@ class TitlePage extends StatelessWidget {
                     new Stack(
                       children: [
                         new Text(
-                          "🥄",
+                          '🥄',
                           style: Theme.of(context).textTheme.display1,
                         ),
                         new Text(
-                          "🚫",
+                          '🚫',
                           style: Theme.of(context).textTheme.display1,
                         ),
                       ],
                     ),
                     new Text(
-                      "(not Silvers...)",
+                      '(not Silvers...)',
                       style: Theme.of(context).textTheme.body1,
                     ),
                   ],

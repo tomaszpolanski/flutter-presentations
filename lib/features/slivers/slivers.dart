@@ -12,8 +12,8 @@ import 'package:flutter_presentations/features/slivers/pages/types.dart';
 import 'package:flutter_presentations/features/slivers/pages/what_is_sliver.dart';
 
 class Slivers extends StatelessWidget {
-  static final String title = 'Slivers!';
-  static final String subtitle = '(not Silvers)';
+  static const String title = 'Slivers!';
+  static const String subtitle = '(not Silvers)';
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +22,7 @@ class Slivers extends StatelessWidget {
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
             new SliverOverlapAbsorber(
-              handle:
-                  NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+              handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
             ),
           ];
         },

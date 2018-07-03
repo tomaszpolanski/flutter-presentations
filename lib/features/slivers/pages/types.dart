@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_presentations/shared/slivers_page.dart';
 
 class SliverTypesPage extends StatelessWidget {
-
   // Can you spot the typos? :)
   static const _kMostUsed = const [
     'SilverList',
@@ -47,7 +46,7 @@ class SliverTypesPage extends StatelessWidget {
           child: new Padding(
             padding: const EdgeInsets.all(8.0),
             child: new Text(
-              "Most Used",
+              'Most Used',
               style: Theme
                   .of(context)
                   .textTheme
@@ -75,7 +74,7 @@ class SliverTypesPage extends StatelessWidget {
           child: new Padding(
             padding: const EdgeInsets.all(8.0),
             child: new Text(
-              "And the Rest",
+              'And the Rest',
               style: Theme
                   .of(context)
                   .textTheme
@@ -103,7 +102,7 @@ class SliverTypesPage extends StatelessWidget {
     );
   }
 
-  _sliverTypeDelegate(List<String> data) {
+  IndexedWidgetBuilder _sliverTypeDelegate(List<String> data) {
     return (BuildContext context, int index) {
       return new Card(
         child: new InkWell(

@@ -13,7 +13,7 @@ class Thanks extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               new Text(
-                "Thank you!",
+                'Thank you!',
                 style: Theme.of(context).textTheme.display3.copyWith(
                       color: const Color(0xFF6AA84F),
                       fontWeight: FontWeight.bold,
@@ -28,10 +28,10 @@ class Thanks extends StatelessWidget {
                 child: new Row(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    const Text("...questions"),
+                    const Text('...questions'),
                     new Shake(
                       duration: const Duration(milliseconds: 1000),
-                      child: const Text("?"),
+                      child: const Text('?'),
                     ),
                   ],
                 ),

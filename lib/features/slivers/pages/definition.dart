@@ -11,8 +11,8 @@ class Definition extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             new Text(
-              "“A small, thin, narrow piece of "
-                  "something cut or split off a larger piece”",
+              '“A small, thin, narrow piece of '
+                  'something cut or split off a larger piece”',
               style: Theme
                   .of(context)
                   .textTheme

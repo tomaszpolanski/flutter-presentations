@@ -57,20 +57,20 @@ class CustomMultiChildLayoutExample extends StatelessWidget {
 class _Layout extends MultiChildLayoutDelegate {
   @override
   void performLayout(Size size) {
-    var offset = new Offset(0.0, 0.0);
-    var itemSize = layoutChild(Colors.blue, new BoxConstraints());
+    var offset = Offset(0.0, 0.0);
+    var itemSize = layoutChild(Colors.blue, BoxConstraints());
     positionChild(Colors.blue, offset);
 
     offset += new Offset(itemSize.width, itemSize.height);
-    itemSize = layoutChild(Colors.red, new BoxConstraints());
+    itemSize = layoutChild(Colors.red, BoxConstraints());
     positionChild(Colors.red, offset);
 
     offset += new Offset(itemSize.width, itemSize.height);
-    itemSize = layoutChild(Colors.orange, new BoxConstraints());
+    itemSize = layoutChild(Colors.orange, BoxConstraints());
     positionChild(Colors.orange, offset);
 
     offset += new Offset(itemSize.width, itemSize.height);
-    itemSize = layoutChild(Colors.green, new BoxConstraints());
+    itemSize = layoutChild(Colors.green, BoxConstraints());
     positionChild(Colors.green, offset);
   }
 

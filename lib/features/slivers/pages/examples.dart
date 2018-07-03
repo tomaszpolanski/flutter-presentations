@@ -79,7 +79,7 @@ class SimpleDemo extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               color: Colors.yellowAccent,
               child: new Text(
-                "SliverToBoxAdapter",
+                'SliverToBoxAdapter',
                 style: Theme.of(context).textTheme.title,
               ),
             ),
@@ -92,7 +92,7 @@ class SimpleDemo extends StatelessWidget {
                 color: Colors.yellowAccent,
                 child: new Center(
                   child: new Text(
-                    "Fill Viewport $index",
+                    'Fill Viewport $index',
                     style: Theme.of(context).textTheme.title,
                   ),
                 ),

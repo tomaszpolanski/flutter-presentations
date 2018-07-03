@@ -11,6 +11,7 @@ class Bar extends StatelessWidget {
   final Color start;
   final Color end;
 
+  @override
   Widget build(BuildContext context) {
     final BarSettings settings =
         context.inheritFromWidgetOfExactType(BarSettings);
