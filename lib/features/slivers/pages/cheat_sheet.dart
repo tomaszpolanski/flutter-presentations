@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_presentations/shared/presentation_page.dart';
 
 class CheatSheet extends StatefulWidget {
+  final VoidCallback onNext;
+
+  const CheatSheet({Key key, @required this.onNext}) : super(key: key);
+
   @override
   CheatSheetState createState() => new CheatSheetState();
 }
@@ -53,6 +57,8 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
             pageViewController.forward();
           } else if (multiChildController.status != AnimationStatus.completed) {
             multiChildController.forward();
+          } else {
+            widget.onNext();
           }
         },
         child: new ClipRect(

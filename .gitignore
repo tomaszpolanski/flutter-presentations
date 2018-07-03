@@ -10,3 +10,4 @@ build/
 .flutter-plugins
 *.iml
 *.lock
+.vscode/launch.json

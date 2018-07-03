@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class LoadsOfCode extends StatefulWidget {
+  final VoidCallback onNext;
+
+  const LoadsOfCode({Key key, @required this.onNext}) : super(key: key);
   @override
   _LoadsOfCodeState createState() => new _LoadsOfCodeState();
 }
@@ -47,7 +50,11 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
   Widget build(BuildContext context) {
     return new GestureDetector(
       onTap: () {
-        _controller.forward(from: .0);
+        if (_controller.status != AnimationStatus.completed) {
+          _controller.forward(from: .0);
+        } else {
+          widget.onNext();
+        }
       },
       child: new Container(
         decoration: new BoxDecoration(
