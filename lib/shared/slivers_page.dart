@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 class SliverPage extends StatelessWidget {
   final Widget title;
+  final ScrollController controller;
   final List<Widget> slivers;
 
   const SliverPage({
     Key key,
     @required this.title,
+    this.controller,
     @required this.slivers,
   }) : super(key: key);
 
@@ -14,6 +16,7 @@ class SliverPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return new CustomScrollView(
       scrollDirection: Axis.vertical,
+      controller: controller,
       slivers: [
         new SliverAppBar(
           pinned: true,

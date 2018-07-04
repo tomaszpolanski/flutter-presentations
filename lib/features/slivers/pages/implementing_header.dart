@@ -1,13 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/slivers/Bar.dart';
 import 'package:flutter_presentations/features/slivers/CustomAppBarDelegate.dart';
+import 'package:flutter_presentations/shared/presentation_controller.dart';
 
-class ImplementingHeader extends StatelessWidget {
+class ImplementingHeader extends StatefulWidget {
+  final PresentationController controller;
+
+  const ImplementingHeader({Key key, @required this.controller})
+      : super(key: key);
+
+  @override
+  ImplementingHeaderState createState() {
+    return new ImplementingHeaderState();
+  }
+}
+
+class ImplementingHeaderState extends State<ImplementingHeader> {
+  ScrollController _controller;
+  @override
+  void initState() {
+    super.initState();
+    _controller = ScrollController();
+    widget.controller.addListener(_next);
+  }
+
+  @override
+  void dispose() {
+    widget.controller.removeListener(_next);
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _next() {
+    if (_controller.position.maxScrollExtent == _controller.offset) {
+      widget.controller.next();
+    } else {
+      _controller.animateTo(
+        _controller.offset + context.size.height,
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Material(
       color: Colors.white,
       child: new CustomScrollView(
+        controller: _controller,
         slivers: <Widget>[
           new SliverPersistentHeader(
             delegate: new CustomAppBarDelegate(

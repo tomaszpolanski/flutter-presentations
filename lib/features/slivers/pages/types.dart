@@ -1,7 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/slivers_page.dart';
 
-class SliverTypesPage extends StatelessWidget {
+class SliverTypesPage extends StatefulWidget {
+  final PresentationController controller;
+
+  const SliverTypesPage({Key key, @required this.controller})
+      : super(
+            key:
+                key); // source: https://stackoverflow.com/questions/44493372/is-there-any-definite-list-of-sliver-widgets
+
+  @override
+  SliverTypesPageState createState() {
+    return new SliverTypesPageState();
+  }
+}
+
+class SliverTypesPageState extends State<SliverTypesPage> {
   // Can you spot the typos? :)
   static const _kMostUsed = const [
     'SilverList',
@@ -33,7 +48,59 @@ class SliverTypesPage extends StatelessWidget {
     'RenderSliverSingleBoxAdapter (abstract)',
     'RenderSliverFillRemaining',
     'RenderSliverToBoxAdapter',
-  ]; // source: https://stackoverflow.com/questions/44493372/is-there-any-definite-list-of-sliver-widgets
+  ];
+  ScrollController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = ScrollController();
+    widget.controller.addListener(_next);
+  }
+
+  @override
+  void dispose() {
+    widget.controller.removeListener(_next);
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _next() {
+    if (_controller.position.maxScrollExtent == _controller.offset) {
+      widget.controller.next();
+    } else {
+      _controller.animateTo(
+        _controller.offset + context.size.height,
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeOut,
+      );
+    }
+  }
+
+  IndexedWidgetBuilder _sliverTypeDelegate(List<String> data) {
+    return (BuildContext context, int index) {
+      return new Card(
+        child: new InkWell(
+          highlightColor: Colors.teal,
+          onTap: () {},
+          child: new Container(
+            color: Colors.transparent,
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            alignment: Alignment.center,
+            child: new Text(
+              data[index],
+              textAlign: TextAlign.center,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .title
+                  .copyWith(color: Colors.black),
+            ),
+          ),
+        ),
+      );
+    };
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +108,7 @@ class SliverTypesPage extends StatelessWidget {
     final aspectRatio = size.width / size.height;
     return new SliverPage(
       title: new Text('Sliver Types'),
+      controller: _controller,
       slivers: [
         new SliverToBoxAdapter(
           child: new Padding(
@@ -100,30 +168,5 @@ class SliverTypesPage extends StatelessWidget {
         ),
       ],
     );
-  }
-
-  IndexedWidgetBuilder _sliverTypeDelegate(List<String> data) {
-    return (BuildContext context, int index) {
-      return new Card(
-        child: new InkWell(
-          highlightColor: Colors.teal,
-          onTap: () {},
-          child: new Container(
-            color: Colors.transparent,
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            alignment: Alignment.center,
-            child: new Text(
-              data[index],
-              textAlign: TextAlign.center,
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .title
-                  .copyWith(color: Colors.black),
-            ),
-          ),
-        ),
-      );
-    };
   }
 }
