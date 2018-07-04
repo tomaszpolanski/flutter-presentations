@@ -4,18 +4,19 @@ import 'package:flutter/services.dart';
 class PresentationController {
   final PageController controller;
   final RawKeyboard _keyboard = RawKeyboard.instance;
-  final List<VoidCallback> _listeners = <VoidCallback>[];
+  final List<ValueChanged<PageAction>> _listeners =
+      <ValueChanged<PageAction>>[];
 
   PresentationController({@required this.controller})
       : assert(controller != null) {
     _keyboard.addListener(_handleKey);
   }
 
-  void addListener(VoidCallback listener) {
+  void addListener(ValueChanged<PageAction> listener) {
     _listeners.add(listener);
   }
 
-  void removeListener(VoidCallback listener) {
+  void removeListener(ValueChanged<PageAction> listener) {
     _listeners.remove(listener);
   }
 
@@ -30,11 +31,11 @@ class PresentationController {
         switch (data.keyCode) {
           case 20:
           case 21:
-            previous();
+            _sendAction(PageAction.previous);
             break;
           case 19:
           case 22:
-            _next();
+            _sendAction(PageAction.next);
             break;
           default:
             break;
@@ -43,14 +44,14 @@ class PresentationController {
     }
   }
 
-  void _next() {
+  void _sendAction(PageAction action) {
     final page = controller.page;
     if (page.floor() - page == 0.0) {
       if (_listeners.isEmpty) {
         next();
       } else {
-        for (VoidCallback listener in _listeners) {
-          listener();
+        for (ValueChanged<PageAction> listener in _listeners) {
+          listener(action);
         }
       }
     }
@@ -75,4 +76,9 @@ class PresentationController {
       );
     }
   }
+}
+
+enum PageAction {
+  next,
+  previous,
 }

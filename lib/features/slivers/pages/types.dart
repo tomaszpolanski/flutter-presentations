@@ -55,25 +55,37 @@ class SliverTypesPageState extends State<SliverTypesPage> {
   void initState() {
     super.initState();
     _controller = ScrollController();
-    widget.controller.addListener(_next);
+    widget.controller.addListener(_handlePageAction);
   }
 
   @override
   void dispose() {
-    widget.controller.removeListener(_next);
+    widget.controller.removeListener(_handlePageAction);
     _controller.dispose();
     super.dispose();
   }
 
-  void _next() {
-    if (_controller.position.maxScrollExtent == _controller.offset) {
-      widget.controller.next();
+  void _handlePageAction(PageAction action) {
+    if (action == PageAction.next) {
+      if (_controller.position.maxScrollExtent == _controller.offset) {
+        widget.controller.next();
+      } else {
+        _controller.animateTo(
+          _controller.offset + context.size.height,
+          duration: Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
+      }
     } else {
-      _controller.animateTo(
-        _controller.offset + context.size.height,
-        duration: Duration(milliseconds: 300),
-        curve: Curves.easeOut,
-      );
+      if (0.0 == _controller.offset) {
+        widget.controller.previous();
+      } else {
+        _controller.animateTo(
+          _controller.offset - context.size.height,
+          duration: Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
+      }
     }
   }
 

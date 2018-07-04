@@ -29,24 +29,32 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 800),
       vsync: this,
     );
-    widget.controller.addListener(_next);
+    widget.controller.addListener(_handlePageAction);
   }
 
   @override
   void dispose() {
     pageViewController.dispose();
     multiChildController.dispose();
-    widget.controller.removeListener(_next);
+    widget.controller.removeListener(_handlePageAction);
     super.dispose();
   }
 
-  void _next() {
-    if (pageViewController.status == AnimationStatus.dismissed) {
-      pageViewController.forward();
-    } else if (multiChildController.status != AnimationStatus.completed) {
-      multiChildController.forward();
+  void _handlePageAction(PageAction action) {
+    if (action == PageAction.next) {
+      if (pageViewController.status == AnimationStatus.dismissed) {
+        pageViewController.forward();
+      } else if (multiChildController.status != AnimationStatus.completed) {
+        multiChildController.forward();
+      } else {
+        widget.controller.next();
+      }
     } else {
-      widget.controller.next();
+      if (multiChildController.status == AnimationStatus.completed) {
+        multiChildController.reverse();
+      } else {
+        widget.controller.previous();
+      }
     }
   }
 
@@ -65,7 +73,7 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
     return new PresentationPage(
       title: const Text('Cheat Sheet'),
       child: new GestureDetector(
-        onTap: _next,
+        onTap: () => _handlePageAction(PageAction.next),
         child: new ClipRect(
           child: new Container(
             color: Colors.transparent,

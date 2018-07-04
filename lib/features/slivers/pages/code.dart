@@ -39,28 +39,32 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
       curve: new Interval(0.0, .1),
     ))
       ..addListener(() => setState(() {}));
-    widget.controller.addListener(_next);
+    widget.controller.addListener(_handlePageAction);
   }
 
   @override
   void dispose() {
-    widget.controller.removeListener(_next);
+    widget.controller.removeListener(_handlePageAction);
     _controller.dispose();
     super.dispose();
   }
 
-  void _next() {
-    if (_controller.status != AnimationStatus.completed) {
-      _controller.forward(from: .0);
+  void _handlePageAction(PageAction action) {
+    if (action == PageAction.next) {
+      if (_controller.status != AnimationStatus.completed) {
+        _controller.forward(from: .0);
+      } else {
+        widget.controller.next();
+      }
     } else {
-      widget.controller.next();
+      widget.controller.previous();
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return new GestureDetector(
-      onTap: _next,
+      onTap: () => _handlePageAction(PageAction.next),
       child: new Container(
         decoration: new BoxDecoration(
           image: new DecorationImage(
