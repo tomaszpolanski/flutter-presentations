@@ -2,6 +2,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_page.dart';
+import 'package:flutter_presentations/shared/presentation_stepper.dart';
+
+enum _State {
+  init,
+  pageView,
+  multiChild,
+}
 
 class CheatSheet extends StatefulWidget {
   final PresentationController controller;
@@ -15,6 +22,7 @@ class CheatSheet extends StatefulWidget {
 class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
   AnimationController pageViewController;
   AnimationController multiChildController;
+  PageStepper<_State> stateController;
 
   @override
   void initState() {
@@ -29,33 +37,36 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 800),
       vsync: this,
     );
-    widget.controller.addListener(_handlePageAction);
+
+    stateController = new PageStepper<_State>(
+      controller: widget.controller,
+      steps: [
+        _State.init,
+        _State.pageView,
+        _State.multiChild,
+      ],
+    )
+      ..addStepTransition(_State.init, _State.pageView, () {
+        pageViewController.forward();
+      })
+      ..addStepTransition(_State.pageView, _State.multiChild, () {
+        multiChildController.forward();
+      })
+      ..addStepTransition(_State.multiChild, _State.pageView, () {
+        multiChildController.reverse();
+      })
+      ..addStepTransition(_State.pageView, _State.init, () {
+        pageViewController.reverse();
+      })
+      ..build();
   }
 
   @override
   void dispose() {
     pageViewController.dispose();
     multiChildController.dispose();
-    widget.controller.removeListener(_handlePageAction);
+    stateController.dispose();
     super.dispose();
-  }
-
-  void _handlePageAction(PageAction action) {
-    if (action == PageAction.next) {
-      if (pageViewController.status == AnimationStatus.dismissed) {
-        pageViewController.forward();
-      } else if (multiChildController.status != AnimationStatus.completed) {
-        multiChildController.forward();
-      } else {
-        widget.controller.next();
-      }
-    } else {
-      if (multiChildController.status == AnimationStatus.completed) {
-        multiChildController.reverse();
-      } else {
-        widget.controller.previous();
-      }
-    }
   }
 
   Animation<Offset> _createAnimation(AnimationController controller) {
@@ -73,7 +84,7 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
     return new PresentationPage(
       title: const Text('Cheat Sheet'),
       child: new GestureDetector(
-        onTap: () => _handlePageAction(PageAction.next),
+        onTap: stateController.next,
         child: new ClipRect(
           child: new Container(
             color: Colors.transparent,
