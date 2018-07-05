@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
+import 'package:flutter_presentations/shared/presentation_stepper.dart';
+
+enum _Step {
+  init,
+  loadOfCode,
+}
 
 class LoadsOfCode extends StatefulWidget {
   final PresentationController controller;
@@ -14,6 +20,7 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
   AnimationController _controller;
   Animation<Offset> animation;
   Animation<double> opacity;
+  PageStepper<_Step> pageStepper;
 
   @override
   void initState() {
@@ -39,32 +46,35 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
       curve: new Interval(0.0, .1),
     ))
       ..addListener(() => setState(() {}));
-    widget.controller.addListener(_handlePageAction);
+
+    pageStepper = PageStepper<_Step>(
+      controller: widget.controller,
+      steps: _Step.values,
+    )
+      ..addStepTransition(
+        _Step.init,
+        _Step.loadOfCode,
+        () => _controller.forward(),
+      )
+      ..addStepTransition(
+        _Step.loadOfCode,
+        _Step.init,
+        () => _controller.reverse(),
+      )
+      ..build();
   }
 
   @override
   void dispose() {
-    widget.controller.removeListener(_handlePageAction);
+    pageStepper.dispose();
     _controller.dispose();
     super.dispose();
-  }
-
-  void _handlePageAction(PageAction action) {
-    if (action == PageAction.next) {
-      if (_controller.status != AnimationStatus.completed) {
-        _controller.forward(from: .0);
-      } else {
-        widget.controller.next();
-      }
-    } else {
-      widget.controller.previous();
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     return new GestureDetector(
-      onTap: () => _handlePageAction(PageAction.next),
+      onTap: pageStepper.next,
       child: new Container(
         decoration: new BoxDecoration(
           image: new DecorationImage(

@@ -55,14 +55,13 @@ class SliversState extends State<Slivers> {
           controller: controller,
           children: [
             new TitlePage(),
-            new CheatSheet(controller: presentationController),
             new LoadsOfCode(controller: presentationController),
             new Definition(),
             new WhatIsSliver(),
             new SimpleDemo(controller: presentationController),
             new SliverTypesPage(controller: presentationController),
             new ImplementingHeader(controller: presentationController),
-            //
+            new CheatSheet(controller: presentationController),
             new CustomMultiChildLayoutExample(),
             new DemoTime(),
             new Thanks(),

@@ -4,7 +4,7 @@ import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_page.dart';
 import 'package:flutter_presentations/shared/presentation_stepper.dart';
 
-enum _State {
+enum _Step {
   init,
   pageView,
   multiChild,
@@ -22,7 +22,7 @@ class CheatSheet extends StatefulWidget {
 class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
   AnimationController pageViewController;
   AnimationController multiChildController;
-  PageStepper<_State> stateController;
+  PageStepper<_Step> stateController;
 
   @override
   void initState() {
@@ -38,24 +38,20 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
       vsync: this,
     );
 
-    stateController = new PageStepper<_State>(
+    stateController = new PageStepper<_Step>(
       controller: widget.controller,
-      steps: [
-        _State.init,
-        _State.pageView,
-        _State.multiChild,
-      ],
+      steps: _Step.values,
     )
-      ..addStepTransition(_State.init, _State.pageView, () {
+      ..addStepTransition(_Step.init, _Step.pageView, () {
         pageViewController.forward();
       })
-      ..addStepTransition(_State.pageView, _State.multiChild, () {
+      ..addStepTransition(_Step.pageView, _Step.multiChild, () {
         multiChildController.forward();
       })
-      ..addStepTransition(_State.multiChild, _State.pageView, () {
+      ..addStepTransition(_Step.multiChild, _Step.pageView, () {
         multiChildController.reverse();
       })
-      ..addStepTransition(_State.pageView, _State.init, () {
+      ..addStepTransition(_Step.pageView, _Step.init, () {
         pageViewController.reverse();
       })
       ..build();
