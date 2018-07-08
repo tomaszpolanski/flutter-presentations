@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/slivers/slivers.dart';
 
-void main() => runApp(new MyApp());
+void main() {
+  MaterialPageRoute.debugEnableFadingRoutes = true;
+  runApp(new MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
