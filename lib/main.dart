@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/slivers/slivers.dart';
+import 'package:flutter/foundation.dart'
+    show debugDefaultTargetPlatformOverride;
+
+import 'dart:io' show Platform;
 
 void main() {
+  //debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
   MaterialPageRoute.debugEnableFadingRoutes = true;
   runApp(new MyApp());
 }
@@ -30,8 +35,7 @@ class MyHomePage extends StatelessWidget {
           new ListTile(
             title: new Text(Slivers.title),
             subtitle: new Text(Slivers.subtitle),
-            onTap: () => Navigator
-                .of(context)
+            onTap: () => Navigator.of(context)
                 .push(new MaterialPageRoute(builder: (_) => new Slivers())),
           ),
         ],
