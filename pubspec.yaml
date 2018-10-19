@@ -8,12 +8,12 @@ dependencies:
   cupertino_icons: ^0.1.0
 
   # Desktop embedder plugins.
-  color_panel:
-    path: ./plugins/color_panel
-  file_chooser:
-    path: ./plugins/file_chooser
-  menubar:
-    path: ./plugins/menubar
+ #  color_panel:
+ #    path: ./plugins/color_panel
+ #  file_chooser:
+ #    path: ./plugins/file_chooser
+ #  menubar:
+ #    path: ./plugins/menubar
 
 dev_dependencies:
   flutter_test:
@@ -27,3 +27,4 @@ flutter:
     - assets/google.png
     - assets/code.png
     - assets/demo.png
+    - assets/popularity.png
