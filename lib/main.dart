@@ -7,7 +7,7 @@ import 'package:flutter/foundation.dart'
 import 'dart:io' show Platform;
 
 void main() {
-  //debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
+  debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
   runApp(new MyApp());
 }
 

@@ -8,12 +8,12 @@ dependencies:
   cupertino_icons: ^0.1.0
 
   # Desktop embedder plugins.
- #  color_panel:
- #    path: ./plugins/color_panel
- #  file_chooser:
- #    path: ./plugins/file_chooser
- #  menubar:
- #    path: ./plugins/menubar
+  color_panel:
+    path: ../../plugins/color_panel
+  file_chooser:
+    path: ../../plugins/file_chooser
+  menubar:
+    path: ../../plugins/menubar
 
 dev_dependencies:
   flutter_test:
@@ -28,3 +28,19 @@ flutter:
     - assets/code.png
     - assets/demo.png
     - assets/popularity.png
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: fonts/Roboto/Roboto-Thin.ttf
+          weight: 100
+        - asset: fonts/Roboto/Roboto-Light.ttf
+          weight: 300
+        - asset: fonts/Roboto/Roboto-Regular.ttf
+          weight: 400
+        - asset: fonts/Roboto/Roboto-Medium.ttf
+          weight: 500
+        - asset: fonts/Roboto/Roboto-Bold.ttf
+          weight: 700
+        - asset: fonts/Roboto/Roboto-Black.ttf
+          weight: 900

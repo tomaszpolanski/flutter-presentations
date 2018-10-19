@@ -41,11 +41,26 @@ class ConvincingState extends State<Convincing> {
                     NestedScrollView.sliverOverlapAbsorberHandleFor(context),
               ),
             ],
-        body: new PageView(
-          controller: controller,
-          children: [
-            TitlePage(),
-            PopularityPage(),
+        body: Stack(
+          children: <Widget>[
+            new PageView(
+              controller: controller,
+              children: [
+                TitlePage(),
+                PopularityPage(),
+                KeyboardTestPage(),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                Expanded(
+                    child: GestureDetector(
+                        onTap: () => presentationController.previous())),
+                Expanded(
+                    child: GestureDetector(
+                        onTap: () => presentationController.next()))
+              ],
+            ),
           ],
         ),
       ),
