@@ -29,13 +29,12 @@ class SectionPage extends StatelessWidget {
           Expanded(
               flex: 7,
               child:
-              Text(text, style: GTheme.big.copyWith(color: Colors.white))),
+                  Text(text, style: GTheme.big.copyWith(color: Colors.white))),
         ],
       ),
     );
   }
 }
-
 
 class ImagePage extends StatelessWidget {
   final String asset;
