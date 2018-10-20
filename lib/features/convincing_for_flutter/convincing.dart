@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/features/convincing_for_flutter/pages/assessment.dart';
+import 'package:flutter_presentations/features/convincing_for_flutter/pages/convince_team.dart';
+import 'package:flutter_presentations/features/convincing_for_flutter/pages/groupon_intro.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/pages/intro.dart';
+import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
+import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 
 class Convincing extends StatefulWidget {
@@ -44,13 +49,35 @@ class ConvincingState extends State<Convincing> {
             ],
         body: Stack(
           children: <Widget>[
-            new PageView(
-              controller: controller,
-              children: [
-                TitlePage(),
-                PopularityPage(),
-                PlatformsPage(presentationController),
-              ],
+            DefaultTextStyle(
+              style: GTheme.big,
+              child: new PageView(
+                controller: controller,
+                children: [
+                  SurveyPage(),
+                  TitlePage(),
+                  PopularityPage(),
+                  PlatformsPage(presentationController),
+                  SectionPage('The Cross-Platform Story'),
+                  PuppyPage(),
+                  CustomerPage(),
+                  MerchantPage(),
+                  ImagePage('assets/image20.jpg'),
+                  SectionPage('Getting Everybody On Board'),
+                  DesignersPage(),
+                  UmphPage(),
+                  ImagePage('assets/image38.jpg'),
+                  LessTestingPage(),
+                  DevelopersPage(),
+                  WorkshopPage(),
+                  ManagersPage(),
+                  MergingPage(),
+                  SectionPage('The Assessment'),
+                  SurveyPage(),
+                  CriteriaPage(),
+                  DesignersPage(),
+                ],
+              ),
             ),
 //            Row(
 //              children: <Widget>[
