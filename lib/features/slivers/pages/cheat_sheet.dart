@@ -42,16 +42,16 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
       controller: widget.controller,
       steps: _Step.values,
     )
-      ..addStepTransition(_Step.init, _Step.pageView, () {
+      ..addStep(_Step.init, _Step.pageView, () {
         pageViewController.forward();
       })
-      ..addStepTransition(_Step.pageView, _Step.multiChild, () {
+      ..addStep(_Step.pageView, _Step.multiChild, () {
         multiChildController.forward();
       })
-      ..addStepTransition(_Step.multiChild, _Step.pageView, () {
+      ..addStep(_Step.multiChild, _Step.pageView, () {
         multiChildController.reverse();
       })
-      ..addStepTransition(_Step.pageView, _Step.init, () {
+      ..addStep(_Step.pageView, _Step.init, () {
         pageViewController.reverse();
       })
       ..build();

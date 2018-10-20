@@ -8,7 +8,7 @@ class PageStepper<T> {
 
   PageStepper({this.controller, this.steps}) : _currentStep = steps.first;
 
-  void addStepTransition(
+  void addStep(
     T currentStep,
     T nextStep,
     void Function() transition,

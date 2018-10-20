@@ -51,12 +51,12 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
       controller: widget.controller,
       steps: _Step.values,
     )
-      ..addStepTransition(
+      ..addStep(
         _Step.init,
         _Step.loadOfCode,
         () => _controller.forward(),
       )
-      ..addStepTransition(
+      ..addStep(
         _Step.loadOfCode,
         _Step.init,
         () => _controller.reverse(),

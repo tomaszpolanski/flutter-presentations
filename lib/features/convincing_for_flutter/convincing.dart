@@ -33,6 +33,7 @@ class ConvincingState extends State<Convincing> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      backgroundColor: Colors.white,
       body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) =>
             <Widget>[
@@ -48,19 +49,25 @@ class ConvincingState extends State<Convincing> {
               children: [
                 TitlePage(),
                 PopularityPage(),
-                KeyboardTestPage(),
+                PlatformsPage(presentationController),
               ],
             ),
-            Row(
-              children: <Widget>[
-                Expanded(
-                    child: GestureDetector(
-                        onTap: () => presentationController.previous())),
-                Expanded(
-                    child: GestureDetector(
-                        onTap: () => presentationController.next()))
-              ],
-            ),
+//            Row(
+//              children: <Widget>[
+//                Expanded(
+//                    child: GestureDetector(
+//                        onTap: () {
+//                          print('Previous');
+//                          presentationController.previous();
+//                        })),
+//                Expanded(
+//                    child: GestureDetector(
+//                        onTap: () {
+//                          print('Next');
+//                          presentationController.next();
+//                        }))
+//              ],
+//            ),
           ],
         ),
       ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_presentations/shared/presentation_controller.dart';
+import 'package:flutter_presentations/shared/presentation_stepper.dart';
 
 class TitlePage extends StatelessWidget {
   @override
@@ -71,91 +71,149 @@ class PopularityPage extends StatelessWidget {
   }
 }
 
-
-/// Keyboard test page for the example application.
-class KeyboardTestPage extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return _KeyboardTestPageState();
-  }
+enum _Step {
+  init,
+  uiq,
+  uiqFade,
+  symbian,
+  symbianFade,
+  blackBerry,
+  blackBerryFade,
+  qt,
+  qtFade,
+  windows,
+  windowsFade,
+  apple,
+  android,
+  fuchsia,
+  next,
 }
 
-class _KeyboardTestPageState extends State<KeyboardTestPage> {
-  final List<String> _messages = [];
+class PlatformsPage extends StatefulWidget {
+  final PresentationController controller;
 
-  final FocusNode _focusNode = FocusNode();
-  final ScrollController _scrollController = new ScrollController();
+  const PlatformsPage(this.controller, {Key key}) : super(key: key);
+
+  @override
+  _PlatformsPageState createState() => _PlatformsPageState();
+}
+
+class _PlatformsPageState extends State<PlatformsPage>
+    with TickerProviderStateMixin {
+  PageStepper<_Step> stateController;
+
+  double _uiq = 0.0;
+  double _symbian = 0.0;
+  double _blackberry = 0.0;
+  double _qt = 0.0;
+  double _windows = 0.0;
+  double _apple = 0.0;
+  double _android = 0.0;
+  double _fuchsia = 0.0;
 
   @override
   void initState() {
     super.initState();
+    stateController = PageStepper<_Step>(
+      controller: widget.controller,
+      steps: _Step.values,
+    )
+      ..addStep(_Step.init, _Step.uiq, () => setState(() => _uiq = 1.0))
+      ..addStep(_Step.uiq, _Step.uiqFade, () => setState(() => _uiq = 0.2))
+      ..addStep(
+          _Step.uiqFade, _Step.symbian, () => setState(() => _symbian = 1.0))
+      ..addStep(_Step.symbian, _Step.symbianFade,
+          () => setState(() => _symbian = 0.2))
+      ..addStep(_Step.symbianFade, _Step.blackBerry,
+          () => setState(() => _blackberry = 1.0))
+      ..addStep(_Step.blackBerry, _Step.blackBerryFade,
+          () => setState(() => _blackberry = 0.2))
+      ..addStep(_Step.blackBerryFade, _Step.qt, () => setState(() => _qt = 1.0))
+      ..addStep(_Step.qt, _Step.qtFade, () => setState(() => _qt = 0.2))
+      ..addStep(
+          _Step.qtFade, _Step.windows, () => setState(() => _windows = 1.0))
+      ..addStep(_Step.windows, _Step.windowsFade,
+          () => setState(() => _windows = 0.2))
+      ..addStep(
+          _Step.windowsFade, _Step.apple, () => setState(() => _apple = 1.0))
+      ..addStep(
+          _Step.apple, _Step.android, () => setState(() => _android = 1.0))
+      ..addStep(
+          _Step.android, _Step.fuchsia, () => setState(() => _fuchsia = 0.02))
+      ..addStep(_Step.fuchsia, _Step.next, () => widget.controller.next())
+      ..build();
   }
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    FocusScope.of(context).requestFocus(_focusNode);
+  void dispose() {
+    stateController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: AppBar(
-          title: new Text('Keyboard events test'),
-          leading: new IconButton(
-              icon: new Icon(Icons.arrow_back),
-              onPressed: () {
-                Navigator.of(context).pop();
-              })),
-      body: new RawKeyboardListener(
-        focusNode: _focusNode,
-        onKey: onKeyEvent,
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
-          child: SingleChildScrollView(
-              controller: _scrollController,
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: _messages.map((m) => new Text(m)).toList())),
+    return GestureDetector(
+      onTap: stateController.next,
+      child: Container(
+        color: Colors.white,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  AnimatedOpacity(
+                    duration: Duration(milliseconds: 200),
+                    opacity: _uiq,
+                    child: Image(image: AssetImage('assets/Uiq-logo.png')),
+                  ),
+                  AnimatedOpacity(
+                      duration: Duration(milliseconds: 200),
+                      opacity: _symbian,
+                      child: Image(image: AssetImage('assets/S60.png'))),
+                  AnimatedOpacity(
+                    duration: Duration(milliseconds: 200),
+                    opacity: _blackberry,
+                    child: Image(image: AssetImage('assets/blackberry.png')),
+                  ),
+                  AnimatedOpacity(
+                      duration: Duration(milliseconds: 200),
+                      opacity: _qt,
+                      child: Image(image: AssetImage('assets/qt.png'))),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  AnimatedOpacity(
+                      duration: Duration(milliseconds: 200),
+                      opacity: _windows,
+                      child: Image(image: AssetImage('assets/windows.png'))),
+                  AnimatedOpacity(
+                      duration: Duration(milliseconds: 200),
+                      opacity: _apple,
+                      child: Image(image: AssetImage('assets/apple.png'))),
+                  AnimatedOpacity(
+                      duration: Duration(milliseconds: 200),
+                      opacity: _android,
+                      child: Image(image: AssetImage('assets/android.png'))),
+                  AnimatedOpacity(
+                      duration: Duration(milliseconds: 200),
+                      opacity: _fuchsia,
+                      child: Image(
+                        color: Colors.grey,
+                        image: AssetImage('assets/fusia.png'),
+                      )),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
-  }
-
-  void onKeyEvent(RawKeyEvent event) {
-    bool isKeyDown;
-    switch (event.runtimeType) {
-      case RawKeyDownEvent:
-        isKeyDown = true;
-        break;
-      case RawKeyUpEvent:
-        isKeyDown = false;
-        break;
-      default:
-        throw new Exception('Unexpected runtimeType of RawKeyEvent');
-    }
-
-    int keyCode;
-    switch (event.data.runtimeType) {
-      case RawKeyEventDataAndroid:
-        final RawKeyEventDataAndroid data = event.data;
-        keyCode = data.keyCode;
-        break;
-      default:
-        throw new Exception('Unsupported platform');
-    }
-
-    _addMessage('${isKeyDown ? 'KeyDown' : 'KeyUp'}: $keyCode');
-  }
-
-  void _addMessage(String message) {
-    setState(() {
-      _messages.add(message);
-    });
-    SchedulerBinding.instance.addPostFrameCallback((_) {
-      _scrollController.jumpTo(
-        _scrollController.position.maxScrollExtent,
-      );
-    });
   }
 }
