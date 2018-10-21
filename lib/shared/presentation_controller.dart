@@ -68,13 +68,10 @@ class PresentationController {
   }
 
   void next() {
-    final page = controller.page;
-    if (page.floor() - page == 0.0) {
-      controller.nextPage(
-        duration: Duration(milliseconds: 300),
-        curve: Curves.easeOut,
-      );
-    }
+    controller.nextPage(
+      duration: Duration(milliseconds: 300),
+      curve: Curves.easeOut,
+    );
   }
 }
 

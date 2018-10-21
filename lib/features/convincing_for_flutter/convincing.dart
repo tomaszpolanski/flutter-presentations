@@ -47,66 +47,49 @@ class ConvincingState extends State<Convincing> {
                     NestedScrollView.sliverOverlapAbsorberHandleFor(context),
               ),
             ],
-        body: Stack(
-          children: <Widget>[
-            DefaultTextStyle(
-              style: GTheme.big,
-              child: new PageView(
-                controller: controller,
-                children: [
-                  TitlePage(),
-                  PopularityPage(),
-                  PlatformsPage(presentationController),
-                  SectionPage('The Cross-Platform Story'),
-                  PuppyPage(),
-                  CustomerPage(),
-                  MerchantPage(),
-                  ImagePage('assets/image20.jpg'),
-                  SectionPage('Getting Everybody On Board'),
-                  DesignersPage(),
-                  UmphPage(),
-                  ImagePage('assets/image38.jpg'),
-                  LessTestingPage(),
-                  DevelopersPage(),
-                  WorkshopPage(),
-                  ManagersPage(),
-                  MergingPage(),
-                  SectionPage('The Assessment'),
-                  SurveyPage(),
-                  CriteriaPage(),
-                  DesignersPage(),
-                  DevDesignPage(),
-                  GrouponPlus(),
-                  ImagePage('assets/image38.jpg'),
-                  AppiumPage(),
-                  IntegrationTestPage(),
-                  WidgetTestPage(),
-                  ManagersPage(),
-                  DevelopersPage(),
-                  LearningPage(),
-                  FlutterDartPage(),
-                  TeachingPage(),
-                  LaunchPage(),
-                ],
-              ),
+        body: PresentationSettings(
+          controller: presentationController,
+          child: DefaultTextStyle(
+            style: GTheme.big,
+            child: new PageView(
+              controller: controller,
+              children: [
+                TitlePage(),
+                PopularityPage(),
+                PlatformsPage(presentationController),
+                SectionPage('The Cross-Platform Story'),
+                PuppyPage(),
+                CustomerPage(),
+                MerchantPage(),
+                ImagePage('assets/image20.jpg'),
+                SectionPage('Getting Everybody On Board'),
+                DesignersPage(),
+                UmphPage(),
+                ImagePage('assets/image38.jpg'),
+                LessTestingPage(),
+                DevelopersPage(),
+                WorkshopPage(),
+                ManagersPage(),
+                MergingPage(),
+                SectionPage('The Assessment'),
+                SurveyPage(),
+                CriteriaPage(),
+                DesignersPage(),
+                DevDesignPage(),
+                GrouponPlus(),
+                ImagePage('assets/image38.jpg'),
+                AppiumPage(),
+                IntegrationTestPage(),
+                WidgetTestPage(),
+                ManagersPage(),
+                DevelopersPage(),
+                LearningPage(),
+                FlutterDartPage(),
+                TeachingPage(),
+                LaunchPage(),
+              ],
             ),
-//            Row(
-//              children: <Widget>[
-//                Expanded(
-//                    child: GestureDetector(
-//                        onTap: () {
-//                          print('Previous');
-//                          presentationController.previous();
-//                        })),
-//                Expanded(
-//                    child: GestureDetector(
-//                        onTap: () {
-//                          print('Next');
-//                          presentationController.next();
-//                        }))
-//              ],
-//            ),
-          ],
+          ),
         ),
       ),
     );
