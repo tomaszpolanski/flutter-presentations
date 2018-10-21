@@ -96,3 +96,54 @@ class PresentationSettings extends InheritedWidget {
     return false;
   }
 }
+
+
+class SummaryPage extends StatelessWidget {
+
+  final String title;
+  final String subtitle;
+  final Color background;
+
+  const SummaryPage({Key key, this.title, this.subtitle, this.background}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SlideWidget(
+      child: Container(
+        color: background,
+        padding: EdgeInsets.all(30.0),
+        child: Stack(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Expanded(
+                  flex: 2,
+                  child: Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Container(
+                      color: Colors.white,
+                      height: 8.0,
+                      width: 100.0,
+                    ),
+                  ),
+                ),
+                Expanded(
+                    flex: 7,
+                    child: Text(title,
+                        style: GTheme.big.copyWith(color: Colors.white))),
+              ],
+            ),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Text(subtitle,
+                  textAlign: TextAlign.end,
+                  style: GTheme.big.copyWith(color: Colors.white)),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+

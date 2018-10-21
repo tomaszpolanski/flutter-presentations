@@ -17,4 +17,11 @@ class GTheme {
     fontFamily: 'Montserrat',
     fontWeight: FontWeight.bold,
   );
+
+  static const TextStyle small = TextStyle(
+    fontSize: 18.0,
+    color: green,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.bold,
+  );
 }

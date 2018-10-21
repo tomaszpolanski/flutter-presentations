@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_stepper.dart';
@@ -9,21 +10,27 @@ class TitlePage extends StatelessWidget {
     return SlideWidget(
       child: new Stack(
         children: [
-          new Align(
-            alignment: Alignment.centerLeft,
-            child: new Padding(
-              padding: const EdgeInsets.only(left: 80.0),
-              child: new Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  new Text(
-                    'Convincing your company to Flutter',
-                    style: Theme.of(context).textTheme.display2.copyWith(
-                        color: const Color(0xFF6AA84F),
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
+          DefaultTextStyle(
+            style: GTheme.big,
+            child: new Align(
+              alignment: Alignment.centerLeft,
+              child: new Padding(
+                padding: const EdgeInsets.only(left: 80.0),
+                child: new Wrap(
+                  children: [
+                    Text('Convincing your '),
+                    Text('company to '),
+                    Row(
+                      children: const [
+                        Image(
+                          image: AssetImage('assets/image4.png'),
+                          height: 60.0,
+                        ),
+                        Text('lutter'),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -32,10 +39,7 @@ class TitlePage extends StatelessWidget {
             child: new Padding(
               padding: const EdgeInsets.only(right: 18.0, bottom: 18.0),
               child: new DefaultTextStyle(
-                style: Theme.of(context)
-                    .textTheme
-                    .title
-                    .copyWith(fontWeight: FontWeight.bold),
+                style: GTheme.small.copyWith(color: Colors.white),
                 child: new Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -172,7 +176,10 @@ class _PlatformsPageState extends State<PlatformsPage>
                   AnimatedOpacity(
                     duration: Duration(milliseconds: 200),
                     opacity: _uiq,
-                    child: Image(image: AssetImage('assets/image8.png'), height: 140.0,),
+                    child: Image(
+                      image: AssetImage('assets/image8.png'),
+                      height: 140.0,
+                    ),
                   ),
                   AnimatedOpacity(
                       duration: Duration(milliseconds: 200),
@@ -181,7 +188,10 @@ class _PlatformsPageState extends State<PlatformsPage>
                   AnimatedOpacity(
                     duration: Duration(milliseconds: 200),
                     opacity: _blackberry,
-                    child: Image(image: AssetImage('assets/blackberry.png'), height: 140.0,),
+                    child: Image(
+                      image: AssetImage('assets/blackberry.png'),
+                      height: 140.0,
+                    ),
                   ),
                   AnimatedOpacity(
                       duration: Duration(milliseconds: 200),
@@ -197,15 +207,24 @@ class _PlatformsPageState extends State<PlatformsPage>
                   AnimatedOpacity(
                       duration: Duration(milliseconds: 200),
                       opacity: _windows,
-                      child: Image(image: AssetImage('assets/windows.png'), height: 140.0,)),
+                      child: Image(
+                        image: AssetImage('assets/windows.png'),
+                        height: 140.0,
+                      )),
                   AnimatedOpacity(
                       duration: Duration(milliseconds: 200),
                       opacity: _apple,
-                      child: Image(image: AssetImage('assets/apple.png'), height: 140.0,)),
+                      child: Image(
+                        image: AssetImage('assets/apple.png'),
+                        height: 140.0,
+                      )),
                   AnimatedOpacity(
                       duration: Duration(milliseconds: 200),
                       opacity: _android,
-                      child: Image(image: AssetImage('assets/image9.png'), height: 140.0,)),
+                      child: Image(
+                        image: AssetImage('assets/image9.png'),
+                        height: 140.0,
+                      )),
                   AnimatedOpacity(
                       duration: Duration(milliseconds: 200),
                       opacity: _fuchsia,

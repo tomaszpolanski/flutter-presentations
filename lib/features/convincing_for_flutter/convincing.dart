@@ -3,6 +3,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/pages/asse
 import 'package:flutter_presentations/features/convincing_for_flutter/pages/convince_team.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/pages/groupon_intro.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/pages/intro.dart';
+import 'package:flutter_presentations/features/convincing_for_flutter/pages/summary.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
@@ -54,7 +55,7 @@ class ConvincingState extends State<Convincing> {
             child: new PageView(
               controller: controller,
               children: [
-                AndroidPage(),
+
                 TitlePage(),
                 PopularityPage(),
                 PlatformsPage(presentationController),
@@ -89,6 +90,23 @@ class ConvincingState extends State<Convincing> {
                 TeachingPage(),
                 LaunchPage(),
                 ApplePage(),
+                AndroidPage(),
+                SummaryPage(
+                  title: 'For many,',
+                  subtitle: 'but not everyone.',
+                  background: GTheme.green,
+                ),
+                SummaryPage(
+                  title: 'Don’t integrate,',
+                  subtitle: 'if you don’t have to.',
+                  background: GTheme.green,
+                ),
+                SummaryPage(
+                  title: 'Join the Dart side!',
+                  subtitle: '',
+                  background: Colors.black,
+                ),
+                ThankYouPage(),
               ],
             ),
           ),
