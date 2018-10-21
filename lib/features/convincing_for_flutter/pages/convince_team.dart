@@ -33,9 +33,12 @@ class UmphPage extends StatelessWidget {
         ),
         child: Align(
             alignment: Alignment.topCenter,
-            child: Text(
-              'Umph',
-              style: TextStyle(color: Colors.white),
+            child: Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Text(
+                'Umph',
+                style: TextStyle(color: Colors.white),
+              ),
             )),
       ),
     );
@@ -54,7 +57,13 @@ class LessTestingPage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: Align(alignment: Alignment.topCenter, child: Text('Less Testing')),
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: Text('Less Testing'),
+          ),
+        ),
       ),
     );
   }
@@ -74,9 +83,12 @@ class DevelopersPage extends StatelessWidget {
         ),
         child: Align(
             alignment: Alignment.centerLeft,
-            child: Text(
-              'Developers',
-              style: TextStyle(color: Colors.white),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Developers',
+                style: TextStyle(color: Colors.white),
+              ),
             )),
       ),
     );
@@ -129,7 +141,10 @@ class ManagersPage extends StatelessWidget {
         ),
         child: Align(
           alignment: Alignment.topRight,
-          child: Text('Managers', style: TextStyle(color: Colors.white)),
+          child: Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: Text('Managers', style: TextStyle(color: Colors.white)),
+          ),
         ),
       ),
     );
@@ -156,8 +171,11 @@ class MergingPage extends StatelessWidget {
             ),
             Expanded(
               flex: 4,
-              child: Text('Merging Teams', style: TextStyle(color: Colors.white),
-               textAlign: TextAlign.right,),
+              child: Text(
+                'Merging Teams',
+                style: TextStyle(color: Colors.white),
+                textAlign: TextAlign.right,
+              ),
             ),
           ],
         ),

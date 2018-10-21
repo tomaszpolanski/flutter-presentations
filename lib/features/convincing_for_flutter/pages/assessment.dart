@@ -19,7 +19,10 @@ class SurveyPage extends StatelessWidget {
         ),
         child: Align(
             alignment: Alignment.bottomLeft,
-            child: Text('Survey', style: TextStyle(color: Colors.black))),
+            child: Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Text('Survey', style: TextStyle(color: Colors.black)),
+            )),
       ),
     );
   }
@@ -88,6 +91,7 @@ class CriteriaPageState extends State<CriteriaPage>
 
   @override
   Widget build(BuildContext context) {
+    const arrowHeight = 140.0;
     return GestureDetector(
       onTap: () {
         if (_businessController.status == AnimationStatus.dismissed) {
@@ -106,7 +110,10 @@ class CriteriaPageState extends State<CriteriaPage>
           children: [
             Align(
               alignment: Alignment.topCenter,
-              child: widget.title,
+              child: Padding(
+                padding: const EdgeInsets.all(28.0),
+                child: widget.title,
+              ),
             ),
             Transform.translate(
               offset: Offset(0.0, 70.0),
@@ -114,7 +121,7 @@ class CriteriaPageState extends State<CriteriaPage>
                 children: [
                   Align(
                     child: Transform.translate(
-                      offset: Offset(0.0, -120.0),
+                      offset: Offset(0.0, -arrowHeight - 20.0),
                       child: AnimatedOpacity(
                         duration: Duration(milliseconds: 200),
                         opacity: _businessController.status ==
@@ -129,7 +136,7 @@ class CriteriaPageState extends State<CriteriaPage>
                   ),
                   Align(
                     child: CustomPaint(
-                      size: Size(10.0, 100.0),
+                      size: Size(10.0, arrowHeight),
                       painter: ArrowPainter(
                         color: widget.business,
                         opacity: _businessController.value * 1.0,
@@ -139,7 +146,7 @@ class CriteriaPageState extends State<CriteriaPage>
                   ),
                   Align(
                     child: Transform.translate(
-                      offset: Offset(100.0, 70.0),
+                      offset: Offset(arrowHeight, arrowHeight - 30.0),
                       child: AnimatedOpacity(
                         duration: Duration(milliseconds: 200),
                         opacity:
@@ -155,7 +162,7 @@ class CriteriaPageState extends State<CriteriaPage>
                   ),
                   Align(
                     child: CustomPaint(
-                      size: Size(10.0, 100.0),
+                      size: Size(10.0, arrowHeight),
                       painter: ArrowPainter(
                         color: widget.technology,
                         opacity: _techController.value,
@@ -165,7 +172,7 @@ class CriteriaPageState extends State<CriteriaPage>
                   ),
                   Align(
                     child: Transform.translate(
-                      offset: Offset(-100.0, 70.0),
+                      offset: Offset(-arrowHeight, arrowHeight - 30.0),
                       child: AnimatedOpacity(
                         duration: Duration(milliseconds: 200),
                         opacity: _peopleController.status ==
@@ -180,7 +187,7 @@ class CriteriaPageState extends State<CriteriaPage>
                   ),
                   Align(
                     child: CustomPaint(
-                      size: Size(10.0, 100.0),
+                      size: Size(10.0, arrowHeight),
                       painter: ArrowPainter(
                         color: widget.people,
                         opacity: _peopleController.value,
@@ -368,10 +375,13 @@ class IntegrationTestPage extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.topCenter,
-            child: Text(
-              'Integrations Tests',
-              textAlign: TextAlign.center,
-              style: GTheme.medium,
+            child: Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Text(
+                'Integrations Tests',
+                textAlign: TextAlign.center,
+                style: GTheme.medium,
+              ),
             ),
           ),
           Center(
@@ -458,10 +468,13 @@ class FlutterDartPage extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.topCenter,
-            child: Text(
-              'Flutter vs Dart',
-              textAlign: TextAlign.center,
-              style: GTheme.big,
+            child: Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Text(
+                'Flutter vs Dart',
+                textAlign: TextAlign.center,
+                style: GTheme.big,
+              ),
             ),
           ),
           Center(

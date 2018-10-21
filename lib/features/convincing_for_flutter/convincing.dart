@@ -132,8 +132,8 @@ class ConvincingState extends State<Convincing> {
                   background: GTheme.green,
                 ),
                 SummaryPage(
-                  title: 'Flutter has',
-                  subtitle: 'amazing potential!',
+                  title: 'Flutter',
+                  subtitle: ' has potential!',
                   background: GTheme.green,
                 ),
                 SummaryPage(
