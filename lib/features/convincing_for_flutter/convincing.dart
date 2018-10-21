@@ -127,8 +127,8 @@ class ConvincingState extends State<Convincing> {
                   background: GTheme.green,
                 ),
                 SummaryPage(
-                  title: 'Don’t integrate,',
-                  subtitle: 'if you don’t need to.',
+                  title: 'Integration',
+                  subtitle: 'adds complexity',
                   background: GTheme.green,
                 ),
                 SummaryPage(
