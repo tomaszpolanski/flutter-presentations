@@ -54,6 +54,7 @@ class ConvincingState extends State<Convincing> {
             child: new PageView(
               controller: controller,
               children: [
+                AndroidPage(),
                 TitlePage(),
                 PopularityPage(),
                 PlatformsPage(presentationController),
@@ -87,6 +88,7 @@ class ConvincingState extends State<Convincing> {
                 FlutterDartPage(),
                 TeachingPage(),
                 LaunchPage(),
+                ApplePage(),
               ],
             ),
           ),

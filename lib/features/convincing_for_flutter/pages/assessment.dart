@@ -205,9 +205,12 @@ class IntegrationTestPage extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: const [
-                  Expanded(child: Image(image: AssetImage('assets/image28.png'))),
-                  Expanded(child: Image(image: AssetImage('assets/image26.png'))),
-                  Expanded(child: Image(image: AssetImage('assets/image29.png'))),
+                  Expanded(
+                      child: Image(image: AssetImage('assets/image28.png'))),
+                  Expanded(
+                      child: Image(image: AssetImage('assets/image26.png'))),
+                  Expanded(
+                      child: Image(image: AssetImage('assets/image29.png'))),
                 ],
               ),
             ),
@@ -292,8 +295,10 @@ class FlutterDartPage extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: const [
-                  Expanded(child: Image(image: AssetImage('assets/image4.png'))),
-                  Expanded(child: Image(image: AssetImage('assets/image25.png'))),
+                  Expanded(
+                      child: Image(image: AssetImage('assets/image4.png'))),
+                  Expanded(
+                      child: Image(image: AssetImage('assets/image25.png'))),
                 ],
               ),
             ),
@@ -367,4 +372,135 @@ class LaunchPage extends StatelessWidget {
       ),
     );
   }
+}
+
+class ApplePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SlideWidget(
+      child: Padding(
+        padding: const EdgeInsets.all(48.0),
+        child: Row(
+          children: <Widget>[
+            Expanded(child: Image(image: AssetImage('assets/apple.png'))),
+            Expanded(
+                child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  color: GTheme.flutter1,
+                  width: 30.0,
+                  height: 120.0,
+                ),
+                SizedBox(
+                  width: 30.0,
+                ),
+                Container(
+                  color: GTheme.flutter2,
+                  width: 30.0,
+                  height: 120.0,
+                )
+              ],
+            )),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class AndroidPage extends StatefulWidget {
+  @override
+  AndroidPageState createState() {
+    return new AndroidPageState();
+  }
+}
+
+class AndroidPageState extends State<AndroidPage>
+    with TickerProviderStateMixin {
+  AnimationController controller;
+  Animation<double> first;
+  Animation<double> second;
+
+  @override
+  void initState() {
+    super.initState();
+    controller =
+        AnimationController(duration: Duration(seconds: 1), vsync: this)
+          ..repeat();
+
+    first = new CurvedAnimation(parent: controller, curve: FirstCurve());
+    second = new CurvedAnimation(parent: controller, curve: SecondCurve());
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SlideWidget(
+      child: Padding(
+        padding: const EdgeInsets.all(48.0),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+                flex: 4, child: Image(image: AssetImage('assets/image9.png'))),
+            Expanded(
+                flex: 6,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    ScaleTransition(
+                      scale: first,
+                      child: ClipPath(
+                        clipper: TriangleClipper(),
+                        child: Container(
+                          color: GTheme.flutter1,
+                          width: 120.0,
+                          height: 120.0,
+                        ),
+                      ),
+                    ),
+                    ScaleTransition(
+                      scale: second,
+                      child: ClipPath(
+                        clipper: TriangleClipper(),
+                        child: Container(
+                          color: GTheme.flutter2,
+                          width: 120.0,
+                          height: 120.0,
+                        ),
+                      ),
+                    ),
+                  ],
+                )),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class TriangleClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) => Path()
+    ..lineTo(size.width, size.height / 2)
+    ..lineTo(0.0, size.height)
+    ..close();
+
+  @override
+  bool shouldReclip(TriangleClipper oldClipper) => false;
+}
+
+class FirstCurve extends Curve {
+  @override
+  double transform(double t) => 0.9 + (sin(t * pi * 2) * 0.02);
+}
+
+class SecondCurve extends Curve {
+  @override
+  double transform(double t) => 0.9 + (cos(t * pi * 2) * 0.02);
 }

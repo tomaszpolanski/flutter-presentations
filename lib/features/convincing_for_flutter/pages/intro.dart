@@ -172,7 +172,7 @@ class _PlatformsPageState extends State<PlatformsPage>
                   AnimatedOpacity(
                     duration: Duration(milliseconds: 200),
                     opacity: _uiq,
-                    child: Image(image: AssetImage('assets/Uiq-logo.png')),
+                    child: Image(image: AssetImage('assets/image8.png'), height: 140.0,),
                   ),
                   AnimatedOpacity(
                       duration: Duration(milliseconds: 200),
@@ -181,7 +181,7 @@ class _PlatformsPageState extends State<PlatformsPage>
                   AnimatedOpacity(
                     duration: Duration(milliseconds: 200),
                     opacity: _blackberry,
-                    child: Image(image: AssetImage('assets/blackberry.png')),
+                    child: Image(image: AssetImage('assets/blackberry.png'), height: 140.0,),
                   ),
                   AnimatedOpacity(
                       duration: Duration(milliseconds: 200),
@@ -197,15 +197,15 @@ class _PlatformsPageState extends State<PlatformsPage>
                   AnimatedOpacity(
                       duration: Duration(milliseconds: 200),
                       opacity: _windows,
-                      child: Image(image: AssetImage('assets/windows.png'))),
+                      child: Image(image: AssetImage('assets/windows.png'), height: 140.0,)),
                   AnimatedOpacity(
                       duration: Duration(milliseconds: 200),
                       opacity: _apple,
-                      child: Image(image: AssetImage('assets/apple.png'))),
+                      child: Image(image: AssetImage('assets/apple.png'), height: 140.0,)),
                   AnimatedOpacity(
                       duration: Duration(milliseconds: 200),
                       opacity: _android,
-                      child: Image(image: AssetImage('assets/android.png'))),
+                      child: Image(image: AssetImage('assets/image9.png'), height: 140.0,)),
                   AnimatedOpacity(
                       duration: Duration(milliseconds: 200),
                       opacity: _fuchsia,
