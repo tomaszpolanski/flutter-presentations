@@ -30,8 +30,8 @@ class SectionPage extends StatelessWidget {
             ),
             Expanded(
                 flex: 7,
-                child:
-                    Text(text, style: GTheme.big.copyWith(color: Colors.white))),
+                child: Text(text,
+                    style: GTheme.big.copyWith(color: Colors.white))),
           ],
         ),
       ),
@@ -65,22 +65,19 @@ class SlideWidget extends StatelessWidget {
 
   const SlideWidget({Key key, this.child}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     final PresentationSettings settings =
-    context.inheritFromWidgetOfExactType(PresentationSettings);
-    assert(settings != null,
-    'Slide must have PresentationSettings ancestor');
+        context.inheritFromWidgetOfExactType(PresentationSettings);
+    assert(settings != null, 'Slide must have PresentationSettings ancestor');
     return GestureDetector(
       onTap: () {
         settings.controller.next();
       },
-      child: child,
+      child: Container(color: Colors.transparent, child: child),
     );
   }
 }
-
 
 class PresentationSettings extends InheritedWidget {
   final PresentationController controller;
@@ -97,14 +94,13 @@ class PresentationSettings extends InheritedWidget {
   }
 }
 
-
 class SummaryPage extends StatelessWidget {
-
   final String title;
   final String subtitle;
   final Color background;
 
-  const SummaryPage({Key key, this.title, this.subtitle, this.background}) : super(key: key);
+  const SummaryPage({Key key, this.title, this.subtitle, this.background})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -146,4 +142,3 @@ class SummaryPage extends StatelessWidget {
     );
   }
 }
-

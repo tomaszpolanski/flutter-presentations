@@ -55,14 +55,13 @@ class ConvincingState extends State<Convincing> {
             child: new PageView(
               controller: controller,
               children: [
-
                 TitlePage(),
                 PopularityPage(),
                 PlatformsPage(presentationController),
                 SectionPage('The Cross-Platform Story'),
-                PuppyPage(),
                 CustomerPage(),
                 MerchantPage(),
+                PuppyPage(),
                 ImagePage('assets/image20.jpg'),
                 SectionPage('Getting Everybody On Board'),
                 DesignersPage(),
@@ -98,7 +97,12 @@ class ConvincingState extends State<Convincing> {
                 ),
                 SummaryPage(
                   title: 'Don’t integrate,',
-                  subtitle: 'if you don’t have to.',
+                  subtitle: 'if you don’t need to.',
+                  background: GTheme.green,
+                ),
+                SummaryPage(
+                  title: 'Flutter has',
+                  subtitle: 'amazing potential!',
                   background: GTheme.green,
                 ),
                 SummaryPage(
