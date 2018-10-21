@@ -74,7 +74,14 @@ class ConvincingState extends State<Convincing> {
                 MergingPage(),
                 SectionPage('The Assessment'),
                 SurveyPage(),
-                CriteriaPage(),
+                CriteriaPage(
+                  presentationController,
+                  title: Text(
+                    'The Criteria',
+                    textAlign: TextAlign.center,
+                    style: GTheme.medium.copyWith(color: Colors.white),
+                  ),
+                ),
                 DesignersPage(),
                 DevDesignPage(),
                 GrouponPlus(),
@@ -88,7 +95,31 @@ class ConvincingState extends State<Convincing> {
                 FlutterDartPage(),
                 TeachingPage(),
                 LaunchPage(),
+                CriteriaPage(
+                  presentationController,
+                  business: GTheme.green,
+                  background: Colors.white,
+                  technology: Colors.red,
+                  people: Colors.red,
+                  title: Text(
+                    'iOS',
+                    textAlign: TextAlign.center,
+                    style: GTheme.medium,
+                  ),
+                ),
                 ApplePage(),
+                CriteriaPage(
+                  presentationController,
+                  business: GTheme.green,
+                  background: Colors.white,
+                  technology: GTheme.green,
+                  people: GTheme.green,
+                  title: Text(
+                    'Android',
+                    textAlign: TextAlign.center,
+                    style: GTheme.medium,
+                  ),
+                ),
                 AndroidPage(),
                 SummaryPage(
                   title: 'For many,',

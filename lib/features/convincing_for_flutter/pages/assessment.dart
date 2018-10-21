@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
+import 'package:flutter_presentations/shared/presentation_controller.dart';
 
 class SurveyPage extends StatelessWidget {
   @override
@@ -25,6 +26,23 @@ class SurveyPage extends StatelessWidget {
 }
 
 class CriteriaPage extends StatefulWidget {
+  final PresentationController controller;
+  final Color background;
+  final Color business;
+  final Color technology;
+  final Color people;
+  final Widget title;
+
+  const CriteriaPage(
+    this.controller, {
+    @required this.title,
+    Key key,
+    this.background = GTheme.green,
+    this.business = Colors.white,
+    this.technology = Colors.white,
+    this.people = Colors.white,
+  }) : super(key: key);
+
   @override
   CriteriaPageState createState() {
     return new CriteriaPageState();
@@ -33,12 +51,26 @@ class CriteriaPage extends StatefulWidget {
 
 class CriteriaPageState extends State<CriteriaPage>
     with TickerProviderStateMixin {
+  AnimationController _businessController;
   AnimationController _techController;
+  AnimationController _peopleController;
 
   @override
   void initState() {
     super.initState();
+    _businessController = AnimationController(
+      duration: Duration(milliseconds: 500),
+      vsync: this,
+    )..addListener(() {
+        setState(() {});
+      });
     _techController = AnimationController(
+      duration: Duration(milliseconds: 500),
+      vsync: this,
+    )..addListener(() {
+        setState(() {});
+      });
+    _peopleController = AnimationController(
       duration: Duration(milliseconds: 500),
       vsync: this,
     )..addListener(() {
@@ -48,7 +80,9 @@ class CriteriaPageState extends State<CriteriaPage>
 
   @override
   void dispose() {
+    _businessController.dispose();
     _techController.dispose();
+    _peopleController.dispose();
     super.dispose();
   }
 
@@ -56,46 +90,187 @@ class CriteriaPageState extends State<CriteriaPage>
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        _techController.forward();
+        if (_businessController.status == AnimationStatus.dismissed) {
+          _businessController.forward();
+        } else if (_techController.status == AnimationStatus.dismissed) {
+          _techController.forward();
+        } else if (_peopleController.status == AnimationStatus.dismissed) {
+          _peopleController.forward();
+        } else {
+          widget.controller.next();
+        }
       },
       child: Container(
-        color: GTheme.green,
-        child: Center(
-            child: Stack(
+        color: widget.background,
+        child: Stack(
           children: [
-            Transform.rotate(
-              origin: Offset(0.0, 50.0),
-              angle: (2 * pi / 3) * _techController.value,
-              child: Container(
-                width: 4.0,
-                height: 100.0,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.0)),
-              ),
+            Align(
+              alignment: Alignment.topCenter,
+              child: widget.title,
             ),
-            Container(
-              width: 4.0,
-              height: 100.0,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10.0)),
-            ),
-            Transform.rotate(
-              origin: Offset(0.0, 50.0),
-              angle: -2 * pi / 3,
-              child: Container(
-                width: 4.0,
-                height: 100.0,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.0)),
+            Transform.translate(
+              offset: Offset(0.0, 70.0),
+              child: Stack(
+                children: [
+                  Align(
+                    child: Transform.translate(
+                      offset: Offset(0.0, -120.0),
+                      child: AnimatedOpacity(
+                        duration: Duration(milliseconds: 200),
+                        opacity: _businessController.status ==
+                                AnimationStatus.completed
+                            ? 1.0
+                            : 0.0,
+                        child: Text('Business',
+                            style:
+                                GTheme.small.copyWith(color: widget.business)),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    child: CustomPaint(
+                      size: Size(10.0, 100.0),
+                      painter: ArrowPainter(
+                        color: widget.business,
+                        opacity: _businessController.value * 1.0,
+                        rotation: 0.0,
+                      ),
+                    ),
+                  ),
+                  Align(
+                    child: Transform.translate(
+                      offset: Offset(100.0, 70.0),
+                      child: AnimatedOpacity(
+                        duration: Duration(milliseconds: 200),
+                        opacity:
+                            _techController.status == AnimationStatus.completed
+                                ? 1.0
+                                : 0.0,
+                        child: Text('Technology',
+                            textAlign: TextAlign.right,
+                            style: GTheme.small
+                                .copyWith(color: widget.technology)),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    child: CustomPaint(
+                      size: Size(10.0, 100.0),
+                      painter: ArrowPainter(
+                        color: widget.technology,
+                        opacity: _techController.value,
+                        rotation: 2 * (pi / 3) * _techController.value,
+                      ),
+                    ),
+                  ),
+                  Align(
+                    child: Transform.translate(
+                      offset: Offset(-100.0, 70.0),
+                      child: AnimatedOpacity(
+                        duration: Duration(milliseconds: 200),
+                        opacity: _peopleController.status ==
+                                AnimationStatus.completed
+                            ? 1.0
+                            : 0.0,
+                        child: Text('People',
+                            textAlign: TextAlign.right,
+                            style: GTheme.small.copyWith(color: widget.people)),
+                      ),
+                    ),
+                  ),
+                  Align(
+                    child: CustomPaint(
+                      size: Size(10.0, 100.0),
+                      painter: ArrowPainter(
+                        color: widget.people,
+                        opacity: _peopleController.value,
+                        rotation: 2 * (pi / 3) * (1 + _peopleController.value),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
-        )),
+        ),
       ),
     );
+  }
+}
+
+class ArrowPainter extends CustomPainter {
+  final Color color;
+  final double opacity;
+  final double rotation;
+
+  ArrowPainter({this.color, this.opacity, this.rotation});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final height = size.height;
+    const edgeHeight = 10.0;
+    final edgeWidth = size.width;
+    const lineWidth = 3.0;
+    print(size);
+
+    Path p = Path()
+      ..lineTo(lineWidth / 2, 0.0)
+      ..lineTo(lineWidth / 2, height - edgeHeight)
+      ..lineTo(edgeWidth / 2, height - edgeHeight)
+      ..lineTo(0.0, height)
+      ..lineTo(-edgeWidth / 2, height - edgeHeight)
+      ..lineTo(-lineWidth / 2, height - edgeHeight)
+      ..lineTo(-lineWidth / 2, 0.0)
+      ..close();
+
+    Paint line = new Paint()
+      ..color = color.withOpacity(opacity)
+      ..style = PaintingStyle.fill;
+
+    canvas.translate(size.width / 2, size.height / 2);
+    canvas.rotate(rotation + pi);
+    canvas.drawPath(p, line);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
+  }
+}
+
+class MyPainter extends CustomPainter {
+  Color lineColor;
+  Color completeColor;
+  double completePercent;
+  double width;
+
+  MyPainter(
+      {this.lineColor, this.completeColor, this.completePercent, this.width});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    print(size);
+    Paint line = new Paint()
+      ..color = lineColor
+      ..strokeCap = StrokeCap.round
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = width;
+    Paint complete = new Paint()
+      ..color = completeColor
+      ..strokeCap = StrokeCap.round
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = width;
+    Offset center = new Offset(size.width / 2, size.height / 2);
+    double radius = min(size.width / 2, size.height / 2);
+    canvas.drawCircle(center, radius, line);
+    double arcAngle = 2 * pi * (completePercent / 100);
+    canvas.drawArc(new Rect.fromCircle(center: center, radius: radius), -pi / 2,
+        arcAngle, false, complete);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
   }
 }
 
