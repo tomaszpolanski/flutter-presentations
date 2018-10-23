@@ -22,7 +22,7 @@ class ThankYouPage extends StatelessWidget {
             Align(
               alignment: Alignment.bottomRight,
               child: new DefaultTextStyle(
-                style: GTheme.small.copyWith(color: Colors.white),
+                style: GTheme.smaller.copyWith(color: Colors.white),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.end,

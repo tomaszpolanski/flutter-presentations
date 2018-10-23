@@ -19,6 +19,13 @@ class GTheme {
   );
 
   static const TextStyle small = TextStyle(
+    fontSize: 28.0,
+    color: green,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.bold,
+  );
+
+  static const TextStyle smaller = TextStyle(
     fontSize: 18.0,
     color: green,
     fontFamily: 'Montserrat',

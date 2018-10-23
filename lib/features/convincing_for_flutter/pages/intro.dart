@@ -39,7 +39,7 @@ class TitlePage extends StatelessWidget {
             child: new Padding(
               padding: const EdgeInsets.only(right: 18.0, bottom: 18.0),
               child: new DefaultTextStyle(
-                style: GTheme.small.copyWith(color: Colors.white),
+                style: GTheme.smaller.copyWith(color: Colors.white),
                 child: new Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.end,

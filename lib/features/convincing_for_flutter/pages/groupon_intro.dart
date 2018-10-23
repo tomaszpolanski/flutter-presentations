@@ -17,11 +17,21 @@ class PuppyPage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: Row(
-          children: const [
-            Expanded(child: SizedBox()),
-            Expanded(child: Text('Good to be Small', style: GTheme.big, textAlign: TextAlign.right,))
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Expanded(child: SizedBox()),
+              Expanded(
+                child: Text(
+                  'It\'s Good to be Small',
+                  style: GTheme.big,
+                  textAlign: TextAlign.right,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -34,7 +44,11 @@ class CustomerPage extends StatelessWidget {
     return SlideWidget(
       child: Row(
         children: const [
-          Expanded(child: Image(image: AssetImage('assets/image13.png'), height: 100.0,)),
+          Expanded(
+              child: Image(
+            image: AssetImage('assets/image13.png'),
+            height: 100.0,
+          )),
           Expanded(child: Text('Customer', style: GTheme.medium))
         ],
       ),
@@ -42,21 +56,23 @@ class CustomerPage extends StatelessWidget {
   }
 }
 
-
 class MerchantPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SlideWidget(
       child: Row(
         children: const [
-          Expanded(child: Image(image: AssetImage('assets/image7.png'), height: 100.0,)),
+          Expanded(
+              child: Image(
+            image: AssetImage('assets/image7.png'),
+            height: 100.0,
+          )),
           Expanded(child: Text('Merchant', style: GTheme.medium))
         ],
       ),
     );
   }
 }
-
 
 class VisionPage extends StatelessWidget {
   const VisionPage({Key key}) : super(key: key);
