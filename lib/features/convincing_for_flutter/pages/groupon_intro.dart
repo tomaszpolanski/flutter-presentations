@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
 import 'package:flutter_presentations/shared/page_transformer.dart';
+import 'package:flutter_presentations/shared/slide_effects.dart';
 
 class PuppyPage extends StatelessWidget {
   final PageVisibility pageVisibility;
@@ -46,17 +47,26 @@ class PuppyPage extends StatelessWidget {
 }
 
 class CustomerPage extends StatelessWidget {
+  final PageVisibility pageVisibility;
+
+  const CustomerPage({Key key, this.pageVisibility}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SlideWidget(
       child: Row(
-        children: const [
+        children: [
           Expanded(
               child: Image(
             image: AssetImage('assets/image13.png'),
             height: 100.0,
           )),
-          Expanded(child: Text('Customer', style: GTheme.medium))
+          Expanded(
+            child: ParallaxWidget(
+              pageVisibility: pageVisibility,
+              child: Text('Customer', style: GTheme.medium),
+            ),
+          ),
         ],
       ),
     );
@@ -64,17 +74,25 @@ class CustomerPage extends StatelessWidget {
 }
 
 class MerchantPage extends StatelessWidget {
+  final PageVisibility pageVisibility;
+
+  const MerchantPage({Key key, this.pageVisibility}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SlideWidget(
       child: Row(
-        children: const [
+        children: [
           Expanded(
               child: Image(
             image: AssetImage('assets/image7.png'),
             height: 100.0,
           )),
-          Expanded(child: Text('Merchant', style: GTheme.medium))
+          Expanded(
+              child: ParallaxWidget(
+            pageVisibility: pageVisibility,
+            child: Text('Merchant', style: GTheme.medium),
+          ))
         ],
       ),
     );

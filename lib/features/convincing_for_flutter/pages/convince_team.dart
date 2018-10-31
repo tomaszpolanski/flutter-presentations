@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
+import 'package:flutter_presentations/shared/page_transformer.dart';
+import 'package:flutter_presentations/shared/slide_effects.dart';
 
 class DesignersPage extends StatelessWidget {
+  final PageVisibility pageVisibility;
+
+  const DesignersPage({Key key, this.pageVisibility}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SlideWidget(
@@ -11,15 +17,27 @@ class DesignersPage extends StatelessWidget {
           image: DecorationImage(
             image: AssetImage('assets/image35.jpg'),
             fit: BoxFit.cover,
+            alignment: FractionalOffset(
+              0.5 + (pageVisibility.pagePosition),
+              0.5,
+            ),
           ),
         ),
-        child: Center(child: Text('Designers')),
+        child: Center(
+            child: ParallaxWidget(
+          pageVisibility: pageVisibility,
+          child: Text('Designers'),
+        )),
       ),
     );
   }
 }
 
 class UmphPage extends StatelessWidget {
+  final PageVisibility pageVisibility;
+
+  const UmphPage({Key key, this.pageVisibility}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SlideWidget(
@@ -33,11 +51,14 @@ class UmphPage extends StatelessWidget {
         ),
         child: Align(
             alignment: Alignment.topCenter,
-            child: Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: Text(
-                'Umph',
-                style: TextStyle(color: Colors.white),
+            child: ParallaxWidget(
+              pageVisibility: pageVisibility,
+              child: Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: Text(
+                  'Umph',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             )),
       ),
@@ -46,6 +67,10 @@ class UmphPage extends StatelessWidget {
 }
 
 class LessTestingPage extends StatelessWidget {
+  final PageVisibility pageVisibility;
+
+  const LessTestingPage({Key key, this.pageVisibility}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SlideWidget(
@@ -59,9 +84,12 @@ class LessTestingPage extends StatelessWidget {
         ),
         child: Align(
           alignment: Alignment.topCenter,
-          child: Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: Text('Less Testing'),
+          child: ParallaxWidget(
+            pageVisibility: pageVisibility,
+            child: Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Text('Less Testing'),
+            ),
           ),
         ),
       ),
@@ -70,6 +98,11 @@ class LessTestingPage extends StatelessWidget {
 }
 
 class DevelopersPage extends StatelessWidget {
+
+  final PageVisibility pageVisibility;
+
+  const DevelopersPage({Key key, this.pageVisibility}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SlideWidget(
@@ -83,11 +116,14 @@ class DevelopersPage extends StatelessWidget {
         ),
         child: Align(
             alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Developers',
-                style: TextStyle(color: Colors.white),
+            child: ParallaxWidget(
+              pageVisibility: pageVisibility,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'Developers',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             )),
       ),
