@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
+import 'package:flutter_presentations/shared/page_transformer.dart';
 
 class PuppyPage extends StatelessWidget {
-  const PuppyPage({Key key}) : super(key: key);
+  final PageVisibility pageVisibility;
+
+  const PuppyPage({Key key, this.pageVisibility}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,11 @@ class PuppyPage extends StatelessWidget {
           color: Colors.white,
           image: DecorationImage(
             image: AssetImage('assets/image34.jpg'),
-            fit: BoxFit.cover,
+            fit: BoxFit.none,
+            alignment: FractionalOffset(
+              0.5 + (pageVisibility.pagePosition),
+              0.5,
+            ),
           ),
         ),
         child: Padding(

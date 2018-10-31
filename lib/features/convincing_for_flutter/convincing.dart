@@ -6,6 +6,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/pages/intr
 import 'package:flutter_presentations/features/convincing_for_flutter/pages/summary.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
+import 'package:flutter_presentations/shared/page_transformer.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 
 class Convincing extends StatefulWidget {
@@ -38,6 +39,96 @@ class ConvincingState extends State<Convincing> {
 
   @override
   Widget build(BuildContext context) {
+    final pageCreator = [
+      (visibility) => TitlePage(),
+      (visibility) => PopularityPage(pageVisibility: visibility),
+      (visibility) => PlatformsPage(presentationController),
+      (visibility) => SectionPage('The Cross-Platform Story'),
+      (visibility) => CustomerPage(),
+      (visibility) => MerchantPage(),
+      (visibility) => PuppyPage(pageVisibility: visibility),
+      (visibility) => ImagePage('assets/image20.jpg'),
+      (visibility) => SectionPage('Getting Everybody On Board'),
+      (visibility) => DesignersPage(),
+      (visibility) => UmphPage(),
+      (visibility) => ImagePage('assets/image38.jpg'),
+      (visibility) => LessTestingPage(),
+      (visibility) => DevelopersPage(),
+      (visibility) => WorkshopPage(),
+      (visibility) => ManagersPage(),
+      (visibility) => MergingPage(),
+      (visibility) => SectionPage('The Assessment'),
+      (visibility) => SurveyPage(),
+      (visibility) => CriteriaPage(
+            presentationController,
+            title: Text(
+              'The Criteria',
+              textAlign: TextAlign.center,
+              style: GTheme.medium.copyWith(color: Colors.white),
+            ),
+          ),
+      (visibility) => DesignersPage(),
+      (visibility) => DevDesignPage(),
+      (visibility) => GrouponPlus(),
+      (visibility) => ImagePage('assets/image38.jpg'),
+      (visibility) => AppiumPage(),
+      (visibility) => IntegrationTestPage(),
+      (visibility) => WidgetTestPage(),
+      (visibility) => ManagersPage(),
+      (visibility) => DevelopersPage(),
+      (visibility) => LearningPage(),
+      (visibility) => FlutterDartPage(),
+      (visibility) => TeachingPage(),
+      (visibility) => LaunchPage(),
+      (visibility) => CriteriaPage(
+            presentationController,
+            business: GTheme.green,
+            background: Colors.white,
+            technology: Colors.red,
+            people: Colors.red,
+            title: Text(
+              'iOS',
+              textAlign: TextAlign.center,
+              style: GTheme.medium,
+            ),
+          ),
+      (visibility) => ApplePage(),
+      (visibility) => CriteriaPage(
+            presentationController,
+            business: GTheme.green,
+            background: Colors.white,
+            technology: GTheme.green,
+            people: GTheme.green,
+            title: Text(
+              'Android',
+              textAlign: TextAlign.center,
+              style: GTheme.medium,
+            ),
+          ),
+      (visibility) => AndroidPage(),
+      (visibility) => SummaryPage(
+            title: 'For many,',
+            subtitle: 'but not everyone.',
+            background: GTheme.green,
+          ),
+      (visibility) => SummaryPage(
+            title: 'Integration',
+            subtitle: 'adds complexity',
+            background: GTheme.green,
+          ),
+      (visibility) => SummaryPage(
+            title: 'Flutter',
+            subtitle: ' has potential!',
+            background: GTheme.green,
+          ),
+      (visibility) => SummaryPage(
+            title: 'Join the Dart side!',
+            subtitle: '',
+            background: Colors.black,
+          ),
+      (visibility) => ThankYouPage(),
+    ];
+
     return new Scaffold(
       backgroundColor: Colors.white,
       body: NestedScrollView(
@@ -52,97 +143,17 @@ class ConvincingState extends State<Convincing> {
           controller: presentationController,
           child: DefaultTextStyle(
             style: GTheme.big,
-            child: new PageView(
-              controller: controller,
-              children: [
-                TitlePage(),
-                PopularityPage(),
-                PlatformsPage(presentationController),
-                SectionPage('The Cross-Platform Story'),
-                CustomerPage(),
-                MerchantPage(),
-                PuppyPage(),
-                ImagePage('assets/image20.jpg'),
-                SectionPage('Getting Everybody On Board'),
-                DesignersPage(),
-                UmphPage(),
-                ImagePage('assets/image38.jpg'),
-                LessTestingPage(),
-                DevelopersPage(),
-                WorkshopPage(),
-                ManagersPage(),
-                MergingPage(),
-                SectionPage('The Assessment'),
-                SurveyPage(),
-                CriteriaPage(
-                  presentationController,
-                  title: Text(
-                    'The Criteria',
-                    textAlign: TextAlign.center,
-                    style: GTheme.medium.copyWith(color: Colors.white),
+            child: PageTransformer(
+              pageViewBuilder: (context, visibilityResolver) =>
+                  PageView.builder(
+                    controller: controller,
+                    itemCount: pageCreator.length,
+                    itemBuilder: (context, index) {
+                      final pageVisibility =
+                          visibilityResolver.resolvePageVisibility(index);
+                      return pageCreator[index](pageVisibility);
+                    },
                   ),
-                ),
-                DesignersPage(),
-                DevDesignPage(),
-                GrouponPlus(),
-                ImagePage('assets/image38.jpg'),
-                AppiumPage(),
-                IntegrationTestPage(),
-                WidgetTestPage(),
-                ManagersPage(),
-                DevelopersPage(),
-                LearningPage(),
-                FlutterDartPage(),
-                TeachingPage(),
-                LaunchPage(),
-                CriteriaPage(
-                  presentationController,
-                  business: GTheme.green,
-                  background: Colors.white,
-                  technology: Colors.red,
-                  people: Colors.red,
-                  title: Text(
-                    'iOS',
-                    textAlign: TextAlign.center,
-                    style: GTheme.medium,
-                  ),
-                ),
-                ApplePage(),
-                CriteriaPage(
-                  presentationController,
-                  business: GTheme.green,
-                  background: Colors.white,
-                  technology: GTheme.green,
-                  people: GTheme.green,
-                  title: Text(
-                    'Android',
-                    textAlign: TextAlign.center,
-                    style: GTheme.medium,
-                  ),
-                ),
-                AndroidPage(),
-                SummaryPage(
-                  title: 'For many,',
-                  subtitle: 'but not everyone.',
-                  background: GTheme.green,
-                ),
-                SummaryPage(
-                  title: 'Integration',
-                  subtitle: 'adds complexity',
-                  background: GTheme.green,
-                ),
-                SummaryPage(
-                  title: 'Flutter',
-                  subtitle: ' has potential!',
-                  background: GTheme.green,
-                ),
-                SummaryPage(
-                  title: 'Join the Dart side!',
-                  subtitle: '',
-                  background: Colors.black,
-                ),
-                ThankYouPage(),
-              ],
             ),
           ),
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
+import 'package:flutter_presentations/shared/page_transformer.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_stepper.dart';
 
@@ -64,6 +65,10 @@ class TitlePage extends StatelessWidget {
 }
 
 class PopularityPage extends StatelessWidget {
+  final PageVisibility pageVisibility;
+
+  const PopularityPage({Key key, this.pageVisibility}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SlideWidget(
@@ -73,6 +78,10 @@ class PopularityPage extends StatelessWidget {
           image: DecorationImage(
             image: AssetImage('assets/popularity.png'),
             fit: BoxFit.fitWidth,
+            alignment: FractionalOffset(
+              0.5 + (pageVisibility.pagePosition),
+              0.5,
+            ),
           ),
         ),
       ),
