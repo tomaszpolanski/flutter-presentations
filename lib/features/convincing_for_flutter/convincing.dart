@@ -43,12 +43,18 @@ class ConvincingState extends State<Convincing> {
       (visibility) => TitlePage(),
       (visibility) => PopularityPage(pageVisibility: visibility),
       (visibility) => PlatformsPage(presentationController),
-      (visibility) => SectionPage('The Cross-Platform Story'),
+      (visibility) => SectionPage(
+            'The Cross-Platform Story',
+            pageVisibility: visibility,
+          ),
       (visibility) => CustomerPage(pageVisibility: visibility),
       (visibility) => MerchantPage(pageVisibility: visibility),
       (visibility) => PuppyPage(pageVisibility: visibility),
       (visibility) => ImagePage('assets/image20.jpg'),
-      (visibility) => SectionPage('Getting Everybody On Board'),
+      (visibility) => SectionPage(
+            'Getting Everybody On Board',
+            pageVisibility: visibility,
+          ),
       (visibility) => DesignersPage(pageVisibility: visibility),
       (visibility) => UmphPage(pageVisibility: visibility),
       (visibility) => ImagePage('assets/image38.jpg'),
@@ -57,7 +63,10 @@ class ConvincingState extends State<Convincing> {
       (visibility) => WorkshopPage(),
       (visibility) => ManagersPage(),
       (visibility) => MergingPage(),
-      (visibility) => SectionPage('The Assessment'),
+      (visibility) => SectionPage(
+            'The Assessment',
+            pageVisibility: visibility,
+          ),
       (visibility) => SurveyPage(),
       (visibility) => CriteriaPage(
             presentationController,

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
+import 'package:flutter_presentations/shared/page_transformer.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
+import 'package:flutter_presentations/shared/slide_effects.dart';
 
 class SectionPage extends StatelessWidget {
   final String text;
+  final PageVisibility pageVisibility;
 
-  const SectionPage(this.text, {Key key}) : super(key: key);
+  const SectionPage(this.text, {Key key, @required this.pageVisibility}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +22,15 @@ class SectionPage extends StatelessWidget {
           children: <Widget>[
             Expanded(
               flex: 2,
-              child: Align(
-                alignment: Alignment.bottomLeft,
-                child: Container(
-                  color: Colors.white,
-                  height: 8.0,
-                  width: 100.0,
+              child: ParallaxWidget(
+                pageVisibility: pageVisibility,
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Container(
+                    color: Colors.white,
+                    height: 8.0,
+                    width: 100.0,
+                  ),
                 ),
               ),
             ),
