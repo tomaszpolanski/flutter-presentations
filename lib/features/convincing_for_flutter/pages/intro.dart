@@ -67,7 +67,7 @@ class TitlePage extends StatelessWidget {
 class PopularityPage extends StatelessWidget {
   final PageVisibility pageVisibility;
 
-  const PopularityPage({Key key, this.pageVisibility}) : super(key: key);
+  const PopularityPage({Key key, @required this.pageVisibility}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

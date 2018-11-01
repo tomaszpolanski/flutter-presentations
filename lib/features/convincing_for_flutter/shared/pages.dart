@@ -9,7 +9,8 @@ class SectionPage extends StatelessWidget {
   final String text;
   final PageVisibility pageVisibility;
 
-  const SectionPage(this.text, {Key key, @required this.pageVisibility}) : super(key: key);
+  const SectionPage(this.text, {Key key, @required this.pageVisibility})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,7 @@ class SectionPage extends StatelessWidget {
               flex: 2,
               child: ParallaxWidget(
                 pageVisibility: pageVisibility,
+                translationFactor: 150.0,
                 child: Align(
                   alignment: Alignment.bottomLeft,
                   child: Container(
@@ -47,8 +49,13 @@ class SectionPage extends StatelessWidget {
 
 class ImagePage extends StatelessWidget {
   final String asset;
+  final PageVisibility pageVisibility;
 
-  const ImagePage(this.asset, {Key key}) : super(key: key);
+  const ImagePage(
+    this.asset, {
+    Key key,
+    @required this.pageVisibility,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +66,10 @@ class ImagePage extends StatelessWidget {
           image: DecorationImage(
             image: AssetImage(asset),
             fit: BoxFit.cover,
+            alignment: FractionalOffset(
+              0.5 + (pageVisibility.pagePosition),
+              0.5,
+            ),
           ),
         ),
       ),

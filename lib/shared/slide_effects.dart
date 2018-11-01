@@ -30,3 +30,17 @@ class ParallaxWidget extends StatelessWidget {
     );
   }
 }
+
+class ParallaxDecorationImage extends DecorationImage {
+  ParallaxDecorationImage({
+    PageVisibility pageVisibility,
+    ImageProvider image,
+  }) : super(
+          image: image,
+          fit: BoxFit.cover,
+          alignment: FractionalOffset(
+            0.5 + (pageVisibility.pagePosition),
+            0.5,
+          ),
+        );
+}

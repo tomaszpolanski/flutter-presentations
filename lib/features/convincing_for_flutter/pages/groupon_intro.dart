@@ -8,7 +8,7 @@ import 'package:flutter_presentations/shared/slide_effects.dart';
 class PuppyPage extends StatelessWidget {
   final PageVisibility pageVisibility;
 
-  const PuppyPage({Key key, this.pageVisibility}) : super(key: key);
+  const PuppyPage({Key key, @required this.pageVisibility}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class PuppyPage extends StatelessWidget {
 class CustomerPage extends StatelessWidget {
   final PageVisibility pageVisibility;
 
-  const CustomerPage({Key key, this.pageVisibility}) : super(key: key);
+  const CustomerPage({Key key, @required this.pageVisibility}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +76,7 @@ class CustomerPage extends StatelessWidget {
 class MerchantPage extends StatelessWidget {
   final PageVisibility pageVisibility;
 
-  const MerchantPage({Key key, this.pageVisibility}) : super(key: key);
+  const MerchantPage({Key key, @required this.pageVisibility}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

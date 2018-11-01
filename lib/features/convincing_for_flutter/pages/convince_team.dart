@@ -6,7 +6,8 @@ import 'package:flutter_presentations/shared/slide_effects.dart';
 class DesignersPage extends StatelessWidget {
   final PageVisibility pageVisibility;
 
-  const DesignersPage({Key key, this.pageVisibility}) : super(key: key);
+  const DesignersPage({Key key, @required this.pageVisibility})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class DesignersPage extends StatelessWidget {
 class UmphPage extends StatelessWidget {
   final PageVisibility pageVisibility;
 
-  const UmphPage({Key key, this.pageVisibility}) : super(key: key);
+  const UmphPage({Key key, @required this.pageVisibility}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +70,8 @@ class UmphPage extends StatelessWidget {
 class LessTestingPage extends StatelessWidget {
   final PageVisibility pageVisibility;
 
-  const LessTestingPage({Key key, this.pageVisibility}) : super(key: key);
+  const LessTestingPage({Key key, @required this.pageVisibility})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +82,10 @@ class LessTestingPage extends StatelessWidget {
           image: DecorationImage(
             image: AssetImage('assets/image31.jpg'),
             fit: BoxFit.cover,
+            alignment: FractionalOffset(
+              0.5 + (pageVisibility.pagePosition),
+              0.5,
+            ),
           ),
         ),
         child: Align(
@@ -98,10 +104,10 @@ class LessTestingPage extends StatelessWidget {
 }
 
 class DevelopersPage extends StatelessWidget {
-
   final PageVisibility pageVisibility;
 
-  const DevelopersPage({Key key, this.pageVisibility}) : super(key: key);
+  const DevelopersPage({Key key, @required this.pageVisibility})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -112,6 +118,10 @@ class DevelopersPage extends StatelessWidget {
           image: DecorationImage(
             image: AssetImage('assets/image41.jpg'),
             fit: BoxFit.cover,
+            alignment: FractionalOffset(
+              0.5 + (pageVisibility.pagePosition),
+              0.5,
+            ),
           ),
         ),
         child: Align(
@@ -132,6 +142,10 @@ class DevelopersPage extends StatelessWidget {
 }
 
 class WorkshopPage extends StatelessWidget {
+  final PageVisibility pageVisibility;
+
+  const WorkshopPage({Key key, @required this.pageVisibility}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SlideWidget(
@@ -140,10 +154,13 @@ class WorkshopPage extends StatelessWidget {
           Expanded(
             flex: 6,
             child: Center(
-                child: Text(
+                child: ParallaxWidget(
+                  pageVisibility: pageVisibility,
+                  child: Text(
               'Prepare a Workshop',
               textAlign: TextAlign.center,
-            )),
+            ),
+                )),
           ),
           Expanded(
             flex: 4,
@@ -152,7 +169,11 @@ class WorkshopPage extends StatelessWidget {
                 color: Colors.white,
                 image: DecorationImage(
                   image: AssetImage('assets/image44.jpg'),
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fitHeight,
+                  alignment: FractionalOffset(
+                    0.5 + (pageVisibility.pagePosition),
+                    0.5,
+                  ),
                 ),
               ),
             ),
@@ -164,15 +185,19 @@ class WorkshopPage extends StatelessWidget {
 }
 
 class ManagersPage extends StatelessWidget {
+
+  final PageVisibility pageVisibility;
+
+  const ManagersPage({Key key, @required this.pageVisibility}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SlideWidget(
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
-          image: DecorationImage(
+          image: ParallaxDecorationImage(
+            pageVisibility: pageVisibility,
             image: AssetImage('assets/image40.jpg'),
-            fit: BoxFit.cover,
           ),
         ),
         child: Align(
@@ -188,29 +213,37 @@ class ManagersPage extends StatelessWidget {
 }
 
 class MergingPage extends StatelessWidget {
+
+  final PageVisibility pageVisibility;
+
+  const MergingPage({Key key, @required this.pageVisibility}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SlideWidget(
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          image: DecorationImage(
+          image: ParallaxDecorationImage(
+            pageVisibility: pageVisibility,
             image: AssetImage('assets/image18.jpg'),
-            fit: BoxFit.cover,
           ),
         ),
         child: Row(
-          children: const [
+          children: [
             Expanded(
               flex: 6,
               child: SizedBox(),
             ),
             Expanded(
               flex: 4,
-              child: Text(
-                'Merging Teams',
-                style: TextStyle(color: Colors.white),
-                textAlign: TextAlign.right,
+              child: ParallaxWidget(
+                pageVisibility: pageVisibility,
+                child: Text(
+                  'Merging Teams',
+                  style: TextStyle(color: Colors.white),
+                  textAlign: TextAlign.right,
+                ),
               ),
             ),
           ],
