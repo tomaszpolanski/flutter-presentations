@@ -227,7 +227,6 @@ class ArrowPainter extends CustomPainter {
     const edgeHeight = 10.0;
     final edgeWidth = size.width;
     const lineWidth = 3.0;
-    print(size);
 
     Path p = Path()
       ..lineTo(lineWidth / 2, 0.0)
