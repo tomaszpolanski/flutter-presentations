@@ -115,9 +115,15 @@ class SummaryPage extends StatelessWidget {
   final String title;
   final String subtitle;
   final Color background;
+  final PageVisibility pageVisibility;
 
-  const SummaryPage({Key key, this.title, this.subtitle, this.background})
-      : super(key: key);
+  const SummaryPage({
+    Key key,
+    @required this.pageVisibility,
+    this.title,
+    this.subtitle,
+    this.background,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -132,12 +138,16 @@ class SummaryPage extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   flex: 2,
-                  child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Container(
-                      color: Colors.white,
-                      height: 8.0,
-                      width: 100.0,
+                  child: ParallaxWidget(
+                    pageVisibility: pageVisibility,
+                    translationFactor: 150.0,
+                    child: Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Container(
+                        color: Colors.white,
+                        height: 8.0,
+                        width: 100.0,
+                      ),
                     ),
                   ),
                 ),
