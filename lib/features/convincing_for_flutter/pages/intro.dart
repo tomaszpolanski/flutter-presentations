@@ -4,8 +4,13 @@ import 'package:flutter_presentations/features/convincing_for_flutter/shared/pag
 import 'package:flutter_presentations/shared/page_transformer.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_stepper.dart';
+import 'package:flutter_presentations/shared/slide_effects.dart';
 
 class TitlePage extends StatelessWidget {
+  final PageVisibility pageVisibility;
+
+  const TitlePage({Key key, @required this.pageVisibility}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SlideWidget(
@@ -21,39 +26,45 @@ class TitlePage extends StatelessWidget {
                   children: [
                     Text('Convincing your '),
                     Text('company to '),
-                    Row(
-                      children: const [
-                        Image(
-                          image: AssetImage('assets/image4.png'),
-                          height: 60.0,
-                        ),
-                        Text('lutter'),
-                      ],
+                    ParallaxWidget(
+                      pageVisibility: pageVisibility,
+                      child: Row(
+                        children: const [
+                          Image(
+                            image: AssetImage('assets/image4.png'),
+                            height: 60.0,
+                          ),
+                          Text('lutter'),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
           ),
-          new Align(
+          Align(
             alignment: Alignment.bottomRight,
-            child: new Padding(
-              padding: const EdgeInsets.only(right: 18.0, bottom: 18.0),
-              child: new DefaultTextStyle(
-                style: GTheme.smaller.copyWith(color: Colors.white),
-                child: new Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    new Text(
-                      'Tomek Polański',
-                      style: new TextStyle(color: Colors.black),
-                    ),
-                    new Text(
-                      'GROUPON',
-                      style: new TextStyle(color: Colors.green),
-                    ),
-                  ],
+            child: ParallaxWidget(
+              pageVisibility: pageVisibility,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 18.0, bottom: 18.0),
+                child: DefaultTextStyle(
+                  style: GTheme.smaller.copyWith(color: Colors.white),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: const [
+                      Text(
+                        'Tomek Polański',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      Text(
+                        'GROUPON',
+                        style: TextStyle(color: Colors.green),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

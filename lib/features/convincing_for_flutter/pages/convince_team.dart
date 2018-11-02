@@ -41,27 +41,13 @@ class UmphPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          image: DecorationImage(
-            image: AssetImage('assets/image39.jpg'),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Align(
-            alignment: Alignment.topCenter,
-            child: ParallaxWidget(
-              pageVisibility: pageVisibility,
-              child: Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Text(
-                  'Umph',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            )),
+    return ImagePage(
+      'assets/image39.jpg',
+      pageVisibility: pageVisibility,
+      alignment: AlignmentDirectional.topCenter,
+      child: Text(
+        'Umph',
+        style: TextStyle(color: Colors.white),
       ),
     );
   }
@@ -111,31 +97,13 @@ class DevelopersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          image: DecorationImage(
-            image: AssetImage('assets/image41.jpg'),
-            fit: BoxFit.cover,
-            alignment: FractionalOffset(
-              0.5 + (pageVisibility.pagePosition),
-              0.5,
-            ),
-          ),
-        ),
-        child: Align(
-            alignment: Alignment.centerLeft,
-            child: ParallaxWidget(
-              pageVisibility: pageVisibility,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Developers',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            )),
+    return ImagePage(
+      'assets/image41.jpg',
+      pageVisibility: pageVisibility,
+      alignment: AlignmentDirectional.centerStart,
+      child: Text(
+        'Developers',
+        style: TextStyle(color: Colors.white),
       ),
     );
   }
@@ -144,7 +112,8 @@ class DevelopersPage extends StatelessWidget {
 class WorkshopPage extends StatelessWidget {
   final PageVisibility pageVisibility;
 
-  const WorkshopPage({Key key, @required this.pageVisibility}) : super(key: key);
+  const WorkshopPage({Key key, @required this.pageVisibility})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -155,12 +124,12 @@ class WorkshopPage extends StatelessWidget {
             flex: 6,
             child: Center(
                 child: ParallaxWidget(
-                  pageVisibility: pageVisibility,
-                  child: Text(
-              'Prepare a Workshop',
-              textAlign: TextAlign.center,
-            ),
-                )),
+              pageVisibility: pageVisibility,
+              child: Text(
+                'Prepare a Workshop',
+                textAlign: TextAlign.center,
+              ),
+            )),
           ),
           Expanded(
             flex: 4,
@@ -185,35 +154,26 @@ class WorkshopPage extends StatelessWidget {
 }
 
 class ManagersPage extends StatelessWidget {
-
   final PageVisibility pageVisibility;
 
-  const ManagersPage({Key key, @required this.pageVisibility}) : super(key: key);
+  const ManagersPage({Key key, @required this.pageVisibility})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Container(
-        decoration: BoxDecoration(
-          image: ParallaxDecorationImage(
-            pageVisibility: pageVisibility,
-            image: AssetImage('assets/image40.jpg'),
-          ),
-        ),
-        child: Align(
-          alignment: Alignment.topRight,
-          child: Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: Text('Managers', style: TextStyle(color: Colors.white)),
-          ),
-        ),
+    return ImagePage(
+      'assets/image40.jpg',
+      pageVisibility: pageVisibility,
+      alignment: AlignmentDirectional.topEnd,
+      child: Text(
+        'Managers',
+        style: TextStyle(color: Colors.white),
       ),
     );
   }
 }
 
 class MergingPage extends StatelessWidget {
-
   final PageVisibility pageVisibility;
 
   const MergingPage({Key key, @required this.pageVisibility}) : super(key: key);

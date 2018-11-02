@@ -40,7 +40,7 @@ class ConvincingState extends State<Convincing> {
   @override
   Widget build(BuildContext context) {
     final pageCreator = [
-      (visibility) => TitlePage(),
+      (visibility) => TitlePage(pageVisibility: visibility),
       (visibility) => PopularityPage(pageVisibility: visibility),
       (visibility) => PlatformsPage(presentationController),
       (visibility) => SectionPage(
@@ -50,15 +50,25 @@ class ConvincingState extends State<Convincing> {
       (visibility) => CustomerPage(pageVisibility: visibility),
       (visibility) => MerchantPage(pageVisibility: visibility),
       (visibility) => PuppyPage(pageVisibility: visibility),
-      (visibility) => ImagePage('assets/image20.jpg', pageVisibility: visibility,),
+      (visibility) => ImagePage(
+            'assets/image20.jpg',
+            pageVisibility: visibility,
+          ),
       (visibility) => SectionPage(
             'Getting Everybody On Board',
             pageVisibility: visibility,
           ),
       (visibility) => DesignersPage(pageVisibility: visibility),
       (visibility) => UmphPage(pageVisibility: visibility),
-      (visibility) => ImagePage('assets/image38.jpg', pageVisibility: visibility,),
-      (visibility) => LessTestingPage(pageVisibility: visibility),
+      (visibility) => ImagePage(
+            'assets/image38.jpg',
+            pageVisibility: visibility,
+          ),
+      (visibility) => ImagePage(
+            'assets/image31.jpg',
+            pageVisibility: visibility,
+            child: Text('Less Testing'),
+          ),
       (visibility) => DevelopersPage(pageVisibility: visibility),
       (visibility) => WorkshopPage(pageVisibility: visibility),
       (visibility) => ManagersPage(pageVisibility: visibility),
@@ -79,7 +89,10 @@ class ConvincingState extends State<Convincing> {
       (visibility) => DesignersPage(pageVisibility: visibility),
       (visibility) => DevDesignPage(pageVisibility: visibility),
       (visibility) => GrouponPlus(pageVisibility: visibility),
-      (visibility) => ImagePage('assets/image38.jpg', pageVisibility: visibility,),
+      (visibility) => ImagePage(
+            'assets/image38.jpg',
+            pageVisibility: visibility,
+          ),
       (visibility) => AppiumPage(),
       (visibility) => IntegrationTestPage(pageVisibility: visibility),
       (visibility) => WidgetTestPage(pageVisibility: visibility),
@@ -119,27 +132,27 @@ class ConvincingState extends State<Convincing> {
             title: 'For many,',
             subtitle: 'but not everyone.',
             background: GTheme.green,
-          pageVisibility: visibility,
+            pageVisibility: visibility,
           ),
       (visibility) => SummaryPage(
             title: 'Integration',
             subtitle: 'adds complexity',
             background: GTheme.green,
-        pageVisibility: visibility,
+            pageVisibility: visibility,
           ),
       (visibility) => SummaryPage(
             title: 'Flutter',
             subtitle: ' has potential!',
             background: GTheme.green,
-        pageVisibility: visibility,
+            pageVisibility: visibility,
           ),
       (visibility) => SummaryPage(
             title: 'Join the Dart side!',
             subtitle: '',
             background: Colors.black,
-        pageVisibility: visibility,
+            pageVisibility: visibility,
           ),
-      (visibility) => ThankYouPage(),
+      (visibility) => ThankYouPage(pageVisibility: visibility),
     ];
 
     return new Scaffold(

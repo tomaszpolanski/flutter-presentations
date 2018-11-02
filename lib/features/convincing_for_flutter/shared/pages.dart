@@ -50,28 +50,47 @@ class SectionPage extends StatelessWidget {
 class ImagePage extends StatelessWidget {
   final String asset;
   final PageVisibility pageVisibility;
+  final AlignmentGeometry alignment;
+  final Widget child;
 
   const ImagePage(
     this.asset, {
     Key key,
     @required this.pageVisibility,
+    this.child,
+    this.alignment = AlignmentDirectional.topCenter,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SlideWidget(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          image: DecorationImage(
-            image: AssetImage(asset),
-            fit: BoxFit.cover,
-            alignment: FractionalOffset(
-              0.5 + (pageVisibility.pagePosition),
-              0.5,
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              image: ParallaxDecorationImage(
+                pageVisibility: pageVisibility,
+                image: AssetImage(asset),
+              ),
             ),
           ),
-        ),
+          child != null
+              ? SafeArea(
+                  child: Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: Align(
+                      alignment: alignment,
+                      child: ParallaxWidget(
+                        pageVisibility: pageVisibility,
+                        child: child,
+                      ),
+                    ),
+                  ),
+                )
+              : SizedBox(),
+        ],
       ),
     );
   }
