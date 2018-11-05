@@ -1,23 +1,51 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 
-class PageStepper<T> {
+typedef Transition = void Function();
+
+class PageStepper<T> extends Listenable {
   final List<T> steps;
   final PresentationController controller;
   T _currentStep;
   final List<StepTransition> _transitions = <StepTransition>[];
+  VoidCallback _listenable;
 
   PageStepper({this.controller, this.steps}) : _currentStep = steps.first;
 
   void addStep(
     T currentStep,
     T nextStep,
-    void Function() transition,
+    Transition transition,
   ) {
     _transitions.add(StepTransition(
       currentStep: currentStep,
       nextStep: nextStep,
       transition: transition,
     ));
+  }
+
+  void add({
+    @required T fromStep,
+    @required T toStep,
+    @required Transition forward,
+    // ignore: always_require_non_null_named_parameters
+    Transition reverse,
+  }) {
+    assert(fromStep != null);
+    assert(toStep != null);
+    assert(forward != null);
+    _transitions.add(StepTransition(
+      currentStep: fromStep,
+      nextStep: toStep,
+      transition: forward,
+    ));
+    if (reverse != null) {
+      _transitions.add(StepTransition(
+        currentStep: toStep,
+        nextStep: fromStep,
+        transition: reverse,
+      ));
+    }
   }
 
   void next() {
@@ -38,11 +66,17 @@ class PageStepper<T> {
     }
   }
 
-  T _tryTransition({T current, T next}) {
+  T _tryTransition({@required T current, @required T next}) {
     final transition = _transitions.firstWhere((transition) =>
         transition.currentStep == _currentStep && transition.nextStep == next);
+
     if (transition != null) {
+      print('From: ${transition.currentStep}, to: ${transition.nextStep}');
       transition.transition();
+      print(_listenable);
+      if (_listenable != null) {
+        _listenable();
+      }
       return next;
     } else {
       print("Transition from $_currentStep to $next doesn't exist!");
@@ -76,12 +110,24 @@ class PageStepper<T> {
     final currentIndex = steps.indexOf(_currentStep);
     return currentIndex - 1 >= 0 ? steps[currentIndex - 1] : null;
   }
+
+  @override
+  void addListener(VoidCallback listener) {
+    _listenable = listener;
+  }
+
+  @override
+  void removeListener(VoidCallback listener) {
+    if (_listenable == listener) {
+      _listenable = null;
+    }
+  }
 }
 
 class StepTransition<T> {
   final T currentStep;
   final T nextStep;
-  final void Function() transition;
+  final Transition transition;
 
   StepTransition({
     this.currentStep,

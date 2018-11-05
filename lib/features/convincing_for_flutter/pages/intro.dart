@@ -78,7 +78,8 @@ class TitlePage extends StatelessWidget {
 class PopularityPage extends StatelessWidget {
   final PageVisibility pageVisibility;
 
-  const PopularityPage({Key key, @required this.pageVisibility}) : super(key: key);
+  const PopularityPage({Key key, @required this.pageVisibility})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -147,29 +148,90 @@ class _PlatformsPageState extends State<PlatformsPage>
       controller: widget.controller,
       steps: _Step.values,
     )
-      ..addStep(_Step.init, _Step.uiq, () => setState(() => _uiq = 1.0))
-      ..addStep(_Step.uiq, _Step.uiqFade, () => setState(() => _uiq = 0.2))
-      ..addStep(
-          _Step.uiqFade, _Step.symbian, () => setState(() => _symbian = 1.0))
-      ..addStep(_Step.symbian, _Step.symbianFade,
-          () => setState(() => _symbian = 0.2))
-      ..addStep(_Step.symbianFade, _Step.blackBerry,
-          () => setState(() => _blackberry = 1.0))
-      ..addStep(_Step.blackBerry, _Step.blackBerryFade,
-          () => setState(() => _blackberry = 0.2))
-      ..addStep(_Step.blackBerryFade, _Step.qt, () => setState(() => _qt = 1.0))
-      ..addStep(_Step.qt, _Step.qtFade, () => setState(() => _qt = 0.2))
-      ..addStep(
-          _Step.qtFade, _Step.windows, () => setState(() => _windows = 1.0))
-      ..addStep(_Step.windows, _Step.windowsFade,
-          () => setState(() => _windows = 0.2))
-      ..addStep(
-          _Step.windowsFade, _Step.apple, () => setState(() => _apple = 1.0))
-      ..addStep(
-          _Step.apple, _Step.android, () => setState(() => _android = 1.0))
-      ..addStep(
-          _Step.android, _Step.fuchsia, () => setState(() => _fuchsia = 0.02))
-      ..addStep(_Step.fuchsia, _Step.next, () => widget.controller.next())
+      ..add(
+        fromStep: _Step.init,
+        toStep: _Step.uiq,
+        forward: () => _uiq = 1.0,
+        reverse: () => _uiq = 0.0,
+      )
+      ..add(
+        fromStep: _Step.uiq,
+        toStep: _Step.uiqFade,
+        forward: () => _uiq = 0.2,
+        reverse: () => _uiq = 1.0,
+      )
+      ..add(
+        fromStep: _Step.uiqFade,
+        toStep: _Step.symbian,
+        forward: () => _symbian = 1.0,
+        reverse: () => _symbian = 0.0,
+      )
+      ..add(
+        fromStep: _Step.symbian,
+        toStep: _Step.symbianFade,
+        forward: () => _symbian = 0.2,
+        reverse: () => _symbian = 1.0,
+      )
+      ..add(
+        fromStep: _Step.symbianFade,
+        toStep: _Step.blackBerry,
+        forward: () => _blackberry = 1.0,
+        reverse: () => _blackberry = 0.0,
+      )
+      ..add(
+        fromStep: _Step.blackBerry,
+        toStep: _Step.blackBerryFade,
+        forward: () => _blackberry = 0.2,
+        reverse: () => _blackberry = 1.0,
+      )
+      ..add(
+        fromStep: _Step.blackBerryFade,
+        toStep: _Step.qt,
+        forward: () => _qt = 1.0,
+        reverse: () => _qt = 0.0,
+      )
+      ..add(
+        fromStep: _Step.qt,
+        toStep: _Step.qtFade,
+        forward: () => _qt = 0.2,
+        reverse: () => _qt = 1.0,
+      )
+      ..add(
+        fromStep: _Step.qtFade,
+        toStep: _Step.windows,
+        forward: () => _windows = 1.0,
+        reverse: () => _windows = 0.0,
+      )
+      ..add(
+        fromStep: _Step.windows,
+        toStep: _Step.windowsFade,
+        forward: () => _windows = 0.2,
+        reverse: () => _windows = 1.0,
+      )
+      ..add(
+        fromStep: _Step.windowsFade,
+        toStep: _Step.apple,
+        forward: () => _apple = 1.0,
+        reverse: () => _apple = 0.0,
+      )
+      ..add(
+        fromStep: _Step.apple,
+        toStep: _Step.android,
+        forward: () => _android = 1.0,
+        reverse: () => _android = 0.0,
+      )
+      ..add(
+        fromStep: _Step.android,
+        toStep: _Step.fuchsia,
+        forward: () => _fuchsia = 0.02,
+        reverse: () => _fuchsia = 0.0,
+      )
+      ..add(
+        fromStep: _Step.fuchsia,
+        toStep: _Step.next,
+        forward: () => widget.controller.next(),
+      )
+      ..addListener(() => setState(() {}))
       ..build();
   }
 
