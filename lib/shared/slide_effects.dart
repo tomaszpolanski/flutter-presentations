@@ -38,9 +38,6 @@ class ParallaxDecorationImage extends DecorationImage {
   }) : super(
           image: image,
           fit: BoxFit.cover,
-          alignment: FractionalOffset(
-            0.5 + (pageVisibility.pagePosition),
-            0.5,
-          ),
+          alignment: Alignment(2 * pageVisibility.pagePosition, 0.0),
         );
 }

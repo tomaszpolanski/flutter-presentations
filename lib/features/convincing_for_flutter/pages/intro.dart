@@ -49,7 +49,7 @@ class TitlePage extends StatelessWidget {
               pageVisibility: pageVisibility,
               child: Padding(
                 padding: const EdgeInsets.only(right: 18.0, bottom: 18.0),
-                child: DefaultTextStyle(
+                child: DefaultTextStyle.merge(
                   style: GTheme.smaller.copyWith(color: Colors.white),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -246,7 +246,7 @@ class _PlatformsPageState extends State<PlatformsPage>
     return GestureDetector(
       onTap: stateController.next,
       child: Container(
-        color: Colors.white,
+        color: Colors.transparent,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
