@@ -11,7 +11,7 @@ class PageVisibilityResolver {
   PageVisibilityResolver({
     ScrollMetrics metrics,
     double viewPortFraction,
-  }) : this._pageMetrics = metrics,
+  })  : this._pageMetrics = metrics,
         this._viewPortFraction = viewPortFraction;
 
   final ScrollMetrics _pageMetrics;
@@ -23,7 +23,7 @@ class PageVisibilityResolver {
   PageVisibility resolvePageVisibility(int pageIndex) {
     final double pagePosition = _calculatePagePosition(pageIndex);
     final double visiblePageFraction =
-    _calculateVisiblePageFraction(pageIndex, pagePosition);
+        _calculateVisiblePageFraction(pageIndex, pagePosition);
 
     return PageVisibility(
       visibleFraction: visiblePageFraction,
@@ -44,7 +44,7 @@ class PageVisibilityResolver {
     final double pageViewWidth =
         (_pageMetrics?.viewportDimension ?? 1.0) * viewPortFraction;
     final double pageX = pageViewWidth * index;
-    final double scrollX = (_pageMetrics?.pixels ?? 0.0);
+    final double scrollX = _pageMetrics?.pixels ?? 0.0;
     final double pagePosition = (pageX - scrollX) / pageViewWidth;
     final double safePagePosition = !pagePosition.isNaN ? pagePosition : 0.0;
 
@@ -93,9 +93,7 @@ class PageVisibility {
 /// Note: Does not transform pages in any way, but provides the means
 /// to easily do it, in the form of [PageVisibility].
 class PageTransformer extends StatefulWidget {
-  PageTransformer({
-    @required this.pageViewBuilder,
-  });
+  const PageTransformer({@required this.pageViewBuilder});
 
   final PageViewBuilder pageViewBuilder;
 

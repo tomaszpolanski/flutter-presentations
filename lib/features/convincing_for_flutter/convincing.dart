@@ -43,16 +43,12 @@ class ConvincingState extends State<Convincing> {
       () => TitlePage(),
       () => PopularityPage(),
       () => PlatformsPage(presentationController),
-      () => SectionPage(
-            'The Cross-Platform Story',
-          ),
+      () => SectionPage('The Cross-Platform Story'),
       () => CustomerPage(),
       () => MerchantPage(),
       () => PuppyPage(),
       () => ImagePage('assets/image20.jpg'),
-      () => SectionPage(
-            'Getting Everybody On Board',
-          ),
+      () => SectionPage('Getting Everybody On Board'),
       () => DesignersPage(),
       () => UmphPage(),
       () => ImagePage('assets/image38.jpg'),
@@ -64,9 +60,7 @@ class ConvincingState extends State<Convincing> {
       () => WorkshopPage(),
       () => ManagersPage(),
       () => MergingPage(),
-      () => SectionPage(
-            'The Assessment',
-          ),
+      () => SectionPage('The Assessment'),
       () => SurveyPage(),
       () => CriteriaPage(
             presentationController,
@@ -79,9 +73,7 @@ class ConvincingState extends State<Convincing> {
       () => DesignersPage(),
       () => DevDesignPage(),
       () => GrouponPlus(),
-      () => ImagePage(
-            'assets/image38.jpg',
-          ),
+      () => ImagePage('assets/image38.jpg'),
       () => AppiumPage(),
       () => IntegrationTestPage(),
       () => WidgetTestPage(),
@@ -144,7 +136,7 @@ class ConvincingState extends State<Convincing> {
       backgroundColor: Colors.white,
       body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) =>
-            <Widget>[
+            [
               SliverOverlapAbsorber(
                 handle:
                     NestedScrollView.sliverOverlapAbsorberHandleFor(context),
