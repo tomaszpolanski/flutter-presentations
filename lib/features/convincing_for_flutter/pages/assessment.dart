@@ -3,20 +3,16 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
-import 'package:flutter_presentations/shared/page_transformer.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/slide_effects.dart';
 
 class SurveyPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const SurveyPage({Key key, @required this.pageVisibility}) : super(key: key);
+  const SurveyPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ImagePage(
       'assets/image19.png',
-      pageVisibility: pageVisibility,
       alignment: AlignmentDirectional.bottomStart,
       child: Text('Survey', style: TextStyle(color: Colors.black)),
     );
@@ -276,10 +272,7 @@ class MyPainter extends CustomPainter {
 }
 
 class DevDesignPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const DevDesignPage({Key key, @required this.pageVisibility})
-      : super(key: key);
+  const DevDesignPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -297,7 +290,6 @@ class DevDesignPage extends StatelessWidget {
           Expanded(
             flex: 6,
             child: ParallaxWidget(
-              pageVisibility: pageVisibility,
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -316,9 +308,7 @@ class DevDesignPage extends StatelessWidget {
 }
 
 class GrouponPlus extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const GrouponPlus({Key key, @required this.pageVisibility}) : super(key: key);
+  const GrouponPlus({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -340,7 +330,6 @@ class GrouponPlus extends StatelessWidget {
             Expanded(
               flex: 4,
               child: ParallaxWidget(
-                pageVisibility: pageVisibility,
                 child: Image(
                   image: AssetImage('assets/image21.png'),
                 ),
@@ -353,7 +342,6 @@ class GrouponPlus extends StatelessWidget {
             Expanded(
               flex: 4,
               child: ParallaxWidget(
-                pageVisibility: pageVisibility,
                 child: Image(
                   image: AssetImage('assets/image16.png'),
                 ),
@@ -384,10 +372,7 @@ class AppiumPage extends StatelessWidget {
 }
 
 class IntegrationTestPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const IntegrationTestPage({Key key, @required this.pageVisibility})
-      : super(key: key);
+  const IntegrationTestPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -399,7 +384,6 @@ class IntegrationTestPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(18.0),
               child: ParallaxWidget(
-                pageVisibility: pageVisibility,
                 child: Text(
                   'Integrations Tests',
                   textAlign: TextAlign.center,
@@ -431,16 +415,12 @@ class IntegrationTestPage extends StatelessWidget {
 }
 
 class WidgetTestPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const WidgetTestPage({Key key, @required this.pageVisibility})
-      : super(key: key);
+  const WidgetTestPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ImagePage(
       'assets/image23.png',
-      pageVisibility: pageVisibility,
       alignment: AlignmentDirectional.topStart,
       child: Text(
         'Widget tests to the rescue!',
@@ -451,16 +431,12 @@ class WidgetTestPage extends StatelessWidget {
 }
 
 class LearningPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const LearningPage({Key key, @required this.pageVisibility})
-      : super(key: key);
+  const LearningPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ImagePage(
       'assets/image43.jpg',
-      pageVisibility: pageVisibility,
       alignment: AlignmentDirectional.bottomEnd,
       child: Text(
         'Learning',
@@ -471,10 +447,7 @@ class LearningPage extends StatelessWidget {
 }
 
 class FlutterDartPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const FlutterDartPage({Key key, @required this.pageVisibility})
-      : super(key: key);
+  const FlutterDartPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -484,7 +457,6 @@ class FlutterDartPage extends StatelessWidget {
           Align(
             alignment: Alignment.topCenter,
             child: ParallaxWidget(
-              pageVisibility: pageVisibility,
               child: Padding(
                 padding: const EdgeInsets.all(18.0),
                 child: Text(
@@ -516,16 +488,12 @@ class FlutterDartPage extends StatelessWidget {
 }
 
 class TeachingPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const TeachingPage({Key key, @required this.pageVisibility})
-      : super(key: key);
+  const TeachingPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ImagePage(
       'assets/image45.jpg',
-      pageVisibility: pageVisibility,
       alignment: AlignmentDirectional.topEnd,
       child: Text(
         'Teaching',
@@ -536,12 +504,11 @@ class TeachingPage extends StatelessWidget {
 }
 
 class LaunchPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const LaunchPage({Key key, @required this.pageVisibility}) : super(key: key);
+  const LaunchPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final pageVisibility = ParallaxSettings.of(context);
     return SlideWidget(
       child: Container(
         color: Colors.black,
@@ -581,9 +548,7 @@ class LaunchPage extends StatelessWidget {
 }
 
 class ApplePage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const ApplePage({Key key, @required this.pageVisibility}) : super(key: key);
+  const ApplePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -595,7 +560,6 @@ class ApplePage extends StatelessWidget {
             Expanded(child: Image(image: AssetImage('assets/apple.png'))),
             Expanded(
                 child: ParallaxWidget(
-              pageVisibility: pageVisibility,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -623,9 +587,7 @@ class ApplePage extends StatelessWidget {
 }
 
 class AndroidPage extends StatefulWidget {
-  final PageVisibility pageVisibility;
-
-  const AndroidPage({Key key, @required this.pageVisibility}) : super(key: key);
+  const AndroidPage({Key key}) : super(key: key);
 
   @override
   AndroidPageState createState() => new AndroidPageState();
@@ -666,7 +628,6 @@ class AndroidPageState extends State<AndroidPage>
             Expanded(
                 flex: 6,
                 child: ParallaxWidget(
-                  pageVisibility: widget.pageVisibility,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[

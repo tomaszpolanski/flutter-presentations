@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
 import 'package:flutter_presentations/shared/page_transformer.dart';
 
 class ParallaxWidget extends StatelessWidget {
@@ -8,13 +9,14 @@ class ParallaxWidget extends StatelessWidget {
 
   const ParallaxWidget({
     Key key,
-    @required this.pageVisibility,
+    this.pageVisibility,
     this.translationFactor = 100.0,
     @required this.child,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final pageVisibility = this.pageVisibility ?? ParallaxSettings.of(context);
     final double xTranslation = pageVisibility.pagePosition * translationFactor;
     return Opacity(
       opacity: pageVisibility.visibleFraction,

@@ -40,45 +40,35 @@ class ConvincingState extends State<Convincing> {
   @override
   Widget build(BuildContext context) {
     final pageCreator = [
-      (visibility) => TitlePage(pageVisibility: visibility),
-      (visibility) => PopularityPage(pageVisibility: visibility),
-      (visibility) => PlatformsPage(presentationController),
-      (visibility) => SectionPage(
+      () => TitlePage(),
+      () => PopularityPage(),
+      () => PlatformsPage(presentationController),
+      () => SectionPage(
             'The Cross-Platform Story',
-            pageVisibility: visibility,
           ),
-      (visibility) => CustomerPage(pageVisibility: visibility),
-      (visibility) => MerchantPage(pageVisibility: visibility),
-      (visibility) => PuppyPage(pageVisibility: visibility),
-      (visibility) => ImagePage(
-            'assets/image20.jpg',
-            pageVisibility: visibility,
-          ),
-      (visibility) => SectionPage(
+      () => CustomerPage(),
+      () => MerchantPage(),
+      () => PuppyPage(),
+      () => ImagePage('assets/image20.jpg'),
+      () => SectionPage(
             'Getting Everybody On Board',
-            pageVisibility: visibility,
           ),
-      (visibility) => DesignersPage(pageVisibility: visibility),
-      (visibility) => UmphPage(pageVisibility: visibility),
-      (visibility) => ImagePage(
-            'assets/image38.jpg',
-            pageVisibility: visibility,
-          ),
-      (visibility) => ImagePage(
+      () => DesignersPage(),
+      () => UmphPage(),
+      () => ImagePage('assets/image38.jpg'),
+      () => ImagePage(
             'assets/image31.jpg',
-            pageVisibility: visibility,
             child: Text('Less Testing'),
           ),
-      (visibility) => DevelopersPage(pageVisibility: visibility),
-      (visibility) => WorkshopPage(pageVisibility: visibility),
-      (visibility) => ManagersPage(pageVisibility: visibility),
-      (visibility) => MergingPage(pageVisibility: visibility),
-      (visibility) => SectionPage(
+      () => DevelopersPage(),
+      () => WorkshopPage(),
+      () => ManagersPage(),
+      () => MergingPage(),
+      () => SectionPage(
             'The Assessment',
-            pageVisibility: visibility,
           ),
-      (visibility) => SurveyPage(pageVisibility: visibility),
-      (visibility) => CriteriaPage(
+      () => SurveyPage(),
+      () => CriteriaPage(
             presentationController,
             title: Text(
               'The Criteria',
@@ -86,23 +76,22 @@ class ConvincingState extends State<Convincing> {
               style: GTheme.medium.copyWith(color: Colors.white),
             ),
           ),
-      (visibility) => DesignersPage(pageVisibility: visibility),
-      (visibility) => DevDesignPage(pageVisibility: visibility),
-      (visibility) => GrouponPlus(pageVisibility: visibility),
-      (visibility) => ImagePage(
+      () => DesignersPage(),
+      () => DevDesignPage(),
+      () => GrouponPlus(),
+      () => ImagePage(
             'assets/image38.jpg',
-            pageVisibility: visibility,
           ),
-      (visibility) => AppiumPage(),
-      (visibility) => IntegrationTestPage(pageVisibility: visibility),
-      (visibility) => WidgetTestPage(pageVisibility: visibility),
-      (visibility) => ManagersPage(pageVisibility: visibility),
-      (visibility) => DevelopersPage(pageVisibility: visibility),
-      (visibility) => LearningPage(pageVisibility: visibility),
-      (visibility) => FlutterDartPage(pageVisibility: visibility),
-      (visibility) => TeachingPage(pageVisibility: visibility),
-      (visibility) => LaunchPage(pageVisibility: visibility),
-      (visibility) => CriteriaPage(
+      () => AppiumPage(),
+      () => IntegrationTestPage(),
+      () => WidgetTestPage(),
+      () => ManagersPage(),
+      () => DevelopersPage(),
+      () => LearningPage(),
+      () => FlutterDartPage(),
+      () => TeachingPage(),
+      () => LaunchPage(),
+      () => CriteriaPage(
             presentationController,
             business: GTheme.green,
             background: Colors.white,
@@ -114,8 +103,8 @@ class ConvincingState extends State<Convincing> {
               style: GTheme.medium,
             ),
           ),
-      (visibility) => ApplePage(pageVisibility: visibility),
-      (visibility) => CriteriaPage(
+      () => ApplePage(),
+      () => CriteriaPage(
             presentationController,
             business: GTheme.green,
             background: Colors.white,
@@ -127,32 +116,28 @@ class ConvincingState extends State<Convincing> {
               style: GTheme.medium,
             ),
           ),
-      (visibility) => AndroidPage(pageVisibility: visibility),
-      (visibility) => SummaryPage(
+      () => AndroidPage(),
+      () => SummaryPage(
             title: 'For many,',
             subtitle: 'but not everyone.',
             background: GTheme.green,
-            pageVisibility: visibility,
           ),
-      (visibility) => SummaryPage(
+      () => SummaryPage(
             title: 'Integration',
             subtitle: 'adds complexity',
             background: GTheme.green,
-            pageVisibility: visibility,
           ),
-      (visibility) => SummaryPage(
+      () => SummaryPage(
             title: 'Flutter',
             subtitle: ' has potential!',
             background: GTheme.green,
-            pageVisibility: visibility,
           ),
-      (visibility) => SummaryPage(
+      () => SummaryPage(
             title: 'Join the Dart side!',
             subtitle: '',
             background: Colors.black,
-            pageVisibility: visibility,
           ),
-      (visibility) => ThankYouPage(pageVisibility: visibility),
+      () => ThankYouPage(),
     ];
 
     return new Scaffold(
@@ -177,7 +162,10 @@ class ConvincingState extends State<Convincing> {
                     itemBuilder: (context, index) {
                       final pageVisibility =
                           visibilityResolver.resolvePageVisibility(index);
-                      return pageCreator[index](pageVisibility);
+                      return ParallaxSettings(
+                        pageVisibility: pageVisibility,
+                        child: pageCreator[index](),
+                      );
                     },
                   ),
             ),

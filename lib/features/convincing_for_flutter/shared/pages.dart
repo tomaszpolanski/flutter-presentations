@@ -7,10 +7,8 @@ import 'package:flutter_presentations/shared/slide_effects.dart';
 
 class SectionPage extends StatelessWidget {
   final String text;
-  final PageVisibility pageVisibility;
 
-  const SectionPage(this.text, {Key key, @required this.pageVisibility})
-      : super(key: key);
+  const SectionPage(this.text, {Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +22,6 @@ class SectionPage extends StatelessWidget {
             Expanded(
               flex: 2,
               child: ParallaxWidget(
-                pageVisibility: pageVisibility,
                 translationFactor: 150.0,
                 child: Align(
                   alignment: Alignment.bottomLeft,
@@ -49,20 +46,19 @@ class SectionPage extends StatelessWidget {
 
 class ImagePage extends StatelessWidget {
   final String asset;
-  final PageVisibility pageVisibility;
   final AlignmentGeometry alignment;
   final Widget child;
 
   const ImagePage(
     this.asset, {
     Key key,
-    @required this.pageVisibility,
     this.child,
     this.alignment = AlignmentDirectional.topCenter,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final pageVisibility = ParallaxSettings.of(context);
     return SlideWidget(
       child: Stack(
         fit: StackFit.expand,
@@ -130,15 +126,33 @@ class PresentationSettings extends InheritedWidget {
   }
 }
 
+class ParallaxSettings extends InheritedWidget {
+  final PageVisibility pageVisibility;
+
+  const ParallaxSettings({
+    Key key,
+    @required this.pageVisibility,
+    @required Widget child,
+  }) : super(key: key, child: child);
+
+  static PageVisibility of(BuildContext context) {
+    final ParallaxSettings widget =
+        context.inheritFromWidgetOfExactType(ParallaxSettings);
+    return widget?.pageVisibility;
+  }
+
+  @override
+  bool updateShouldNotify(ParallaxSettings oldWidget) =>
+      pageVisibility != oldWidget.pageVisibility;
+}
+
 class SummaryPage extends StatelessWidget {
   final String title;
   final String subtitle;
   final Color background;
-  final PageVisibility pageVisibility;
 
   const SummaryPage({
     Key key,
-    @required this.pageVisibility,
     this.title,
     this.subtitle,
     this.background,
@@ -158,7 +172,6 @@ class SummaryPage extends StatelessWidget {
                 Expanded(
                   flex: 2,
                   child: ParallaxWidget(
-                    pageVisibility: pageVisibility,
                     translationFactor: 150.0,
                     child: Align(
                       alignment: Alignment.bottomLeft,

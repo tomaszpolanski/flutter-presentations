@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
-import 'package:flutter_presentations/shared/page_transformer.dart';
 import 'package:flutter_presentations/shared/slide_effects.dart';
 
 class DesignersPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const DesignersPage({Key key, @required this.pageVisibility})
-      : super(key: key);
+  const DesignersPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final pageVisibility = ParallaxSettings.of(context);
     return SlideWidget(
       child: Container(
         decoration: BoxDecoration(
@@ -35,15 +32,12 @@ class DesignersPage extends StatelessWidget {
 }
 
 class UmphPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const UmphPage({Key key, @required this.pageVisibility}) : super(key: key);
+  const UmphPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ImagePage(
       'assets/image39.jpg',
-      pageVisibility: pageVisibility,
       alignment: AlignmentDirectional.topCenter,
       child: Text(
         'Umph',
@@ -54,13 +48,11 @@ class UmphPage extends StatelessWidget {
 }
 
 class LessTestingPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const LessTestingPage({Key key, @required this.pageVisibility})
-      : super(key: key);
+  const LessTestingPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final pageVisibility = ParallaxSettings.of(context);
     return SlideWidget(
       child: Container(
         decoration: BoxDecoration(
@@ -90,16 +82,12 @@ class LessTestingPage extends StatelessWidget {
 }
 
 class DevelopersPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const DevelopersPage({Key key, @required this.pageVisibility})
-      : super(key: key);
+  const DevelopersPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ImagePage(
       'assets/image41.jpg',
-      pageVisibility: pageVisibility,
       alignment: AlignmentDirectional.centerStart,
       child: Text(
         'Developers',
@@ -110,13 +98,11 @@ class DevelopersPage extends StatelessWidget {
 }
 
 class WorkshopPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const WorkshopPage({Key key, @required this.pageVisibility})
-      : super(key: key);
+  const WorkshopPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final pageVisibility = ParallaxSettings.of(context);
     return SlideWidget(
       child: Row(
         children: <Widget>[
@@ -154,16 +140,12 @@ class WorkshopPage extends StatelessWidget {
 }
 
 class ManagersPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const ManagersPage({Key key, @required this.pageVisibility})
-      : super(key: key);
+  const ManagersPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ImagePage(
       'assets/image40.jpg',
-      pageVisibility: pageVisibility,
       alignment: AlignmentDirectional.topEnd,
       child: Text(
         'Managers',
@@ -174,12 +156,11 @@ class ManagersPage extends StatelessWidget {
 }
 
 class MergingPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const MergingPage({Key key, @required this.pageVisibility}) : super(key: key);
+  const MergingPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final pageVisibility = ParallaxSettings.of(context);
     return SlideWidget(
       child: Container(
         decoration: BoxDecoration(

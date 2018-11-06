@@ -2,16 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
-import 'package:flutter_presentations/shared/page_transformer.dart';
 import 'package:flutter_presentations/shared/slide_effects.dart';
 
 class PuppyPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const PuppyPage({Key key, @required this.pageVisibility}) : super(key: key);
+  const PuppyPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final pageVisibility = ParallaxSettings.of(context);
     return SlideWidget(
       child: Container(
         decoration: BoxDecoration(
@@ -47,15 +45,13 @@ class PuppyPage extends StatelessWidget {
 }
 
 class CustomerPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const CustomerPage({Key key, @required this.pageVisibility}) : super(key: key);
+  const CustomerPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SlideWidget(
       child: Row(
-        children: [
+        children: const [
           Expanded(
               child: Image(
             image: AssetImage('assets/image13.png'),
@@ -63,7 +59,6 @@ class CustomerPage extends StatelessWidget {
           )),
           Expanded(
             child: ParallaxWidget(
-              pageVisibility: pageVisibility,
               child: Text('Customer', style: GTheme.medium),
             ),
           ),
@@ -74,15 +69,13 @@ class CustomerPage extends StatelessWidget {
 }
 
 class MerchantPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const MerchantPage({Key key, @required this.pageVisibility}) : super(key: key);
+  const MerchantPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SlideWidget(
       child: Row(
-        children: [
+        children: const [
           Expanded(
               child: Image(
             image: AssetImage('assets/image7.png'),
@@ -90,7 +83,6 @@ class MerchantPage extends StatelessWidget {
           )),
           Expanded(
               child: ParallaxWidget(
-            pageVisibility: pageVisibility,
             child: Text('Merchant', style: GTheme.medium),
           ))
         ],

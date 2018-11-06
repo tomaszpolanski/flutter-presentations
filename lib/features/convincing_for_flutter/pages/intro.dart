@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
-import 'package:flutter_presentations/shared/page_transformer.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_stepper.dart';
 import 'package:flutter_presentations/shared/slide_effects.dart';
 
 class TitlePage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const TitlePage({Key key, @required this.pageVisibility}) : super(key: key);
+  const TitlePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +24,6 @@ class TitlePage extends StatelessWidget {
                     Text('Convincing your '),
                     Text('company to '),
                     ParallaxWidget(
-                      pageVisibility: pageVisibility,
                       child: Row(
                         children: const [
                           Image(
@@ -46,7 +42,6 @@ class TitlePage extends StatelessWidget {
           Align(
             alignment: Alignment.bottomRight,
             child: ParallaxWidget(
-              pageVisibility: pageVisibility,
               child: Padding(
                 padding: const EdgeInsets.only(right: 18.0, bottom: 18.0),
                 child: DefaultTextStyle.merge(
@@ -76,10 +71,7 @@ class TitlePage extends StatelessWidget {
 }
 
 class PopularityPage extends StatelessWidget {
-  final PageVisibility pageVisibility;
-
-  const PopularityPage({Key key, @required this.pageVisibility})
-      : super(key: key);
+  const PopularityPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +83,7 @@ class PopularityPage extends StatelessWidget {
             image: AssetImage('assets/popularity.png'),
             fit: BoxFit.fitWidth,
             alignment: FractionalOffset(
-              0.5 + (pageVisibility.pagePosition),
+              0.5 + (ParallaxSettings.of(context).pagePosition),
               0.5,
             ),
           ),
