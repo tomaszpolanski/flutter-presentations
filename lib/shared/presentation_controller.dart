@@ -45,26 +45,29 @@ class PresentationController {
   }
 
   void _sendAction(PageAction action) {
-    final page = controller.page;
-    if (page.floor() - page == 0.0) {
-      if (_listeners.isEmpty) {
-        next();
-      } else {
-        for (ValueChanged<PageAction> listener in _listeners) {
-          listener(action);
-        }
+    if (_listeners.isEmpty) {
+      switch (action) {
+        case PageAction.next:
+          next();
+          break;
+        case PageAction.previous:
+          previous();
+          break;
+        default:
+          print('Unknown action: $action');
+      }
+    } else {
+      for (ValueChanged<PageAction> listener in _listeners) {
+        listener(action);
       }
     }
   }
 
   void previous() {
-    final page = controller.page;
-    if (page.floor() - page == 0.0) {
-      controller.previousPage(
-        duration: Duration(milliseconds: 300),
-        curve: Curves.easeOut,
-      );
-    }
+    controller.previousPage(
+      duration: Duration(milliseconds: 300),
+      curve: Curves.easeOut,
+    );
   }
 
   void next() {

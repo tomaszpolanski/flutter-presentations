@@ -6,40 +6,28 @@ import 'package:flutter_presentations/features/convincing_for_flutter/pages/intr
 import 'package:flutter_presentations/features/convincing_for_flutter/pages/summary.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
-import 'package:flutter_presentations/shared/page_transformer.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
+import 'package:flutter_presentations/shared/presentation_page.dart';
 
 class Convincing extends StatefulWidget {
   static const String title = 'Convincing your company to Flutter';
   static const String subtitle = '(Groupon)';
 
   @override
-  ConvincingState createState() {
-    return new ConvincingState();
-  }
+  ConvincingState createState() => ConvincingState();
 }
 
 class ConvincingState extends State<Convincing> {
   PageController controller;
   PresentationController presentationController;
+  List<ValueGetter<Widget>> pageCreator;
 
   @override
   void initState() {
     super.initState();
     controller = PageController();
     presentationController = PresentationController(controller: controller);
-  }
-
-  @override
-  void dispose() {
-    presentationController.dispose();
-    controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final pageCreator = [
+    pageCreator = <ValueGetter<Widget>>[
       () => TitlePage(),
       () => PopularityPage(),
       () => PlatformsPage(presentationController),
@@ -131,39 +119,21 @@ class ConvincingState extends State<Convincing> {
           ),
       () => ThankYouPage(),
     ];
+  }
 
-    return new Scaffold(
-      backgroundColor: Colors.white,
-      body: NestedScrollView(
-        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) =>
-            [
-              SliverOverlapAbsorber(
-                handle:
-                    NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-              ),
-            ],
-        body: PresentationSettings(
-          controller: presentationController,
-          child: DefaultTextStyle(
-            style: GTheme.big,
-            child: PageTransformer(
-              pageViewBuilder: (context, visibilityResolver) =>
-                  PageView.builder(
-                    controller: controller,
-                    itemCount: pageCreator.length,
-                    itemBuilder: (context, index) {
-                      final pageVisibility =
-                          visibilityResolver.resolvePageVisibility(index);
-                      return ParallaxSettings(
-                        pageVisibility: pageVisibility,
-                        child: pageCreator[index](),
-                      );
-                    },
-                  ),
-            ),
-          ),
-        ),
-      ),
+  @override
+  void dispose() {
+    presentationController.dispose();
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Presentation(
+      pageCreator: pageCreator,
+      controller: controller,
+      presentationController: presentationController,
     );
   }
 }
