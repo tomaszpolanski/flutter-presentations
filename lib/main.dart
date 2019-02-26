@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/convincing.dart';
 import 'package:flutter_presentations/features/slivers/slivers.dart';
+import 'package:mobile_flutter_merchant/mobile_flutter_merchant.dart';
 
 void main() {
   debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
@@ -45,6 +46,12 @@ class MyHomePage extends StatelessWidget {
             subtitle: Text(Convincing.subtitle),
             onTap: () => Navigator.of(context)
                 .push(MaterialPageRoute(builder: (_) => Convincing())),
+          ),
+          ListTile(
+            title: Text("Groupon"),
+            subtitle: Text(Convincing.subtitle),
+            onTap: () => Navigator.of(context)
+                .push(MaterialPageRoute(builder: (_) => Groupon())),
           ),
         ],
       ),
