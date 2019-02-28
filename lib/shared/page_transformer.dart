@@ -93,9 +93,13 @@ class PageVisibility {
 /// Note: Does not transform pages in any way, but provides the means
 /// to easily do it, in the form of [PageVisibility].
 class PageTransformer extends StatefulWidget {
-  const PageTransformer({@required this.pageViewBuilder});
+  const PageTransformer({
+    @required this.pageViewBuilder,
+    @required this.enableParallax,
+  });
 
   final PageViewBuilder pageViewBuilder;
+  final bool enableParallax;
 
   @override
   _PageTransformerState createState() => _PageTransformerState();
@@ -113,14 +117,16 @@ class _PageTransformerState extends State<PageTransformer> {
     final viewPortFraction = controller.viewportFraction;
 
     return NotificationListener<ScrollNotification>(
-      onNotification: (ScrollNotification notification) {
-        setState(() {
-          _visibilityResolver = PageVisibilityResolver(
-            metrics: notification.metrics,
-            viewPortFraction: viewPortFraction,
-          );
-        });
-      },
+      onNotification: widget.enableParallax
+          ? (ScrollNotification notification) {
+              setState(() {
+                _visibilityResolver = PageVisibilityResolver(
+                  metrics: notification.metrics,
+                  viewPortFraction: viewPortFraction,
+                );
+              });
+            }
+          : null,
       child: pageView,
     );
   }

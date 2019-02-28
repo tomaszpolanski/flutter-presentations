@@ -5,16 +5,18 @@ import 'package:flutter_presentations/shared/page_transformer.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 
 class Presentation extends StatelessWidget {
-  final List<ValueGetter<Widget>> pageCreator;
-  final PageController controller;
-  final PresentationController presentationController;
-
   const Presentation({
     Key key,
     @required this.pageCreator,
     @required this.controller,
     @required this.presentationController,
+    this.enableParallax = true,
   }) : super(key: key);
+
+  final List<ValueGetter<Widget>> pageCreator;
+  final PageController controller;
+  final PresentationController presentationController;
+  final bool enableParallax;
 
   @override
   Widget build(BuildContext context) {
@@ -33,19 +35,23 @@ class Presentation extends StatelessWidget {
           child: DefaultTextStyle.merge(
             style: GTheme.big,
             child: PageTransformer(
-              pageViewBuilder: (context, visibilityResolver) =>
-                  PageView.builder(
-                    controller: controller,
-                    itemCount: pageCreator.length,
-                    itemBuilder: (context, index) {
-                      final pageVisibility =
-                          visibilityResolver.resolvePageVisibility(index);
-                      return ParallaxSettings(
-                        pageVisibility: pageVisibility,
-                        child: pageCreator[index](),
-                      );
-                    },
-                  ),
+              enableParallax: enableParallax,
+              pageViewBuilder: (context, visibilityResolver) {
+                print('QQQ2');
+                return PageView.builder(
+                  controller: controller,
+                  itemCount: pageCreator.length,
+                  itemBuilder: (context, index) {
+                    print('QQQ3');
+                    final pageVisibility =
+                        visibilityResolver.resolvePageVisibility(index);
+                    return ParallaxSettings(
+                      pageVisibility: pageVisibility,
+                      child: pageCreator[index](),
+                    );
+                  },
+                );
+              },
             ),
           ),
         ),
@@ -55,10 +61,10 @@ class Presentation extends StatelessWidget {
 }
 
 class PresentationPage extends StatelessWidget {
+  const PresentationPage({Key key, this.title, this.child}) : super(key: key);
+
   final Widget title;
   final Widget child;
-
-  const PresentationPage({Key key, this.title, this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -2,8 +2,8 @@ import 'package:flutter/foundation.dart'
     show debugDefaultTargetPlatformOverride;
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/convincing.dart';
+import 'package:flutter_presentations/features/groupon/groupon_merchant.dart';
 import 'package:flutter_presentations/features/slivers/slivers.dart';
-import 'package:mobile_flutter_merchant/mobile_flutter_merchant.dart';
 
 void main() {
   debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
@@ -11,6 +11,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  static final GlobalKey gKey = GlobalKey<NavigatorState>();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.white,
         cardColor: Colors.white,
       ),
+      navigatorKey: gKey,
       home: MyHomePage(),
     );
   }
@@ -48,10 +50,10 @@ class MyHomePage extends StatelessWidget {
                 .push(MaterialPageRoute(builder: (_) => Convincing())),
           ),
           ListTile(
-            title: Text("Groupon"),
-            subtitle: Text(Convincing.subtitle),
+            title: Text(GrouponMerchant.title),
+            subtitle: Text(GrouponMerchant.subtitle),
             onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => Groupon())),
+                .push(MaterialPageRoute(builder: (_) => GrouponMerchant())),
           ),
         ],
       ),
