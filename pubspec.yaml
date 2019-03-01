@@ -39,3 +39,8 @@ flutter:
           weight: 700
         - asset: fonts/Monoserrat/Montserrat-Black.ttf
           weight: 900
+
+    - family: Floks
+      fonts:
+        - asset: fonts/folks.ttf
+          weight: 400

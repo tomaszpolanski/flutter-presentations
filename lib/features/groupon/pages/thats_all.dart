@@ -68,7 +68,7 @@ class ThatsAll extends StatelessWidget {
         Center(
           child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: test("That's All Folks!".split('')).toList()),
+              children: test("That's all Folks!".split('')).toList()),
         )
       ],
     );
@@ -83,7 +83,12 @@ class ThatsAll extends StatelessWidget {
           angle: pi / 180 * (i - letters.length * 0.5) * 2,
           child: Text(
             letter,
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'Floks',
+              fontWeight: FontWeight.w400,
+              fontSize: 90,
+            ),
           ),
         ),
       );
