@@ -17,12 +17,13 @@ class _GrouponAppState extends State<GrouponApp> {
         Expanded(
             child: Image(
           image: AssetImage('assets/image32.png'),
-          height: 250.0,
+          height: 250,
         )),
         Expanded(
           child: Center(
             child: Container(
               width: 480,
+              margin: EdgeInsets.symmetric(vertical: 18),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 2),
               ),

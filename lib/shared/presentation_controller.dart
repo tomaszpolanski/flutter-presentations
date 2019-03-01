@@ -31,10 +31,12 @@ class PresentationController {
         switch (data.keyCode) {
           case 20:
           case 21:
+          case 263:
             _sendAction(PageAction.previous);
             break;
           case 19:
           case 22:
+          case 262:
             _sendAction(PageAction.next);
             break;
           default:
