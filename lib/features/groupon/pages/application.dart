@@ -8,6 +8,8 @@ class GrouponApp extends StatefulWidget {
 }
 
 class _GrouponAppState extends State<GrouponApp> {
+  bool _showSplash = true;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -24,7 +26,20 @@ class _GrouponAppState extends State<GrouponApp> {
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 2),
               ),
-              child: Groupon(),
+              child: _showSplash
+                  ? GestureDetector(
+                      onTap: () => setState(() => _showSplash = false),
+                      child: Container(
+                        color: Colors.transparent,
+                        child: Center(
+                          child: Image(
+                            image: AssetImage('assets/image7.png'),
+                            height: 100.0,
+                          ),
+                        ),
+                      ),
+                    )
+                  : Groupon(),
             ),
           ),
         ),

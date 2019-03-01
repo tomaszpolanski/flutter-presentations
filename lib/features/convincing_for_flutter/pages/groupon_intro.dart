@@ -77,14 +77,16 @@ class MerchantPage extends StatelessWidget {
       child: Row(
         children: const [
           Expanded(
-              child: Image(
-            image: AssetImage('assets/image7.png'),
-            height: 200.0,
-          )),
+            child: Image(
+              image: AssetImage('assets/image7.png'),
+              height: 200.0,
+            ),
+          ),
           Expanded(
-              child: ParallaxWidget(
-            child: Text('Merchant', style: GTheme.medium),
-          ))
+            child: ParallaxWidget(
+              child: Text('Merchant', style: GTheme.medium),
+            ),
+          )
         ],
       ),
     );
