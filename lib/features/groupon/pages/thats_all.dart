@@ -68,17 +68,26 @@ class ThatsAll extends StatelessWidget {
         Center(
           child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: "That's All Folks!".split('').map((letter) {
-                return Transform.rotate(
-                  angle: -pi / 180 * 5,
-                  child: Text(
-                    letter,
-                    style: TextStyle(color: Colors.white),
-                  ),
-                );
-              }).toList()),
+              children: test("That's All Folks!".split('')).toList()),
         )
       ],
     );
+  }
+
+  Iterable<Widget> test(List<String> letters) sync* {
+    int i = 0;
+    for (final letter in letters) {
+      yield Transform.translate(
+        offset: Offset(0, 1 / 8 * pow(2 * i - letters.length, 2)),
+        child: Transform.rotate(
+          angle: pi / 180 * (i - letters.length * 0.5) * 2,
+          child: Text(
+            letter,
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      );
+      i += 1;
+    }
   }
 }
