@@ -7,9 +7,11 @@ class GradientContainer extends StatelessWidget {
   const GradientContainer({
     Key key,
     this.fraction,
+    this.beat = 0,
     this.color,
   }) : super(key: key);
   final double fraction;
+  final double beat;
   final Color color;
 
   @override
@@ -17,8 +19,8 @@ class GradientContainer extends StatelessWidget {
     final size = MediaQuery.of(context).size.shortestSide;
     return Center(
       child: Container(
-        height: size * fraction,
-        width: size * fraction,
+        height: size * fraction + 10 * beat,
+        width: size * fraction + 10 * beat,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           gradient: RadialGradient(
@@ -37,29 +39,57 @@ class GradientContainer extends StatelessWidget {
   }
 }
 
-class ThatsAll extends StatelessWidget {
+class ThatsAll extends StatefulWidget {
+  @override
+  _ThatsAllState createState() => _ThatsAllState();
+}
+
+class _ThatsAllState extends State<ThatsAll>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 3),
+    )
+      ..repeat(reverse: true)
+      ..addListener(() => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Transform.scale(
-          scale: 2,
+          scale: 2.5,
           child: Stack(
-            children: const [
-              const GradientContainer(
+            children: [
+              GradientContainer(
                 fraction: 1,
                 color: Color(0xFF570923),
               ),
-              const GradientContainer(
+              GradientContainer(
                 fraction: 0.7,
+                beat: _controller.value,
                 color: Color(0xFF670625),
               ),
-              const GradientContainer(
+              GradientContainer(
                 fraction: 0.7 * 0.7,
+                beat: _controller.value,
                 color: Color(0xFF670625),
               ),
-              const GradientContainer(
+              GradientContainer(
                 fraction: 0.7 * 0.7 * 0.7,
+                beat: _controller.value,
                 color: Color(0xFF670625),
               ),
             ],
@@ -87,7 +117,7 @@ class ThatsAll extends StatelessWidget {
               color: Colors.white,
               fontFamily: 'Floks',
               fontWeight: FontWeight.w400,
-              fontSize: 90,
+              fontSize: 180,
             ),
           ),
         ),
