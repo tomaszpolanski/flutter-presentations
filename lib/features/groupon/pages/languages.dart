@@ -57,7 +57,7 @@ class _LanguagesState extends State<Languages>
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                        '${(animation.value * linePercentage(widget.lineCount)).toInt()}%'),
+                        '${(animation.value * linePercentage(widget.lineCount)).round()}%'),
                     Opacity(
                       opacity: animation.value,
                       child: Text(

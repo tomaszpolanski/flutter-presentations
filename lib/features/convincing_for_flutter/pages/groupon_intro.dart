@@ -55,7 +55,7 @@ class CustomerPage extends StatelessWidget {
           Expanded(
               child: Image(
             image: AssetImage('assets/image13.png'),
-            height: 100.0,
+            height: 200.0,
           )),
           Expanded(
             child: ParallaxWidget(
@@ -79,7 +79,7 @@ class MerchantPage extends StatelessWidget {
           Expanded(
               child: Image(
             image: AssetImage('assets/image7.png'),
-            height: 100.0,
+            height: 200.0,
           )),
           Expanded(
               child: ParallaxWidget(

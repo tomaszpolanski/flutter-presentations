@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/pages/intro.dart';
+import 'package:flutter_presentations/features/convincing_for_flutter/pages/groupon_intro.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/pages/summary.dart';
 import 'package:flutter_presentations/features/groupon/pages/application.dart';
 import 'package:flutter_presentations/features/groupon/pages/languages.dart';
@@ -26,7 +26,7 @@ class GrouponMerchantState extends State<GrouponMerchant> {
     controller = PageController();
     presentationController = PresentationController(controller: controller);
     pageCreator = <ValueGetter<Widget>>[
-      () => TitlePage(),
+      () => MerchantPage(),
       () => Languages(
             lineCount: javaLineCount,
             image: 'assets/java.png',
