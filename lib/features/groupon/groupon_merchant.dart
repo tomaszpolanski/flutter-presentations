@@ -26,7 +26,6 @@ class GrouponMerchantState extends State<GrouponMerchant> {
     controller = PageController();
     presentationController = PresentationController(controller: controller);
     pageCreator = <ValueGetter<Widget>>[
-      () => ThatsAll(),
       () => MerchantPage(),
       () => Languages(
             lineCount: javaLineCount,
@@ -44,6 +43,7 @@ class GrouponMerchantState extends State<GrouponMerchant> {
             subtitle: 'Since 2018',
           ),
       () => GrouponApp(),
+      () => ThatsAll(),
     ];
   }
 
