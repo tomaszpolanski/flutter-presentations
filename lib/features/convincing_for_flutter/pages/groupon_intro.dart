@@ -55,11 +55,11 @@ class CustomerPage extends StatelessWidget {
           Expanded(
               child: Image(
             image: AssetImage('assets/image13.png'),
-            height: 200.0,
+            height: 250.0,
           )),
           Expanded(
             child: ParallaxWidget(
-              child: Text('Customer', style: GTheme.medium),
+              child: Text('Customer', style: GTheme.big),
             ),
           ),
         ],
@@ -79,12 +79,12 @@ class MerchantPage extends StatelessWidget {
           Expanded(
             child: Image(
               image: AssetImage('assets/image7.png'),
-              height: 200.0,
+              height: 250.0,
             ),
           ),
           Expanded(
             child: ParallaxWidget(
-              child: Text('Merchant', style: GTheme.medium),
+              child: Text('Merchant', style: GTheme.big),
             ),
           )
         ],
