@@ -37,15 +37,14 @@ class Presentation extends StatelessWidget {
             child: PageTransformer(
               enableParallax: enableParallax,
               pageViewBuilder: (context, visibilityResolver) {
-                print('QQQ2');
                 return PageView.builder(
                   controller: controller,
                   itemCount: pageCreator.length,
                   itemBuilder: (context, index) {
-                    print('QQQ3');
                     final pageVisibility =
                         visibilityResolver.resolvePageVisibility(index);
                     return ParallaxSettings(
+                      enabled: enableParallax,
                       pageVisibility: pageVisibility,
                       child: pageCreator[index](),
                     );

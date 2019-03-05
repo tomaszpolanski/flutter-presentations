@@ -27,7 +27,7 @@ class GrouponMerchantState extends State<GrouponMerchant> {
     controller = PageController();
     presentationController = PresentationController(controller: controller);
     pageCreator = <ValueGetter<Widget>>[
-      () => Reusage(),
+      () => Reusage(controller: presentationController),
       () => MerchantPage(),
       () => Languages(
             lineCount: javaLineCount,

@@ -127,23 +127,28 @@ class PresentationSettings extends InheritedWidget {
 }
 
 class ParallaxSettings extends InheritedWidget {
-  final PageVisibility pageVisibility;
-
   const ParallaxSettings({
     Key key,
     @required this.pageVisibility,
+    this.enabled = true,
     @required Widget child,
   }) : super(key: key, child: child);
+
+  final PageVisibility pageVisibility;
+  final bool enabled;
 
   static PageVisibility of(BuildContext context) {
     final ParallaxSettings widget =
         context.inheritFromWidgetOfExactType(ParallaxSettings);
-    return widget?.pageVisibility;
+    return widget.enabled
+        ? widget?.pageVisibility
+        : PageVisibility(visibleFraction: 1, pagePosition: 1);
   }
 
   @override
   bool updateShouldNotify(ParallaxSettings oldWidget) =>
-      pageVisibility != oldWidget.pageVisibility;
+      pageVisibility != oldWidget.pageVisibility ||
+      enabled == oldWidget.enabled;
 }
 
 class SummaryPage extends StatelessWidget {

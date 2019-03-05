@@ -4,13 +4,13 @@ import 'package:flutter_presentations/shared/presentation_controller.dart';
 typedef Transition = void Function();
 
 class PageStepper<T> extends Listenable {
+  PageStepper({this.controller, this.steps}) : _currentStep = steps.first;
+
   final List<T> steps;
   final PresentationController controller;
   T _currentStep;
   final List<StepTransition> _transitions = <StepTransition>[];
   VoidCallback _listenable;
-
-  PageStepper({this.controller, this.steps}) : _currentStep = steps.first;
 
   void addStep(
     T currentStep,
@@ -125,13 +125,13 @@ class PageStepper<T> extends Listenable {
 }
 
 class StepTransition<T> {
-  final T currentStep;
-  final T nextStep;
-  final Transition transition;
-
-  StepTransition({
+  const StepTransition({
     this.currentStep,
     this.nextStep,
     this.transition,
   });
+
+  final T currentStep;
+  final T nextStep;
+  final Transition transition;
 }
