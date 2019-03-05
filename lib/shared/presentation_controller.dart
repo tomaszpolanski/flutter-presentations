@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class PresentationController {
-  final PageController controller;
-  final RawKeyboard _keyboard = RawKeyboard.instance;
-  final List<ValueChanged<PageAction>> _listeners =
-      <ValueChanged<PageAction>>[];
+const pageUpKey = 266;
+const pageDownKey = 267;
+const leftKey = 263;
+const rightKey = 262;
 
+class PresentationController {
   PresentationController({@required this.controller})
       : assert(controller != null) {
     _keyboard.addListener(_handleKey);
   }
+
+  final PageController controller;
+  final RawKeyboard _keyboard = RawKeyboard.instance;
+  final List<ValueChanged<PageAction>> _listeners =
+      <ValueChanged<PageAction>>[];
 
   void addListener(ValueChanged<PageAction> listener) {
     _listeners.add(listener);
@@ -31,12 +36,14 @@ class PresentationController {
         switch (data.keyCode) {
           case 20:
           case 21:
-          case 263:
+          case leftKey:
+          case pageUpKey:
             _sendAction(PageAction.previous);
             break;
           case 19:
           case 22:
-          case 262:
+          case rightKey:
+          case pageDownKey:
             _sendAction(PageAction.next);
             break;
           default:

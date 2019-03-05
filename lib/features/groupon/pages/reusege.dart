@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
+import 'package:flutter_presentations/shared/presentation_controller.dart';
+import 'package:flutter_presentations/shared/presentation_stepper.dart';
 import 'package:flutter_sidekick/flutter_sidekick.dart';
 
+enum _Step {
+  init,
+  reuse,
+  next,
+}
+
 class Reusage extends StatefulWidget {
+  const Reusage({Key key, this.controller}) : super(key: key);
+
+  final PresentationController controller;
+
   @override
   _ReusageState createState() => _ReusageState();
 }
 
 class _ReusageState extends State<Reusage> with SingleTickerProviderStateMixin {
-  bool _show = false;
-  Offset offset;
+  PageStepper<_Step> _stateController;
   SidekickController controller;
 
   @override
@@ -17,18 +29,30 @@ class _ReusageState extends State<Reusage> with SingleTickerProviderStateMixin {
     super.initState();
     controller = SidekickController(
       vsync: this,
-      duration: Duration(milliseconds: 200),
+      duration: Duration(milliseconds: 500),
+    )..addStatusListener((_) => setState(() {}));
+    _stateController = PageStepper<_Step>(
+      controller: widget.controller,
+      steps: _Step.values,
     )
-      ..addListener(() {
-        setState(() {});
-      })
-      ..addStatusListener((_) {
-        setState(() {});
-      });
+      ..add(
+        fromStep: _Step.init,
+        toStep: _Step.reuse,
+        forward: () => controller.moveToTarget(context),
+        reverse: () => controller.moveToSource(context),
+      )
+      ..add(
+        fromStep: _Step.reuse,
+        toStep: _Step.next,
+        forward: () => widget.controller.next(),
+      )
+      ..addListener(() => setState(() {}))
+      ..build();
   }
 
   @override
   void dispose() {
+    _stateController.dispose();
     controller.dispose();
     super.dispose();
   }
@@ -45,105 +69,230 @@ class _ReusageState extends State<Reusage> with SingleTickerProviderStateMixin {
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 2),
               ),
-              child: Container(
-                color: Colors.pink,
-                child: Column(
-                  children: <Widget>[
-                    SizedBox(
-                      height: 100,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Align(
-                          alignment: Alignment.bottomLeft,
-                          child: GestureDetector(
-                            onTap: () => controller.moveToTarget(context),
-                            child: Stack(
-                              children: <Widget>[
-                                Sidekick(
-                                  tag: 'source1',
-                                  targetTag: 'target1',
-                                  animationBuilder: (animation) =>
-                                      CurvedAnimation(
-                                        parent: animation,
-                                        curve: FlippedCurve(Curves.easeOut),
-                                      ),
-                                  child: controller.status !=
-                                          AnimationStatus.completed
-                                      ? Icon(Icons.image)
-                                      : SizedBox(),
+              child: Padding(
+                padding: EdgeInsets.all(8),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      _FakeText(),
+                      Stack(
+                        children: [
+                          Sidekick(
+                            tag: 'source1',
+                            targetTag: 'target1',
+                            animationBuilder: (animation) => CurvedAnimation(
+                                  parent: animation,
+                                  curve: FlippedCurve(Curves.easeOut),
                                 ),
-                                Sidekick(
-                                  tag: 'source2',
-                                  targetTag: 'target2',
-                                  child: Icon(Icons.image),
-                                ),
-                                Icon(Icons.image),
-                              ],
-                            ),
+                            child: const _ReuseItem(color: Colors.black),
                           ),
+                          Sidekick(
+                            tag: 'source2',
+                            targetTag: 'target2',
+                            child: const _ReuseItem(color: Colors.black),
+                          ),
+                          Sidekick(
+                            tag: 'source3',
+                            targetTag: 'target3',
+                            child: const _ReuseItem(color: Colors.black),
+                          ),
+                          Sidekick(
+                            tag: 'source4',
+                            targetTag: 'target4',
+                            child: const _ReuseItem(color: Colors.black),
+                          ),
+                          Sidekick(
+                            tag: 'source5',
+                            targetTag: 'target5',
+                            child: const _ReuseItem(color: Colors.black),
+                          ),
+                          const _ReuseItem(color: Colors.black),
+                        ],
+                      ),
+                      _PlaceholderItem(
+                        child: _Sidekick(
+                          tag: 'target1',
+                          visible: !(controller.status ==
+                                  AnimationStatus.forward ||
+                              controller.status == AnimationStatus.dismissed),
+                          child: _ReuseItem(color: GTheme.flutter1),
                         ),
                       ),
-                    ),
-                    Container(
-                      height: 100,
-                      width: double.infinity,
-                      margin: EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                        border: Border.all(color: Colors.black),
+                      _PlaceholderItem(
+                        child: _Sidekick(
+                          tag: 'target2',
+                          visible: !(controller.status ==
+                                  AnimationStatus.forward ||
+                              controller.status == AnimationStatus.dismissed),
+                          child: _ReuseItem(color: GTheme.flutter3),
+                        ),
                       ),
-                      child: Sidekick(
-                        tag: 'target1',
-                        flightShuttleBuilder: (
-                          BuildContext flightContext,
-                          Animation<double> animation,
-                          SidekickFlightDirection flightDirection,
-                          BuildContext fromSidekickContext,
-                          BuildContext toSidekickContext,
-                        ) =>
-                            Icon(Icons.image),
-                        child: controller.status == AnimationStatus.forward ||
-                                controller.status == AnimationStatus.dismissed
-                            ? SizedBox()
-                            : Icon(Icons.image),
+                      _PlaceholderItem(
+                        child: _Sidekick(
+                          tag: 'target3',
+                          visible: !(controller.status ==
+                                  AnimationStatus.forward ||
+                              controller.status == AnimationStatus.dismissed),
+                          child: _ReuseItem(color: GTheme.flutter2),
+                        ),
                       ),
-                    ),
-                    Container(
-                      height: 100,
-                      width: double.infinity,
-                      margin: EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                        border: Border.all(color: Colors.black),
+                      _PlaceholderItem(
+                        child: _Sidekick(
+                          tag: 'target4',
+                          visible: !(controller.status ==
+                                  AnimationStatus.forward ||
+                              controller.status == AnimationStatus.dismissed),
+                          child: _ReuseItem(color: GTheme.flutter1),
+                        ),
                       ),
-                      child: Sidekick(
-                        tag: 'target2',
-                        flightShuttleBuilder: (
-                          BuildContext flightContext,
-                          Animation<double> animation,
-                          SidekickFlightDirection flightDirection,
-                          BuildContext fromSidekickContext,
-                          BuildContext toSidekickContext,
-                        ) =>
-                            Icon(Icons.image),
-                        child: controller.status == AnimationStatus.forward ||
-                                controller.status == AnimationStatus.dismissed
-                            ? SizedBox()
-                            : Icon(Icons.image),
+                      _PlaceholderItem(
+                        child: _Sidekick(
+                          tag: 'target5',
+                          visible: !(controller.status ==
+                                  AnimationStatus.forward ||
+                              controller.status == AnimationStatus.dismissed),
+                          child: _ReuseItem(color: GTheme.flutter3),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
         ),
         Expanded(
-            child: Image(
-          image: AssetImage('assets/image32.png'),
-          height: 250,
-        )),
+          child: Center(
+            child: Text(
+              'Widget Reuse',
+              textAlign: TextAlign.center,
+              style: GTheme.big,
+            ),
+          ),
+        ),
       ],
+    );
+  }
+}
+
+class _Sidekick extends StatelessWidget {
+  const _Sidekick({
+    Key key,
+    this.visible,
+    this.child,
+    this.tag,
+  }) : super(key: key);
+
+  final Widget child;
+  final bool visible;
+  final String tag;
+
+  @override
+  Widget build(BuildContext context) {
+    return Sidekick(
+      tag: tag,
+      flightShuttleBuilder: (
+        BuildContext flightContext,
+        Animation<double> animation,
+        SidekickFlightDirection flightDirection,
+        BuildContext fromSidekickContext,
+        BuildContext toSidekickContext,
+      ) =>
+          child,
+      child: Visibility(
+        maintainSize: true,
+        maintainAnimation: true,
+        maintainState: true,
+        visible: visible,
+        child: child,
+      ),
+    );
+  }
+}
+
+class _PlaceholderItem extends StatelessWidget {
+  const _PlaceholderItem({Key key, this.child}) : super(key: key);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      margin: EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+      padding: EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color: GTheme.flutter1, width: 2),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          child,
+          _FakeText(),
+        ],
+      ),
+    );
+  }
+}
+
+class _FakeText extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      crossAxisAlignment: WrapCrossAlignment.start,
+      children: [100.0, 50.0, 70.0, 140.0, 70.0]
+          .map((width) => _FakeTextBlock(width: width))
+          .toList(growable: false),
+    );
+  }
+}
+
+class _ReuseItem extends StatelessWidget {
+  const _ReuseItem({
+    Key key,
+    this.color = Colors.black,
+  }) : super(key: key);
+
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 30,
+      child: Row(
+        children: <Widget>[
+          Container(
+            width: 20,
+            height: 20,
+            decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+          )
+        ]..addAll([100.0, 50.0].map((width) => _FakeTextBlock(
+              width: width,
+              color: color,
+            ))),
+      ),
+    );
+  }
+}
+
+class _FakeTextBlock extends StatelessWidget {
+  const _FakeTextBlock({
+    Key key,
+    this.width,
+    this.color = const Color(0xFFE0E0E0),
+  }) : super(key: key);
+  final double width;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 20,
+      width: width,
+      color: color,
+      margin: EdgeInsets.all(4),
     );
   }
 }
