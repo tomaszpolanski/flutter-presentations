@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/pages/groupon_intro.dart';
 import 'package:flutter_presentations/features/groupon/pages/application.dart';
 import 'package:flutter_presentations/features/groupon/pages/languages.dart';
+import 'package:flutter_presentations/features/groupon/pages/reusege.dart';
 import 'package:flutter_presentations/features/groupon/pages/thats_all.dart';
 import 'package:flutter_presentations/features/groupon/stats.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
@@ -26,6 +27,7 @@ class GrouponMerchantState extends State<GrouponMerchant> {
     controller = PageController();
     presentationController = PresentationController(controller: controller);
     pageCreator = <ValueGetter<Widget>>[
+      () => Reusage(),
       () => MerchantPage(),
       () => Languages(
             lineCount: javaLineCount,
