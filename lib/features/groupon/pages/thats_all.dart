@@ -8,11 +8,9 @@ class GradientContainer extends StatelessWidget {
     Key key,
     this.fraction,
     this.beat = 0,
-    this.color,
   }) : super(key: key);
   final double fraction;
   final double beat;
-  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +22,10 @@ class GradientContainer extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           gradient: RadialGradient(
-            colors: [
+            colors: const [
               Color(0xFFdc5921),
               Color(0xFFdc5921),
-              color,
+              Color(0xFF670625),
               Color(0xFF35051f),
               Colors.black,
             ],
@@ -79,42 +77,36 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Transform.scale(
-          scale: 2.5,
-          child: Stack(
-            children: [
-              GradientContainer(
-                fraction: 1,
-                color: Color(0xFF570923),
-              ),
-              GradientContainer(
-                fraction: 0.7,
-                beat: _controller.value,
-                color: Color(0xFF670625),
-              ),
-              GradientContainer(
-                fraction: 0.7 * 0.7,
-                beat: _controller.value,
-                color: Color(0xFF670625),
-              ),
-              GradientContainer(
-                fraction: 0.7 * 0.7 * 0.7,
-                beat: _controller.value,
-                color: Color(0xFF670625),
-              ),
-            ],
-          ),
-        ),
-        Center(
-          child: DefaultTextStyle.merge(
-            style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'Floks',
-              fontWeight: FontWeight.w400,
-              fontSize: 180,
+    return DefaultTextStyle.merge(
+      style: TextStyle(
+        color: Colors.white,
+        fontFamily: 'Floks',
+        fontWeight: FontWeight.w400,
+        fontSize: 180,
+      ),
+      child: Stack(
+        children: [
+          Transform.scale(
+            scale: 2.5,
+            child: Stack(
+              children: [
+                GradientContainer(fraction: 1),
+                GradientContainer(
+                  fraction: 0.7,
+                  beat: _controller.value,
+                ),
+                GradientContainer(
+                  fraction: 0.7 * 0.7,
+                  beat: _controller.value,
+                ),
+                GradientContainer(
+                  fraction: 0.7 * 0.7 * 0.7,
+                  beat: _controller.value,
+                ),
+              ],
             ),
+          ),
+          Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -142,8 +134,29 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
               ],
             ),
           ),
-        )
-      ],
+          Align(
+            alignment: Alignment.bottomRight,
+            child: AnimatedOpacity(
+              duration: Duration(milliseconds: 500),
+              opacity: _showQuestions ? 1 : 0,
+              child: DefaultTextStyle.merge(
+                style: TextStyle(fontSize: 30),
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: const [
+                      Text('Tomek Polanski'),
+                      Text('@tpolansk'),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
