@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_stepper.dart';
 
@@ -65,17 +66,31 @@ class _InheritanceVsCompositionState extends State<InheritanceVsComposition> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Stack(
       children: [
-        Expanded(
-          child: _Inheritance(
-            controller: _inheritanceController,
+        Align(
+          alignment: Alignment.topCenter,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 100),
+            child: Text(
+              'Inheritance vs Composition',
+              style: GTheme.big.copyWith(color: GTheme.flutter3),
+            ),
           ),
         ),
-        Expanded(
-          child: _Composition(
-            controller: _compositionController,
-          ),
+        Row(
+          children: [
+            Expanded(
+              child: _Inheritance(
+                controller: _inheritanceController,
+              ),
+            ),
+            Expanded(
+              child: _Composition(
+                controller: _compositionController,
+              ),
+            ),
+          ],
         ),
       ],
     );

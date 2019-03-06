@@ -96,30 +96,43 @@ class _ThatsAllState extends State<ThatsAll>
           ),
         ),
         Center(
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: test("That's all Folks!".split('')).toList()),
-        )
-      ],
-    );
-  }
-
-  Iterable<Widget> test(List<String> letters) sync* {
-    int i = 0;
-    for (final letter in letters) {
-      yield Transform.translate(
-        offset: Offset(0, 1 / 8 * pow(2 * i - letters.length, 2)),
-        child: Transform.rotate(
-          angle: pi / 180 * (i - letters.length * 0.5) * 2,
-          child: Text(
-            letter,
+          child: DefaultTextStyle.merge(
             style: TextStyle(
               color: Colors.white,
               fontFamily: 'Floks',
               fontWeight: FontWeight.w400,
               fontSize: 180,
             ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: _format("That's all Folks!".split('')).toList(),
+                ),
+                DefaultTextStyle.merge(
+                  style: TextStyle(fontSize: 100),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: _format('Thank you!'.split('')).toList(),
+                  ),
+                ),
+              ],
+            ),
           ),
+        )
+      ],
+    );
+  }
+
+  Iterable<Widget> _format(List<String> letters) sync* {
+    int i = 0;
+    for (final letter in letters) {
+      yield Transform.translate(
+        offset: Offset(0, 1 / 8 * pow(2 * i - letters.length, 2)),
+        child: Transform.rotate(
+          angle: pi / 180 * (i - letters.length * 0.5) * 2,
+          child: Text(letter),
         ),
       );
       i += 1;
