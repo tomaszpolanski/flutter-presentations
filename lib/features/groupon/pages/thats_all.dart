@@ -112,7 +112,7 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
               children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: _format("That's all Folks!".split('')).toList(),
+                  children: _format("That's all Folks!").toList(),
                 ),
                 DefaultTextStyle.merge(
                   style: TextStyle(fontSize: 100),
@@ -123,11 +123,11 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
                         : CrossFadeState.showFirst,
                     firstChild: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: _format('Thank you!'.split('')).toList(),
+                      children: _format('Thank you!').toList(),
                     ),
                     secondChild: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: _format('Questions?'.split('')).toList(),
+                      children: _format('Questions?').toList(),
                     ),
                   ),
                 ),
@@ -160,13 +160,13 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
     );
   }
 
-  Iterable<Widget> _format(List<String> letters) sync* {
+  Iterable<Widget> _format(String text) sync* {
     int i = 0;
-    for (final letter in letters) {
+    for (final letter in text.split('')) {
       yield Transform.translate(
-        offset: Offset(0, 1 / 8 * pow(2 * i - letters.length, 2)),
+        offset: Offset(0, 1 / 8 * pow(2 * i - text.length, 2)),
         child: Transform.rotate(
-          angle: pi / 180 * (i - letters.length * 0.5) * 2,
+          angle: pi / 180 * (i - text.length * 0.5) * 2,
           child: Text(letter),
         ),
       );
