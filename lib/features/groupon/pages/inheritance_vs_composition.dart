@@ -1,25 +1,82 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_presentations/shared/presentation_controller.dart';
+import 'package:flutter_presentations/shared/presentation_stepper.dart';
 
 class InheritanceVsComposition extends StatefulWidget {
+  const InheritanceVsComposition({Key key, this.controller}) : super(key: key);
+
+  final PresentationController controller;
+
   @override
   _InheritanceVsCompositionState createState() =>
       _InheritanceVsCompositionState();
 }
 
+enum _Step {
+  init,
+  inheritance,
+  composition,
+  next,
+}
+
 class _InheritanceVsCompositionState extends State<InheritanceVsComposition> {
+  PageStepper<_Step> _stateController;
+  _Controller _compositionController;
+
+  @override
+  void initState() {
+    super.initState();
+    _compositionController = _Controller();
+    _stateController = PageStepper<_Step>(
+      controller: widget.controller,
+      steps: _Step.values,
+    )
+      ..add(
+        fromStep: _Step.init,
+        toStep: _Step.inheritance,
+        forward: () {},
+        reverse: () {},
+      )
+      ..add(
+        fromStep: _Step.inheritance,
+        toStep: _Step.composition,
+        forward: () => _compositionController.forward(),
+        reverse: () => _compositionController.reverse(),
+      )
+      ..add(
+        fromStep: _Step.composition,
+        toStep: _Step.next,
+        forward: () => widget.controller.next(),
+      )
+      ..build();
+  }
+
+  @override
+  void dispose() {
+    _stateController.dispose();
+    _compositionController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: <Widget>[
+      children: [
         Expanded(child: SizedBox()),
-        Expanded(child: _Composition()),
+        Expanded(
+            child: _Composition(
+          controller: _compositionController,
+        )),
       ],
     );
   }
 }
 
 class _Composition extends StatefulWidget {
+  const _Composition({Key key, this.controller}) : super(key: key);
+  final _Controller controller;
+
   @override
   __CompositionState createState() => __CompositionState();
 }
@@ -33,8 +90,12 @@ class __CompositionState extends State<_Composition>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 4),
-    )..forward();
+      duration: Duration(seconds: 2),
+    );
+    widget.controller.addListeners(
+      () => _controller.forward(),
+      () => _controller.reverse(),
+    );
   }
 
   @override
@@ -59,7 +120,7 @@ class __CompositionState extends State<_Composition>
               child: _AnimatedPosition(
                 animation: CurvedAnimation(
                   parent: _controller,
-                  curve: Interval(0.4, 0.6, curve: Curves.ease),
+                  curve: Interval(0.7, 1, curve: Curves.ease),
                 ),
                 child: _CompositionItem(
                   width: size * 4,
@@ -73,7 +134,7 @@ class __CompositionState extends State<_Composition>
               child: _AnimatedPosition(
                 animation: CurvedAnimation(
                   parent: _controller,
-                  curve: Interval(0.3, 0.5, curve: Curves.ease),
+                  curve: Interval(0.6, 0.9, curve: Curves.ease),
                 ),
                 child: _CompositionItem(
                   width: size,
@@ -88,7 +149,7 @@ class __CompositionState extends State<_Composition>
               child: _AnimatedPosition(
                 animation: CurvedAnimation(
                   parent: _controller,
-                  curve: Interval(0.2, 0.4, curve: Curves.ease),
+                  curve: Interval(0.5, 0.8, curve: Curves.ease),
                 ),
                 child: _CompositionItem(
                   width: size,
@@ -102,7 +163,7 @@ class __CompositionState extends State<_Composition>
               child: _AnimatedPosition(
                 animation: CurvedAnimation(
                   parent: _controller,
-                  curve: Interval(0.1, 0.3, curve: Curves.ease),
+                  curve: Interval(0.3, 0.7, curve: Curves.ease),
                 ),
                 child: _CompositionItem(
                   width: size * 3,
@@ -116,7 +177,7 @@ class __CompositionState extends State<_Composition>
               child: _AnimatedPosition(
                 animation: CurvedAnimation(
                   parent: _controller,
-                  curve: Interval(0.0, 0.2, curve: Curves.ease),
+                  curve: Interval(0.0, 0.4, curve: Curves.ease),
                 ),
                 child: _CompositionItem(
                   width: size * 3,
@@ -182,4 +243,23 @@ class _CompositionItem extends StatelessWidget {
       ),
     );
   }
+}
+
+class _Controller {
+  VoidCallback _forward;
+  VoidCallback _reverse;
+
+  void addListeners(VoidCallback forward, VoidCallback reverse) {
+    _forward = forward;
+    _reverse = reverse;
+  }
+
+  void dispose() {
+    _forward = null;
+    _reverse = null;
+  }
+
+  void forward() => _forward();
+
+  void reverse() => _reverse();
 }
