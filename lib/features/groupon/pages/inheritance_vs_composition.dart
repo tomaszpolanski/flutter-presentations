@@ -143,9 +143,12 @@ class _AnimatedPosition extends StatelessWidget {
     return AnimatedBuilder(
       animation: animation,
       builder: (BuildContext context, Widget child) {
-        return Transform.translate(
-          offset: Offset(0, animation.value * 500),
-          child: child,
+        return Opacity(
+          opacity: animation.value,
+          child: Transform.translate(
+            offset: Offset(0, animation.value * 500),
+            child: child,
+          ),
         );
       },
       child: Transform.translate(
