@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_stepper.dart';
 
+const size = 50.0;
+
 class InheritanceVsComposition extends StatefulWidget {
   const InheritanceVsComposition({Key key, this.controller}) : super(key: key);
 
@@ -22,11 +24,13 @@ enum _Step {
 
 class _InheritanceVsCompositionState extends State<InheritanceVsComposition> {
   PageStepper<_Step> _stateController;
+  _Controller _inheritanceController;
   _Controller _compositionController;
 
   @override
   void initState() {
     super.initState();
+    _inheritanceController = _Controller();
     _compositionController = _Controller();
     _stateController = PageStepper<_Step>(
       controller: widget.controller,
@@ -35,8 +39,8 @@ class _InheritanceVsCompositionState extends State<InheritanceVsComposition> {
       ..add(
         fromStep: _Step.init,
         toStep: _Step.inheritance,
-        forward: () {},
-        reverse: () {},
+        forward: () => _inheritanceController.forward(),
+        reverse: () => _inheritanceController.reverse(),
       )
       ..add(
         fromStep: _Step.inheritance,
@@ -63,12 +67,126 @@ class _InheritanceVsCompositionState extends State<InheritanceVsComposition> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: SizedBox()),
         Expanded(
-            child: _Composition(
-          controller: _compositionController,
-        )),
+          child: _Inheritance(
+            controller: _inheritanceController,
+          ),
+        ),
+        Expanded(
+          child: _Composition(
+            controller: _compositionController,
+          ),
+        ),
       ],
+    );
+  }
+}
+
+class _Inheritance extends StatefulWidget {
+  const _Inheritance({Key key, this.controller}) : super(key: key);
+  final _Controller controller;
+
+  @override
+  __InheritanceState createState() => __InheritanceState();
+}
+
+class __InheritanceState extends State<_Inheritance>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 2),
+    );
+    widget.controller.addListeners(
+      () => _controller.forward(),
+      () => _controller.reverse(),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      child: _AnimatedInheritance(
+        animation: CurvedAnimation(
+          parent: _controller,
+          curve: Interval(0.0, 0.3, curve: Curves.ease),
+        ),
+        child: Container(
+          width: size * 5,
+          height: size * 4,
+          decoration: BoxDecoration(
+            color: Colors.red,
+            border: Border.all(color: Colors.black),
+          ),
+          child: Align(
+            alignment: Alignment.topLeft,
+            child: _AnimatedInheritance(
+              animation: CurvedAnimation(
+                parent: _controller,
+                curve: Interval(0.3, 0.6, curve: Curves.ease),
+              ),
+              child: Container(
+                width: size * 4,
+                height: size * 4,
+                margin: EdgeInsets.all(size * 0.2),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  border: Border.all(color: Colors.black),
+                ),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: _AnimatedInheritance(
+                    animation: CurvedAnimation(
+                      parent: _controller,
+                      curve: Interval(0.6, 1, curve: Curves.ease),
+                    ),
+                    child: Container(
+                      width: size * 3,
+                      height: size * 3,
+                      margin: EdgeInsets.all(size * 0.2),
+                      decoration: BoxDecoration(
+                        color: Colors.yellow,
+                        border: Border.all(color: Colors.black),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _AnimatedInheritance extends StatelessWidget {
+  const _AnimatedInheritance({Key key, this.animation, this.child})
+      : super(key: key);
+  final Animation<double> animation;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: animation,
+      builder: (_, child) {
+        return Opacity(
+          opacity: animation.value,
+          child: child,
+        );
+      },
+      child: child,
     );
   }
 }
@@ -106,13 +224,10 @@ class __CompositionState extends State<_Composition>
 
   @override
   Widget build(BuildContext context) {
-    const size = 50.0;
-    return GestureDetector(
-      onTap: () {
-        _controller.forward(from: 0);
-      },
-      child: Container(
-        color: Colors.transparent,
+    return Center(
+      child: SizedBox(
+        width: size * 5,
+        height: size * 4,
         child: Stack(
           overflow: Overflow.visible,
           children: [
