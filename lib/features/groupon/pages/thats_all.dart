@@ -44,9 +44,10 @@ class ThatsAll extends StatefulWidget {
   _ThatsAllState createState() => _ThatsAllState();
 }
 
-class _ThatsAllState extends State<ThatsAll>
-    with SingleTickerProviderStateMixin {
+class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
   AnimationController _controller;
+  AnimationController _fadeInController;
+  bool _showQuestions = false;
 
   @override
   void initState() {
@@ -57,11 +58,22 @@ class _ThatsAllState extends State<ThatsAll>
     )
       ..repeat(reverse: true)
       ..addListener(() => setState(() {}));
+    _fadeInController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 10),
+    )
+      ..forward()
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          setState(() => _showQuestions = true);
+        }
+      });
   }
 
   @override
   void dispose() {
     _controller.dispose();
+    _fadeInController.dispose();
     super.dispose();
   }
 
@@ -112,9 +124,19 @@ class _ThatsAllState extends State<ThatsAll>
                 ),
                 DefaultTextStyle.merge(
                   style: TextStyle(fontSize: 100),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: _format('Thank you!'.split('')).toList(),
+                  child: AnimatedCrossFade(
+                    duration: Duration(milliseconds: 500),
+                    crossFadeState: _showQuestions
+                        ? CrossFadeState.showSecond
+                        : CrossFadeState.showFirst,
+                    firstChild: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: _format('Thank you!'.split('')).toList(),
+                    ),
+                    secondChild: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: _format('Questions?'.split('')).toList(),
+                    ),
                   ),
                 ),
               ],
