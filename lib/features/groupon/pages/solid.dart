@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_stepper.dart';
 
@@ -22,12 +23,14 @@ const _principles = [
 enum _Step {
   init,
   solid,
+  openClosed,
   next,
 }
 
 class _SolidState extends State<Solid> with TickerProviderStateMixin {
   PageStepper<_Step> _stateController;
   AnimationController _controller;
+  bool _showOnlyOpenClosed = false;
 
   @override
   void initState() {
@@ -48,7 +51,12 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
         reverse: () => _controller.reverse(),
       )
       ..add(
-        fromStep: _Step.solid,
+          fromStep: _Step.solid,
+          toStep: _Step.openClosed,
+          forward: () => setState(() => _showOnlyOpenClosed = true),
+          reverse: () => setState(() => _showOnlyOpenClosed = false))
+      ..add(
+        fromStep: _Step.openClosed,
         toStep: _Step.next,
         forward: () => widget.controller.next(),
       )
@@ -76,9 +84,13 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
       style: TextStyle(fontSize: height),
       child: Stack(
         children: [
-          _AnimatedLine(
-            index: 0,
-            animation: _controller,
+          AnimatedOpacity(
+            opacity: _showOnlyOpenClosed ? 0 : 1,
+            duration: Duration(milliseconds: 300),
+            child: _AnimatedLine(
+              index: 0,
+              animation: _controller,
+            ),
           ),
           Positioned(
             left: offset,
@@ -98,49 +110,61 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
           ),
           Positioned(
             left: offset * 2,
-            child: AnimatedBuilder(
-              animation: translateAnimation,
-              builder: (_, child) {
-                return Transform.translate(
-                  offset: Offset(0, translateAnimation.value * height * 2),
-                  child: child,
-                );
-              },
-              child: _AnimatedLine(
-                index: 2,
-                animation: _controller,
+            child: AnimatedOpacity(
+              opacity: _showOnlyOpenClosed ? 0 : 1,
+              duration: Duration(milliseconds: 300),
+              child: AnimatedBuilder(
+                animation: translateAnimation,
+                builder: (_, child) {
+                  return Transform.translate(
+                    offset: Offset(0, translateAnimation.value * height * 2),
+                    child: child,
+                  );
+                },
+                child: _AnimatedLine(
+                  index: 2,
+                  animation: _controller,
+                ),
               ),
             ),
           ),
           Positioned(
             left: offset * 3,
-            child: AnimatedBuilder(
-              animation: translateAnimation,
-              builder: (_, child) {
-                return Transform.translate(
-                  offset: Offset(0, translateAnimation.value * height * 3),
-                  child: child,
-                );
-              },
-              child: _AnimatedLine(
-                index: 3,
-                animation: _controller,
+            child: AnimatedOpacity(
+              opacity: _showOnlyOpenClosed ? 0 : 1,
+              duration: Duration(milliseconds: 300),
+              child: AnimatedBuilder(
+                animation: translateAnimation,
+                builder: (_, child) {
+                  return Transform.translate(
+                    offset: Offset(0, translateAnimation.value * height * 3),
+                    child: child,
+                  );
+                },
+                child: _AnimatedLine(
+                  index: 3,
+                  animation: _controller,
+                ),
               ),
             ),
           ),
           Positioned(
             left: offset * 3.5,
-            child: AnimatedBuilder(
-              animation: translateAnimation,
-              builder: (_, child) {
-                return Transform.translate(
-                  offset: Offset(0, translateAnimation.value * height * 4),
-                  child: child,
-                );
-              },
-              child: _AnimatedLine(
-                index: 4,
-                animation: _controller,
+            child: AnimatedOpacity(
+              opacity: _showOnlyOpenClosed ? 0 : 1,
+              duration: Duration(milliseconds: 300),
+              child: AnimatedBuilder(
+                animation: translateAnimation,
+                builder: (_, child) {
+                  return Transform.translate(
+                    offset: Offset(0, translateAnimation.value * height * 4),
+                    child: child,
+                  );
+                },
+                child: _AnimatedLine(
+                  index: 4,
+                  animation: _controller,
+                ),
               ),
             ),
           ),
@@ -179,15 +203,6 @@ class _AnimatedLine extends StatelessWidget {
   }
 }
 
-class _Dot extends StatelessWidget {
-  const _Dot({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(' . ');
-  }
-}
-
 class _Letter extends StatelessWidget {
   const _Letter(
     this.text, {
@@ -204,7 +219,10 @@ class _Letter extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.baseline,
       textBaseline: TextBaseline.alphabetic,
       children: <Widget>[
-        Text(text[0]),
+        Text(
+          text[0],
+          style: TextStyle(color: GTheme.flutter3),
+        ),
         AnimatedBuilder(
           animation: animation,
           builder: (_, child) {
@@ -225,7 +243,7 @@ class _Letter extends StatelessWidget {
           },
           child: Text(
             text.substring(1, text.length),
-            style: TextStyle(fontSize: 40),
+            style: TextStyle(fontSize: 40, color: GTheme.flutter2),
           ),
         ),
       ],
