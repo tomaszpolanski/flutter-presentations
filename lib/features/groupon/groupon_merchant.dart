@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/pages/groupon_intro.dart';
 import 'package:flutter_presentations/features/groupon/pages/application.dart';
-import 'package:flutter_presentations/features/groupon/pages/languages.dart';
+import 'package:flutter_presentations/features/groupon/pages/inheritance_vs_composition.dart';
+import 'package:flutter_presentations/features/groupon/pages/intro.dart';
+import 'package:flutter_presentations/features/groupon/pages/reusege.dart';
 import 'package:flutter_presentations/features/groupon/pages/solid.dart';
 import 'package:flutter_presentations/features/groupon/pages/thats_all.dart';
-import 'package:flutter_presentations/features/groupon/stats.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_page.dart';
 
@@ -27,26 +27,10 @@ class GrouponMerchantState extends State<GrouponMerchant> {
     controller = PageController();
     presentationController = PresentationController(controller: controller);
     pageCreator = <ValueGetter<Widget>>[
-      //() => Intro(),
-      //() => InheritanceVsComposition(controller: presentationController),
-      //() => Reusage(controller: presentationController),
+      () => Intro(),
       () => Solid(controller: presentationController),
-      () => MerchantPage(),
-      () => Languages(
-            lineCount: javaLineCount,
-            image: 'assets/java.png',
-            subtitle: 'Since 2014',
-          ),
-      () => Languages(
-            lineCount: kotlinLineCount,
-            image: 'assets/kotlin.png',
-            subtitle: 'Since 2016',
-          ),
-      () => Languages(
-            lineCount: dartLineCount,
-            image: 'assets/dart.png',
-            subtitle: 'Since 2018',
-          ),
+      () => InheritanceVsComposition(controller: presentationController),
+      () => Reusage(controller: presentationController),
       () => GrouponApp(),
       () => ThatsAll(),
     ];
