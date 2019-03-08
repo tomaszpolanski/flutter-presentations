@@ -30,7 +30,7 @@ class GrouponMerchantState extends State<GrouponMerchant> {
       //() => Intro(),
       //() => InheritanceVsComposition(controller: presentationController),
       //() => Reusage(controller: presentationController),
-      () => Solid(),
+      () => Solid(controller: presentationController),
       () => MerchantPage(),
       () => Languages(
             lineCount: javaLineCount,
