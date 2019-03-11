@@ -4,7 +4,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/shared/gro
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_stepper.dart';
 
-const size = 50.0;
+const size = 100.0;
 
 class InheritanceVsComposition extends StatefulWidget {
   const InheritanceVsComposition({Key key, this.controller}) : super(key: key);

@@ -167,7 +167,7 @@ class _ReusageState extends State<Reusage> with SingleTickerProviderStateMixin {
             child: Text(
               'Widget Reuse',
               textAlign: TextAlign.center,
-              style: GTheme.big,
+              style: GTheme.big.copyWith(color: GTheme.flutter2),
             ),
           ),
         ),
