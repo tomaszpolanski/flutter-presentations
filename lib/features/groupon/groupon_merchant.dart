@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/groupon/pages/application.dart';
+import 'package:flutter_presentations/features/groupon/pages/everythigs_widget.dart';
 import 'package:flutter_presentations/features/groupon/pages/inheritance_vs_composition.dart';
 import 'package:flutter_presentations/features/groupon/pages/intro.dart';
 import 'package:flutter_presentations/features/groupon/pages/reusege.dart';
@@ -28,6 +29,7 @@ class GrouponMerchantState extends State<GrouponMerchant> {
     presentationController = PresentationController(controller: controller);
     pageCreator = <ValueGetter<Widget>>[
       () => Intro(),
+      () => EverythingsWidget(controller: presentationController),
       () => Solid(controller: presentationController),
       () => InheritanceVsComposition(controller: presentationController),
       () => Reusage(controller: presentationController),
