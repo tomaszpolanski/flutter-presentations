@@ -3,6 +3,7 @@ import 'package:flutter_presentations/features/groupon/pages/application.dart';
 import 'package:flutter_presentations/features/groupon/pages/everythigs_widget.dart';
 import 'package:flutter_presentations/features/groupon/pages/inheritance_vs_composition.dart';
 import 'package:flutter_presentations/features/groupon/pages/intro.dart';
+import 'package:flutter_presentations/features/groupon/pages/reark.dart';
 import 'package:flutter_presentations/features/groupon/pages/reusege.dart';
 import 'package:flutter_presentations/features/groupon/pages/solid.dart';
 import 'package:flutter_presentations/features/groupon/pages/thats_all.dart';
@@ -33,6 +34,7 @@ class GrouponMerchantState extends State<GrouponMerchant> {
       () => InheritanceVsComposition(controller: presentationController),
       () => EverythingsWidget(controller: presentationController),
       () => Reusage(controller: presentationController),
+      () => Reark(controller: presentationController),
       () => GrouponApp(),
       () => ThatsAll(),
     ];
