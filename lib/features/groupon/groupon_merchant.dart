@@ -7,6 +7,7 @@ import 'package:flutter_presentations/features/groupon/pages/reark.dart';
 import 'package:flutter_presentations/features/groupon/pages/reusege.dart';
 import 'package:flutter_presentations/features/groupon/pages/solid.dart';
 import 'package:flutter_presentations/features/groupon/pages/thats_all.dart';
+import 'package:flutter_presentations/features/groupon/pages/tutorial.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_page.dart';
 
@@ -29,11 +30,13 @@ class GrouponMerchantState extends State<GrouponMerchant> {
     controller = PageController();
     presentationController = PresentationController(controller: controller);
     pageCreator = <ValueGetter<Widget>>[
+      () => TutorialResult(controller: presentationController),
       () => Intro(),
       () => Solid(controller: presentationController),
       () => InheritanceVsComposition(controller: presentationController),
       () => EverythingsWidget(controller: presentationController),
       () => Reusage(controller: presentationController),
+      () => TutorialGoal(controller: presentationController),
       () => Reark(controller: presentationController),
       () => GrouponApp(),
       () => ThatsAll(),
