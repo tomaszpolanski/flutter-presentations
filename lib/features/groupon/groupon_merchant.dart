@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/groupon/pages/application.dart';
+import 'package:flutter_presentations/features/groupon/pages/conversation.dart';
 import 'package:flutter_presentations/features/groupon/pages/everythigs_widget.dart';
 import 'package:flutter_presentations/features/groupon/pages/inheritance_vs_composition.dart';
 import 'package:flutter_presentations/features/groupon/pages/intro.dart';
@@ -38,6 +39,7 @@ class GrouponMerchantState extends State<GrouponMerchant> {
       () => TutorialGoal(controller: presentationController),
       () => TutorialResult(controller: presentationController),
       () => Reark(controller: presentationController),
+      () => Conversation(controller: presentationController),
       () => GrouponApp(),
       () => ThatsAll(),
     ];
