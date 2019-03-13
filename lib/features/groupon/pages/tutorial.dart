@@ -153,37 +153,56 @@ class _TutorialResultState extends State<TutorialResult>
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Stack(
       children: <Widget>[
-        Expanded(
-          child: Align(
-            alignment: Alignment.center,
-            child: AnimatedOpacity(
-              opacity: _showImage ? 1 : 0,
-              duration: Duration(milliseconds: 100),
-              child: Image.asset(
-                'assets/performance.png',
-                width: 245,
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: Text(
+                'Image',
+                style: TextStyle(color: GTheme.flutter2),
+                textAlign: TextAlign.center,
               ),
             ),
-          ),
+            Expanded(
+              child: Text(
+                'Widget',
+                style: TextStyle(color: GTheme.flutter2),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
         ),
-        Expanded(
-          child: _showGraph
-              ? AnimatedOpacity(
-                  opacity: _showGraph ? 1 : 0,
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Expanded(
+              child: Align(
+                alignment: Alignment.center,
+                child: AnimatedOpacity(
+                  opacity: _showImage ? 1 : 0,
                   duration: Duration(milliseconds: 100),
-                  child: SizedBox(
-                    width: 250,
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: applyTranslations(
-                          Align(child: PerformanceTutorialDemo())),
-                    ),
+                  child: Image.asset(
+                    'assets/performance.png',
+                    width: 245,
                   ),
-                )
-              : SizedBox(),
+                ),
+              ),
+            ),
+            Expanded(
+              child: _showGraph
+                  ? AnimatedOpacity(
+                      opacity: _showGraph ? 1 : 0,
+                      duration: Duration(milliseconds: 100),
+                      child: SizedBox(
+                        width: 250,
+                        child: applyTranslations(
+                            Align(child: PerformanceTutorialDemo())),
+                      ),
+                    )
+                  : SizedBox(),
+            ),
+          ],
         ),
       ],
     );
