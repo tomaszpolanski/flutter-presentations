@@ -30,13 +30,13 @@ class GrouponMerchantState extends State<GrouponMerchant> {
     controller = PageController();
     presentationController = PresentationController(controller: controller);
     pageCreator = <ValueGetter<Widget>>[
-      () => TutorialResult(controller: presentationController),
       () => Intro(),
       () => Solid(controller: presentationController),
       () => InheritanceVsComposition(controller: presentationController),
       () => EverythingsWidget(controller: presentationController),
       () => Reusage(controller: presentationController),
       () => TutorialGoal(controller: presentationController),
+      () => TutorialResult(controller: presentationController),
       () => Reark(controller: presentationController),
       () => GrouponApp(),
       () => ThatsAll(),
