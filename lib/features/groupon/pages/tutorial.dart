@@ -156,24 +156,6 @@ class _TutorialResultState extends State<TutorialResult>
     return Stack(
       children: <Widget>[
         Row(
-          children: <Widget>[
-            Expanded(
-              child: Text(
-                'Image',
-                style: TextStyle(color: GTheme.flutter2),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            Expanded(
-              child: Text(
-                'Widget',
-                style: TextStyle(color: GTheme.flutter2),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ],
-        ),
-        Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Expanded(
@@ -203,6 +185,35 @@ class _TutorialResultState extends State<TutorialResult>
                   : SizedBox(),
             ),
           ],
+        ),
+        Transform.translate(
+          offset: Offset(0, 80),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: AnimatedOpacity(
+                  opacity: _showImage ? 1 : 0,
+                  duration: Duration(milliseconds: 100),
+                  child: Text(
+                    'Image',
+                    style: TextStyle(color: GTheme.flutter2),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: AnimatedOpacity(
+                  opacity: _showGraph ? 1 : 0,
+                  duration: Duration(milliseconds: 100),
+                  child: Text(
+                    'Widget',
+                    style: TextStyle(color: GTheme.flutter2),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );
