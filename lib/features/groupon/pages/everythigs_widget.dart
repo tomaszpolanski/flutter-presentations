@@ -19,6 +19,7 @@ enum _Step {
   asteriks,
   showExample,
   showListTitle,
+  showCode,
   next,
 }
 
@@ -28,6 +29,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
   AnimationController _controller;
   bool _showExample = false;
   bool _showTextTitle = true;
+  bool _showCode = false;
 
   @override
   void initState() {
@@ -60,6 +62,12 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
       )
       ..add(
         fromStep: _Step.showListTitle,
+        toStep: _Step.showCode,
+        forward: () => setState(() => _showCode = true),
+        reverse: () => setState(() => _showCode = false),
+      )
+      ..add(
+        fromStep: _Step.showCode,
         toStep: _Step.next,
         forward: () => widget.controller.next(),
       )
@@ -76,86 +84,102 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
   @override
   Widget build(BuildContext context) {
     final animation = _controller.drive(CurveTween(curve: Curves.easeOut));
-    return Row(
+    return Stack(
       children: <Widget>[
-        Expanded(
-          child: DefaultTextStyle.merge(
-            style: GTheme.big.copyWith(color: GTheme.flutter2),
-            child: Center(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Everything's a Widget"),
-                  AnimatedBuilder(
-                    animation: animation,
-                    builder: (_, child) {
-                      return Transform.rotate(
-                        angle: 2 * pi * animation.value / 4,
-                        child: Opacity(
-                          opacity: animation.value,
-                          child: child,
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: DefaultTextStyle.merge(
+                style: GTheme.big.copyWith(color: GTheme.flutter2),
+                child: Center(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Everything's a Widget"),
+                      AnimatedBuilder(
+                        animation: animation,
+                        builder: (_, child) {
+                          return Transform.rotate(
+                            angle: 2 * pi * animation.value / 4,
+                            child: Opacity(
+                              opacity: animation.value,
+                              child: child,
+                            ),
+                          );
+                        },
+                        child: Text(
+                          '✱',
+                          style: TextStyle(
+                            fontSize: 30,
+                            color: GTheme.flutter1,
+                          ),
                         ),
-                      );
-                    },
-                    child: Text(
-                      '✱',
-                      style: TextStyle(
-                        fontSize: 30,
-                        color: GTheme.flutter1,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Center(
+                child: AnimatedOpacity(
+                  opacity: _showExample ? 1 : 0,
+                  duration: Duration(milliseconds: 500),
+                  child: Container(
+                    width: 480,
+                    margin: EdgeInsets.symmetric(vertical: 18),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black, width: 2),
+                    ),
+                    child: Scaffold(
+                      appBar: AppBar(
+                        title: _showTextTitle
+                            ? Text('The Title')
+                            : ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: 100,
+                                itemBuilder: (_, __) {
+                                  return Container(
+                                    color: Colors.red,
+                                    width: 100,
+                                    margin: EdgeInsets.all(8),
+                                  );
+                                },
+                              ),
+                        automaticallyImplyLeading: true,
+                      ),
+                      body: Scrollbar(
+                        child: ListView.builder(
+                          itemCount: 100,
+                          itemBuilder: (_, index) {
+                            return Container(
+                              color: Colors.red,
+                              height: 100,
+                              margin: EdgeInsets.all(8),
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ),
-                ],
-              ),
-            ),
-          ),
-        ),
-        Expanded(
-          child: Center(
-            child: AnimatedOpacity(
-              opacity: _showExample ? 1 : 0,
-              duration: Duration(milliseconds: 500),
-              child: Container(
-                width: 480,
-                margin: EdgeInsets.symmetric(vertical: 18),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.black, width: 2),
-                ),
-                child: Scaffold(
-                  appBar: AppBar(
-                    title: _showTextTitle
-                        ? Text('The Title')
-                        : ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: 100,
-                            itemBuilder: (_, __) {
-                              return Container(
-                                color: Colors.red,
-                                width: 100,
-                                margin: EdgeInsets.all(8),
-                              );
-                            },
-                          ),
-                    automaticallyImplyLeading: true,
-                  ),
-                  body: Scrollbar(
-                    child: ListView.builder(
-                      itemCount: 100,
-                      itemBuilder: (_, __) {
-                        return Container(
-                          color: Colors.red,
-                          height: 100,
-                          margin: EdgeInsets.all(8),
-                        );
-                      },
-                    ),
-                  ),
                 ),
               ),
             ),
-          ),
+          ],
         ),
+        Positioned(
+          bottom: 80,
+          right: 80,
+          child: AnimatedOpacity(
+            opacity: _showCode ? 1 : 0,
+            duration: Duration(milliseconds: 500),
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+              child: Image.asset('assets/scrollbar.png'),
+            ),
+          ),
+        )
       ],
     );
   }
