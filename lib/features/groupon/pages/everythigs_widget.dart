@@ -141,7 +141,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
                                 itemCount: 100,
                                 itemBuilder: (_, __) {
                                   return Container(
-                                    color: Colors.red,
+                                    color: GTheme.flutter1,
                                     width: 100,
                                     margin: EdgeInsets.all(8),
                                   );
@@ -154,7 +154,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
                           itemCount: 100,
                           itemBuilder: (_, index) {
                             return Container(
-                              color: Colors.red,
+                              color: GTheme.flutter1,
                               height: 100,
                               margin: EdgeInsets.all(8),
                             );
