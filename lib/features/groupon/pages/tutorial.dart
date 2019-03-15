@@ -19,6 +19,7 @@ class TutorialGoal extends StatefulWidget {
 enum _TutorialStep {
   init,
   graph,
+  tutorial,
   next,
 }
 
@@ -27,6 +28,7 @@ class _TutorialGoalState extends State<TutorialGoal>
   PageStepper<_TutorialStep> _stateController;
   AnimationController _controller;
   bool _showGraph = false;
+  bool _showTutorial = false;
 
   @override
   void initState() {
@@ -47,6 +49,12 @@ class _TutorialGoalState extends State<TutorialGoal>
       )
       ..add(
         fromStep: _TutorialStep.graph,
+        toStep: _TutorialStep.tutorial,
+        forward: () => setState(() => _showTutorial = true),
+        reverse: () => setState(() => _showTutorial = false),
+      )
+      ..add(
+        fromStep: _TutorialStep.tutorial,
         toStep: _TutorialStep.next,
         forward: () => widget.controller.next(),
       )
@@ -66,11 +74,13 @@ class _TutorialGoalState extends State<TutorialGoal>
       children: <Widget>[
         Expanded(
           child: Center(
-            child: Text(
-              'Feature Reveal',
-              textAlign: TextAlign.center,
-              style: GTheme.big.copyWith(color: GTheme.flutter2),
-            ),
+            child: _showTutorial
+                ? Image.asset('assets/new.png')
+                : Text(
+                    'Feature Reveal',
+                    textAlign: TextAlign.center,
+                    style: GTheme.big.copyWith(color: GTheme.flutter2),
+                  ),
           ),
         ),
         Expanded(
