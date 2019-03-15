@@ -55,7 +55,7 @@ class _RearkState extends State<Reark> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final animation = _controller.drive(CurveTween(curve: Curves.bounceIn));
+    final animation = _controller.drive(CurveTween(curve: Curves.ease));
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -66,8 +66,8 @@ class _RearkState extends State<Reark> with SingleTickerProviderStateMixin {
       ),
       child: AnimatedBuilder(
         builder: (_, child) {
-          return Transform.translate(
-            offset: Offset((animation.value - 1) * 300, 0),
+          return FractionalTranslation(
+            translation: Offset(animation.value - 1, 0),
             child: child,
           );
         },
