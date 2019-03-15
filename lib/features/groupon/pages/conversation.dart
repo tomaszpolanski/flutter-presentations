@@ -191,8 +191,8 @@ class _SlideIn extends StatelessWidget {
         curve: curve,
       ),
       builder: (_, animation, child) {
-        return Opacity(
-          opacity: animation.value,
+        return FadeTransition(
+          opacity: animation,
           child: Transform.translate(
             offset: Offset(
                 (slideInDirection == TextDirection.ltr ? -1 : 1) *

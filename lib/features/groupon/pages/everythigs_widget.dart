@@ -102,8 +102,8 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
                         builder: (_, child) {
                           return Transform.rotate(
                             angle: 2 * pi * animation.value / 4,
-                            child: Opacity(
-                              opacity: animation.value,
+                            child: FadeTransition(
+                              opacity: animation,
                               child: child,
                             ),
                           );
