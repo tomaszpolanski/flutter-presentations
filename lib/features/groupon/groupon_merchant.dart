@@ -14,8 +14,8 @@ import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_page.dart';
 
 class GrouponMerchant extends StatefulWidget {
-  static const String title = 'Groupon Merchant';
-  static const String subtitle = 'the app';
+  static const String title = 'True Code Reuse and Architecture';
+  static const String subtitle = 'in Flutter';
 
   @override
   GrouponMerchantState createState() => GrouponMerchantState();
