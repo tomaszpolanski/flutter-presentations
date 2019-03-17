@@ -16,6 +16,7 @@ class EverythingsWidget extends StatefulWidget {
 
 enum _Step {
   init,
+  blueprint,
   asteriks,
   showExample,
   showListTitle,
@@ -27,6 +28,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
     with SingleTickerProviderStateMixin {
   PageStepper<_Step> _stateController;
   AnimationController _controller;
+  bool _showBlueprint = false;
   bool _showExample = false;
   bool _showTextTitle = true;
   bool _showCode = false;
@@ -44,6 +46,12 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
     )
       ..add(
         fromStep: _Step.init,
+        toStep: _Step.blueprint,
+        forward: () => setState(() => _showBlueprint = true),
+        reverse: () => setState(() => _showBlueprint = false),
+      )
+      ..add(
+        fromStep: _Step.blueprint,
         toStep: _Step.asteriks,
         forward: () => _controller.forward(),
         reverse: () => _controller.reverse(),
@@ -86,6 +94,31 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
     final animation = _controller.drive(CurveTween(curve: Curves.easeOut));
     return Stack(
       children: <Widget>[
+        AnimatedOpacity(
+          opacity: _showBlueprint ? 1 : 0,
+          duration: Duration(milliseconds: 500),
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage('assets/blueprint.jpg'),
+              ),
+            ),
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: const [
+                    Colors.white,
+                    Colors.white,
+                    Colors.transparent,
+                    Colors.transparent,
+                  ],
+                  stops: const [0, 0.5, 0.9, 1],
+                ),
+              ),
+            ),
+          ),
+        ),
         Row(
           children: <Widget>[
             Expanded(
