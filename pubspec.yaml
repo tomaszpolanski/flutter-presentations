@@ -4,8 +4,8 @@ description: Presentations made with Flutter
 dependencies:
   flutter:
     sdk: flutter
-  mobile_flutter_merchant:
-    path: c:\Users\tpolanski\Documents\GitHub\mobile_flutter_merchant\
+  # mobile_flutter_merchant:
+  #   path: c:\Users\tpolanski\Documents\GitHub\mobile_flutter_merchant\
   flutter_localizations:
     sdk: flutter
 

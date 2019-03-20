@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart'
     show debugDefaultTargetPlatformOverride;
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/features/code_reuse/groupon_merchant.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/convincing.dart';
-import 'package:flutter_presentations/features/groupon/groupon_merchant.dart';
 import 'package:flutter_presentations/features/slivers/slivers.dart';
 
 void main() {
@@ -50,10 +50,10 @@ class MyHomePage extends StatelessWidget {
                 .push(MaterialPageRoute(builder: (_) => Convincing())),
           ),
           ListTile(
-            title: Text(GrouponMerchant.title),
-            subtitle: Text(GrouponMerchant.subtitle),
+            title: Text(CodeReuse.title),
+            subtitle: Text(CodeReuse.subtitle),
             onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => GrouponMerchant())),
+                .push(MaterialPageRoute(builder: (_) => CodeReuse())),
           ),
         ],
       ),
