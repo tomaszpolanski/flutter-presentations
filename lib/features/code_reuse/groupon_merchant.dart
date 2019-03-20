@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/groupon/pages/application.dart';
-import 'package:flutter_presentations/features/groupon/pages/composable.dart';
-import 'package:flutter_presentations/features/groupon/pages/conversation.dart';
-import 'package:flutter_presentations/features/groupon/pages/everythigs_widget.dart';
-import 'package:flutter_presentations/features/groupon/pages/inheritance_vs_composition.dart';
-import 'package:flutter_presentations/features/groupon/pages/intro.dart';
-import 'package:flutter_presentations/features/groupon/pages/reark.dart';
-import 'package:flutter_presentations/features/groupon/pages/reusege.dart';
-import 'package:flutter_presentations/features/groupon/pages/solid.dart';
-import 'package:flutter_presentations/features/groupon/pages/thats_all.dart';
-import 'package:flutter_presentations/features/groupon/pages/tutorial.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/application.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/composable.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/conversation.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/everythigs_widget.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/inheritance_vs_composition.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/intro.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/reark.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/reusege.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/solid.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/tutorial.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_page.dart';
 
-class GrouponMerchant extends StatefulWidget {
+class CodeReuse extends StatefulWidget {
   static const String title = 'True Code Reuse and Architecture';
   static const String subtitle = 'in Flutter';
 
   @override
-  GrouponMerchantState createState() => GrouponMerchantState();
+  CodeReuseState createState() => CodeReuseState();
 }
 
-class GrouponMerchantState extends State<GrouponMerchant> {
+class CodeReuseState extends State<CodeReuse> {
   PageController controller;
   PresentationController presentationController;
   List<ValueGetter<Widget>> pageCreator;

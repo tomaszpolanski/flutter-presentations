@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_stepper.dart';
-import 'package:mobile_flutter_merchant/features/groupon_dashboard/tutorial/tutorial_sections.dart';
-import 'package:mobile_flutter_merchant/generated/i18n.dart';
-import 'package:mobile_flutter_merchant/groupon_app.dart';
 
 class TutorialGoal extends StatefulWidget {
   const TutorialGoal({Key key, this.controller}) : super(key: key);
@@ -188,8 +184,7 @@ class _TutorialResultState extends State<TutorialResult>
                       duration: Duration(milliseconds: 100),
                       child: SizedBox(
                         width: 250,
-                        child: applyTranslations(
-                            Align(child: PerformanceTutorialDemo())),
+                        child: Placeholder(),
                       ),
                     )
                   : SizedBox(),
@@ -228,39 +223,4 @@ class _TutorialResultState extends State<TutorialResult>
       ],
     );
   }
-}
-
-Widget applyTranslations(
-  Widget child, {
-  Locale locale,
-}) {
-  return MaterialApp(
-    debugShowCheckedModeBanner: false,
-    localizationsDelegates: const [
-      SkipDelegate(),
-      GlobalMaterialLocalizations.delegate,
-      GlobalWidgetsLocalizations.delegate,
-    ],
-    locale: locale,
-    supportedLocales: S.delegate.supportedLocales,
-    localeResolutionCallback: translationResolution(Locale('en', '')),
-    home: child,
-  );
-}
-
-class SkipTranslations extends S {
-  const SkipTranslations() : super();
-
-  @override
-  String get revamped_tutorial_performance_description => '';
-
-  @override
-  String get revamped_tutorial_performance_title => '';
-}
-
-class SkipDelegate extends GeneratedLocalizationsDelegate {
-  const SkipDelegate() : super();
-
-  @override
-  Future<S> load(Locale locale) => Future.value(SkipTranslations());
 }

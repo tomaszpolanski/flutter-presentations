@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mobile_flutter_merchant/mobile_flutter_merchant.dart';
 
 class GrouponApp extends StatefulWidget {
   @override
@@ -40,7 +39,7 @@ class _GrouponAppState extends State<GrouponApp> {
                         ),
                       ),
                     )
-                  : Groupon(),
+                  : Placeholder(),
             ),
           ),
         ),
