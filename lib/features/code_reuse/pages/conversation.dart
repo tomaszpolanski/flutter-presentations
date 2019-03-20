@@ -16,7 +16,6 @@ class Conversation extends StatefulWidget {
 enum _Step {
   init,
   norbert,
-  // remi,
   salih,
   rafal,
   haha,
@@ -45,12 +44,6 @@ class _ConversationState extends State<Conversation>
         forward: () => _controller.animateTo(0.25),
         reverse: () => _controller.animateBack(0),
       )
-//      ..add(
-//        fromStep: _Step.norbert,
-//        toStep: _Step.remi,
-//        forward: () => _controller.animateTo(0.5),
-//        reverse: () => _controller.animateBack(0.25),
-//      )
       ..add(
         fromStep: _Step.norbert,
         toStep: _Step.salih,
@@ -106,19 +99,6 @@ class _ConversationState extends State<Conversation>
                   ),
                 ),
               ),
-//              _SlideIn(
-//                animation: _controller,
-//                curve: Interval(0.2, 0.4, curve: Curves.ease),
-//                slideInDirection: TextDirection.rtl,
-//                child: _Message(
-//                  avatar: 'assets/remi.jpg',
-//                  user: Text('Remi'),
-//                  child: Text(
-//                    '- learning curve\n'
-//                        '- foolproof-ness',
-//                  ),
-//                ),
-//              ),
               _SlideIn(
                 animation: _controller,
                 curve: Interval(0.25, 0.5, curve: Curves.ease),
