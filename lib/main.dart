@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart'
     show debugDefaultTargetPlatformOverride;
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/code_reuse/groupon_merchant.dart';
+import 'package:flutter_presentations/features/code_reuse/true_code_reuse.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/convincing.dart';
 import 'package:flutter_presentations/features/slivers/slivers.dart';
 
