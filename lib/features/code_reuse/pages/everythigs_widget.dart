@@ -217,26 +217,3 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
     );
   }
 }
-
-class EverythigsExample extends StatefulWidget {
-  @override
-  _EverythigsExampleState createState() => _EverythigsExampleState();
-}
-
-class _EverythigsExampleState extends State<EverythigsExample> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 480,
-      margin: EdgeInsets.symmetric(vertical: 18),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.black, width: 2),
-      ),
-      child: Scaffold(
-        appBar: AppBar(
-          leading: Text('Hi there'),
-        ),
-      ),
-    );
-  }
-}
