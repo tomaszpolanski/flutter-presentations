@@ -27,13 +27,10 @@ class PageVisibilityResolver {
     );
   }
 
-  double _calculateVisiblePageFraction(int index, double pagePosition) {
-    if (pagePosition > -1.0 && pagePosition <= 1.0) {
-      return 1.0 - pagePosition.abs();
-    }
-
-    return 0.0;
-  }
+  double _calculateVisiblePageFraction(int index, double pagePosition) =>
+      pagePosition > -1.0 && pagePosition <= 1.0
+          ? 1.0 - pagePosition.abs()
+          : 0.0;
 
   double _calculatePagePosition(int index) {
     final double viewPortFraction = _viewPortFraction ?? 1.0;
@@ -56,7 +53,7 @@ class PageVisibilityResolver {
 
 /// A class that contains visibility information about the current page.
 class PageVisibility {
-  PageVisibility({
+  const PageVisibility({
     @required this.visibleFraction,
     @required this.pagePosition,
   });

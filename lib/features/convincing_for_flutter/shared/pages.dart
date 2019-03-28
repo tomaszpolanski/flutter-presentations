@@ -1,43 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
+import 'package:flutter_presentations/shared/parallax.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
-import 'package:flutter_presentations/shared/slide_effects.dart';
 
 class SectionPage extends StatelessWidget {
-  final String text;
-
   const SectionPage(this.text, {Key key}) : super(key: key);
+
+  final String text;
 
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Container(
-        color: GTheme.green,
-        padding: EdgeInsets.all(30.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Expanded(
-              flex: 2,
+    return Container(
+      color: GTheme.green,
+      padding: EdgeInsets.all(30.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            flex: 2,
+            child: Align(
+              alignment: Alignment.bottomLeft,
               child: ParallaxWidget(
                 translationFactor: 150.0,
-                child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Container(
-                    color: Colors.white,
-                    height: 8.0,
-                    width: 100.0,
-                  ),
+                child: Container(
+                  color: Colors.white,
+                  height: 8.0,
+                  width: 100.0,
                 ),
               ),
             ),
-            Expanded(
-                flex: 7,
-                child: Text(text,
-                    style: GTheme.big.copyWith(color: Colors.white))),
-          ],
-        ),
+          ),
+          Expanded(
+            flex: 7,
+            child: Text(
+              text,
+              style: GTheme.big.copyWith(color: Colors.white),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -99,31 +100,29 @@ class SlideWidget extends StatelessWidget {
 }
 
 class PresentationSettings extends InheritedWidget {
-  final PresentationController controller;
-
   const PresentationSettings({
     Key key,
     this.controller,
     Widget child,
   }) : super(key: key, child: child);
 
+  final PresentationController controller;
+
   @override
-  bool updateShouldNotify(InheritedWidget oldWidget) {
-    return false;
-  }
+  bool updateShouldNotify(InheritedWidget oldWidget) => false;
 }
 
 class SummaryPage extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final Color background;
-
   const SummaryPage({
     Key key,
     this.title,
     this.subtitle,
     this.background,
   }) : super(key: key);
+
+  final String title;
+  final String subtitle;
+  final Color background;
 
   @override
   Widget build(BuildContext context) {
@@ -151,16 +150,21 @@ class SummaryPage extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                    flex: 7,
-                    child: Text(title,
-                        style: GTheme.big.copyWith(color: Colors.white))),
+                  flex: 7,
+                  child: Text(
+                    title,
+                    style: GTheme.big.copyWith(color: Colors.white),
+                  ),
+                ),
               ],
             ),
             Align(
               alignment: Alignment.bottomRight,
-              child: Text(subtitle,
-                  textAlign: TextAlign.end,
-                  style: GTheme.big.copyWith(color: Colors.white)),
+              child: Text(
+                subtitle,
+                textAlign: TextAlign.end,
+                style: GTheme.big.copyWith(color: Colors.white),
+              ),
             )
           ],
         ),

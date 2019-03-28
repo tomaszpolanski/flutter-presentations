@@ -51,14 +51,3 @@ class ParallaxImage extends StatelessWidget {
     );
   }
 }
-
-class ParallaxDecorationImage extends DecorationImage {
-  ParallaxDecorationImage({
-    PageVisibility pageVisibility,
-    ImageProvider image,
-  }) : super(
-          image: image,
-          fit: BoxFit.cover,
-          alignment: Alignment(2 * pageVisibility.pagePosition, 0.0),
-        );
-}

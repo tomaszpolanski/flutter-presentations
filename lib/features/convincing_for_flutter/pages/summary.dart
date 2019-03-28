@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
-import 'package:flutter_presentations/shared/slide_effects.dart';
+import 'package:flutter_presentations/shared/parallax.dart';
 
 class ThankYouPage extends StatelessWidget {
   const ThankYouPage({Key key}) : super(key: key);
@@ -14,19 +14,21 @@ class ThankYouPage extends StatelessWidget {
         padding: EdgeInsets.all(30.0),
         child: Stack(
           children: [
-            ParallaxWidget(
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 48.0),
-                  child: Text('Thank you!',
-                      textAlign: TextAlign.center,
-                      style: GTheme.big.copyWith(color: Colors.white)),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 48.0),
+                child: ParallaxWidget(
+                  child: Text(
+                    'Thank you!',
+                    textAlign: TextAlign.center,
+                    style: GTheme.big.copyWith(color: Colors.white),
+                  ),
                 ),
               ),
             ),
             Align(
               alignment: Alignment.bottomRight,
-              child: new DefaultTextStyle(
+              child: DefaultTextStyle(
                 style: GTheme.smaller.copyWith(color: Colors.white),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,

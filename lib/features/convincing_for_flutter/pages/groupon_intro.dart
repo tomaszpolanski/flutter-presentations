@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
-import 'package:flutter_presentations/shared/page_transformer.dart';
-import 'package:flutter_presentations/shared/presentation_page.dart';
-import 'package:flutter_presentations/shared/slide_effects.dart';
+import 'package:flutter_presentations/shared/parallax.dart';
 
 class PuppyPage extends StatelessWidget {
   const PuppyPage({Key key}) : super(key: key);
@@ -83,27 +81,6 @@ class MerchantPage extends StatelessWidget {
           )
         ],
       ),
-    );
-  }
-}
-
-class VisionPage extends StatelessWidget {
-  const VisionPage({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final result = ScrollSettings.of(context);
-    final resolver = PageVisibilityResolver(metrics: result);
-    final index = PageViewSettings.of(context).index;
-    final visibility = resolver.resolvePageVisibility(index);
-    print('QQQ ${visibility.pagePosition}');
-    return Image.asset(
-      'assets/image21.png',
-      fit: BoxFit.cover,
-//      alignment: Alignment(
-//        0.5 + (visibility.pagePosition),
-//        0.5,
-//      ),
     );
   }
 }
