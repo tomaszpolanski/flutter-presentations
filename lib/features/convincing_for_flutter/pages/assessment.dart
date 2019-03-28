@@ -312,43 +312,37 @@ class GrouponPlus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Container(
-        color: GTheme.teal,
-        child: Row(
-          children: <Widget>[
-            Expanded(
-              flex: 6,
-              child: Center(
-                child: Text(
-                  'Groupon+',
-                  textAlign: TextAlign.center,
-                  style: GTheme.medium.copyWith(color: Colors.white),
-                ),
+    return Container(
+      color: GTheme.teal,
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            flex: 6,
+            child: Center(
+              child: Text(
+                'Groupon+',
+                textAlign: TextAlign.center,
+                style: GTheme.medium.copyWith(color: Colors.white),
               ),
             ),
-            Expanded(
-              flex: 4,
-              child: ParallaxWidget(
-                child: Image(
-                  image: AssetImage('assets/image21.png'),
-                ),
-              ),
+          ),
+          Expanded(
+            flex: 4,
+            child: ParallaxWidget(
+              child: Image(image: AssetImage('assets/image21.png')),
             ),
-            Expanded(
-              flex: 1,
-              child: SizedBox(),
+          ),
+          Expanded(
+            flex: 1,
+            child: SizedBox(),
+          ),
+          Expanded(
+            flex: 4,
+            child: ParallaxWidget(
+              child: Image(image: AssetImage('assets/image16.png')),
             ),
-            Expanded(
-              flex: 4,
-              child: ParallaxWidget(
-                child: Image(
-                  image: AssetImage('assets/image16.png'),
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -357,17 +351,7 @@ class GrouponPlus extends StatelessWidget {
 class AppiumPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          image: DecorationImage(
-            image: AssetImage('assets/image37.png'),
-            fit: BoxFit.fitHeight,
-          ),
-        ),
-      ),
-    );
+    return ParallaxWidget(child: Image.asset('assets/image37.png'));
   }
 }
 

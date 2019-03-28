@@ -45,10 +45,6 @@ class SectionPage extends StatelessWidget {
 }
 
 class ImagePage extends StatelessWidget {
-  final String asset;
-  final AlignmentGeometry alignment;
-  final Widget child;
-
   const ImagePage(
     this.asset, {
     Key key,
@@ -56,37 +52,30 @@ class ImagePage extends StatelessWidget {
     this.alignment = AlignmentDirectional.topCenter,
   }) : super(key: key);
 
+  final String asset;
+  final AlignmentGeometry alignment;
+  final Widget child;
+
   @override
   Widget build(BuildContext context) {
-    final pageVisibility = ParallaxSettings.of(context);
-    return SlideWidget(
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              image: ParallaxDecorationImage(
-                pageVisibility: pageVisibility,
-                image: AssetImage(asset),
-              ),
-            ),
-          ),
-          child != null
-              ? SafeArea(
-                  child: Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: Align(
-                      alignment: alignment,
-                      child: ParallaxWidget(
-                        child: child,
-                      ),
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        ParallaxImage(asset),
+        child != null
+            ? SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: Align(
+                    alignment: alignment,
+                    child: ParallaxWidget(
+                      child: child,
                     ),
                   ),
-                )
-              : SizedBox(),
-        ],
-      ),
+                ),
+              )
+            : SizedBox(),
+      ],
     );
   }
 }

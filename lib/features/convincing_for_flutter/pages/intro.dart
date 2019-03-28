@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
-import 'package:flutter_presentations/shared/page_transformer.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
-import 'package:flutter_presentations/shared/presentation_page.dart';
 import 'package:flutter_presentations/shared/presentation_stepper.dart';
 import 'package:flutter_presentations/shared/slide_effects.dart';
 
@@ -75,29 +72,9 @@ class PopularityPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Builder(
-        builder: (context) {
-          final result = ScrollSettings.of(context);
-          final resolver = PageVisibilityResolver(metrics: result);
-          final index = PageViewSettings.of(context).index;
-          final visibility = resolver.resolvePageVisibility(index);
-          print('QQQ ${visibility.pagePosition}');
-          return Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              image: DecorationImage(
-                image: AssetImage('assets/popularity.png'),
-                fit: BoxFit.fitWidth,
-                alignment: FractionalOffset(
-                  0.5 + (visibility.pagePosition),
-                  0.5,
-                ),
-              ),
-            ),
-          );
-        },
-      ),
+    return Image.asset(
+      'assets/popularity.png',
+      fit: BoxFit.fitWidth,
     );
   }
 }

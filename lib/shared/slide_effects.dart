@@ -62,6 +62,28 @@ class ParallaxWidget extends StatelessWidget {
   }
 }
 
+class ParallaxImage extends StatelessWidget {
+  const ParallaxImage(
+    this.asset, {
+    Key key,
+  }) : super(key: key);
+
+  final String asset;
+
+  @override
+  Widget build(BuildContext context) {
+    final result = ScrollSettings.of(context);
+    final resolver = PageVisibilityResolver(metrics: result);
+    final index = PageViewSettings.of(context).index;
+    final visibility = resolver.resolvePageVisibility(index);
+    return Image.asset(
+      asset,
+      fit: BoxFit.fitHeight,
+      alignment: Alignment(visibility.pagePosition, 0),
+    );
+  }
+}
+
 class ParallaxDecorationImage extends DecorationImage {
   ParallaxDecorationImage({
     PageVisibility pageVisibility,

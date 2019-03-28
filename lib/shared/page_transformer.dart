@@ -148,7 +148,6 @@ class _TestState extends State<Test> {
   Widget build(BuildContext context) {
     return NotificationListener<ScrollNotification>(
       onNotification: (ScrollNotification notification) {
-        print('QQQ notification');
         setState(() => metrics = notification.metrics);
       },
       child: ScrollSettings(

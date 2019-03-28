@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
+import 'package:flutter_presentations/shared/page_transformer.dart';
+import 'package:flutter_presentations/shared/presentation_page.dart';
 import 'package:flutter_presentations/shared/slide_effects.dart';
 
 class PuppyPage extends StatelessWidget {
@@ -10,36 +12,29 @@ class PuppyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final pageVisibility = ParallaxSettings.of(context);
-    return SlideWidget(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          image: DecorationImage(
-            image: AssetImage('assets/image34.jpg'),
-            fit: BoxFit.none,
-            alignment: FractionalOffset(
-              0.5 + (pageVisibility.pagePosition),
-              0.5,
-            ),
-          ),
-        ),
-        child: Padding(
+    return Stack(
+      fit: StackFit.expand,
+      children: <Widget>[
+        ParallaxImage('assets/image34.jpg'),
+        Padding(
           padding: const EdgeInsets.all(18.0),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
               Expanded(child: SizedBox()),
               Expanded(
-                child: Text(
-                  'It\'s Good to be Small',
-                  style: GTheme.big,
-                  textAlign: TextAlign.right,
+                child: ParallaxWidget(
+                  child: Text(
+                    'It\'s Good to be Small',
+                    style: GTheme.big,
+                    textAlign: TextAlign.right,
+                  ),
                 ),
               )
             ],
           ),
         ),
-      ),
+      ],
     );
   }
 }
@@ -98,16 +93,18 @@ class VisionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          image: DecorationImage(
-            image: AssetImage('assets/image20.jpg'),
-            fit: BoxFit.cover,
-          ),
-        ),
-      ),
+    final result = ScrollSettings.of(context);
+    final resolver = PageVisibilityResolver(metrics: result);
+    final index = PageViewSettings.of(context).index;
+    final visibility = resolver.resolvePageVisibility(index);
+    print('QQQ ${visibility.pagePosition}');
+    return Image.asset(
+      'assets/image21.png',
+      fit: BoxFit.cover,
+//      alignment: Alignment(
+//        0.5 + (visibility.pagePosition),
+//        0.5,
+//      ),
     );
   }
 }

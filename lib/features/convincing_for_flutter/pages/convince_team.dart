@@ -7,26 +7,16 @@ class DesignersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pageVisibility = ParallaxSettings.of(context);
-    return SlideWidget(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          image: DecorationImage(
-            image: AssetImage('assets/image35.jpg'),
-            fit: BoxFit.cover,
-            alignment: FractionalOffset(
-              0.5 + (pageVisibility.pagePosition),
-              0.5,
-            ),
-          ),
-        ),
-        child: Center(
+    return Stack(
+      fit: StackFit.expand,
+      children: <Widget>[
+        ParallaxImage('assets/image35.jpg'),
+        Center(
           child: ParallaxWidget(
             child: Text('Designers'),
           ),
-        ),
-      ),
+        )
+      ],
     );
   }
 }
@@ -160,16 +150,11 @@ class MergingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final pageVisibility = ParallaxSettings.of(context);
-    return SlideWidget(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          image: ParallaxDecorationImage(
-            pageVisibility: pageVisibility,
-            image: AssetImage('assets/image18.jpg'),
-          ),
-        ),
-        child: Row(
+    return Stack(
+      fit: StackFit.expand,
+      children: <Widget>[
+        ParallaxImage('assets/image18.jpg'),
+        Row(
           children: [
             Expanded(
               flex: 6,
@@ -187,7 +172,7 @@ class MergingPage extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      ],
     );
   }
 }
