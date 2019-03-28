@@ -117,17 +117,64 @@ class _PageTransformerState extends State<PageTransformer> {
     final viewPortFraction = controller.viewportFraction;
 
     return NotificationListener<ScrollNotification>(
-      onNotification: widget.enableParallax
-          ? (ScrollNotification notification) {
-              setState(() {
-                _visibilityResolver = PageVisibilityResolver(
-                  metrics: notification.metrics,
-                  viewPortFraction: viewPortFraction,
-                );
-              });
-            }
-          : null,
-      child: pageView,
+//      onNotification: widget.enableParallax
+//          ? (ScrollNotification notification) {
+//              setState(() {
+//                _visibilityResolver = PageVisibilityResolver(
+//                  metrics: notification.metrics,
+//                  viewPortFraction: viewPortFraction,
+//                );
+//              });
+//            }
+//          : null,
+      child: Test(child: pageView),
     );
   }
+}
+
+class Test extends StatefulWidget {
+  const Test({Key key, this.child}) : super(key: key);
+
+  final Widget child;
+
+  @override
+  _TestState createState() => _TestState();
+}
+
+class _TestState extends State<Test> {
+  ScrollMetrics metrics;
+
+  @override
+  Widget build(BuildContext context) {
+    return NotificationListener<ScrollNotification>(
+      onNotification: (ScrollNotification notification) {
+        print('QQQ notification');
+        setState(() => metrics = notification.metrics);
+      },
+      child: ScrollSettings(
+        metrics: metrics,
+        child: widget.child,
+      ),
+    );
+  }
+}
+
+class ScrollSettings extends InheritedWidget {
+  const ScrollSettings({
+    Key key,
+    @required this.metrics,
+    @required Widget child,
+  }) : super(key: key, child: child);
+
+  final ScrollMetrics metrics;
+
+  static ScrollMetrics of(BuildContext context) {
+    final ScrollSettings widget =
+        context.inheritFromWidgetOfExactType(ScrollSettings);
+    return widget?.metrics;
+  }
+
+  @override
+  bool updateShouldNotify(ScrollSettings oldWidget) =>
+      metrics != oldWidget.metrics;
 }

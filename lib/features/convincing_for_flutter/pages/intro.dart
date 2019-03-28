@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
+import 'package:flutter_presentations/shared/page_transformer.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_stepper.dart';
 import 'package:flutter_presentations/shared/slide_effects.dart';
@@ -25,12 +26,17 @@ class TitlePage extends StatelessWidget {
                     Text('company to '),
                     ParallaxWidget(
                       child: Row(
-                        children: const [
+                        children: [
                           Image(
                             image: AssetImage('assets/image4.png'),
                             height: 60.0,
                           ),
-                          Text('lutter'),
+                          Builder(
+                            builder: (context) {
+                              final result = ScrollSettings.of(context);
+                              return Text('lutter ${result.pixels}');
+                            },
+                          ),
                         ],
                       ),
                     ),
