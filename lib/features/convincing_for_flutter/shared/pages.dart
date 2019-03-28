@@ -79,7 +79,6 @@ class ImagePage extends StatelessWidget {
                     child: Align(
                       alignment: alignment,
                       child: ParallaxWidget(
-                        pageVisibility: pageVisibility,
                         child: child,
                       ),
                     ),
@@ -93,9 +92,9 @@ class ImagePage extends StatelessWidget {
 }
 
 class SlideWidget extends StatelessWidget {
-  final Widget child;
-
   const SlideWidget({Key key, this.child}) : super(key: key);
+
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {

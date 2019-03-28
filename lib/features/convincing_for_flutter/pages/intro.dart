@@ -3,6 +3,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/shared/gro
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
 import 'package:flutter_presentations/shared/page_transformer.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
+import 'package:flutter_presentations/shared/presentation_page.dart';
 import 'package:flutter_presentations/shared/presentation_stepper.dart';
 import 'package:flutter_presentations/shared/slide_effects.dart';
 
@@ -11,67 +12,60 @@ class TitlePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: new Stack(
-        children: [
-          DefaultTextStyle(
-            style: GTheme.big,
-            child: new Align(
-              alignment: Alignment.centerLeft,
-              child: new Padding(
-                padding: const EdgeInsets.only(left: 80.0),
-                child: new Wrap(
-                  children: [
-                    Text('Convincing your '),
-                    Text('company to '),
-                    ParallaxWidget(
-                      child: Row(
-                        children: [
-                          Image(
-                            image: AssetImage('assets/image4.png'),
-                            height: 60.0,
-                          ),
-                          Builder(
-                            builder: (context) {
-                              final result = ScrollSettings.of(context);
-                              return Text('lutter ${result.pixels}');
-                            },
-                          ),
-                        ],
-                      ),
+    return new Stack(
+      children: [
+        DefaultTextStyle(
+          style: GTheme.big,
+          child: new Align(
+            alignment: Alignment.centerLeft,
+            child: new Padding(
+              padding: const EdgeInsets.only(left: 80.0),
+              child: new Wrap(
+                children: [
+                  Text('Convincing your '),
+                  Text('company to '),
+                  ParallaxWidget(
+                    child: Row(
+                      children: [
+                        Image(
+                          image: AssetImage('assets/image4.png'),
+                          height: 60.0,
+                        ),
+                        Text('lutter'),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        Align(
+          alignment: Alignment.bottomRight,
+          child: ParallaxWidget(
+            child: Padding(
+              padding: const EdgeInsets.only(right: 18.0, bottom: 18.0),
+              child: DefaultTextStyle.merge(
+                style: GTheme.smaller.copyWith(color: Colors.white),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: const [
+                    Text(
+                      'Tomek Polański',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    Text(
+                      'GROUPON',
+                      style: TextStyle(color: Colors.green),
                     ),
                   ],
                 ),
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: ParallaxWidget(
-              child: Padding(
-                padding: const EdgeInsets.only(right: 18.0, bottom: 18.0),
-                child: DefaultTextStyle.merge(
-                  style: GTheme.smaller.copyWith(color: Colors.white),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: const [
-                      Text(
-                        'Tomek Polański',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                      Text(
-                        'GROUPON',
-                        style: TextStyle(color: Colors.green),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     );
   }
 }
@@ -82,18 +76,27 @@ class PopularityPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SlideWidget(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          image: DecorationImage(
-            image: AssetImage('assets/popularity.png'),
-            fit: BoxFit.fitWidth,
-            alignment: FractionalOffset(
-              0.5 + (ParallaxSettings.of(context).pagePosition),
-              0.5,
+      child: Builder(
+        builder: (context) {
+          final result = ScrollSettings.of(context);
+          final resolver = PageVisibilityResolver(metrics: result);
+          final index = PageViewSettings.of(context).index;
+          final visibility = resolver.resolvePageVisibility(index);
+          print('QQQ ${visibility.pagePosition}');
+          return Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              image: DecorationImage(
+                image: AssetImage('assets/popularity.png'),
+                fit: BoxFit.fitWidth,
+                alignment: FractionalOffset(
+                  0.5 + (visibility.pagePosition),
+                  0.5,
+                ),
+              ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }

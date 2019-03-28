@@ -518,7 +518,6 @@ class LaunchPage extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: ParallaxWidget(
-                  pageVisibility: pageVisibility,
                   child: Padding(
                     padding: const EdgeInsets.all(28.0),
                     child: Text(

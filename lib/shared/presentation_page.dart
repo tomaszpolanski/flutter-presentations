@@ -43,10 +43,13 @@ class Presentation extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final pageVisibility =
                         visibilityResolver.resolvePageVisibility(index);
-                    return ParallaxSettings(
-                      enabled: enableParallax,
-                      pageVisibility: pageVisibility,
-                      child: pageCreator[index](),
+                    return PageViewSettings(
+                      index: index,
+                      child: ParallaxSettings(
+                        enabled: enableParallax,
+                        pageVisibility: pageVisibility,
+                        child: pageCreator[index](),
+                      ),
                     );
                   },
                 );
@@ -81,4 +84,24 @@ class PresentationPage extends StatelessWidget {
       body: child,
     );
   }
+}
+
+class PageViewSettings extends InheritedWidget {
+  const PageViewSettings({
+    Key key,
+    @required this.index,
+    @required Widget child,
+  }) : super(key: key, child: child);
+
+  final int index;
+
+  static PageViewSettings of(BuildContext context) {
+    final PageViewSettings widget =
+        context.inheritFromWidgetOfExactType(PageViewSettings);
+    return widget;
+  }
+
+  @override
+  bool updateShouldNotify(PageViewSettings oldWidget) =>
+      index != oldWidget.index;
 }

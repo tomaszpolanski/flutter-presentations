@@ -22,10 +22,10 @@ class DesignersPage extends StatelessWidget {
           ),
         ),
         child: Center(
-            child: ParallaxWidget(
-          pageVisibility: pageVisibility,
-          child: Text('Designers'),
-        )),
+          child: ParallaxWidget(
+            child: Text('Designers'),
+          ),
+        ),
       ),
     );
   }
@@ -69,7 +69,6 @@ class LessTestingPage extends StatelessWidget {
         child: Align(
           alignment: Alignment.topCenter,
           child: ParallaxWidget(
-            pageVisibility: pageVisibility,
             child: Padding(
               padding: const EdgeInsets.all(18.0),
               child: Text('Less Testing'),
@@ -109,13 +108,13 @@ class WorkshopPage extends StatelessWidget {
           Expanded(
             flex: 6,
             child: Center(
-                child: ParallaxWidget(
-              pageVisibility: pageVisibility,
-              child: Text(
-                'Prepare a Workshop',
-                textAlign: TextAlign.center,
+              child: ParallaxWidget(
+                child: Text(
+                  'Prepare a Workshop',
+                  textAlign: TextAlign.center,
+                ),
               ),
-            )),
+            ),
           ),
           Expanded(
             flex: 4,
@@ -179,7 +178,6 @@ class MergingPage extends StatelessWidget {
             Expanded(
               flex: 4,
               child: ParallaxWidget(
-                pageVisibility: pageVisibility,
                 child: Text(
                   'Merging Teams',
                   style: TextStyle(color: Colors.white),

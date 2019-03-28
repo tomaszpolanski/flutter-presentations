@@ -8,11 +8,11 @@ typedef PageView PageViewBuilder(
 /// A class that can be used to compute visibility information about
 /// the current page.
 class PageVisibilityResolver {
-  PageVisibilityResolver({
+  const PageVisibilityResolver({
     ScrollMetrics metrics,
     double viewPortFraction,
-  })  : this._pageMetrics = metrics,
-        this._viewPortFraction = viewPortFraction;
+  })  : _pageMetrics = metrics,
+        _viewPortFraction = viewPortFraction;
 
   final ScrollMetrics _pageMetrics;
   final double _viewPortFraction;
