@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
-import 'package:flutter_presentations/shared/page_transformer.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/slide_effects.dart';
 
@@ -112,31 +111,6 @@ class PresentationSettings extends InheritedWidget {
   bool updateShouldNotify(InheritedWidget oldWidget) {
     return false;
   }
-}
-
-class ParallaxSettings extends InheritedWidget {
-  const ParallaxSettings({
-    Key key,
-    @required this.pageVisibility,
-    this.enabled = true,
-    @required Widget child,
-  }) : super(key: key, child: child);
-
-  final PageVisibility pageVisibility;
-  final bool enabled;
-
-  static PageVisibility of(BuildContext context) {
-    final ParallaxSettings widget =
-        context.inheritFromWidgetOfExactType(ParallaxSettings);
-    return widget.enabled
-        ? widget?.pageVisibility
-        : PageVisibility(visibleFraction: 1, pagePosition: 1);
-  }
-
-  @override
-  bool updateShouldNotify(ParallaxSettings oldWidget) =>
-      pageVisibility != oldWidget.pageVisibility ||
-      enabled == oldWidget.enabled;
 }
 
 class SummaryPage extends StatelessWidget {

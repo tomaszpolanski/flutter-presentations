@@ -11,7 +11,6 @@ class PuppyPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pageVisibility = ParallaxSettings.of(context);
     return Stack(
       fit: StackFit.expand,
       children: <Widget>[

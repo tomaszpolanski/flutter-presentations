@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
-/// A function that builds a [PageView] lazily.
-typedef PageView PageViewBuilder(
-    BuildContext context, PageVisibilityResolver visibilityResolver);
-
 /// A class that can be used to compute visibility information about
 /// the current page.
 class PageVisibilityResolver {
@@ -87,61 +83,16 @@ class PageVisibility {
   final double pagePosition;
 }
 
-/// A widget for getting useful information about a pages' position
-/// and how much of it is visible in a PageView.
-///
-/// Note: Does not transform pages in any way, but provides the means
-/// to easily do it, in the form of [PageVisibility].
-class PageTransformer extends StatefulWidget {
-  const PageTransformer({
-    @required this.pageViewBuilder,
-    @required this.enableParallax,
-  });
-
-  final PageViewBuilder pageViewBuilder;
-  final bool enableParallax;
-
-  @override
-  _PageTransformerState createState() => _PageTransformerState();
-}
-
-class _PageTransformerState extends State<PageTransformer> {
-  PageVisibilityResolver _visibilityResolver;
-
-  @override
-  Widget build(BuildContext context) {
-    final pageView = widget.pageViewBuilder(
-        context, _visibilityResolver ?? PageVisibilityResolver());
-
-    final controller = pageView.controller;
-    final viewPortFraction = controller.viewportFraction;
-
-    return NotificationListener<ScrollNotification>(
-//      onNotification: widget.enableParallax
-//          ? (ScrollNotification notification) {
-//              setState(() {
-//                _visibilityResolver = PageVisibilityResolver(
-//                  metrics: notification.metrics,
-//                  viewPortFraction: viewPortFraction,
-//                );
-//              });
-//            }
-//          : null,
-      child: Test(child: pageView),
-    );
-  }
-}
-
-class Test extends StatefulWidget {
-  const Test({Key key, this.child}) : super(key: key);
+class ScrollNotifier extends StatefulWidget {
+  const ScrollNotifier({Key key, this.child}) : super(key: key);
 
   final Widget child;
 
   @override
-  _TestState createState() => _TestState();
+  _ScrollNotifierState createState() => _ScrollNotifierState();
 }
 
-class _TestState extends State<Test> {
+class _ScrollNotifierState extends State<ScrollNotifier> {
   ScrollMetrics metrics;
 
   @override

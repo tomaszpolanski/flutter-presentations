@@ -9,7 +9,7 @@ class DesignersPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       fit: StackFit.expand,
-      children: <Widget>[
+      children: const [
         ParallaxImage('assets/image35.jpg'),
         Center(
           child: ParallaxWidget(
@@ -42,21 +42,11 @@ class LessTestingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pageVisibility = ParallaxSettings.of(context);
-    return SlideWidget(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          image: DecorationImage(
-            image: AssetImage('assets/image31.jpg'),
-            fit: BoxFit.cover,
-            alignment: FractionalOffset(
-              0.5 + (pageVisibility.pagePosition),
-              0.5,
-            ),
-          ),
-        ),
-        child: Align(
+    return Stack(
+      fit: StackFit.expand,
+      children: const [
+        ParallaxImage('assets/image31.jpg'),
+        Align(
           alignment: Alignment.topCenter,
           child: ParallaxWidget(
             child: Padding(
@@ -65,7 +55,7 @@ class LessTestingPage extends StatelessWidget {
             ),
           ),
         ),
-      ),
+      ],
     );
   }
 }
@@ -91,39 +81,24 @@ class WorkshopPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pageVisibility = ParallaxSettings.of(context);
-    return SlideWidget(
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            flex: 6,
-            child: Center(
-              child: ParallaxWidget(
-                child: Text(
-                  'Prepare a Workshop',
-                  textAlign: TextAlign.center,
-                ),
+    return Row(
+      children: <Widget>[
+        Expanded(
+          flex: 6,
+          child: Center(
+            child: ParallaxWidget(
+              child: Text(
+                'Prepare a Workshop',
+                textAlign: TextAlign.center,
               ),
             ),
           ),
-          Expanded(
-            flex: 4,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                image: DecorationImage(
-                  image: AssetImage('assets/image44.jpg'),
-                  fit: BoxFit.fitHeight,
-                  alignment: FractionalOffset(
-                    0.5 + (pageVisibility.pagePosition),
-                    0.5,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+        ),
+        Expanded(
+          flex: 4,
+          child: ParallaxWidget(child: Image.asset('assets/image44.jpg')),
+        ),
+      ],
     );
   }
 }
@@ -149,7 +124,6 @@ class MergingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pageVisibility = ParallaxSettings.of(context);
     return Stack(
       fit: StackFit.expand,
       children: <Widget>[

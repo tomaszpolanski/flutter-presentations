@@ -492,7 +492,6 @@ class LaunchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pageVisibility = ParallaxSettings.of(context);
     return SlideWidget(
       child: Container(
         color: Colors.black,
@@ -513,15 +512,7 @@ class LaunchPage extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  image: ParallaxDecorationImage(
-                    pageVisibility: pageVisibility,
-                    image: AssetImage('assets/image42.jpg'),
-                  ),
-                ),
-              ),
+              child: ParallaxWidget(child: Image.asset('assets/image42.jpg')),
             ),
           ],
         ),
