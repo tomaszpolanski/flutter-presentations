@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
-/// A function that builds a [PageView] lazily.
-typedef PageView PageViewBuilder(
-    BuildContext context, PageVisibilityResolver visibilityResolver);
-
 /// A class that can be used to compute visibility information about
 /// the current page.
 class PageVisibilityResolver {
-  PageVisibilityResolver({
+  const PageVisibilityResolver({
     ScrollMetrics metrics,
     double viewPortFraction,
-  })  : this._pageMetrics = metrics,
-        this._viewPortFraction = viewPortFraction;
+  })  : _pageMetrics = metrics,
+        _viewPortFraction = viewPortFraction;
 
   final ScrollMetrics _pageMetrics;
   final double _viewPortFraction;
@@ -31,13 +27,10 @@ class PageVisibilityResolver {
     );
   }
 
-  double _calculateVisiblePageFraction(int index, double pagePosition) {
-    if (pagePosition > -1.0 && pagePosition <= 1.0) {
-      return 1.0 - pagePosition.abs();
-    }
-
-    return 0.0;
-  }
+  double _calculateVisiblePageFraction(int index, double pagePosition) =>
+      pagePosition > -1.0 && pagePosition <= 1.0
+          ? 1.0 - pagePosition.abs()
+          : 0.0;
 
   double _calculatePagePosition(int index) {
     final double viewPortFraction = _viewPortFraction ?? 1.0;
@@ -60,7 +53,7 @@ class PageVisibilityResolver {
 
 /// A class that contains visibility information about the current page.
 class PageVisibility {
-  PageVisibility({
+  const PageVisibility({
     @required this.visibleFraction,
     @required this.pagePosition,
   });
@@ -87,47 +80,48 @@ class PageVisibility {
   final double pagePosition;
 }
 
-/// A widget for getting useful information about a pages' position
-/// and how much of it is visible in a PageView.
-///
-/// Note: Does not transform pages in any way, but provides the means
-/// to easily do it, in the form of [PageVisibility].
-class PageTransformer extends StatefulWidget {
-  const PageTransformer({
-    @required this.pageViewBuilder,
-    @required this.enableParallax,
-  });
+class ScrollNotifier extends StatefulWidget {
+  const ScrollNotifier({Key key, this.child}) : super(key: key);
 
-  final PageViewBuilder pageViewBuilder;
-  final bool enableParallax;
+  final Widget child;
 
   @override
-  _PageTransformerState createState() => _PageTransformerState();
+  _ScrollNotifierState createState() => _ScrollNotifierState();
 }
 
-class _PageTransformerState extends State<PageTransformer> {
-  PageVisibilityResolver _visibilityResolver;
+class _ScrollNotifierState extends State<ScrollNotifier> {
+  ScrollMetrics metrics;
 
   @override
   Widget build(BuildContext context) {
-    final pageView = widget.pageViewBuilder(
-        context, _visibilityResolver ?? PageVisibilityResolver());
-
-    final controller = pageView.controller;
-    final viewPortFraction = controller.viewportFraction;
-
     return NotificationListener<ScrollNotification>(
-      onNotification: widget.enableParallax
-          ? (ScrollNotification notification) {
-              setState(() {
-                _visibilityResolver = PageVisibilityResolver(
-                  metrics: notification.metrics,
-                  viewPortFraction: viewPortFraction,
-                );
-              });
-            }
-          : null,
-      child: pageView,
+      onNotification: (ScrollNotification notification) {
+        setState(() => metrics = notification.metrics);
+      },
+      child: ScrollSettings(
+        metrics: metrics,
+        child: widget.child,
+      ),
     );
   }
+}
+
+class ScrollSettings extends InheritedWidget {
+  const ScrollSettings({
+    Key key,
+    @required this.metrics,
+    @required Widget child,
+  }) : super(key: key, child: child);
+
+  final ScrollMetrics metrics;
+
+  static ScrollMetrics of(BuildContext context) {
+    final ScrollSettings widget =
+        context.inheritFromWidgetOfExactType(ScrollSettings);
+    return widget?.metrics;
+  }
+
+  @override
+  bool updateShouldNotify(ScrollSettings oldWidget) =>
+      metrics != oldWidget.metrics;
 }

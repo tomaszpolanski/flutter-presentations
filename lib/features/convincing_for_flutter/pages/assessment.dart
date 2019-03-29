@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
+import 'package:flutter_presentations/shared/parallax.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
-import 'package:flutter_presentations/shared/slide_effects.dart';
 
 class SurveyPage extends StatelessWidget {
   const SurveyPage({Key key}) : super(key: key);
@@ -290,15 +290,7 @@ class DevDesignPage extends StatelessWidget {
           Expanded(
             flex: 6,
             child: ParallaxWidget(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  image: DecorationImage(
-                    image: AssetImage('assets/image17.png'),
-                    fit: BoxFit.fitWidth,
-                  ),
-                ),
-              ),
+              child: Image.asset('assets/image17.png', fit: BoxFit.fitWidth),
             ),
           ),
         ],
@@ -312,43 +304,33 @@ class GrouponPlus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Container(
-        color: GTheme.teal,
-        child: Row(
-          children: <Widget>[
-            Expanded(
-              flex: 6,
-              child: Center(
-                child: Text(
-                  'Groupon+',
-                  textAlign: TextAlign.center,
-                  style: GTheme.medium.copyWith(color: Colors.white),
-                ),
+    return Container(
+      color: GTheme.teal,
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            flex: 6,
+            child: Center(
+              child: Text(
+                'Groupon+',
+                textAlign: TextAlign.center,
+                style: GTheme.medium.copyWith(color: Colors.white),
               ),
             ),
-            Expanded(
-              flex: 4,
-              child: ParallaxWidget(
-                child: Image(
-                  image: AssetImage('assets/image21.png'),
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 1,
-              child: SizedBox(),
-            ),
-            Expanded(
-              flex: 4,
-              child: ParallaxWidget(
-                child: Image(
-                  image: AssetImage('assets/image16.png'),
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+          Expanded(
+            flex: 4,
+            child: ParallaxWidget(child: Image.asset('assets/image21.png')),
+          ),
+          Expanded(
+            flex: 1,
+            child: SizedBox(),
+          ),
+          Expanded(
+            flex: 4,
+            child: ParallaxWidget(child: Image.asset('assets/image16.png')),
+          ),
+        ],
       ),
     );
   }
@@ -357,17 +339,7 @@ class GrouponPlus extends StatelessWidget {
 class AppiumPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          image: DecorationImage(
-            image: AssetImage('assets/image37.png'),
-            fit: BoxFit.fitHeight,
-          ),
-        ),
-      ),
-    );
+    return ParallaxWidget(child: Image.asset('assets/image37.png'));
   }
 }
 
@@ -397,13 +369,10 @@ class IntegrationTestPage extends StatelessWidget {
               height: 200.0,
               child: Row(
                 mainAxisSize: MainAxisSize.max,
-                children: const [
-                  Expanded(
-                      child: Image(image: AssetImage('assets/image28.png'))),
-                  Expanded(
-                      child: Image(image: AssetImage('assets/image26.png'))),
-                  Expanded(
-                      child: Image(image: AssetImage('assets/image29.png'))),
+                children: [
+                  Expanded(child: Image.asset('assets/image28.png')),
+                  Expanded(child: Image.asset('assets/image26.png')),
+                  Expanded(child: Image.asset('assets/image29.png')),
                 ],
               ),
             ),
@@ -472,11 +441,9 @@ class FlutterDartPage extends StatelessWidget {
               height: 200.0,
               child: Row(
                 mainAxisSize: MainAxisSize.max,
-                children: const [
-                  Expanded(
-                      child: Image(image: AssetImage('assets/image4.png'))),
-                  Expanded(
-                      child: Image(image: AssetImage('assets/image25.png'))),
+                children: [
+                  Expanded(child: Image.asset('assets/image4.png')),
+                  Expanded(child: Image.asset('assets/image25.png')),
                 ],
               ),
             ),
@@ -508,7 +475,6 @@ class LaunchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pageVisibility = ParallaxSettings.of(context);
     return SlideWidget(
       child: Container(
         color: Colors.black,
@@ -518,7 +484,6 @@ class LaunchPage extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: ParallaxWidget(
-                  pageVisibility: pageVisibility,
                   child: Padding(
                     padding: const EdgeInsets.all(28.0),
                     child: Text(
@@ -530,15 +495,7 @@ class LaunchPage extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  image: ParallaxDecorationImage(
-                    pageVisibility: pageVisibility,
-                    image: AssetImage('assets/image42.jpg'),
-                  ),
-                ),
-              ),
+              child: ParallaxWidget(child: Image.asset('assets/image42.jpg')),
             ),
           ],
         ),
@@ -557,7 +514,7 @@ class ApplePage extends StatelessWidget {
         padding: const EdgeInsets.all(48.0),
         child: Row(
           children: <Widget>[
-            Expanded(child: Image(image: AssetImage('assets/apple.png'))),
+            Expanded(child: Image.asset('assets/apple.png')),
             Expanded(
                 child: ParallaxWidget(
               child: Row(
@@ -624,7 +581,9 @@ class AndroidPageState extends State<AndroidPage>
         child: Row(
           children: <Widget>[
             Expanded(
-                flex: 4, child: Image(image: AssetImage('assets/image9.png'))),
+              flex: 4,
+              child: Image.asset('assets/image9.png'),
+            ),
             Expanded(
                 flex: 6,
                 child: ParallaxWidget(

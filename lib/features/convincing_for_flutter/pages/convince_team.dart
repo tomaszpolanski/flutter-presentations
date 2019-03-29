@@ -1,32 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
-import 'package:flutter_presentations/shared/slide_effects.dart';
+import 'package:flutter_presentations/shared/parallax.dart';
 
 class DesignersPage extends StatelessWidget {
   const DesignersPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final pageVisibility = ParallaxSettings.of(context);
-    return SlideWidget(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          image: DecorationImage(
-            image: AssetImage('assets/image35.jpg'),
-            fit: BoxFit.cover,
-            alignment: FractionalOffset(
-              0.5 + (pageVisibility.pagePosition),
-              0.5,
-            ),
+    return Stack(
+      fit: StackFit.expand,
+      children: const [
+        ParallaxImage('assets/image35.jpg'),
+        Center(
+          child: ParallaxWidget(
+            child: Text('Designers'),
           ),
-        ),
-        child: Center(
-            child: ParallaxWidget(
-          pageVisibility: pageVisibility,
-          child: Text('Designers'),
-        )),
-      ),
+        )
+      ],
     );
   }
 }
@@ -52,31 +42,20 @@ class LessTestingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pageVisibility = ParallaxSettings.of(context);
-    return SlideWidget(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          image: DecorationImage(
-            image: AssetImage('assets/image31.jpg'),
-            fit: BoxFit.cover,
-            alignment: FractionalOffset(
-              0.5 + (pageVisibility.pagePosition),
-              0.5,
-            ),
-          ),
-        ),
-        child: Align(
+    return Stack(
+      fit: StackFit.expand,
+      children: const [
+        ParallaxImage('assets/image31.jpg'),
+        Align(
           alignment: Alignment.topCenter,
           child: ParallaxWidget(
-            pageVisibility: pageVisibility,
             child: Padding(
               padding: const EdgeInsets.all(18.0),
               child: Text('Less Testing'),
             ),
           ),
         ),
-      ),
+      ],
     );
   }
 }
@@ -102,39 +81,24 @@ class WorkshopPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pageVisibility = ParallaxSettings.of(context);
-    return SlideWidget(
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            flex: 6,
-            child: Center(
-                child: ParallaxWidget(
-              pageVisibility: pageVisibility,
+    return Row(
+      children: <Widget>[
+        Expanded(
+          flex: 6,
+          child: Center(
+            child: ParallaxWidget(
               child: Text(
                 'Prepare a Workshop',
                 textAlign: TextAlign.center,
               ),
-            )),
-          ),
-          Expanded(
-            flex: 4,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                image: DecorationImage(
-                  image: AssetImage('assets/image44.jpg'),
-                  fit: BoxFit.fitHeight,
-                  alignment: FractionalOffset(
-                    0.5 + (pageVisibility.pagePosition),
-                    0.5,
-                  ),
-                ),
-              ),
             ),
           ),
-        ],
-      ),
+        ),
+        Expanded(
+          flex: 4,
+          child: ParallaxWidget(child: Image.asset('assets/image44.jpg')),
+        ),
+      ],
     );
   }
 }
@@ -160,17 +124,11 @@ class MergingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pageVisibility = ParallaxSettings.of(context);
-    return SlideWidget(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          image: ParallaxDecorationImage(
-            pageVisibility: pageVisibility,
-            image: AssetImage('assets/image18.jpg'),
-          ),
-        ),
-        child: Row(
+    return Stack(
+      fit: StackFit.expand,
+      children: <Widget>[
+        ParallaxImage('assets/image18.jpg'),
+        Row(
           children: [
             Expanded(
               flex: 6,
@@ -179,7 +137,6 @@ class MergingPage extends StatelessWidget {
             Expanded(
               flex: 4,
               child: ParallaxWidget(
-                pageVisibility: pageVisibility,
                 child: Text(
                   'Merging Teams',
                   style: TextStyle(color: Colors.white),
@@ -189,7 +146,7 @@ class MergingPage extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      ],
     );
   }
 }

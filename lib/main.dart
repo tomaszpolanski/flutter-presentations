@@ -6,6 +6,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/convincing
 import 'package:flutter_presentations/features/slivers/slivers.dart';
 
 void main() {
+  debugProfileBuildsEnabled = true;
   debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
   runApp(MyApp());
 }
