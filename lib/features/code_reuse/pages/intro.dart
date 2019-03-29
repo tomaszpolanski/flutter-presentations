@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
+import 'package:flutter_presentations/shared/parallax.dart';
 
 class Intro extends StatelessWidget {
   @override
@@ -47,19 +48,21 @@ class Intro extends StatelessWidget {
               ),
               DefaultTextStyle.merge(
                 style: GTheme.smaller.copyWith(color: Colors.white),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      'Tomek Polański',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    Text(
-                      '@tpolansk',
-                      style: TextStyle(color: GTheme.flutter1),
-                    ),
-                  ],
+                child: ParallaxWidget(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        'Tomek Polański',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      Text(
+                        '@tpolansk',
+                        style: TextStyle(color: GTheme.flutter1),
+                      ),
+                    ],
+                  ),
                 ),
               )
             ],

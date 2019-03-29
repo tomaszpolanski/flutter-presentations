@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/shared/animation_builder.dart';
+import 'package:flutter_presentations/shared/parallax.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_stepper.dart';
 
@@ -64,37 +65,39 @@ class _ComposableState extends State<Composable>
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text('composable'),
+          ParallaxWidget(child: Text('composable')),
           Text('+'),
-          Text('small chunks'),
+          ParallaxWidget(child: Text('small chunks')),
           Text('='),
-          Stack(
-            children: [
-              AnimationBuilder<double>(
-                animation: _controller,
-                builder: (_, animation, child) {
-                  return Transform(
-                    transform: Matrix4.identity()
-                      ..rotateX(animation.value * pi / 2)
-                      ..translate(0.0, animation.value * (-50.0)),
-                    child: child,
-                  );
-                },
-                child: Text('reusable'),
-              ),
-              AnimationBuilder<double>(
-                animation: _controller,
-                builder: (_, animation, child) {
-                  return Transform(
-                    transform: Matrix4.identity()
-                      ..translate(0.0, (1 - animation.value) * (50.0))
-                      ..rotateX((1 - animation.value) * (pi / 2)),
-                    child: child,
-                  );
-                },
-                child: Text('Flutter'),
-              ),
-            ],
+          ParallaxWidget(
+            child: Stack(
+              children: [
+                AnimationBuilder<double>(
+                  animation: _controller,
+                  builder: (_, animation, child) {
+                    return Transform(
+                      transform: Matrix4.identity()
+                        ..rotateX(animation.value * pi / 2)
+                        ..translate(0.0, animation.value * (-50.0)),
+                      child: child,
+                    );
+                  },
+                  child: Text('reusable'),
+                ),
+                AnimationBuilder<double>(
+                  animation: _controller,
+                  builder: (_, animation, child) {
+                    return Transform(
+                      transform: Matrix4.identity()
+                        ..translate(0.0, (1 - animation.value) * (50.0))
+                        ..rotateX((1 - animation.value) * (pi / 2)),
+                      child: child,
+                    );
+                  },
+                  child: Text('Flutter'),
+                ),
+              ],
+            ),
           ),
         ],
       ),

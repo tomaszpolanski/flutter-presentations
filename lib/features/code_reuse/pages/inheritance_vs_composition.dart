@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
+import 'package:flutter_presentations/shared/parallax.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_stepper.dart';
 
@@ -72,9 +73,11 @@ class _InheritanceVsCompositionState extends State<InheritanceVsComposition> {
           alignment: Alignment.topCenter,
           child: Padding(
             padding: const EdgeInsets.only(top: 100),
-            child: Text(
-              'Inheritance vs Composition',
-              style: GTheme.big.copyWith(color: GTheme.flutter3),
+            child: ParallaxWidget(
+              child: Text(
+                'Inheritance vs Composition',
+                style: GTheme.big.copyWith(color: GTheme.flutter3),
+              ),
             ),
           ),
         ),
