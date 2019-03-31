@@ -11,9 +11,8 @@ enum _Step {
 }
 
 class CheatSheet extends StatefulWidget {
-  final PresentationController controller;
-
   const CheatSheet({Key key, @required this.controller}) : super(key: key);
+  final PresentationController controller;
 
   @override
   CheatSheetState createState() => new CheatSheetState();
@@ -110,12 +109,11 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
 }
 
 class CardElement extends StatelessWidget {
-  final String text;
-
   const CardElement(
     this.text, {
     Key key,
   }) : super(key: key);
+  final String text;
 
   @override
   Widget build(BuildContext context) {

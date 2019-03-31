@@ -129,7 +129,7 @@ class MergingPage extends StatelessWidget {
       children: <Widget>[
         ParallaxImage('assets/image18.jpg'),
         Row(
-          children: [
+          children: const [
             Expanded(
               flex: 6,
               child: SizedBox(),

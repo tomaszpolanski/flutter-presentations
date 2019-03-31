@@ -20,8 +20,7 @@ class Thanks extends StatelessWidget {
                     ),
               ),
               new DefaultTextStyle(
-                style: Theme
-                    .of(context)
+                style: Theme.of(context)
                     .textTheme
                     .headline
                     .copyWith(fontWeight: FontWeight.bold),
@@ -58,13 +57,12 @@ class Thanks extends StatelessWidget {
 }
 
 class Shake extends StatefulWidget {
+  const Shake({Key key, this.duration, this.child}) : super(key: key);
   final Widget child;
   final Duration duration;
 
-  const Shake({Key key, this.duration, this.child}) : super(key: key);
-
   @override
-  ShakeState createState() => new ShakeState();
+  ShakeState createState() => ShakeState();
 }
 
 class ShakeState extends State<Shake> with TickerProviderStateMixin {

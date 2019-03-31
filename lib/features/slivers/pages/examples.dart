@@ -2,14 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 
 class SimpleDemo extends StatefulWidget {
+  const SimpleDemo({Key key, @required this.controller}) : super(key: key);
   final PresentationController controller;
 
-  const SimpleDemo({Key key, @required this.controller}) : super(key: key);
-
   @override
-  SimpleDemoState createState() {
-    return new SimpleDemoState();
-  }
+  SimpleDemoState createState() => SimpleDemoState();
 }
 
 class SimpleDemoState extends State<SimpleDemo> {

@@ -20,13 +20,6 @@ class SurveyPage extends StatelessWidget {
 }
 
 class CriteriaPage extends StatefulWidget {
-  final PresentationController controller;
-  final Color background;
-  final Color business;
-  final Color technology;
-  final Color people;
-  final Widget title;
-
   const CriteriaPage(
     this.controller, {
     @required this.title,
@@ -36,6 +29,13 @@ class CriteriaPage extends StatefulWidget {
     this.technology = Colors.white,
     this.people = Colors.white,
   }) : super(key: key);
+
+  final PresentationController controller;
+  final Color background;
+  final Color business;
+  final Color technology;
+  final Color people;
+  final Widget title;
 
   @override
   CriteriaPageState createState() {
@@ -197,11 +197,11 @@ class CriteriaPageState extends State<CriteriaPage>
 }
 
 class ArrowPainter extends CustomPainter {
+  const ArrowPainter({this.color, this.opacity, this.rotation});
+
   final Color color;
   final double opacity;
   final double rotation;
-
-  ArrowPainter({this.color, this.opacity, this.rotation});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -210,7 +210,7 @@ class ArrowPainter extends CustomPainter {
     final edgeWidth = size.width;
     const lineWidth = 3.0;
 
-    Path p = Path()
+    final Path p = Path()
       ..lineTo(lineWidth / 2, 0.0)
       ..lineTo(lineWidth / 2, height - edgeHeight)
       ..lineTo(edgeWidth / 2, height - edgeHeight)
@@ -220,55 +220,55 @@ class ArrowPainter extends CustomPainter {
       ..lineTo(-lineWidth / 2, 0.0)
       ..close();
 
-    Paint line = new Paint()
+    final Paint line = new Paint()
       ..color = color.withOpacity(opacity)
       ..style = PaintingStyle.fill;
 
-    canvas.translate(size.width / 2, size.height / 2);
-    canvas.rotate(rotation + pi);
-    canvas.drawPath(p, line);
+    canvas
+      ..translate(size.width / 2, size.height / 2)
+      ..rotate(rotation + pi)
+      ..drawPath(p, line);
   }
 
   @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
-  }
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
 
 class MyPainter extends CustomPainter {
-  Color lineColor;
-  Color completeColor;
-  double completePercent;
-  double width;
-
-  MyPainter(
-      {this.lineColor, this.completeColor, this.completePercent, this.width});
+  const MyPainter({
+    this.lineColor,
+    this.completeColor,
+    this.completePercent,
+    this.width,
+  });
+  final Color lineColor;
+  final Color completeColor;
+  final double completePercent;
+  final double width;
 
   @override
   void paint(Canvas canvas, Size size) {
     print(size);
-    Paint line = new Paint()
+    final Paint line = new Paint()
       ..color = lineColor
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke
       ..strokeWidth = width;
-    Paint complete = new Paint()
+    final Paint complete = new Paint()
       ..color = completeColor
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke
       ..strokeWidth = width;
-    Offset center = new Offset(size.width / 2, size.height / 2);
-    double radius = min(size.width / 2, size.height / 2);
+    final Offset center = new Offset(size.width / 2, size.height / 2);
+    final double radius = min(size.width / 2, size.height / 2);
     canvas.drawCircle(center, radius, line);
-    double arcAngle = 2 * pi * (completePercent / 100);
+    final double arcAngle = 2 * pi * (completePercent / 100);
     canvas.drawArc(new Rect.fromCircle(center: center, radius: radius), -pi / 2,
         arcAngle, false, complete);
   }
 
   @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
-  }
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
 
 class DevDesignPage extends StatelessWidget {

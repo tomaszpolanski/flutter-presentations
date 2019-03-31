@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
 class SliverPage extends StatelessWidget {
-  final Widget title;
-  final ScrollController controller;
-  final List<Widget> slivers;
-
   const SliverPage({
     Key key,
     @required this.title,
     this.controller,
     @required this.slivers,
   }) : super(key: key);
+  final Widget title;
+  final ScrollController controller;
+  final List<Widget> slivers;
 
   @override
   Widget build(BuildContext context) {

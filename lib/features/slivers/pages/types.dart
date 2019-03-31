@@ -3,17 +3,12 @@ import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/slivers_page.dart';
 
 class SliverTypesPage extends StatefulWidget {
+  const SliverTypesPage({Key key, @required this.controller}) : super(key: key);
+
   final PresentationController controller;
 
-  const SliverTypesPage({Key key, @required this.controller})
-      : super(
-            key:
-                key); // source: https://stackoverflow.com/questions/44493372/is-there-any-definite-list-of-sliver-widgets
-
   @override
-  SliverTypesPageState createState() {
-    return new SliverTypesPageState();
-  }
+  SliverTypesPageState createState() => SliverTypesPageState();
 }
 
 class SliverTypesPageState extends State<SliverTypesPage> {
@@ -102,8 +97,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
             child: new Text(
               data[index],
               textAlign: TextAlign.center,
-              style: Theme
-                  .of(context)
+              style: Theme.of(context)
                   .textTheme
                   .title
                   .copyWith(color: Colors.black),
@@ -127,8 +121,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
             padding: const EdgeInsets.all(8.0),
             child: new Text(
               'Most Used',
-              style: Theme
-                  .of(context)
+              style: Theme.of(context)
                   .textTheme
                   .headline
                   .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
@@ -155,8 +148,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
             padding: const EdgeInsets.all(8.0),
             child: new Text(
               'And the Rest',
-              style: Theme
-                  .of(context)
+              style: Theme.of(context)
                   .textTheme
                   .headline
                   .copyWith(color: Colors.black, fontWeight: FontWeight.bold),

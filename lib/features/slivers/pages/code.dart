@@ -8,11 +8,11 @@ enum _Step {
 }
 
 class LoadsOfCode extends StatefulWidget {
+  const LoadsOfCode({Key key, @required this.controller}) : super(key: key);
   final PresentationController controller;
 
-  const LoadsOfCode({Key key, @required this.controller}) : super(key: key);
   @override
-  _LoadsOfCodeState createState() => new _LoadsOfCodeState();
+  _LoadsOfCodeState createState() => _LoadsOfCodeState();
 }
 
 class _LoadsOfCodeState extends State<LoadsOfCode>
@@ -84,8 +84,7 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
         ),
         child: new Center(
             child: new DefaultTextStyle(
-          style: Theme
-              .of(context)
+          style: Theme.of(context)
               .textTheme
               .display2
               .copyWith(color: Colors.white, fontWeight: FontWeight.bold),

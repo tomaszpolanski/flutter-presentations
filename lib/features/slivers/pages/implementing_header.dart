@@ -4,15 +4,13 @@ import 'package:flutter_presentations/features/slivers/CustomAppBarDelegate.dart
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 
 class ImplementingHeader extends StatefulWidget {
-  final PresentationController controller;
-
   const ImplementingHeader({Key key, @required this.controller})
       : super(key: key);
 
+  final PresentationController controller;
+
   @override
-  ImplementingHeaderState createState() {
-    return new ImplementingHeaderState();
-  }
+  ImplementingHeaderState createState() => ImplementingHeaderState();
 }
 
 class ImplementingHeaderState extends State<ImplementingHeader> {
