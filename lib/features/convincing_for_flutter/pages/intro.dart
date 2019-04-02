@@ -23,7 +23,7 @@ class TitlePage extends StatelessWidget {
                   Text('company to '),
                   ParallaxWidget(
                     child: Row(
-                      children: [
+                      children: const [
                         Image(
                           image: AssetImage('assets/image4.png'),
                           height: 60.0,
@@ -98,9 +98,9 @@ enum _Step {
 }
 
 class PlatformsPage extends StatefulWidget {
-  final PresentationController controller;
-
   const PlatformsPage(this.controller, {Key key}) : super(key: key);
+
+  final PresentationController controller;
 
   @override
   _PlatformsPageState createState() => _PlatformsPageState();

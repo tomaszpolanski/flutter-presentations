@@ -1,32 +1,10 @@
-# Specify analysis options.
-#
-# Until there are meta linter rules, each desired lint must be explicitly enabled.
-# See: https://github.com/dart-lang/linter/issues/288
-#
-# For a list of lints, see: http://dart-lang.github.io/linter/lints/
-# See the configuration guide for more
-# https://github.com/dart-lang/sdk/tree/master/pkg/analyzer#configuring-the-analyzer
-#
-# There are four similar analysis options files in the flutter repos:
-#   - analysis_options.yaml (this file)
-#   - packages/flutter/lib/analysis_options_user.yaml
-#   - https://github.com/flutter/plugins/blob/master/analysis_options.yaml
-#   - https://github.com/flutter/engine/blob/master/analysis_options.yaml
-#
-# This file contains the analysis options used by Flutter tools, such as IntelliJ,
-# Android Studio, and the `flutter analyze` command.
-#
-# The flutter/plugins repo contains a copy of this file, which should be kept
-# in sync with this file.
-
 analyzer:
   errors:
-    # treat missing required parameters as a error (not a hint)
     missing_required_param: error
-    # treat missing returns as a error (not a hint)
     missing_return: error
-    # allow having TODOs in the code
     todo: ignore
+  exclude:
+    - lib/generated/**
 
 linter:
   rules:
@@ -52,9 +30,10 @@ linter:
     # - avoid_returning_null # we do this commonly
     - avoid_returning_this # https://github.com/dart-lang/linter/issues/842
     - avoid_setters_without_getters
+    - avoid_shadowing_type_parameters
     - avoid_single_cascade_in_expression_statements
     - avoid_slow_async_io
-    # - avoid_types_as_parameter_names # https://github.com/dart-lang/linter/pull/954/files
+    - avoid_types_as_parameter_names
     # - avoid_types_on_closure_parameters # conflicts with always_specify_types
     # - avoid_unused_constructor_parameters # https://github.com/dart-lang/linter/pull/847
     - await_only_futures
@@ -81,6 +60,7 @@ linter:
     - no_adjacent_strings_in_list
     - no_duplicate_case_values
     - non_constant_identifier_names
+    - null_closures
     # - omit_local_variable_types # opposite of always_specify_types
     # - one_member_abstracts # too many false positives
     # - only_throw_errors # https://github.com/flutter/flutter/issues/5792
@@ -93,7 +73,7 @@ linter:
     - prefer_asserts_in_initializer_lists
     - prefer_collection_literals
     - prefer_conditional_assignment
-   # - prefer_const_constructors #replace with unnecessary_const
+    # - prefer_const_constructors # We are moving to omit `new`
     - prefer_const_constructors_in_immutables
     - prefer_const_declarations
     - prefer_const_literals_to_create_immutables
@@ -108,7 +88,7 @@ linter:
     - prefer_interpolation_to_compose_strings
     - prefer_is_empty
     - prefer_is_not_empty
-    - prefer_single_quotes 
+    - prefer_single_quotes
     - prefer_typing_uninitialized_variables
     - recursive_getters
     - slash_for_doc_comments
@@ -118,7 +98,7 @@ linter:
     - throw_in_finally
     # - type_annotate_public_apis # subset of always_specify_types
     - type_init_formals
-    # - unawaited_futures # https://github.com/flutter/flutter/issues/5793
+    - unawaited_futures
     - unnecessary_brace_in_string_interps
     - unnecessary_getters_setters
     # - unnecessary_lambdas # https://github.com/dart-lang/linter/issues/498
@@ -126,11 +106,11 @@ linter:
     - unnecessary_null_in_if_null_operators
     - unnecessary_overrides
     - unnecessary_parenthesis
-    - unnecessary_statements 
+    - unnecessary_statements
     - unnecessary_this
     - unrelated_type_equality_checks
     - use_rethrow_when_possible
-    - use_setters_to_change_properties # not yet tested
+    - use_setters_to_change_properties
     # - use_string_buffers # https://github.com/dart-lang/linter/pull/664
     # - use_to_and_as_if_applicable # has false positives, so we prefer to catch this by code-review
     - valid_regexps
