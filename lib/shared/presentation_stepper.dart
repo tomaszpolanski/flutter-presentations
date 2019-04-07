@@ -28,7 +28,6 @@ class PageStepper<T> extends Listenable {
     @required T fromStep,
     @required T toStep,
     @required Transition forward,
-    // ignore: always_require_non_null_named_parameters
     Transition reverse,
   }) {
     assert(fromStep != null);
