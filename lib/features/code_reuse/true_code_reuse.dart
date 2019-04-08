@@ -31,20 +31,6 @@ class CodeReuseState extends State<CodeReuse> {
     super.initState();
     controller = PageController();
     presentationController = PresentationController(controller: controller);
-    pageCreator = <ValueGetter<Widget>>[
-      () => Intro(),
-      () => Solid(controller: presentationController),
-      () => InheritanceVsComposition(controller: presentationController),
-      () => Composable(controller: presentationController),
-      () => EverythingsWidget(controller: presentationController),
-      () => Reusage(controller: presentationController),
-      () => TutorialGoal(controller: presentationController),
-      () => TutorialResult(controller: presentationController),
-      () => Reark(controller: presentationController),
-      () => Conversation(controller: presentationController),
-      () => GrouponApp(),
-      () => ThatsAll(),
-    ];
   }
 
   @override
@@ -57,10 +43,22 @@ class CodeReuseState extends State<CodeReuse> {
   @override
   Widget build(BuildContext context) {
     return Presentation(
-      pageCreator: pageCreator,
       controller: controller,
       presentationController: presentationController,
-      enableParallax: false,
+      children: [
+        Intro(),
+        Solid(controller: presentationController),
+        InheritanceVsComposition(controller: presentationController),
+        Composable(controller: presentationController),
+        EverythingsWidget(controller: presentationController),
+        Reusage(controller: presentationController),
+        TutorialGoal(controller: presentationController),
+        TutorialResult(controller: presentationController),
+        Reark(controller: presentationController),
+        Conversation(controller: presentationController),
+        GrouponApp(),
+        ThatsAll(),
+      ],
     );
   }
 }

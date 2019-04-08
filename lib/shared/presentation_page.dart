@@ -7,29 +7,27 @@ import 'package:flutter_presentations/shared/presentation_controller.dart';
 class Presentation extends StatelessWidget {
   const Presentation({
     Key key,
-    @required this.pageCreator,
+    @required this.children,
     @required this.controller,
     @required this.presentationController,
-    this.enableParallax = true,
   }) : super(key: key);
 
-  final List<ValueGetter<Widget>> pageCreator;
+  final List<Widget> children;
   final PageController controller;
   final PresentationController presentationController;
-  final bool enableParallax;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: NestedScrollView(
-        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) =>
-            [
-              SliverOverlapAbsorber(
-                handle:
-                    NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-              ),
-            ],
+        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+          return [
+            SliverOverlapAbsorber(
+              handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
+            ),
+          ];
+        },
         body: PresentationSettings(
           controller: presentationController,
           child: DefaultTextStyle.merge(
@@ -37,11 +35,11 @@ class Presentation extends StatelessWidget {
             child: ScrollNotifier(
               child: PageView.builder(
                 controller: controller,
-                itemCount: pageCreator.length,
+                itemCount: children.length,
                 itemBuilder: (context, index) {
                   return PageViewSettings(
                     index: index,
-                    child: pageCreator[index](),
+                    child: children[index],
                   );
                 },
               ),
