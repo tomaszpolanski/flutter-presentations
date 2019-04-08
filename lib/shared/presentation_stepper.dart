@@ -1,8 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_presentations/shared/presentation_controller.dart';
 
-typedef Transition = void Function();
-
 class PageStepper<T> extends Listenable {
   PageStepper({this.controller, this.steps}) : _currentStep = steps.first;
 
@@ -15,7 +13,7 @@ class PageStepper<T> extends Listenable {
   void addStep(
     T currentStep,
     T nextStep,
-    Transition transition,
+    VoidCallback transition,
   ) {
     _transitions.add(StepTransition(
       currentStep: currentStep,
@@ -27,8 +25,8 @@ class PageStepper<T> extends Listenable {
   void add({
     @required T fromStep,
     @required T toStep,
-    @required Transition forward,
-    Transition reverse,
+    @required VoidCallback forward,
+    VoidCallback reverse,
   }) {
     assert(fromStep != null);
     assert(toStep != null);
@@ -132,5 +130,5 @@ class StepTransition<T> {
 
   final T currentStep;
   final T nextStep;
-  final Transition transition;
+  final VoidCallback transition;
 }
