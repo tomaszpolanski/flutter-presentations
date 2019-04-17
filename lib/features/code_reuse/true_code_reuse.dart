@@ -46,7 +46,6 @@ class CodeReuseState extends State<CodeReuse> {
       controller: controller,
       presentationController: presentationController,
       children: [
-        BigWidget(controller: presentationController),
         Intro(),
         Solid(controller: presentationController),
         InheritanceVsComposition(controller: presentationController),
