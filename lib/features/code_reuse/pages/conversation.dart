@@ -65,7 +65,7 @@ class _ConversationState extends State<Conversation>
       ..add(
         fromStep: _Step.haha,
         toStep: _Step.next,
-        forward: () => widget.controller.next(),
+        forward: widget.controller.next,
       )
       ..build();
   }
@@ -94,8 +94,8 @@ class _ConversationState extends State<Conversation>
                   user: Text('Norbert'),
                   child: Text(
                     "In the end, state management is all the same, whether it's mobx/bloc or redux.\n"
-                        'All they are doing is separating logic from UI code for the sake reusability/readability.\n'
-                        "I honestly don't see a difference between mobx and bloc besides some syntax sugar",
+                    'All they are doing is separating logic from UI code for the sake reusability/readability.\n'
+                    "I honestly don't see a difference between mobx and bloc besides some syntax sugar",
                   ),
                 ),
               ),
@@ -108,7 +108,7 @@ class _ConversationState extends State<Conversation>
                   user: Text('salih'),
                   child: Text(
                     'For me, the important point of view is actually why people prefer that.\n'
-                        "Is it because it's easier or because it's just closer to what they did before, learning curve etc...",
+                    "Is it because it's easier or because it's just closer to what they did before, learning curve etc...",
                   ),
                 ),
               ),

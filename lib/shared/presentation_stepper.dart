@@ -70,7 +70,6 @@ class PageStepper<T> extends Listenable {
     if (transition != null) {
       print('From: ${transition.currentStep}, to: ${transition.nextStep}');
       transition.transition();
-      print(_listenable);
       if (_listenable != null) {
         _listenable();
       }

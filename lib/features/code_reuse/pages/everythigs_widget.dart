@@ -53,8 +53,8 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
       ..add(
         fromStep: _Step.blueprint,
         toStep: _Step.asteriks,
-        forward: () => _controller.forward(),
-        reverse: () => _controller.reverse(),
+        forward: _controller.forward,
+        reverse: _controller.reverse,
       )
       ..add(
         fromStep: _Step.asteriks,
@@ -77,7 +77,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
       ..add(
         fromStep: _Step.showCode,
         toStep: _Step.next,
-        forward: () => widget.controller.next(),
+        forward: widget.controller.next,
       )
       ..build();
   }

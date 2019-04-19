@@ -248,7 +248,6 @@ class MyPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    print(size);
     final Paint line = new Paint()
       ..color = lineColor
       ..strokeCap = StrokeCap.round

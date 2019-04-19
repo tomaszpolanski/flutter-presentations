@@ -41,19 +41,19 @@ class _InheritanceVsCompositionState extends State<InheritanceVsComposition> {
       ..add(
         fromStep: _Step.init,
         toStep: _Step.inheritance,
-        forward: () => _inheritanceController.forward(),
-        reverse: () => _inheritanceController.reverse(),
+        forward: _inheritanceController.forward,
+        reverse: _inheritanceController.reverse,
       )
       ..add(
         fromStep: _Step.inheritance,
         toStep: _Step.composition,
-        forward: () => _compositionController.forward(),
-        reverse: () => _compositionController.reverse(),
+        forward: _compositionController.forward,
+        reverse: _compositionController.reverse,
       )
       ..add(
         fromStep: _Step.composition,
         toStep: _Step.next,
-        forward: () => widget.controller.next(),
+        forward: widget.controller.next,
       )
       ..build();
   }

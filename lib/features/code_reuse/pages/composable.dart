@@ -40,13 +40,13 @@ class _ComposableState extends State<Composable>
       ..add(
         fromStep: _Step.init,
         toStep: _Step.flutter,
-        forward: () => _controller.forward(),
-        reverse: () => _controller.reverse(),
+        forward: _controller.forward,
+        reverse: _controller.reverse,
       )
       ..add(
         fromStep: _Step.flutter,
         toStep: _Step.next,
-        forward: () => widget.controller.next(),
+        forward: widget.controller.next,
       )
       ..build();
   }
@@ -91,7 +91,7 @@ class _ComposableState extends State<Composable>
                       transform: Matrix4.identity()
                         ..translate(0.0, (1 - animation.value) * (50.0))
                         ..rotateX((1 - animation.value) * (pi / 2)),
-                      child: child,
+                      child: animation.value == 0 ? SizedBox() : child,
                     );
                   },
                   child: Text('Flutter'),

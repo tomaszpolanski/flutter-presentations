@@ -35,13 +35,13 @@ class _RearkState extends State<Reark> with SingleTickerProviderStateMixin {
       ..add(
         fromStep: _Step.init,
         toStep: _Step.reakt,
-        forward: () => _controller.forward(),
-        reverse: () => _controller.reverse(),
+        forward: _controller.forward,
+        reverse: _controller.reverse,
       )
       ..add(
         fromStep: _Step.reakt,
         toStep: _Step.next,
-        forward: () => widget.controller.next(),
+        forward: widget.controller.next,
       )
       ..build();
   }

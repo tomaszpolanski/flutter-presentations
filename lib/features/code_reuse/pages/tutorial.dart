@@ -53,7 +53,7 @@ class _TutorialGoalState extends State<TutorialGoal>
       ..add(
         fromStep: _TutorialStep.tutorial,
         toStep: _TutorialStep.next,
-        forward: () => widget.controller.next(),
+        forward: widget.controller.next,
       )
       ..build();
   }
