@@ -53,14 +53,6 @@ class PresentationController {
     }
   }
 
-  void nextStep() {
-    _sendAction(PageAction.next);
-  }
-
-  void previousStep() {
-    _sendAction(PageAction.previous);
-  }
-
   void _sendAction(PageAction action) {
     if (_listeners.isEmpty) {
       switch (action) {
@@ -79,6 +71,10 @@ class PresentationController {
       }
     }
   }
+
+  void nextStep() => _sendAction(PageAction.next);
+
+  void previousStep() => _sendAction(PageAction.previous);
 
   void previousSlide() {
     controller.previousPage(
