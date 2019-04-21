@@ -15,8 +15,13 @@ void main() {
       }
     });
 
-    test('tap slivers', () async {
-      await driver.tap(find.text('Slivers!'));
+    test('swipe pages', () async {
+      await driver.tap(find.text('True Code Reuse'));
+
+      final page = find.byType('PageView');
+      await driver.scroll(page, -1000, 0, Duration(milliseconds: 200));
+      await driver.scroll(page, -1000, 0, Duration(milliseconds: 200));
+      await driver.scroll(page, -1000, 0, Duration(milliseconds: 200));
     });
   });
 }

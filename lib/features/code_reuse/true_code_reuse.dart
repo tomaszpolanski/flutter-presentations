@@ -14,8 +14,8 @@ import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/presentation_page.dart';
 
 class CodeReuse extends StatefulWidget {
-  static const String title = 'True Code Reuse and Architecture';
-  static const String subtitle = 'in Flutter';
+  static const String title = 'True Code Reuse';
+  static const String subtitle = 'with Flutter';
 
   @override
   CodeReuseState createState() => CodeReuseState();
