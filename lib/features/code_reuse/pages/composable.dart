@@ -46,7 +46,7 @@ class _ComposableState extends State<Composable>
       ..add(
         fromStep: _Step.flutter,
         toStep: _Step.next,
-        forward: widget.controller.next,
+        forward: widget.controller.nextSlide,
       )
       ..build();
   }

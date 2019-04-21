@@ -207,7 +207,7 @@ class _PlatformsPageState extends State<PlatformsPage>
       ..add(
         fromStep: _Step.fuchsia,
         toStep: _Step.next,
-        forward: () => widget.controller.next(),
+        forward: () => widget.controller.nextSlide(),
       )
       ..addListener(() => setState(() {}))
       ..build();

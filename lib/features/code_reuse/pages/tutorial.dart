@@ -53,7 +53,7 @@ class _TutorialGoalState extends State<TutorialGoal>
       ..add(
         fromStep: _TutorialStep.tutorial,
         toStep: _TutorialStep.next,
-        forward: widget.controller.next,
+        forward: widget.controller.nextSlide,
       )
       ..build();
   }
@@ -148,7 +148,7 @@ class _TutorialResultState extends State<TutorialResult>
       ..add(
         fromStep: _Step.graph,
         toStep: _Step.next,
-        forward: () => widget.controller.next(),
+        forward: () => widget.controller.nextSlide(),
       )
       ..build();
   }

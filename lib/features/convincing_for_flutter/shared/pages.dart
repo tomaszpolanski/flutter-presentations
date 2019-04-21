@@ -92,7 +92,7 @@ class SlideWidget extends StatelessWidget {
     assert(settings != null, 'Slide must have PresentationSettings ancestor');
     return GestureDetector(
       onTap: () {
-        settings.controller.next();
+        settings.controller.nextSlide();
       },
       child: Container(color: Colors.transparent, child: child),
     );

@@ -92,7 +92,7 @@ class CriteriaPageState extends State<CriteriaPage>
         } else if (_peopleController.status == AnimationStatus.dismissed) {
           _peopleController.forward();
         } else {
-          widget.controller.next();
+          widget.controller.nextSlide();
         }
       },
       child: Container(

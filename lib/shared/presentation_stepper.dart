@@ -50,7 +50,7 @@ class PageStepper<T> extends Listenable {
     if (nextStep != null) {
       _currentStep = _tryTransition(current: _currentStep, next: nextStep);
     } else {
-      controller.next();
+      controller.nextSlide();
     }
   }
 
@@ -59,7 +59,7 @@ class PageStepper<T> extends Listenable {
     if (nextStep != null) {
       _currentStep = _tryTransition(current: _currentStep, next: nextStep);
     } else {
-      controller.previous();
+      controller.previousSlide();
     }
   }
 

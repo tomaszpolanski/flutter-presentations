@@ -65,7 +65,7 @@ class _ConversationState extends State<Conversation>
       ..add(
         fromStep: _Step.haha,
         toStep: _Step.next,
-        forward: widget.controller.next,
+        forward: widget.controller.nextSlide,
       )
       ..build();
   }

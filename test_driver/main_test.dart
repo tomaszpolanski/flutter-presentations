@@ -10,18 +10,18 @@ void main() {
     });
 
     tearDownAll(() async {
-      if (driver != null) {
-        await driver.close();
-      }
+      await driver?.close();
     });
 
-    test('swipe pages', () async {
+    test('show presentation', () async {
       await driver.tap(find.text('True Code Reuse'));
-
-      final page = find.byType('PageView');
-      await driver.scroll(page, -1000, 0, Duration(milliseconds: 200));
-      await driver.scroll(page, -1000, 0, Duration(milliseconds: 200));
-      await driver.scroll(page, -1000, 0, Duration(milliseconds: 200));
-    });
+      final page = find.byValueKey('presentation');
+      var index = 0;
+      while (index < 40) {
+        await driver.tap(page);
+        await Future<void>.delayed(const Duration(milliseconds: 800));
+        index += 1;
+      }
+    }, timeout: Timeout.factor(10));
   });
 }

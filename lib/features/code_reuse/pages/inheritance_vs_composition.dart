@@ -53,7 +53,7 @@ class _InheritanceVsCompositionState extends State<InheritanceVsComposition> {
       ..add(
         fromStep: _Step.composition,
         toStep: _Step.next,
-        forward: widget.controller.next,
+        forward: widget.controller.nextSlide,
       )
       ..build();
   }

@@ -58,7 +58,7 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
       ..add(
         fromStep: _Step.openClosed,
         toStep: _Step.next,
-        forward: widget.controller.next,
+        forward: widget.controller.nextSlide,
       )
       ..addListener(() => setState(() {}))
       ..build();

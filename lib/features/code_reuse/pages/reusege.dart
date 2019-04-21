@@ -46,7 +46,7 @@ class _BigWidgetState extends State<BigWidget> {
       ..add(
         fromStep: _Step.bottom,
         toStep: _Step.next,
-        forward: widget.controller.next,
+        forward: widget.controller.nextSlide,
       )
       ..build();
   }

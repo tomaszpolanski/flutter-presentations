@@ -29,7 +29,7 @@ class SimpleDemoState extends State<SimpleDemo> {
   void _handlePageAction(PageAction action) {
     if (action == PageAction.next) {
       if (_controller.position.maxScrollExtent == _controller.offset) {
-        widget.controller.next();
+        widget.controller.nextSlide();
       } else {
         _controller.animateTo(
           _controller.offset + context.size.height,
@@ -39,7 +39,7 @@ class SimpleDemoState extends State<SimpleDemo> {
       }
     } else {
       if (0.0 == _controller.offset) {
-        widget.controller.previous();
+        widget.controller.previousSlide();
       } else {
         _controller.animateTo(
           _controller.offset - context.size.height,

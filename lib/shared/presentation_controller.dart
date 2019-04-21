@@ -53,14 +53,22 @@ class PresentationController {
     }
   }
 
+  void nextStep() {
+    _sendAction(PageAction.next);
+  }
+
+  void previousStep() {
+    _sendAction(PageAction.previous);
+  }
+
   void _sendAction(PageAction action) {
     if (_listeners.isEmpty) {
       switch (action) {
         case PageAction.next:
-          next();
+          nextSlide();
           break;
         case PageAction.previous:
-          previous();
+          previousSlide();
           break;
         default:
           print('Unknown action: $action');
@@ -72,14 +80,14 @@ class PresentationController {
     }
   }
 
-  void previous() {
+  void previousSlide() {
     controller.previousPage(
       duration: Duration(milliseconds: 300),
       curve: Curves.easeOut,
     );
   }
 
-  void next() {
+  void nextSlide() {
     controller.nextPage(
       duration: Duration(milliseconds: 300),
       curve: Curves.easeOut,

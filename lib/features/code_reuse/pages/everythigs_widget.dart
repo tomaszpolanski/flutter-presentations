@@ -77,7 +77,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
       ..add(
         fromStep: _Step.showCode,
         toStep: _Step.next,
-        forward: widget.controller.next,
+        forward: widget.controller.nextSlide,
       )
       ..build();
   }

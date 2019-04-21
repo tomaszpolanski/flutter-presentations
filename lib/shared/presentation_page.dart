@@ -28,20 +28,25 @@ class Presentation extends StatelessWidget {
             ),
           ];
         },
-        body: PresentationSettings(
-          controller: presentationController,
-          child: DefaultTextStyle.merge(
-            style: GTheme.big,
-            child: ScrollNotifier(
-              child: PageView.builder(
-                controller: controller,
-                itemCount: children.length,
-                itemBuilder: (context, index) {
-                  return PageViewSettings(
-                    index: index,
-                    child: children[index],
-                  );
-                },
+        body: GestureDetector(
+          key: Key('presentation'),
+          onTap: () => presentationController.nextStep,
+          onDoubleTap: presentationController.previousSlide,
+          child: PresentationSettings(
+            controller: presentationController,
+            child: DefaultTextStyle.merge(
+              style: GTheme.big,
+              child: ScrollNotifier(
+                child: PageView.builder(
+                  controller: controller,
+                  itemCount: children.length,
+                  itemBuilder: (context, index) {
+                    return PageViewSettings(
+                      index: index,
+                      child: children[index],
+                    );
+                  },
+                ),
               ),
             ),
           ),
