@@ -1,12 +1,16 @@
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
+import 'screenshots.dart';
+
 void main() {
   group('Flutter Driver demo', () {
     FlutterDriver driver;
+    Screenshot screenshot;
 
     setUpAll(() async {
       driver = await FlutterDriver.connect();
+      screenshot = await Screenshot.create(driver, 'code_reuse');
     });
 
     tearDownAll(() async {
@@ -18,6 +22,7 @@ void main() {
       final page = find.byValueKey('presentation');
       var index = 0;
       while (index < 40) {
+        await screenshot.takeScreenshot(index.toString());
         await driver.tap(page);
         await Future<void>.delayed(const Duration(milliseconds: 800));
         index += 1;

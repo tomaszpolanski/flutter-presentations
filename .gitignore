@@ -11,3 +11,4 @@ build/
 *.iml
 *.lock
 .vscode/launch.json
+test_driver/screenshots/
