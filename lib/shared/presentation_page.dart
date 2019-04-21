@@ -30,8 +30,8 @@ class Presentation extends StatelessWidget {
         },
         body: GestureDetector(
           key: Key('presentation'),
-          onTap: () => presentationController.nextStep,
-          onDoubleTap: presentationController.previousSlide,
+          onTap: presentationController.nextStep,
+          onDoubleTap: presentationController.previousStep,
           child: PresentationSettings(
             controller: presentationController,
             child: DefaultTextStyle.merge(
