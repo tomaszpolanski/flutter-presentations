@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/shared/presentation_controller.dart';
 import 'package:flutter_presentations/shared/slivers_page.dart';
+import 'package:presentation/presentation_controller.dart';
 
 class SliverTypesPage extends StatefulWidget {
   const SliverTypesPage({Key key, @required this.controller}) : super(key: key);

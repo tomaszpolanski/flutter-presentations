@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
-import 'package:flutter_presentations/shared/parallax.dart';
-import 'package:flutter_presentations/shared/presentation_controller.dart';
-import 'package:flutter_presentations/shared/presentation_stepper.dart';
+import 'package:presentation/parallax_effect.dart';
+import 'package:presentation/presentation_controller.dart';
+import 'package:presentation/presentation_stepper.dart';
 
 class TitlePage extends StatelessWidget {
   const TitlePage({Key key}) : super(key: key);

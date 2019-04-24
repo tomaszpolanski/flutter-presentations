@@ -10,8 +10,9 @@ import 'package:flutter_presentations/features/code_reuse/pages/reusege.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/solid.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/tutorial.dart';
-import 'package:flutter_presentations/shared/presentation_controller.dart';
-import 'package:flutter_presentations/shared/presentation_page.dart';
+import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
+import 'package:presentation/presentation_controller.dart';
+import 'package:presentation/presentation_page.dart';
 
 class CodeReuse extends StatefulWidget {
   static const String title = 'True Code Reuse';
@@ -42,23 +43,26 @@ class CodeReuseState extends State<CodeReuse> {
 
   @override
   Widget build(BuildContext context) {
-    return Presentation(
-      controller: controller,
-      presentationController: presentationController,
-      children: [
-        Intro(),
-        Solid(controller: presentationController),
-        InheritanceVsComposition(controller: presentationController),
-        Composable(controller: presentationController),
-        EverythingsWidget(controller: presentationController),
-        BigWidget(controller: presentationController),
-        TutorialGoal(controller: presentationController),
-        TutorialResult(controller: presentationController),
-        Reark(controller: presentationController),
-        Conversation(controller: presentationController),
-        GrouponApp(),
-        ThatsAll(),
-      ],
+    return DefaultTextStyle.merge(
+      style: GTheme.big,
+      child: Presentation(
+        controller: controller,
+        presentationController: presentationController,
+        children: [
+          Intro(),
+          Solid(controller: presentationController),
+          InheritanceVsComposition(controller: presentationController),
+          Composable(controller: presentationController),
+          EverythingsWidget(controller: presentationController),
+          BigWidget(controller: presentationController),
+          TutorialGoal(controller: presentationController),
+          TutorialResult(controller: presentationController),
+          Reark(controller: presentationController),
+          Conversation(controller: presentationController),
+          GrouponApp(),
+          ThatsAll(),
+        ],
+      ),
     );
   }
 }

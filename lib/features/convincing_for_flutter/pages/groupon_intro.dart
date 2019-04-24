@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
-import 'package:flutter_presentations/shared/parallax.dart';
+import 'package:presentation/parallax_effect.dart';
 
 class PuppyPage extends StatelessWidget {
   const PuppyPage({Key key}) : super(key: key);

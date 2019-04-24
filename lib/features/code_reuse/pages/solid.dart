@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
-import 'package:flutter_presentations/shared/presentation_controller.dart';
-import 'package:flutter_presentations/shared/presentation_stepper.dart';
+import 'package:presentation/presentation_controller.dart';
+import 'package:presentation/presentation_stepper.dart';
 
 class Solid extends StatefulWidget {
   const Solid({Key key, this.controller}) : super(key: key);

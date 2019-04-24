@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
-import 'package:flutter_presentations/shared/parallax.dart';
-import 'package:flutter_presentations/shared/presentation_controller.dart';
+import 'package:presentation/parallax_effect.dart';
+import 'package:presentation/presentation_page.dart';
 
 class SectionPage extends StatelessWidget {
   const SectionPage(this.text, {Key key}) : super(key: key);
@@ -97,19 +97,6 @@ class SlideWidget extends StatelessWidget {
       child: Container(color: Colors.transparent, child: child),
     );
   }
-}
-
-class PresentationSettings extends InheritedWidget {
-  const PresentationSettings({
-    Key key,
-    this.controller,
-    Widget child,
-  }) : super(key: key, child: child);
-
-  final PresentationController controller;
-
-  @override
-  bool updateShouldNotify(InheritedWidget oldWidget) => false;
 }
 
 class SummaryPage extends StatelessWidget {

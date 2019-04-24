@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
-import 'package:flutter_presentations/shared/parallax.dart';
-import 'package:flutter_presentations/shared/presentation_controller.dart';
+import 'package:presentation/parallax_effect.dart';
+import 'package:presentation/presentation_controller.dart';
 
 class SurveyPage extends StatelessWidget {
   const SurveyPage({Key key}) : super(key: key);
