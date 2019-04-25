@@ -15,6 +15,8 @@ class Intro extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
+            begin: Alignment.bottomLeft,
+            end: Alignment.topRight,
             colors: const [
               Colors.white,
               Colors.white,
@@ -35,12 +37,24 @@ class Intro extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text('Flutter,'),
-                      SizedBox(height: 30),
-                      Text('Architecture,'),
-                      SizedBox(height: 30),
-                      Text('& True Code Reusability.'),
+                    children: [
+                      new RichText(
+                        text: new TextSpan(
+                          style: Theme.of(context).textTheme.headline,
+                          text: 'True ',
+                          children: <TextSpan>[
+                            new TextSpan(
+                              text: 'Code',
+                              style: new TextStyle(
+                                  decoration: TextDecoration.lineThrough,
+                                  color: Colors.grey),
+                            ),
+                            new TextSpan(
+                              text: '\nEffort Reusability',
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),

@@ -107,6 +107,8 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
             child: Container(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.topRight,
                   colors: const [
                     Colors.white,
                     Colors.white,
