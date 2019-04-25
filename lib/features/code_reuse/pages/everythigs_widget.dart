@@ -123,7 +123,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
           children: <Widget>[
             Expanded(
               child: DefaultTextStyle.merge(
-                style: GTheme.big.copyWith(color: GTheme.flutter2),
+                style: Theme.of(context).textTheme.body1,
                 child: Center(
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/shared/animation_builder.dart';
@@ -61,7 +62,7 @@ class _ComposableState extends State<Composable>
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle.merge(
-      style: GTheme.big.copyWith(color: GTheme.flutter1),
+      style: Theme.of(context).textTheme.body1,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

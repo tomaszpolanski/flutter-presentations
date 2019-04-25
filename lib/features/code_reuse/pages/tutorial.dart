@@ -77,7 +77,7 @@ class _TutorialGoalState extends State<TutorialGoal>
                   : Text(
                       'Feature Reveal',
                       textAlign: TextAlign.center,
-                      style: GTheme.big.copyWith(color: GTheme.flutter2),
+                      style: Theme.of(context).textTheme.title,
                     ),
             ),
           ),
@@ -204,7 +204,7 @@ class _TutorialResultState extends State<TutorialResult>
                   duration: Duration(milliseconds: 100),
                   child: Text(
                     'Image',
-                    style: TextStyle(color: GTheme.flutter2),
+                    style: Theme.of(context).textTheme.title,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -215,7 +215,7 @@ class _TutorialResultState extends State<TutorialResult>
                   duration: Duration(milliseconds: 100),
                   child: Text(
                     'Widget',
-                    style: TextStyle(color: GTheme.flutter2),
+                    style: Theme.of(context).textTheme.title,
                     textAlign: TextAlign.center,
                   ),
                 ),

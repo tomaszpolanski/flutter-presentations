@@ -11,6 +11,7 @@ import 'package:flutter_presentations/features/code_reuse/pages/solid.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/tutorial.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
+import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation_controller.dart';
 import 'package:presentation/presentation_page.dart';
 
@@ -43,8 +44,8 @@ class CodeReuseState extends State<CodeReuse> {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTextStyle.merge(
-      style: GTheme.big,
+    return Theme(
+      data: blueLight(),
       child: Presentation(
         controller: controller,
         presentationController: presentationController,

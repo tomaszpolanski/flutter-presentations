@@ -73,15 +73,14 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    const height = 140.0;
     const offset = 130.0;
     final translateAnimation = CurvedAnimation(
       parent: _controller,
       curve: Interval(0.0, 0.3, curve: Curves.ease),
     );
-
+    final bigTheme = Theme.of(context).textTheme.display1;
     return DefaultTextStyle.merge(
-      style: TextStyle(fontSize: height),
+      style: bigTheme,
       child: Stack(
         children: [
           AnimatedOpacity(
@@ -98,7 +97,8 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
               animation: translateAnimation,
               builder: (_, child) {
                 return Transform.translate(
-                  offset: Offset(0, translateAnimation.value * height * 1),
+                  offset: Offset(
+                      0, translateAnimation.value * bigTheme.fontSize * 1),
                   child: child,
                 );
               },
@@ -117,7 +117,8 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                 animation: translateAnimation,
                 builder: (_, child) {
                   return Transform.translate(
-                    offset: Offset(0, translateAnimation.value * height * 2),
+                    offset: Offset(
+                        0, translateAnimation.value * bigTheme.fontSize * 2),
                     child: child,
                   );
                 },
@@ -137,7 +138,8 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                 animation: translateAnimation,
                 builder: (_, child) {
                   return Transform.translate(
-                    offset: Offset(0, translateAnimation.value * height * 3),
+                    offset: Offset(
+                        0, translateAnimation.value * bigTheme.fontSize * 3),
                     child: child,
                   );
                 },
@@ -157,7 +159,8 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                 animation: translateAnimation,
                 builder: (_, child) {
                   return Transform.translate(
-                    offset: Offset(0, translateAnimation.value * height * 4),
+                    offset: Offset(
+                        0, translateAnimation.value * bigTheme.fontSize * 4),
                     child: child,
                   );
                 },
@@ -219,10 +222,7 @@ class _Letter extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.baseline,
       textBaseline: TextBaseline.alphabetic,
       children: <Widget>[
-        Text(
-          text[0],
-          style: TextStyle(color: GTheme.flutter3),
-        ),
+        Text(text[0]),
         AnimatedBuilder(
           animation: animation,
           builder: (_, child) {
@@ -243,7 +243,7 @@ class _Letter extends StatelessWidget {
           },
           child: Text(
             text.substring(1, text.length),
-            style: TextStyle(fontSize: 40, color: GTheme.flutter2),
+            style: Theme.of(context).textTheme.title,
           ),
         ),
       ],

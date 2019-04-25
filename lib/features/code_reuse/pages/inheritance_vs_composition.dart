@@ -76,7 +76,8 @@ class _InheritanceVsCompositionState extends State<InheritanceVsComposition> {
             child: ParallaxWidget(
               child: Text(
                 'Inheritance vs Composition',
-                style: GTheme.big.copyWith(color: GTheme.flutter3),
+                style: Theme.of(context).textTheme.title,
+                textAlign: TextAlign.center,
               ),
             ),
           ),
