@@ -6,73 +6,127 @@ import 'package:presentation/parallax_effect.dart';
 class Intro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.bottomLeft,
-          end: Alignment.topRight,
-          colors: const [
-            Colors.white,
-            Colors.white,
-            Colors.transparent,
-            Colors.transparent,
-          ],
-          stops: const [0, 0.3, 0.9, 1],
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(80),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: DefaultTextStyle.merge(
-                style: Theme.of(context).textTheme.headline,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    RichText(
-                      text: TextSpan(
-                        style: Theme.of(context).textTheme.headline,
-                        text: 'True ',
-                        children: [
-                          TextSpan(
-                            text: 'Code',
-                            style: TextStyle(
-                              decoration: TextDecoration.lineThrough,
-                              color: Colors.grey.withOpacity(0.5),
-                            ),
-                          ),
-                          TextSpan(
-                            text: '\nEffort ',
-                            style: TextStyle(color: GTheme.flutter3),
-                          ),
-                          TextSpan(text: 'Reusability'),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+    return Stack(
+      fit: StackFit.expand,
+      children: <Widget>[
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
+              colors: const [
+                Colors.white,
+                Colors.white,
+                Colors.transparent,
+                Colors.transparent,
+              ],
+              stops: const [0, 0.3, 0.9, 1],
             ),
-            DefaultTextStyle.merge(
-              style: Theme.of(context).textTheme.caption,
-              child: ParallaxWidget(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      'Tomek Polański',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    Text('@tpolansk'),
-                  ],
+          ),
+        ),
+        _LineDecoration(),
+        Padding(
+          padding: const EdgeInsets.all(80),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: DefaultTextStyle.merge(
+                  style: Theme.of(context).textTheme.headline,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          style: Theme.of(context).textTheme.headline,
+                          text: 'True ',
+                          children: [
+                            TextSpan(
+                              text: 'Code',
+                              style: TextStyle(
+                                decoration: TextDecoration.lineThrough,
+                                color: Colors.grey.withOpacity(0.5),
+                              ),
+                            ),
+                            TextSpan(
+                              text: '\nEffort ',
+                              style: TextStyle(color: GTheme.flutter3),
+                            ),
+                            TextSpan(text: 'Reusability'),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            )
-          ],
+              DefaultTextStyle.merge(
+                style: Theme.of(context).textTheme.caption,
+                child: ParallaxWidget(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        'Tomek Polański',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      Text('@tpolansk'),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _LineDecoration extends StatefulWidget {
+  @override
+  __LineDecorationState createState() => __LineDecorationState();
+}
+
+class __LineDecorationState extends State<_LineDecoration>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 30),
+    )..forward();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      child: Transform(
+        transform: Matrix4.skewX(0.53),
+        alignment: Alignment.center,
+        child: AnimatedBuilder(
+          animation: _controller,
+          builder: (_, child) {
+            return Transform.translate(
+              offset: Offset(200 + -100 * _controller.value, 0),
+              child: child,
+            );
+          },
+          child: Container(
+            width: 100,
+            color: GTheme.flutter3,
+          ),
         ),
       ),
     );

@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class AnimatedParallax extends StatefulWidget {
-  const AnimatedParallax({Key key, this.child}) : super(key: key);
+class AnimatedParallaxImage extends StatefulWidget {
+  const AnimatedParallaxImage({
+    Key key,
+    this.child,
+    @required this.asset,
+    this.opacity = 1,
+  }) : super(key: key);
+
+  final String asset;
+  final double opacity;
 
   final Widget child;
 
   @override
-  _AnimatedParallaxState createState() => _AnimatedParallaxState();
+  _AnimatedParallaxImageState createState() => _AnimatedParallaxImageState();
 }
 
-class _AnimatedParallaxState extends State<AnimatedParallax>
+class _AnimatedParallaxImageState extends State<AnimatedParallaxImage>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
@@ -35,8 +43,8 @@ class _AnimatedParallaxState extends State<AnimatedParallax>
       animation: _controller,
       builder: (_, __) {
         return Image.asset(
-          'assets/blueprint_wide.jpg',
-          color: Color.fromRGBO(255, 255, 255, 0.15),
+          widget.asset,
+          color: Color.fromRGBO(255, 255, 255, widget.opacity),
           colorBlendMode: BlendMode.modulate,
           fit: BoxFit.fitHeight,
           alignment: FractionalOffset(_controller.value, 0),
