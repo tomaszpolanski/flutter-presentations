@@ -10,7 +10,7 @@ import 'package:flutter_presentations/features/slivers/pages/thanks.dart';
 import 'package:flutter_presentations/features/slivers/pages/title.dart';
 import 'package:flutter_presentations/features/slivers/pages/types.dart';
 import 'package:flutter_presentations/features/slivers/pages/what_is_sliver.dart';
-import 'package:presentation/presentation_controller.dart';
+import 'package:presentation/presentation.dart';
 
 class Slivers extends StatefulWidget {
   static const String title = 'Slivers!';

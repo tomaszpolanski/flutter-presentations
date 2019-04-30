@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:presentation/presentation_controller.dart';
-import 'package:presentation/presentation_stepper.dart';
+import 'package:presentation/presentation.dart';
 
 class Solid extends StatefulWidget {
   const Solid({Key key, this.controller}) : super(key: key);

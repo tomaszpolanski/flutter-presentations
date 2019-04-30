@@ -12,8 +12,7 @@ import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/tutorial.dart';
 import 'package:flutter_presentations/features/code_reuse/parallax_background.dart';
 import 'package:flutter_presentations/shared/themes.dart';
-import 'package:presentation/presentation_controller.dart';
-import 'package:presentation/presentation_page.dart';
+import 'package:presentation/presentation.dart';
 
 class CodeReuse extends StatefulWidget {
   static const String title = 'True Code Reuse';

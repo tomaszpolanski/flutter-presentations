@@ -1,8 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:presentation/presentation_controller.dart';
-import 'package:presentation/presentation_page.dart';
-import 'package:presentation/presentation_stepper.dart';
+import 'package:presentation/presentation.dart';
 
 enum _Step {
   init,

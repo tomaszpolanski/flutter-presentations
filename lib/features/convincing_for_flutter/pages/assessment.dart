@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
-import 'package:presentation/parallax_effect.dart';
-import 'package:presentation/presentation_controller.dart';
+import 'package:presentation/presentation.dart';
+import 'package:presentation/effects.dart';
 
 class SurveyPage extends StatelessWidget {
   const SurveyPage({Key key}) : super(key: key);
@@ -275,25 +275,23 @@ class DevDesignPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            flex: 4,
-            child: Center(
-                child: Text(
-              'Design by Dev',
-              textAlign: TextAlign.center,
-            )),
+    return Row(
+      children: <Widget>[
+        Expanded(
+          flex: 4,
+          child: Center(
+              child: Text(
+            'Design by Dev',
+            textAlign: TextAlign.center,
+          )),
+        ),
+        Expanded(
+          flex: 6,
+          child: ParallaxWidget(
+            child: Image.asset('assets/image17.png', fit: BoxFit.fitWidth),
           ),
-          Expanded(
-            flex: 6,
-            child: ParallaxWidget(
-              child: Image.asset('assets/image17.png', fit: BoxFit.fitWidth),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -347,37 +345,35 @@ class IntegrationTestPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.topCenter,
-            child: Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: ParallaxWidget(
-                child: Text(
-                  'Integrations Tests',
-                  textAlign: TextAlign.center,
-                  style: GTheme.medium,
-                ),
+    return Stack(
+      children: [
+        Align(
+          alignment: Alignment.topCenter,
+          child: Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: ParallaxWidget(
+              child: Text(
+                'Integrations Tests',
+                textAlign: TextAlign.center,
+                style: GTheme.medium,
               ),
             ),
           ),
-          Center(
-            child: Container(
-              height: 200.0,
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Expanded(child: Image.asset('assets/image28.png')),
-                  Expanded(child: Image.asset('assets/image26.png')),
-                  Expanded(child: Image.asset('assets/image29.png')),
-                ],
-              ),
+        ),
+        Center(
+          child: Container(
+            height: 200.0,
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Expanded(child: Image.asset('assets/image28.png')),
+                Expanded(child: Image.asset('assets/image26.png')),
+                Expanded(child: Image.asset('assets/image29.png')),
+              ],
             ),
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }
@@ -419,36 +415,34 @@ class FlutterDartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.topCenter,
-            child: ParallaxWidget(
-              child: Padding(
-                padding: const EdgeInsets.all(18.0),
-                child: Text(
-                  'Flutter vs Dart',
-                  textAlign: TextAlign.center,
-                  style: GTheme.big,
-                ),
+    return Stack(
+      children: [
+        Align(
+          alignment: Alignment.topCenter,
+          child: ParallaxWidget(
+            child: Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Text(
+                'Flutter vs Dart',
+                textAlign: TextAlign.center,
+                style: GTheme.big,
               ),
             ),
           ),
-          Center(
-            child: Container(
-              height: 200.0,
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Expanded(child: Image.asset('assets/image4.png')),
-                  Expanded(child: Image.asset('assets/image25.png')),
-                ],
-              ),
+        ),
+        Center(
+          child: Container(
+            height: 200.0,
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Expanded(child: Image.asset('assets/image4.png')),
+                Expanded(child: Image.asset('assets/image25.png')),
+              ],
             ),
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }
@@ -474,30 +468,28 @@ class LaunchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Container(
-        color: Colors.black,
-        child: Row(
-          children: <Widget>[
-            Expanded(
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: ParallaxWidget(
-                  child: Padding(
-                    padding: const EdgeInsets.all(28.0),
-                    child: Text(
-                      'The Launch',
-                      style: GTheme.big.copyWith(color: Colors.white),
-                    ),
+    return Container(
+      color: Colors.black,
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: ParallaxWidget(
+                child: Padding(
+                  padding: const EdgeInsets.all(28.0),
+                  child: Text(
+                    'The Launch',
+                    style: GTheme.big.copyWith(color: Colors.white),
                   ),
                 ),
               ),
             ),
-            Expanded(
-              child: ParallaxWidget(child: Image.asset('assets/image42.jpg')),
-            ),
-          ],
-        ),
+          ),
+          Expanded(
+            child: ParallaxWidget(child: Image.asset('assets/image42.jpg')),
+          ),
+        ],
       ),
     );
   }
@@ -508,35 +500,33 @@ class ApplePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Padding(
-        padding: const EdgeInsets.all(48.0),
-        child: Row(
-          children: <Widget>[
-            Expanded(child: Image.asset('assets/apple.png')),
-            Expanded(
-                child: ParallaxWidget(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    color: GTheme.flutter1,
-                    width: 30.0,
-                    height: 120.0,
-                  ),
-                  SizedBox(
-                    width: 30.0,
-                  ),
-                  Container(
-                    color: GTheme.flutter2,
-                    width: 30.0,
-                    height: 120.0,
-                  )
-                ],
-              ),
-            )),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.all(48.0),
+      child: Row(
+        children: <Widget>[
+          Expanded(child: Image.asset('assets/apple.png')),
+          Expanded(
+              child: ParallaxWidget(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  color: GTheme.flutter1,
+                  width: 30.0,
+                  height: 120.0,
+                ),
+                SizedBox(
+                  width: 30.0,
+                ),
+                Container(
+                  color: GTheme.flutter2,
+                  width: 30.0,
+                  height: 120.0,
+                )
+              ],
+            ),
+          )),
+        ],
       ),
     );
   }
@@ -574,48 +564,46 @@ class AndroidPageState extends State<AndroidPage>
 
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Padding(
-        padding: const EdgeInsets.all(48.0),
-        child: Row(
-          children: <Widget>[
-            Expanded(
-              flex: 4,
-              child: Image.asset('assets/image9.png'),
-            ),
-            Expanded(
-                flex: 6,
-                child: ParallaxWidget(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      ScaleTransition(
-                        scale: first,
-                        child: ClipPath(
-                          clipper: TriangleClipper(),
-                          child: Container(
-                            color: GTheme.flutter1,
-                            width: 120.0,
-                            height: 120.0,
-                          ),
+    return Padding(
+      padding: const EdgeInsets.all(48.0),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            flex: 4,
+            child: Image.asset('assets/image9.png'),
+          ),
+          Expanded(
+              flex: 6,
+              child: ParallaxWidget(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    ScaleTransition(
+                      scale: first,
+                      child: ClipPath(
+                        clipper: TriangleClipper(),
+                        child: Container(
+                          color: GTheme.flutter1,
+                          width: 120.0,
+                          height: 120.0,
                         ),
                       ),
-                      ScaleTransition(
-                        scale: second,
-                        child: ClipPath(
-                          clipper: TriangleClipper(),
-                          child: Container(
-                            color: GTheme.flutter2,
-                            width: 120.0,
-                            height: 120.0,
-                          ),
+                    ),
+                    ScaleTransition(
+                      scale: second,
+                      child: ClipPath(
+                        clipper: TriangleClipper(),
+                        child: Container(
+                          color: GTheme.flutter2,
+                          width: 120.0,
+                          height: 120.0,
                         ),
                       ),
-                    ],
-                  ),
-                )),
-          ],
-        ),
+                    ),
+                  ],
+                ),
+              )),
+        ],
       ),
     );
   }

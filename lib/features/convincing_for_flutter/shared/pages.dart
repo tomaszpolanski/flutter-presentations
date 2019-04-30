@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
-import 'package:presentation/parallax_effect.dart';
-import 'package:presentation/presentation_page.dart';
+import 'package:presentation/effects.dart';
 
 class SectionPage extends StatelessWidget {
   const SectionPage(this.text, {Key key}) : super(key: key);
@@ -80,25 +79,6 @@ class ImagePage extends StatelessWidget {
   }
 }
 
-class SlideWidget extends StatelessWidget {
-  const SlideWidget({Key key, this.child}) : super(key: key);
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    final PresentationSettings settings =
-        context.inheritFromWidgetOfExactType(PresentationSettings);
-    assert(settings != null, 'Slide must have PresentationSettings ancestor');
-    return GestureDetector(
-      onTap: () {
-        settings.controller.nextSlide();
-      },
-      child: Container(color: Colors.transparent, child: child),
-    );
-  }
-}
-
 class SummaryPage extends StatelessWidget {
   const SummaryPage({
     Key key,
@@ -113,48 +93,46 @@ class SummaryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Container(
-        color: background,
-        padding: EdgeInsets.all(30.0),
-        child: Stack(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Expanded(
-                  flex: 2,
-                  child: ParallaxWidget(
-                    translationFactor: 150.0,
-                    child: Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Container(
-                        color: Colors.white,
-                        height: 8.0,
-                        width: 100.0,
-                      ),
+    return Container(
+      color: background,
+      padding: EdgeInsets.all(30.0),
+      child: Stack(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Expanded(
+                flex: 2,
+                child: ParallaxWidget(
+                  translationFactor: 150.0,
+                  child: Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Container(
+                      color: Colors.white,
+                      height: 8.0,
+                      width: 100.0,
                     ),
                   ),
                 ),
-                Expanded(
-                  flex: 7,
-                  child: Text(
-                    title,
-                    style: GTheme.big.copyWith(color: Colors.white),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Text(
-                subtitle,
-                textAlign: TextAlign.end,
-                style: GTheme.big.copyWith(color: Colors.white),
               ),
-            )
-          ],
-        ),
+              Expanded(
+                flex: 7,
+                child: Text(
+                  title,
+                  style: GTheme.big.copyWith(color: Colors.white),
+                ),
+              ),
+            ],
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Text(
+              subtitle,
+              textAlign: TextAlign.end,
+              style: GTheme.big.copyWith(color: Colors.white),
+            ),
+          )
+        ],
       ),
     );
   }

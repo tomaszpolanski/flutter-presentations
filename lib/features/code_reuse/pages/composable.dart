@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/shared/animation_builder.dart';
-import 'package:presentation/parallax_effect.dart';
-import 'package:presentation/presentation_controller.dart';
-import 'package:presentation/presentation_stepper.dart';
+import 'package:presentation/presentation.dart';
+import 'package:presentation/effects.dart';
 
 class Composable extends StatefulWidget {
   const Composable({Key key, this.controller}) : super(key: key);

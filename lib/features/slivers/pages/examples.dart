@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:presentation/presentation_controller.dart';
+import 'package:presentation/presentation.dart';
 
 class SimpleDemo extends StatefulWidget {
   const SimpleDemo({Key key, @required this.controller}) : super(key: key);

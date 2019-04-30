@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
-import 'package:presentation/parallax_effect.dart';
+import 'package:presentation/effects.dart';
 
 class PuppyPage extends StatelessWidget {
   const PuppyPage({Key key}) : super(key: key);
@@ -41,21 +40,19 @@ class CustomerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Row(
-        children: const [
-          Expanded(
-              child: Image(
-            image: AssetImage('assets/image13.png'),
-            height: 250.0,
-          )),
-          Expanded(
-            child: ParallaxWidget(
-              child: Text('Customer', style: GTheme.big),
-            ),
+    return Row(
+      children: const [
+        Expanded(
+            child: Image(
+          image: AssetImage('assets/image13.png'),
+          height: 250.0,
+        )),
+        Expanded(
+          child: ParallaxWidget(
+            child: Text('Customer', style: GTheme.big),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -65,22 +62,20 @@ class MerchantPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SlideWidget(
-      child: Row(
-        children: const [
-          Expanded(
-            child: Image(
-              image: AssetImage('assets/image7.png'),
-              height: 250.0,
-            ),
+    return Row(
+      children: const [
+        Expanded(
+          child: Image(
+            image: AssetImage('assets/image7.png'),
+            height: 250.0,
           ),
-          Expanded(
-            child: ParallaxWidget(
-              child: Text('Merchant', style: GTheme.big),
-            ),
-          )
-        ],
-      ),
+        ),
+        Expanded(
+          child: ParallaxWidget(
+            child: Text('Merchant', style: GTheme.big),
+          ),
+        )
+      ],
     );
   }
 }

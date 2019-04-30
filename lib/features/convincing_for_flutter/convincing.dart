@@ -6,8 +6,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/pages/intr
 import 'package:flutter_presentations/features/convincing_for_flutter/pages/summary.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
-import 'package:presentation/presentation_controller.dart';
-import 'package:presentation/presentation_page.dart';
+import 'package:presentation/presentation.dart';
 
 class Convincing extends StatefulWidget {
   static const String title = 'Convincing your company to Flutter';
