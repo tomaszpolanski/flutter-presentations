@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
-import 'package:presentation/presentation.dart';
 import 'package:presentation/effects.dart';
+import 'package:presentation/presentation.dart';
 
 class TutorialGoal extends StatefulWidget {
   const TutorialGoal({Key key, this.controller}) : super(key: key);
@@ -84,7 +83,7 @@ class _TutorialGoalState extends State<TutorialGoal>
         Expanded(
           child: Stack(
             alignment: Alignment.center,
-            children: <Widget>[
+            children: [
               Image.asset('assets/dashboard-graph.png'),
               AnimatedOpacity(
                 opacity: _showGraph ? 0 : 1,
@@ -196,7 +195,7 @@ class _TutorialResultState extends State<TutorialResult>
         Transform.translate(
           offset: Offset(0, 80),
           child: Row(
-            children: <Widget>[
+            children: [
               Expanded(
                 child: AnimatedOpacity(
                   opacity: _showImage ? 1 : 0,

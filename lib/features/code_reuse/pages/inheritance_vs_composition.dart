@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
-import 'package:presentation/presentation.dart';
 import 'package:presentation/effects.dart';
+import 'package:presentation/presentation.dart';
 
 const size = 100.0;
 
@@ -105,10 +104,10 @@ class _Inheritance extends StatefulWidget {
   final _Controller controller;
 
   @override
-  __InheritanceState createState() => __InheritanceState();
+  _InheritanceState createState() => _InheritanceState();
 }
 
-class __InheritanceState extends State<_Inheritance>
+class _InheritanceState extends State<_Inheritance>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
@@ -214,10 +213,10 @@ class _Composition extends StatefulWidget {
   final _Controller controller;
 
   @override
-  __CompositionState createState() => __CompositionState();
+  _CompositionState createState() => _CompositionState();
 }
 
-class __CompositionState extends State<_Composition>
+class _CompositionState extends State<_Composition>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
