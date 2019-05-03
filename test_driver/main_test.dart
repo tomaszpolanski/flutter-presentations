@@ -21,10 +21,9 @@ void main() {
       await driver.tap(find.text('True Code Reuse'));
       final page = find.byValueKey('presentation');
       var index = 0;
-      while (index < 40) {
+      while (index < 35) {
         await screenshot.takeScreenshot(index.toString());
         await driver.tap(page);
-        await Future<void>.delayed(const Duration(milliseconds: 800));
         index += 1;
       }
     }, timeout: Timeout.factor(10));

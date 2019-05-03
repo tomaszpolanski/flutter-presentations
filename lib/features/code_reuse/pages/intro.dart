@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_presentations/features/code_reuse/parallax_background.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
+import 'package:flutter_presentations/shared/animation_mode.dart';
 import 'package:presentation/effects.dart';
 
 class Intro extends StatelessWidget {
@@ -99,7 +101,7 @@ class __LineDecorationState extends State<_LineDecoration>
     _controller = AnimationController(
       vsync: this,
       duration: Duration(seconds: 30),
-    ); //..forward();
+    );
     super.initState();
   }
 
@@ -107,6 +109,14 @@ class __LineDecorationState extends State<_LineDecoration>
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (AnimationMode.of(context)) {
+      _controller.repeat(reverse: true);
+    }
   }
 
   @override

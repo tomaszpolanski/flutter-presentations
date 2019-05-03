@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_presentations/shared/animation_mode.dart';
 
 class AnimatedParallaxImage extends StatefulWidget {
   const AnimatedParallaxImage({
@@ -27,7 +29,7 @@ class _AnimatedParallaxImageState extends State<AnimatedParallaxImage>
     _controller = AnimationController(
       vsync: this,
       duration: Duration(seconds: 160),
-    ); //..repeat(reverse: true);
+    );
     super.initState();
   }
 
@@ -35,6 +37,14 @@ class _AnimatedParallaxImageState extends State<AnimatedParallaxImage>
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (AnimationMode.of(context)) {
+      _controller.repeat(reverse: true);
+    }
   }
 
   @override

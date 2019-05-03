@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_presentations/shared/animation_mode.dart';
 
 class GradientContainer extends StatelessWidget {
   const GradientContainer({
@@ -53,15 +54,11 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
     _controller = AnimationController(
       vsync: this,
       duration: Duration(seconds: 3),
-    )
-      ..repeat(reverse: true)
-      ..addListener(() => setState(() {}));
+    )..addListener(() => setState(() {}));
     _fadeInController = AnimationController(
       vsync: this,
       duration: Duration(seconds: 10),
-    )
-      ..forward()
-      ..addStatusListener((status) {
+    )..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
           setState(() => _showQuestions = true);
         }
@@ -73,6 +70,15 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
     _controller.dispose();
     _fadeInController.dispose();
     super.dispose();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (AnimationMode.of(context)) {
+      _controller.repeat(reverse: true);
+      _fadeInController.forward();
+    }
   }
 
   @override
