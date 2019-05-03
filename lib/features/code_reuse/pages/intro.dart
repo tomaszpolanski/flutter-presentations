@@ -99,7 +99,7 @@ class __LineDecorationState extends State<_LineDecoration>
     _controller = AnimationController(
       vsync: this,
       duration: Duration(seconds: 30),
-    )..forward();
+    ); //..forward();
     super.initState();
   }
 
