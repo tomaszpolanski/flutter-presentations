@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart'
     show debugDefaultTargetPlatformOverride;
 import 'package:flutter/material.dart';
-import 'package:flutter_driver/driver_extension.dart';
 import 'package:flutter_presentations/features/code_reuse/true_code_reuse.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/convincing.dart';
 import 'package:flutter_presentations/features/slivers/slivers.dart';
@@ -10,7 +9,6 @@ import 'package:flutter_presentations/shared/animation_mode.dart';
 void main() {
   debugProfileBuildsEnabled = true;
   debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
-  enableFlutterDriverExtension();
   runApp(AnimationMode(
     enabled: false,
     child: MyApp(),
@@ -23,10 +21,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        backgroundColor: Colors.white,
-        cardColor: Colors.white,
-      ),
       navigatorKey: gKey,
       home: MyHomePage(),
     );
