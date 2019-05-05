@@ -5,7 +5,7 @@ class RevealEffect extends StatefulWidget {
   const RevealEffect({
     Key key,
     this.child,
-    this.offset = const Offset(0, 0)
+    this.offset = const Offset(0, 0),
   }) : super(key: key);
 
   final Widget child;
@@ -21,9 +21,10 @@ class _RevealEffectState extends State<RevealEffect>
 
   @override
   void initState() {
-    _controller =
-        AnimationController(vsync: this, duration: Duration(seconds: 2))
-          ..forward();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 2),
+    )..forward();
     super.initState();
   }
 
@@ -39,7 +40,7 @@ class _RevealEffectState extends State<RevealEffect>
       animation: _controller,
       builder: (_, animation, child) {
         return ClipOval(
-          clipper: CustomRect(animation.value, offset: widget.offset),
+          clipper: _CircleRect(animation.value, offset: widget.offset),
           child: child,
         );
       },
@@ -51,8 +52,8 @@ class _RevealEffectState extends State<RevealEffect>
   }
 }
 
-class CustomRect extends CustomClipper<Rect> {
-  const CustomRect(
+class _CircleRect extends CustomClipper<Rect> {
+  const _CircleRect(
     this.factor, {
     this.offset,
   });
@@ -71,7 +72,5 @@ class CustomRect extends CustomClipper<Rect> {
   }
 
   @override
-  bool shouldReclip(CustomRect oldClipper) {
-    return true;
-  }
+  bool shouldReclip(_CircleRect oldClipper) => true;
 }
