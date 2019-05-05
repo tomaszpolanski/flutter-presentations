@@ -12,7 +12,7 @@ void main() {
   debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
   enableFlutterDriverExtension();
   runApp(AnimationMode(
-    enabled: false,
+    enabled: true,
     child: MyApp(),
   ));
 }
