@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_presentations/features/code_reuse/reveal_effect.dart';
 import 'package:presentation/presentation.dart';
 
 class Solid extends StatefulWidget {
@@ -77,101 +78,108 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
       curve: Interval(0.0, 0.3, curve: Curves.ease),
     );
     final bigTheme = Theme.of(context).textTheme.display1;
-    return Container(
-      color: Colors.white,
-      child: DefaultTextStyle.merge(
-        style: bigTheme,
-        child: Stack(
-          children: [
-            AnimatedOpacity(
-              opacity: _showOnlyOpenClosed ? 0 : 1,
-              duration: Duration(milliseconds: 300),
-              child: _AnimatedLine(
-                index: 0,
-                animation: _controller,
-              ),
-            ),
-            Positioned(
-              left: offset,
-              child: AnimatedBuilder(
-                animation: translateAnimation,
-                builder: (_, child) {
-                  return Transform.translate(
-                    offset: Offset(
-                        0, translateAnimation.value * bigTheme.fontSize * 1),
-                    child: child,
-                  );
-                },
-                child: _AnimatedLine(
-                  index: 1,
-                  animation: _controller,
-                ),
-              ),
-            ),
-            Positioned(
-              left: offset * 2,
-              child: AnimatedOpacity(
-                opacity: _showOnlyOpenClosed ? 0 : 1,
-                duration: Duration(milliseconds: 300),
-                child: AnimatedBuilder(
-                  animation: translateAnimation,
-                  builder: (_, child) {
-                    return Transform.translate(
-                      offset: Offset(
-                          0, translateAnimation.value * bigTheme.fontSize * 2),
-                      child: child,
-                    );
-                  },
+    return RevealEffect(
+      offset: Offset(0.9, 0.1),
+      child: Align(
+        child: Container(
+          width: double.infinity,
+          height: double.infinity,
+          color: Colors.white,
+          child: DefaultTextStyle.merge(
+            style: bigTheme,
+            child: Stack(
+              children: [
+                AnimatedOpacity(
+                  opacity: _showOnlyOpenClosed ? 0 : 1,
+                  duration: Duration(milliseconds: 300),
                   child: _AnimatedLine(
-                    index: 2,
+                    index: 0,
                     animation: _controller,
                   ),
                 ),
-              ),
-            ),
-            Positioned(
-              left: offset * 3,
-              child: AnimatedOpacity(
-                opacity: _showOnlyOpenClosed ? 0 : 1,
-                duration: Duration(milliseconds: 300),
-                child: AnimatedBuilder(
-                  animation: translateAnimation,
-                  builder: (_, child) {
-                    return Transform.translate(
-                      offset: Offset(
-                          0, translateAnimation.value * bigTheme.fontSize * 3),
-                      child: child,
-                    );
-                  },
-                  child: _AnimatedLine(
-                    index: 3,
-                    animation: _controller,
+                Positioned(
+                  left: offset,
+                  child: AnimatedBuilder(
+                    animation: translateAnimation,
+                    builder: (_, child) {
+                      return Transform.translate(
+                        offset: Offset(0,
+                            translateAnimation.value * bigTheme.fontSize * 1),
+                        child: child,
+                      );
+                    },
+                    child: _AnimatedLine(
+                      index: 1,
+                      animation: _controller,
+                    ),
                   ),
                 ),
-              ),
-            ),
-            Positioned(
-              left: offset * 3.5,
-              child: AnimatedOpacity(
-                opacity: _showOnlyOpenClosed ? 0 : 1,
-                duration: Duration(milliseconds: 300),
-                child: AnimatedBuilder(
-                  animation: translateAnimation,
-                  builder: (_, child) {
-                    return Transform.translate(
-                      offset: Offset(
-                          0, translateAnimation.value * bigTheme.fontSize * 4),
-                      child: child,
-                    );
-                  },
-                  child: _AnimatedLine(
-                    index: 4,
-                    animation: _controller,
+                Positioned(
+                  left: offset * 2,
+                  child: AnimatedOpacity(
+                    opacity: _showOnlyOpenClosed ? 0 : 1,
+                    duration: Duration(milliseconds: 300),
+                    child: AnimatedBuilder(
+                      animation: translateAnimation,
+                      builder: (_, child) {
+                        return Transform.translate(
+                          offset: Offset(0,
+                              translateAnimation.value * bigTheme.fontSize * 2),
+                          child: child,
+                        );
+                      },
+                      child: _AnimatedLine(
+                        index: 2,
+                        animation: _controller,
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                Positioned(
+                  left: offset * 3,
+                  child: AnimatedOpacity(
+                    opacity: _showOnlyOpenClosed ? 0 : 1,
+                    duration: Duration(milliseconds: 300),
+                    child: AnimatedBuilder(
+                      animation: translateAnimation,
+                      builder: (_, child) {
+                        return Transform.translate(
+                          offset: Offset(0,
+                              translateAnimation.value * bigTheme.fontSize * 3),
+                          child: child,
+                        );
+                      },
+                      child: _AnimatedLine(
+                        index: 3,
+                        animation: _controller,
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: offset * 3.5,
+                  child: AnimatedOpacity(
+                    opacity: _showOnlyOpenClosed ? 0 : 1,
+                    duration: Duration(milliseconds: 300),
+                    child: AnimatedBuilder(
+                      animation: translateAnimation,
+                      builder: (_, child) {
+                        return Transform.translate(
+                          offset: Offset(0,
+                              translateAnimation.value * bigTheme.fontSize * 4),
+                          child: child,
+                        );
+                      },
+                      child: _AnimatedLine(
+                        index: 4,
+                        animation: _controller,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

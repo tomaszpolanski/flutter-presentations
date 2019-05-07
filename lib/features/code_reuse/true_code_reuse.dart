@@ -45,7 +45,7 @@ class CodeReuseState extends State<CodeReuse> {
   Widget build(BuildContext context) {
     return Theme(
       data: blueLight(),
-      child: Container(
+      child: Material(
         color: Colors.white,
         child: Stack(
           fit: StackFit.expand,

@@ -64,12 +64,21 @@ class _CircleRect extends CustomClipper<Rect> {
   @override
   Rect getClip(Size size) {
     final newSize = size.longestSide * 2 * factor * 1.3;
-    return Rect.fromCenter(
+    return fromCenter(
       center: Offset(size.width * offset.dx, size.height * offset.dy),
       width: newSize,
       height: newSize,
     );
   }
+
+  // TODO Replace this with dart version when available in beta
+  static Rect fromCenter({Offset center, double width, double height}) =>
+      Rect.fromLTRB(
+        center.dx - width / 2,
+        center.dy - height / 2,
+        center.dx + width / 2,
+        center.dy + height / 2,
+      );
 
   @override
   bool shouldReclip(_CircleRect oldClipper) => true;
