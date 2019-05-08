@@ -83,8 +83,8 @@ class _TutorialGoalState extends State<TutorialGoal>
         Expanded(
           child: AnimationBuilder<Rect>(
             animation: RectTween(
-              begin: Rect.fromLTRB(0, 0, 100, 100),
-              end: Rect.fromLTRB(0, 31, 100, 61),
+              begin: Rect.fromLTRB(0, 0, 1, 1),
+              end: Rect.fromLTRB(0, 0.31, 1, 0.61),
             ).animate(CurvedAnimation(
               parent: _controller,
               curve: Curves.easeOut,
@@ -111,21 +111,12 @@ class _ClipperRect extends CustomClipper<Rect> {
   @override
   Rect getClip(Size size) {
     return Rect.fromLTRB(
-      size.width * relativeRect.left / 100,
-      size.height * relativeRect.top / 100,
-      size.width * relativeRect.right / 100,
-      size.height * relativeRect.bottom / 100,
+      size.width * relativeRect.left ,
+      size.height * relativeRect.top ,
+      size.width * relativeRect.right ,
+      size.height * relativeRect.bottom ,
     );
   }
-
-  // TODO Replace this with dart version when available in beta
-  static Rect fromCenter({Offset center, double width, double height}) =>
-      Rect.fromLTRB(
-        center.dx - width / 2,
-        center.dy - height / 2,
-        center.dx + width / 2,
-        center.dy + height / 2,
-      );
 
   @override
   bool shouldReclip(_ClipperRect oldClipper) => true;
