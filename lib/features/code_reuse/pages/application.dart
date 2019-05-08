@@ -14,10 +14,11 @@ class _GrouponAppState extends State<GrouponApp> {
     return Row(
       children: [
         Expanded(
-            child: Image(
-          image: AssetImage('assets/image32.png'),
-          height: 250,
-        )),
+          child: FlutterLogo(
+            size: 250,
+            style: FlutterLogoStyle.stacked,
+          ),
+        ),
         Expanded(
           child: Center(
             child: Container(

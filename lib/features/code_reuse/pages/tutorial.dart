@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_presentations/shared/animation_builder.dart';
 import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 
@@ -22,7 +23,6 @@ class _TutorialGoalState extends State<TutorialGoal>
     with SingleTickerProviderStateMixin {
   PageStepper<_TutorialStep> _stateController;
   AnimationController _controller;
-  bool _showGraph = false;
   bool _showTutorial = false;
 
   @override
@@ -39,8 +39,8 @@ class _TutorialGoalState extends State<TutorialGoal>
       ..add(
         fromStep: _TutorialStep.init,
         toStep: _TutorialStep.graph,
-        forward: () => setState(() => _showGraph = true),
-        reverse: () => setState(() => _showGraph = false),
+        forward: _controller.forward,
+        reverse: _controller.reverse,
       )
       ..add(
         fromStep: _TutorialStep.graph,
@@ -81,21 +81,54 @@ class _TutorialGoalState extends State<TutorialGoal>
           ),
         ),
         Expanded(
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Image.asset('assets/dashboard-graph.png'),
-              AnimatedOpacity(
-                opacity: _showGraph ? 0 : 1,
-                duration: Duration(milliseconds: 500),
-                child: Image.asset('assets/dashboard.png'),
-              ),
-            ],
+          child: AnimationBuilder<Rect>(
+            animation: RectTween(
+              begin: Rect.fromLTRB(0, 0, 100, 100),
+              end: Rect.fromLTRB(0, 31, 100, 61),
+            ).animate(CurvedAnimation(
+              parent: _controller,
+              curve: Curves.easeOut,
+            )),
+            builder: (_, animation, child) {
+              return ClipRect(
+                clipper: _ClipperRect(animation.value),
+                child: child,
+              );
+            },
+            child: Image.asset('assets/dashboard.png'),
           ),
         ),
       ],
     );
   }
+}
+
+class _ClipperRect extends CustomClipper<Rect> {
+  const _ClipperRect(this.relativeRect);
+
+  final Rect relativeRect;
+
+  @override
+  Rect getClip(Size size) {
+    return Rect.fromLTRB(
+      size.width * relativeRect.left / 100,
+      size.height * relativeRect.top / 100,
+      size.width * relativeRect.right / 100,
+      size.height * relativeRect.bottom / 100,
+    );
+  }
+
+  // TODO Replace this with dart version when available in beta
+  static Rect fromCenter({Offset center, double width, double height}) =>
+      Rect.fromLTRB(
+        center.dx - width / 2,
+        center.dy - height / 2,
+        center.dx + width / 2,
+        center.dy + height / 2,
+      );
+
+  @override
+  bool shouldReclip(_ClipperRect oldClipper) => true;
 }
 
 class TutorialResult extends StatefulWidget {
