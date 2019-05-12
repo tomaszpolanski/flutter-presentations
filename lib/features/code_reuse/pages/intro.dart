@@ -50,6 +50,7 @@ class Intro extends StatelessWidget {
                                 text: 'Code',
                                 style: TextStyle(
                                   decoration: TextDecoration.lineThrough,
+                                  decorationColor: GTheme.flutter2,
                                   color: Colors.grey.withOpacity(0.5),
                                 ),
                               ),

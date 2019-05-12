@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/application.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/big_widget.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/composable.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/conversation.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/everythigs_widget.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/inheritance_vs_composition.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/intro.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/reark.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/solid.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/tests.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/tutorial.dart';
 import 'package:flutter_presentations/features/code_reuse/parallax_background.dart';
@@ -52,7 +51,7 @@ class CodeReuseState extends State<CodeReuse> {
           children: <Widget>[
             AnimatedParallaxImage(
               asset: 'assets/blueprint_wide.jpg',
-              opacity: 0.15,
+              opacity: 0.1,
             ),
             Presentation(
               controller: controller,
@@ -66,9 +65,8 @@ class CodeReuseState extends State<CodeReuse> {
                 BigWidget(controller: presentationController),
                 TutorialGoal(controller: presentationController),
                 TutorialResult(controller: presentationController),
-                Reark(controller: presentationController),
-                Conversation(controller: presentationController),
                 GrouponApp(),
+                Tests(controller: presentationController),
                 ThatsAll(),
               ],
             ),
