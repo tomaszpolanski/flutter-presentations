@@ -58,6 +58,7 @@ class CodeReuseState extends State<CodeReuse> {
               controller: controller,
               presentationController: presentationController,
               children: [
+                Matrix(controller: presentationController),
                 Intro(),
                 Solid(controller: presentationController),
                 InheritanceVsComposition(controller: presentationController),
@@ -68,7 +69,6 @@ class CodeReuseState extends State<CodeReuse> {
                 TutorialResult(controller: presentationController),
                 GrouponApp(),
                 Tests(controller: presentationController),
-                Matrix(controller: presentationController),
                 ThatsAll(),
               ],
             ),

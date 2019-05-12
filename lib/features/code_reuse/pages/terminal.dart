@@ -87,7 +87,7 @@ class _MatrixState extends State<Matrix> with SingleTickerProviderStateMixin {
                 ..._text
                     .substring(0, (_text.length * animation.value).toInt())
                     .split('')
-                    .map((letter) => Text(letter)),
+                    .map((letter) => _GlowingLetter(letter)),
                 child,
               ],
             );
@@ -96,6 +96,33 @@ class _MatrixState extends State<Matrix> with SingleTickerProviderStateMixin {
         ),
       ),
     );
+  }
+}
+
+class _GlowingLetter extends StatelessWidget {
+  const _GlowingLetter(
+    this.letter, {
+    Key key,
+  }) : super(key: key);
+
+  final String letter;
+
+  @override
+  Widget build(BuildContext context) {
+    return letter[0] != ' '
+        ? Container(
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: const Color(0xFF005122).withOpacity(0.3),
+                  blurRadius: 20,
+                  spreadRadius: 1,
+                ),
+              ],
+            ),
+            child: Text(letter),
+          )
+        : Text(letter);
   }
 }
 
