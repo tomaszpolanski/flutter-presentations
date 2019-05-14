@@ -60,7 +60,7 @@ class CodeReuseState extends State<CodeReuse> {
               controller: controller,
               presentationController: presentationController,
               children: [
-                Inception(),
+                Inception(presentationController),
                 Intro(),
                 Solid(presentationController),
                 InheritanceVsComposition(presentationController),
