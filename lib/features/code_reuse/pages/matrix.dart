@@ -6,7 +6,10 @@ import 'package:intl/intl.dart';
 import 'package:presentation/presentation.dart';
 
 class Matrix extends StatefulWidget {
-  const Matrix({Key key, this.controller}) : super(key: key);
+  const Matrix(
+    this.controller, {
+    Key key,
+  }) : super(key: key);
   final PresentationController controller;
 
   @override

@@ -5,6 +5,8 @@ import 'package:flutter_presentations/features/code_reuse/pages/composable.dart'
 import 'package:flutter_presentations/features/code_reuse/pages/everythigs_widget.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/inheritance_vs_composition.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/intro.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/matrix.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/platform_stack.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/solid.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/tests.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
@@ -57,6 +59,7 @@ class CodeReuseState extends State<CodeReuse> {
               controller: controller,
               presentationController: presentationController,
               children: [
+                PlatformStack(presentationController),
                 Intro(),
                 Solid(controller: presentationController),
                 InheritanceVsComposition(controller: presentationController),
@@ -67,6 +70,7 @@ class CodeReuseState extends State<CodeReuse> {
                 TutorialResult(controller: presentationController),
                 GrouponApp(),
                 Tests(controller: presentationController),
+                Matrix(presentationController),
                 ThatsAll(),
               ],
             ),
