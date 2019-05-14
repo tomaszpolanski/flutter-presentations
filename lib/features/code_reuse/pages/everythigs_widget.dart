@@ -6,7 +6,10 @@ import 'package:flutter_presentations/features/convincing_for_flutter/shared/gro
 import 'package:presentation/presentation.dart';
 
 class EverythingsWidget extends StatefulWidget {
-  const EverythingsWidget({Key key, this.controller}) : super(key: key);
+  const EverythingsWidget(
+    this.controller, {
+    Key key,
+  }) : super(key: key);
   final PresentationController controller;
 
   @override

@@ -3,7 +3,10 @@ import 'package:flutter/widgets.dart';
 import 'package:presentation/presentation.dart';
 
 class BigWidget extends StatefulWidget {
-  const BigWidget({Key key, this.controller}) : super(key: key);
+  const BigWidget(
+    this.controller, {
+    Key key,
+  }) : super(key: key);
   final PresentationController controller;
 
   @override

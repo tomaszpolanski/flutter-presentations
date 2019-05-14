@@ -4,7 +4,10 @@ import 'package:flutter_presentations/features/code_reuse/reveal_effect.dart';
 import 'package:presentation/presentation.dart';
 
 class Solid extends StatefulWidget {
-  const Solid({Key key, this.controller}) : super(key: key);
+  const Solid(
+    this.controller, {
+    Key key,
+  }) : super(key: key);
   final PresentationController controller;
 
   @override

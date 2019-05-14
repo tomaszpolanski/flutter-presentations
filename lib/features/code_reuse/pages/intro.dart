@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_presentations/features/code_reuse/reveal_effect.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/shared/animation_mode.dart';
 import 'package:presentation/effects.dart';
@@ -8,85 +7,82 @@ import 'package:presentation/effects.dart';
 class Intro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return RevealEffect(
-      offset: Offset(0.8, 0.3),
-      child: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.bottomLeft,
-                end: Alignment.topRight,
-                colors: const [
-                  Colors.white,
-                  Colors.white,
-                  Colors.transparent,
-                  Colors.transparent,
-                ],
-                stops: const [0, 0.3, 0.9, 1],
-              ),
+    return Stack(
+      fit: StackFit.expand,
+      children: <Widget>[
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
+              colors: const [
+                Colors.white,
+                Colors.white,
+                Colors.transparent,
+                Colors.transparent,
+              ],
+              stops: const [0, 0.3, 0.9, 1],
             ),
           ),
-          _LineDecoration(),
-          Padding(
-            padding: const EdgeInsets.all(80),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: DefaultTextStyle.merge(
-                    style: Theme.of(context).textTheme.headline,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        RichText(
-                          text: TextSpan(
-                            style: Theme.of(context).textTheme.headline,
-                            text: 'True ',
-                            children: [
-                              TextSpan(
-                                text: 'Code',
-                                style: TextStyle(
-                                  decoration: TextDecoration.lineThrough,
-                                  decorationColor: GTheme.flutter2,
-                                  color: Colors.grey.withOpacity(0.5),
-                                ),
+        ),
+        _LineDecoration(),
+        Padding(
+          padding: const EdgeInsets.all(80),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: DefaultTextStyle.merge(
+                  style: Theme.of(context).textTheme.headline,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          style: Theme.of(context).textTheme.headline,
+                          text: 'True ',
+                          children: [
+                            TextSpan(
+                              text: 'Code',
+                              style: TextStyle(
+                                decoration: TextDecoration.lineThrough,
+                                decorationColor: GTheme.flutter2,
+                                color: Colors.grey.withOpacity(0.5),
                               ),
-                              TextSpan(
-                                text: '\nEffort ',
-                                style: TextStyle(color: GTheme.flutter3),
-                              ),
-                              TextSpan(text: 'Reusability'),
-                            ],
-                          ),
+                            ),
+                            TextSpan(
+                              text: '\nEffort ',
+                              style: TextStyle(color: GTheme.flutter3),
+                            ),
+                            TextSpan(text: 'Reusability'),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
-                DefaultTextStyle.merge(
-                  style: Theme.of(context).textTheme.caption,
-                  child: ParallaxWidget(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          'Tomek Polański',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        Text('@tpolansk'),
-                      ],
-                    ),
+              ),
+              DefaultTextStyle.merge(
+                style: Theme.of(context).textTheme.caption,
+                child: ParallaxWidget(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        'Tomek Polański',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      Text('@tpolansk'),
+                    ],
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

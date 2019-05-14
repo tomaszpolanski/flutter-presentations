@@ -4,7 +4,10 @@ import 'package:flutter/widgets.dart';
 import 'package:presentation/presentation.dart';
 
 class Tests extends StatefulWidget {
-  const Tests({Key key, this.controller}) : super(key: key);
+  const Tests(
+    this.controller, {
+    Key key,
+  }) : super(key: key);
   final PresentationController controller;
 
   @override

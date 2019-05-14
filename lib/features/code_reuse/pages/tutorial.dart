@@ -5,7 +5,10 @@ import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 
 class TutorialGoal extends StatefulWidget {
-  const TutorialGoal({Key key, this.controller}) : super(key: key);
+  const TutorialGoal(
+    this.controller, {
+    Key key,
+  }) : super(key: key);
   final PresentationController controller;
 
   @override
@@ -111,10 +114,10 @@ class _ClipperRect extends CustomClipper<Rect> {
   @override
   Rect getClip(Size size) {
     return Rect.fromLTRB(
-      size.width * relativeRect.left ,
-      size.height * relativeRect.top ,
-      size.width * relativeRect.right ,
-      size.height * relativeRect.bottom ,
+      size.width * relativeRect.left,
+      size.height * relativeRect.top,
+      size.width * relativeRect.right,
+      size.height * relativeRect.bottom,
     );
   }
 
@@ -123,7 +126,10 @@ class _ClipperRect extends CustomClipper<Rect> {
 }
 
 class TutorialResult extends StatefulWidget {
-  const TutorialResult({Key key, this.controller}) : super(key: key);
+  const TutorialResult(
+    this.controller, {
+    Key key,
+  }) : super(key: key);
   final PresentationController controller;
 
   @override

@@ -19,6 +19,7 @@ class Matrix extends StatefulWidget {
 enum _Step {
   init,
   typing,
+  stop,
   next,
 }
 
@@ -54,6 +55,12 @@ class _MatrixState extends State<Matrix> with SingleTickerProviderStateMixin {
       )
       ..add(
         fromStep: _Step.typing,
+        toStep: _Step.stop,
+        forward: () => setState(() => _isBlinking = false),
+        reverse: () => setState(() => _isBlinking = true),
+      )
+      ..add(
+        fromStep: _Step.stop,
         toStep: _Step.next,
         forward: widget.controller.nextSlide,
       )
