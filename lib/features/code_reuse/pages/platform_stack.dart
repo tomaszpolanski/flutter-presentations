@@ -130,7 +130,7 @@ class _PlatformStackState extends State<PlatformStack>
                   animation: _controller,
                   builder: (context, child) {
                     return FractionalTranslation(
-                      translation: Offset(, 0),
+                      translation: Offset(1 - _controller.value, 0),
                       child: child,
                     );
                   },
