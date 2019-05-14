@@ -14,19 +14,47 @@ class PlatformStack extends StatefulWidget {
   _PlatformStackState createState() => _PlatformStackState();
 }
 
+enum _Step {
+  init,
+  web,
+  next,
+}
+
 class _PlatformStackState extends State<PlatformStack>
     with SingleTickerProviderStateMixin {
+  PageStepper<_Step> _stateController;
   AnimationController _controller;
 
   @override
   void initState() {
-    _controller = AnimationController(vsync: this);
     super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 500),
+    );
+    _stateController = PageStepper<_Step>(
+      controller: widget.controller,
+      steps: _Step.values,
+    )
+      ..add(
+        fromStep: _Step.init,
+        toStep: _Step.web,
+        forward: _controller.forward,
+        reverse: _controller.reverse,
+      )
+      ..add(
+        fromStep: _Step.web,
+        toStep: _Step.next,
+        forward: widget.controller.nextSlide,
+      )
+      ..addListener(() => setState(() {}))
+      ..build();
   }
 
   @override
   void dispose() {
     _controller.dispose();
+    _stateController.dispose();
     super.dispose();
   }
 
@@ -42,11 +70,11 @@ class _PlatformStackState extends State<PlatformStack>
         padding: EdgeInsets.all(30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
+          children: [
             _PlatformComponent(
               color: const Color(0xFF0F9D58),
               title: Text('Framework\n(Dart)'),
-              children: [
+              children: const [
                 _Layer(
                   children: const [
                     _TextCell(child: Text('Material')),
@@ -65,47 +93,69 @@ class _PlatformStackState extends State<PlatformStack>
                 _TextCell(child: Text('Foundation'))
               ],
             ),
-            _PlatformComponent(
-              color: const Color(0xFF4285F4),
-              title: Text('Engine\n(C++)'),
+            Stack(
               children: <Widget>[
-                _Layer(
-                  children: const [
-                    _TextCell(
-                      background: const Color(0xFF4285F4),
-                      child: Text('Skia'),
-                    ),
-                    _TextCell(
-                      background: const Color(0xFF4285F4),
-                      child: Text('Dart'),
-                    ),
-                    _TextCell(
-                      background: const Color(0xFF4285F4),
-                      child: Text('Text'),
-                    ),
-                  ],
+                AnimatedBuilder(
+                  animation: _controller,
+                  builder: (context, child) {
+                    return FractionalTranslation(
+                      translation: Offset(-_controller.value, 0),
+                      child: child,
+                    );
+                  },
+                  child: _PlatformComponent(
+                    color: const Color(0xFF4285F4),
+                    title: Text('Engine\n(C++)'),
+                    children: const [
+                      _Layer(
+                        children: const [
+                          _TextCell(
+                            background: const Color(0xFF4285F4),
+                            child: Text('Skia'),
+                          ),
+                          _TextCell(
+                            background: const Color(0xFF4285F4),
+                            child: Text('Dart'),
+                          ),
+                          _TextCell(
+                            background: const Color(0xFF4285F4),
+                            child: Text('Text'),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ],
-            ),
-            _PlatformComponent(
-              color: const Color(0xFFF7AB2E),
-              title: Text('Browser\n(C++, JS)'),
-              children: <Widget>[
-                _Layer(
-                  children: const [
-                    _TextCell(
-                      background: const Color(0xFFF7AB2E),
-                      child: Text('Canvas'),
-                    ),
-                    _TextCell(
-                      background: const Color(0xFFF7AB2E),
-                      child: Text('JS Engine'),
-                    ),
-                    _TextCell(
-                      background: const Color(0xFFF7AB2E),
-                      child: Text('DOM'),
-                    ),
-                  ],
+                AnimatedBuilder(
+                  animation: _controller,
+                  builder: (context, child) {
+                    return FractionalTranslation(
+                      translation: Offset(, 0),
+                      child: child,
+                    );
+                  },
+                  child: _PlatformComponent(
+                    color: const Color(0xFFF7AB2E),
+                    title: Text('Browser\n(C++, JS)'),
+                    children: const [
+                      _Layer(
+                        children: const [
+                          _TextCell(
+                            background: const Color(0xFFF7AB2E),
+                            child: Text('Canvas'),
+                          ),
+                          _TextCell(
+                            background: const Color(0xFFF7AB2E),
+                            child: Text('JS Engine'),
+                          ),
+                          _TextCell(
+                            background: const Color(0xFFF7AB2E),
+                            child: Text('DOM'),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -135,9 +185,9 @@ class _PlatformComponent extends StatelessWidget {
       padding: EdgeInsets.all(30),
       child: Row(
         children: [
-          Expanded(flex: 1, child: title),
+          Expanded(flex: 2, child: title),
           Expanded(
-            flex: 4,
+            flex: 6,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
