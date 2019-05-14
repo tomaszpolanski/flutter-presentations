@@ -3,6 +3,7 @@ import 'package:flutter_presentations/features/code_reuse/pages/application.dart
 import 'package:flutter_presentations/features/code_reuse/pages/big_widget.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/composable.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/everythigs_widget.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/inception.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/inheritance_vs_composition.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/intro.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/matrix.dart';
@@ -59,6 +60,7 @@ class CodeReuseState extends State<CodeReuse> {
               controller: controller,
               presentationController: presentationController,
               children: [
+                Inception(),
                 Intro(),
                 Solid(presentationController),
                 InheritanceVsComposition(presentationController),
