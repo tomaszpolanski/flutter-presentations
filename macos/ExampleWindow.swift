@@ -18,10 +18,14 @@ class ExampleWindow: NSWindow {
   @IBOutlet weak var flutterViewController: FLEViewController!
 
   override func awakeFromNib() {
+    var framee = self.frame
+    framee.size = CGSize(width: 500, height: 900)
+    self.setFrame(framee, display: true, animate: false)
     PluginRegistrant.register(with: flutterViewController)
 
     let assets = NSURL.fileURL(withPath: "flutter_assets", relativeTo: Bundle.main.resourceURL)
     var arguments: [String] = [];
+    
 #if !DEBUG
     arguments.append("--disable-dart-asserts");
 #endif
