@@ -101,24 +101,16 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
           duration: Duration(milliseconds: 500),
           child: Container(
             decoration: BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage('assets/blueprint.jpg'),
-              ),
-            ),
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.bottomLeft,
-                  end: Alignment.topRight,
-                  colors: const [
-                    Colors.white,
-                    Colors.white,
-                    Colors.transparent,
-                    Colors.transparent,
-                  ],
-                  stops: const [0, 0.5, 0.9, 1],
-                ),
+              gradient: LinearGradient(
+                begin: Alignment.bottomLeft,
+                end: Alignment.topRight,
+                colors: const [
+                  Colors.white,
+                  Colors.white,
+                  Colors.transparent,
+                  Colors.transparent,
+                ],
+                stops: const [0, 0.5, 0.9, 1],
               ),
             ),
           ),
