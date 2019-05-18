@@ -61,7 +61,6 @@ class CodeReuseState extends State<CodeReuse> {
               controller: controller,
               presentationController: presentationController,
               children: [
-                Jetpack(),
                 Intro(),
                 Solid(presentationController),
                 InheritanceVsComposition(presentationController),
@@ -75,6 +74,7 @@ class CodeReuseState extends State<CodeReuse> {
                 PlatformStack(presentationController),
                 Tests(presentationController),
                 Matrix(presentationController),
+                Jetpack(),
                 ThatsAll(),
               ],
             ),

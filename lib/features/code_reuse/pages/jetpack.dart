@@ -5,11 +5,16 @@ class Jetpack extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
           Image.asset('assets/jetpack.png'),
+          SizedBox(width: 40),
           Text(
             'Compose',
-            style: TextStyle(color: Colors.black),
+            style: Theme.of(context)
+                .textTheme
+                .headline
+                .copyWith(color: Colors.black),
           ),
         ],
       ),
