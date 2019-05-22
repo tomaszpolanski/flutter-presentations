@@ -64,7 +64,7 @@ int main(int argc, char **argv) {
   flutter::FlutterWindowController flutter_controller(icu_data_path);
 
   // Start the engine.
-  if (!flutter_controller.CreateWindow(1500, 900, " ",
+  if (!flutter_controller.CreateWindow(800, 600, "Flutter Desktop Example",
                                        assets_path, arguments)) {
     return EXIT_FAILURE;
   }

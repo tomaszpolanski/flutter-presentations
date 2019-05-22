@@ -16,8 +16,8 @@ dependencies:
   http: ^0.12.0+1
   mockito: 3.0.0
   flutter_sidekick: ^0.1.3
-  presentation: ^0.0.2
-  #  path: C:\Users\tpolanski\Documents\GitHub\presentation\ 
+  presentation: ^0.0.3
+   #path: C:\Users\tpolanski\Documents\GitHub\presentation\
 
 dev_dependencies:
   flutter_test:
