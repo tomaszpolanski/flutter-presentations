@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       navigatorKey: gKey,
+      theme: ThemeData(fontFamily: 'Montserrat'),
       home: MyHomePage(),
     );
   }

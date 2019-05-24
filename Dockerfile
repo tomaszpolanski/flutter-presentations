@@ -2,10 +2,6 @@ FROM ubuntu:16.04
 
 LABEL maintainer = "Pawel Polanski <pawel@upday.com>"
 
-ARG flutter_version
-
-WORKDIR /root
-
 ENV DEBIAN_FRONTEND=noninteractive
 
 ENV LANG en_US.UTF-8
@@ -19,6 +15,7 @@ RUN apt-get -qqy update && \
     git-core \
     supervisor \
     curl \
+    scrot \
     unzip \
     rsync \
     gcc \
@@ -31,42 +28,27 @@ RUN sh -c 'echo "en_US.UTF-8 UTF-8" > /etc/locale.gen' && \
     locale-gen && \
     update-locale LANG=en_US.UTF-8
 
-ENV FLUTTER_HOME /root/flutter
+RUN useradd -m -s /bin/bash user
+USER user
+
+WORKDIR /home/user
+
+ARG flutter_version
+
+ENV FLUTTER_HOME /home/user/flutter
 ENV FLUTTER_ROOT $FLUTTER_HOME
 ENV FLUTTER_VERSION $flutter_version
 
 RUN git clone https://github.com/flutter/flutter.git ${FLUTTER_HOME}
 ENV PATH ${PATH}:${FLUTTER_HOME}/bin:${FLUTTER_HOME}/bin/cache/dart-sdk/bin
+RUN flutter version ${FLUTTER_VERSION}
 RUN flutter precache --linux
 
-ENV DESKTOP_HOME /root/flutter-desktop-embedding
-RUN git clone --depth 1 https://github.com/google/flutter-desktop-embedding.git ${DESKTOP_HOME}
-RUN apt-get -qqy update && apt-get -qqy install \ 
-    scrot 
-
-RUN apt-get install -y --no-install-recommends \
-    make \
-    pkgconf \
-    xz-utils \
-    xorg-dev \
-    libgl1-mesa-dev \
-    libglu1-mesa-dev \
-    libxrandr-dev \
-    libxinerama-dev \
-    libxcursor-dev \
-    libxi-dev \
-    libxxf86vm-dev
-
-RUN cd /root/flutter-desktop-embedding &&  \ 
-    git clone -b docker https://github.com/tomaszpolanski/flutter-presentations.git
-RUN mkdir /root/flutter-desktop-embedding/flutter-presentations/linux/ &&  \ 
-    cp /root/flutter-desktop-embedding/example/linux/* /root/flutter-desktop-embedding/flutter-presentations/linux/
-
+ENV DESKTOP_HOME /home/user/flutter-desktop-embedding
+RUN git clone https://github.com/google/flutter-desktop-embedding.git ${DESKTOP_HOME}
 ENV ENABLE_FLUTTER_DESKTOP true
 
 ENV DISPLAY :0
 
-
-
-# Xvfb :0 -screen 0 1024x768x16 &
 CMD ["Xvfb", ":0", "-screen", "0", "1024x768x16"]
+#Xvfb :0 -screen 0 1024x768x16
