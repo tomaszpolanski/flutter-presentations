@@ -12,7 +12,7 @@ void main() {
   debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
   enableFlutterDriverExtension();
   runApp(AnimationMode(
-    enabled: true,
+    enabled: false,
     child: MyApp(),
   ));
 }
@@ -23,11 +23,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        backgroundColor: Colors.white,
-        cardColor: Colors.white,
-      ),
       navigatorKey: gKey,
+      theme: ThemeData(fontFamily: 'Montserrat'),
       home: MyHomePage(),
     );
   }
@@ -40,6 +37,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red,
         title: Text('Presentations'),
       ),
       body: ListView(
