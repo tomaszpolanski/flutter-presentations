@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_presentations/features/code_reuse/parallax_background.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/shared/animation_mode.dart';
 import 'package:presentation/effects.dart';
@@ -48,6 +47,7 @@ class Intro extends StatelessWidget {
                               text: 'Code',
                               style: TextStyle(
                                 decoration: TextDecoration.lineThrough,
+                                decorationColor: GTheme.flutter2,
                                 color: Colors.grey.withOpacity(0.5),
                               ),
                             ),

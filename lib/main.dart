@@ -10,7 +10,7 @@ void main() {
   debugProfileBuildsEnabled = true;
   debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
   runApp(AnimationMode(
-    enabled: false,
+    enabled: true,
     child: MyApp(),
   ));
 }

@@ -12,3 +12,15 @@ ThemeData blueLight() {
     ),
   );
 }
+
+ThemeData greenLight() {
+  return ThemeData.light().copyWith(
+    textTheme: TextTheme(
+      display1: GTheme.big.copyWith(color: GTheme.green, fontSize: 140),
+      headline: GTheme.big.copyWith(color: GTheme.green, fontSize: 90),
+      title: GTheme.big.copyWith(color: GTheme.green, fontSize: 80),
+      body1: GTheme.big.copyWith(color: GTheme.green),
+      caption: GTheme.smaller.copyWith(color: GTheme.green),
+    ),
+  );
+}

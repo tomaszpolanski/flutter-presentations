@@ -3,11 +3,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/shared/animation_builder.dart';
-import 'package:presentation/presentation.dart';
 import 'package:presentation/effects.dart';
+import 'package:presentation/presentation.dart';
 
 class Composable extends StatefulWidget {
-  const Composable({Key key, this.controller}) : super(key: key);
+  const Composable(
+    this.controller, {
+    Key key,
+  }) : super(key: key);
   final PresentationController controller;
 
   @override

@@ -13,7 +13,4 @@ build/
 .vscode/launch.json
 test_driver/screenshots/
 /screenshots
-/windows
-/windows_fde
-/linux
-/macos
+

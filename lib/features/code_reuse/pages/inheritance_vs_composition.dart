@@ -6,7 +6,10 @@ import 'package:presentation/presentation.dart';
 const size = 100.0;
 
 class InheritanceVsComposition extends StatefulWidget {
-  const InheritanceVsComposition({Key key, this.controller}) : super(key: key);
+  const InheritanceVsComposition(
+    this.controller, {
+    Key key,
+  }) : super(key: key);
 
   final PresentationController controller;
 

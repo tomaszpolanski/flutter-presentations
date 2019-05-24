@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_presentations/shared/animation_builder.dart';
 import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 
 class TutorialGoal extends StatefulWidget {
-  const TutorialGoal({Key key, this.controller}) : super(key: key);
+  const TutorialGoal(
+    this.controller, {
+    Key key,
+  }) : super(key: key);
   final PresentationController controller;
 
   @override
@@ -22,7 +26,6 @@ class _TutorialGoalState extends State<TutorialGoal>
     with SingleTickerProviderStateMixin {
   PageStepper<_TutorialStep> _stateController;
   AnimationController _controller;
-  bool _showGraph = false;
   bool _showTutorial = false;
 
   @override
@@ -39,8 +42,8 @@ class _TutorialGoalState extends State<TutorialGoal>
       ..add(
         fromStep: _TutorialStep.init,
         toStep: _TutorialStep.graph,
-        forward: () => setState(() => _showGraph = true),
-        reverse: () => setState(() => _showGraph = false),
+        forward: _controller.forward,
+        reverse: _controller.reverse,
       )
       ..add(
         fromStep: _TutorialStep.graph,
@@ -81,16 +84,21 @@ class _TutorialGoalState extends State<TutorialGoal>
           ),
         ),
         Expanded(
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              Image.asset('assets/dashboard-graph.png'),
-              AnimatedOpacity(
-                opacity: _showGraph ? 0 : 1,
-                duration: Duration(milliseconds: 500),
-                child: Image.asset('assets/dashboard.png'),
-              ),
-            ],
+          child: AnimationBuilder<Rect>(
+            animation: RectTween(
+              begin: Rect.fromLTRB(0, 0, 1, 1),
+              end: Rect.fromLTRB(0, 0.31, 1, 0.61),
+            ).animate(CurvedAnimation(
+              parent: _controller,
+              curve: Curves.easeOut,
+            )),
+            builder: (_, animation, child) {
+              return ClipRect(
+                clipper: _ClipperRect(animation.value),
+                child: child,
+              );
+            },
+            child: Image.asset('assets/dashboard.png'),
           ),
         ),
       ],
@@ -98,8 +106,30 @@ class _TutorialGoalState extends State<TutorialGoal>
   }
 }
 
+class _ClipperRect extends CustomClipper<Rect> {
+  const _ClipperRect(this.relativeRect);
+
+  final Rect relativeRect;
+
+  @override
+  Rect getClip(Size size) {
+    return Rect.fromLTRB(
+      size.width * relativeRect.left,
+      size.height * relativeRect.top,
+      size.width * relativeRect.right,
+      size.height * relativeRect.bottom,
+    );
+  }
+
+  @override
+  bool shouldReclip(_ClipperRect oldClipper) => true;
+}
+
 class TutorialResult extends StatefulWidget {
-  const TutorialResult({Key key, this.controller}) : super(key: key);
+  const TutorialResult(
+    this.controller, {
+    Key key,
+  }) : super(key: key);
   final PresentationController controller;
 
   @override
