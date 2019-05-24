@@ -45,8 +45,10 @@ RUN flutter version ${FLUTTER_VERSION}
 RUN flutter precache --linux
 
 ENV DESKTOP_HOME /home/user/flutter-desktop-embedding
+ENV PRESENTATIONS_HOME /home/user/flutter-desktop-embedding
 RUN git clone https://github.com/google/flutter-desktop-embedding.git ${DESKTOP_HOME}
-RUN git clone https://github.com/tomaszpolanski/flutter-presentations.git /home/user/flutter_presentations
+RUN git clone https://github.com/tomaszpolanski/flutter-presentations.git ${PRESENTATIONS_HOME}
+RUN cd ${PRESENTATIONS_HOME} && flutter doctor
 ENV ENABLE_FLUTTER_DESKTOP true
 
 ENV DISPLAY :0
