@@ -185,7 +185,7 @@ class _CursorState extends State<Cursor> with SingleTickerProviderStateMixin {
   @override
   void didUpdateWidget(Cursor oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (widget.isBlinking) {
+    if (AnimationMode.of(context) && widget.isBlinking) {
       _controller.forward(from: 0);
     } else {
       _controller.stop(canceled: false);

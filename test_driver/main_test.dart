@@ -22,14 +22,13 @@ void main() {
       await driver.tap(find.text('True Effort Reuse'));
     });
 
-    test('make screenshots', () async {
-      final page = find.byValueKey('presentation');
-      var index = 0;
-      while (index < 60) {
-        await screenshot.takeScreenshot(index.toString());
+    // ignore: avoid_function_literals_in_foreach_calls
+    List.generate(60, (step) => step).forEach((step) {
+      test('make screenshots for step $step', () async {
+        await screenshot.takeScreenshot(step.toString());
+        final page = find.byValueKey('presentation');
         await driver.tap(page);
-        index += 1;
-      }
-    }, timeout: Timeout.factor(10));
+      });
+    });
   });
 }
