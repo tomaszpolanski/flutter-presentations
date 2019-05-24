@@ -46,10 +46,10 @@ RUN flutter precache --linux
 
 ENV DESKTOP_HOME /home/user/flutter-desktop-embedding
 RUN git clone https://github.com/google/flutter-desktop-embedding.git ${DESKTOP_HOME}
-RUN git clone https://github.com/tomaszpolanski/flutter-presentations.git ${DESKTOP_HOME}/flutter_presentations
+RUN git clone https://github.com/tomaszpolanski/flutter-presentations.git /home/user/flutter_presentations
 ENV ENABLE_FLUTTER_DESKTOP true
 
 ENV DISPLAY :0
 
-CMD ["Xvfb", ":0", "-screen", "0", "1920×1080x16"]
-#Xvfb :0 -screen 0 1920×1080x16
+CMD ["Xvfb", ":0", "-screen", "0", "1824x1824x16"]
+#Xvfb :0 -screen 0 1824x1824x16

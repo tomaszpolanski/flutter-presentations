@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/shared/animation_builder.dart';
+import 'package:flutter_presentations/shared/animation_mode.dart';
 import 'package:intl/intl.dart';
 import 'package:presentation/presentation.dart';
 
@@ -176,7 +177,7 @@ class _CursorState extends State<Cursor> with SingleTickerProviderStateMixin {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    if (widget.isBlinking) {
+    if (AnimationMode.of(context) && widget.isBlinking) {
       _controller.forward();
     }
   }
