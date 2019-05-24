@@ -17,8 +17,12 @@ void main() {
       await driver?.close();
     });
 
-    test('show presentation', () async {
-      await driver.tap(find.text('True Code Reuse'));
+    test('setup', () async {
+      await screenshot.takeScreenshot('setup');
+      await driver.tap(find.text('True Effort Reuse'));
+    });
+
+    test('make screenshots', () async {
       final page = find.byValueKey('presentation');
       var index = 0;
       while (index < 35) {
