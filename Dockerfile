@@ -49,7 +49,7 @@ ENV PRESENTATIONS_HOME /home/user/flutter-presentations
 RUN git clone https://github.com/google/flutter-desktop-embedding.git ${DESKTOP_HOME}
 RUN git clone https://github.com/tomaszpolanski/flutter-presentations.git ${PRESENTATIONS_HOME}
 ENV ENABLE_FLUTTER_DESKTOP true
-RUN cd ${PRESENTATIONS_HOME} && flutter doctor
+RUN chmod +x ${PRESENTATIONS_HOME}/run_tests.sh
 
 ENV DISPLAY :0
 
