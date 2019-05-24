@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 
-LABEL maintainer = "Pawel Polanski <pawel@upday.com>"
+LABEL maintainer = "Tomek Polanski <polanski.tomek@gmail.com>"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -46,9 +46,10 @@ RUN flutter precache --linux
 
 ENV DESKTOP_HOME /home/user/flutter-desktop-embedding
 RUN git clone https://github.com/google/flutter-desktop-embedding.git ${DESKTOP_HOME}
+RUN git clone https://github.com/tomaszpolanski/flutter-presentations.git ${DESKTOP_HOME}/flutter_presentations
 ENV ENABLE_FLUTTER_DESKTOP true
 
 ENV DISPLAY :0
 
-CMD ["Xvfb", ":0", "-screen", "0", "1024x768x16"]
-#Xvfb :0 -screen 0 1024x768x16
+CMD ["Xvfb", ":0", "-screen", "0", "1920×1080x16"]
+#Xvfb :0 -screen 0 1920×1080x16

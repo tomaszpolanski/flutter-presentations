@@ -25,7 +25,7 @@ void main() {
     test('make screenshots', () async {
       final page = find.byValueKey('presentation');
       var index = 0;
-      while (index < 35) {
+      while (index < 50) {
         await screenshot.takeScreenshot(index.toString());
         await driver.tap(page);
         index += 1;
