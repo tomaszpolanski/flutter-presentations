@@ -1,4 +1,4 @@
-# flutter_presentations
+# Flutter Presentations
 
 Presentations made with Flutter
 This presentation is run on desktop with use of
