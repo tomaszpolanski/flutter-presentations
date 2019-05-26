@@ -1,15 +1,18 @@
+import 'package:args/args.dart';
 import 'package:flutter_driver/flutter_driver.dart';
+import 'package:flutter_presentations/test_driver/src/tests.dart';
 import 'package:test/test.dart';
 
 import 'screenshots.dart';
 
-void main() {
+void main(List<String> args) {
   group('Flutter Driver demo', () {
     FlutterDriver driver;
     Screenshot screenshot;
+    final ArgResults arguments = testParser.parse(args);
 
     setUpAll(() async {
-      driver = await FlutterDriver.connect();
+      driver = await FlutterDriver.connect(dartVmServiceUrl: arguments[url]);
       screenshot = await Screenshot.create(driver, 'code_reuse');
     });
 

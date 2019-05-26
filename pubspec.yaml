@@ -25,6 +25,8 @@ dev_dependencies:
   flutter_driver:
     sdk: flutter
 
+  process_run: ^0.10.1
+  rxdart: ^0.22.0
 
 flutter:
 
