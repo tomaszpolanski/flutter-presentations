@@ -19,14 +19,16 @@ import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
 
 class CodeReuse extends StatefulWidget {
+  const CodeReuse({Key key}) : super(key: key);
+
   static const String title = 'True Effort Reuse';
   static const String subtitle = 'with Flutter';
 
   @override
-  CodeReuseState createState() => CodeReuseState();
+  _CodeReuseState createState() => _CodeReuseState();
 }
 
-class CodeReuseState extends State<CodeReuse> {
+class _CodeReuseState extends State<CodeReuse> {
   PageController controller;
   PresentationController presentationController;
   List<ValueGetter<Widget>> pageCreator;

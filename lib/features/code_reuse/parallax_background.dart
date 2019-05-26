@@ -54,7 +54,7 @@ class _AnimatedParallaxImageState extends State<AnimatedParallaxImage>
       builder: (_, __) {
         return Image.asset(
           widget.asset,
-          color: Color.fromRGBO(255, 255, 255, widget.opacity),
+          color: Colors.white.withOpacity(widget.opacity),
           colorBlendMode: BlendMode.modulate,
           fit: BoxFit.fitHeight,
           alignment: FractionalOffset(_controller.value, 0),
