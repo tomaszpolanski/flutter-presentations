@@ -14,3 +14,4 @@ build/
 test_driver/screenshots/
 /screenshots
 
+linux/.generated_flutter_root
