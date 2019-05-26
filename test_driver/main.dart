@@ -10,7 +10,7 @@ void main() {
   enableFlutterDriverExtension();
   runApp(
     const AnimationMode(
-      enabled: true,
+      enabled: false,
       child: const FlutterPresentations(),
     ),
   );

@@ -12,6 +12,7 @@ void main(List<String> args) {
     final ArgResults arguments = testParser.parse(args);
 
     setUpAll(() async {
+      print('QQQQQ ${arguments[url]}');
       driver = await FlutterDriver.connect(dartVmServiceUrl: arguments[url]);
       screenshot = await Screenshot.create(driver, 'code_reuse');
     });

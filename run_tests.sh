@@ -1,6 +1,5 @@
 #!/bin/bash
 
 set -e
-
-export VM_SERVICE_URL=$1
-dart test_driver/main_test.dart
+git pull
+dart lib/test_driver/test_runner.dart
