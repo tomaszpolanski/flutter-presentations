@@ -20,6 +20,7 @@ export PATH="$PATH:/Users/tomek/flutter/bin/cache/dart-sdk/bin"
 export ENABLE_FLUTTER_DESKTOP=true
 ```
 * Windows:
+  * Need to install Visual Studio 2017 or 2019, including the "Desktop development with C++" workload
   * Add to PATH paths to dart and flutter and add `ENABLE_FLUTTER_DESKTOP` set to `true` to env variables
 * Check if `flutter devices` now shows your desktop device
 
