@@ -7,9 +7,8 @@ This presentation is run on desktop with use of
 This application should be run on high resolution device or a desktop - currently it does not rented properly on small screens.
 
 ## Building on Desktop
-* Update your Flutter to latest version of `master` branch with:
-  * `flutter channel master`
-  * `flutter upgrade`
+* Last tested version of Flutter that works with this repo is `v1.6.3`:
+  * `flutter version v1.6.3`
 * Mac/Linux :
   * Add the following to `.bash_profile` but replace `/Users/tomek/flutter/` with path to your Flutter folder
 ```
