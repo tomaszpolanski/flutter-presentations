@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/application.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/big_widget.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/ci.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/composable.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/everythigs_widget.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/imitation_fluttery.dart';
@@ -77,6 +78,7 @@ class _CodeReuseState extends State<CodeReuse> {
                 PlatformStack(presentationController),
                 Tests(presentationController),
                 Matrix(presentationController),
+                CI(),
                 Jetpack(),
                 Imitation(),
                 ThatsAll(),

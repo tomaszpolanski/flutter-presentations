@@ -20,7 +20,7 @@ class _InceptionState extends State<Inception> {
   @override
   void initState() {
     super.initState();
-    final steps = List.generate(20, (i) => i + 1);
+    final steps = List.generate(10, (i) => i + 1);
     _stateController = PageStepper<int>(
       controller: widget.controller,
       steps: steps,

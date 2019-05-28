@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/shared/animation_builder.dart';
+import 'package:flutter_presentations/shared/clippers.dart';
 import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 
@@ -94,7 +95,7 @@ class _TutorialGoalState extends State<TutorialGoal>
             )),
             builder: (_, animation, child) {
               return ClipRect(
-                clipper: _ClipperRect(animation.value),
+                clipper: ClipperRect(animation.value),
                 child: child,
               );
             },
@@ -104,25 +105,6 @@ class _TutorialGoalState extends State<TutorialGoal>
       ],
     );
   }
-}
-
-class _ClipperRect extends CustomClipper<Rect> {
-  const _ClipperRect(this.relativeRect);
-
-  final Rect relativeRect;
-
-  @override
-  Rect getClip(Size size) {
-    return Rect.fromLTRB(
-      size.width * relativeRect.left,
-      size.height * relativeRect.top,
-      size.width * relativeRect.right,
-      size.height * relativeRect.bottom,
-    );
-  }
-
-  @override
-  bool shouldReclip(_ClipperRect oldClipper) => true;
 }
 
 class TutorialResult extends StatefulWidget {
