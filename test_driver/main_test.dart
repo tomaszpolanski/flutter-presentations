@@ -13,7 +13,11 @@ void main(List<String> args) {
 
     setUpAll(() async {
       driver = await FlutterDriver.connect(dartVmServiceUrl: arguments[url]);
-      screenshot = await Screenshot.create(driver, 'code_reuse');
+      screenshot = await Screenshot.create(
+        driver,
+        'code_reuse',
+        enabled: arguments[screenshots],
+      );
     });
 
     tearDownAll(() async {
@@ -31,6 +35,7 @@ void main(List<String> args) {
         await screenshot.takeScreenshot(step.toString());
         final page = find.byValueKey('presentation');
         await driver.tap(page);
+        await Future.delayed(Duration(milliseconds: 500));
       });
     });
   });

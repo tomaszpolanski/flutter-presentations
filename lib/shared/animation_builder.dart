@@ -5,7 +5,7 @@ class AnimationBuilder<T> extends StatelessWidget {
     Key key,
     @required this.animation,
     @required this.builder,
-    @required this.child,
+    this.child,
   }) : super(key: key);
 
   final Animation<T> animation;

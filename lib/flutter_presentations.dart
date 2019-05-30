@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/code_reuse/true_code_reuse.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/convincing.dart';
 import 'package:flutter_presentations/features/slivers/slivers.dart';
+import 'package:flutter_presentations/features/testing/testing.dart';
 
 class FlutterPresentations extends StatelessWidget {
   const FlutterPresentations({Key key}) : super(key: key);
@@ -47,6 +48,12 @@ class _PresentationList extends StatelessWidget {
             subtitle: Text(CodeReuse.subtitle),
             onTap: () => Navigator.of(context)
                 .push(MaterialPageRoute(builder: (_) => CodeReuse())),
+          ),
+          ListTile(
+            title: Text(Testing.title),
+            subtitle: Text(CodeReuse.subtitle),
+            onTap: () => Navigator.of(context)
+                .push(MaterialPageRoute(builder: (_) => const Testing())),
           ),
         ],
       ),
