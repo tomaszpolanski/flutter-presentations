@@ -340,6 +340,9 @@ class _TimerState extends State<_Timer> with SingleTickerProviderStateMixin {
       animation: _controller,
       builder: (context, _) {
         final seconds = _controller.duration.inSeconds * _controller.value;
+        final kindaMilliseconds =
+            ((seconds - seconds.floor()) * 100).clamp(0, 99).floor();
+
         return Row(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -354,9 +357,9 @@ class _TimerState extends State<_Timer> with SingleTickerProviderStateMixin {
             ),
             Expanded(
               child: Text(
-                ((seconds - seconds.floor()) * 100)
-                    .clamp(0, 99)
-                    .toStringAsFixed(0),
+                kindaMilliseconds < 10
+                    ? '0$kindaMilliseconds'
+                    : '$kindaMilliseconds',
               ),
             ),
           ],
