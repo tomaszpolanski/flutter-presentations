@@ -31,3 +31,6 @@ OR
 
 Open in your ide `flutter-presentations` 
 In IntelliJ/VS Code select appropriate device via device picker and run tha app
+
+## Running on Docker
+Coming soon!
