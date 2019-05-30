@@ -26,6 +26,7 @@ enum _Step {
   init,
   countdown,
   go,
+  done,
   next,
 }
 
@@ -60,10 +61,11 @@ class _SpeedComparisonState extends State<SpeedComparison>
       ..add(
         fromStep: _Step.countdown,
         toStep: _Step.go,
-        forward: () {
+        forward: () async {
           _showTimer = true;
           _runTimer = true;
-          _runComparison();
+          await _runComparison();
+          _stateController.next();
         },
         reverse: () {
           _showTimer = false;
@@ -72,6 +74,12 @@ class _SpeedComparisonState extends State<SpeedComparison>
       )
       ..add(
         fromStep: _Step.go,
+        toStep: _Step.done,
+        forward: () => _runTimer = false,
+        reverse: () {},
+      )
+      ..add(
+        fromStep: _Step.done,
         toStep: _Step.next,
         forward: widget.controller.nextSlide,
       )
@@ -89,14 +97,11 @@ class _SpeedComparisonState extends State<SpeedComparison>
     super.dispose();
   }
 
-  Future<void> _runComparison() async {
-    await Future.wait([
+  Future<void> _runComparison() {
+    return Future.wait([
       _runDriverTests(),
       _runTests(),
     ]);
-    setState(() {
-      _runTimer = false;
-    });
   }
 
   Future<void> _runDriverTests() async {
