@@ -30,12 +30,12 @@ void main(List<String> args) {
     });
 
     // ignore: avoid_function_literals_in_foreach_calls
-    List.generate(60, (step) => step).forEach((step) {
+    List.generate(45, (step) => step).forEach((step) {
       test('make screenshots for step $step', () async {
         await screenshot.takeScreenshot(step.toString());
         final page = find.byValueKey('presentation');
         await driver.tap(page);
-        await Future.delayed(Duration(milliseconds: 500));
+        await Future.delayed(Duration(milliseconds: 300));
       });
     });
   });
