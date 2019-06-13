@@ -3,12 +3,12 @@ import 'package:flutter_presentations/features/code_reuse/pages/application.dart
 import 'package:flutter_presentations/features/code_reuse/pages/big_widget.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/ci.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/composable.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/declerative_ui.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/everythigs_widget.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/imitation_fluttery.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/inception.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/inheritance_vs_composition.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/intro.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/jetpack.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/matrix.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/platform_stack.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/solid.dart';
@@ -79,7 +79,7 @@ class _CodeReuseState extends State<CodeReuse> {
                 Tests(presentationController),
                 CI(),
                 Matrix(presentationController),
-                Jetpack(),
+                DeclarativeUi(),
                 Imitation(),
                 ThatsAll(),
               ],
