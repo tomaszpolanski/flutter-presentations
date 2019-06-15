@@ -2,7 +2,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
 import 'package:flutter_presentations/flutter_presentations.dart';
-import 'package:flutter_presentations/shared/animation_mode.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:presentation/presentation.dart';
 

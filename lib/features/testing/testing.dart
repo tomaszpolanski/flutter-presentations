@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/code_reuse/parallax_background.dart';
 import 'package:flutter_presentations/features/testing/pages/speed_comparison.dart';
 import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';

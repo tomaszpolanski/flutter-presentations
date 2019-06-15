@@ -3,7 +3,6 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/shared/animation_builder.dart';
 import 'package:presentation/presentation.dart';
 import 'package:process_run/shell.dart';
 
@@ -272,7 +271,7 @@ class _CountDownWidgetState extends State<_CountDownWidget>
 
   @override
   Widget build(BuildContext context) {
-    return AnimationBuilder<double>(
+    return WrappedAnimatedBuilder<double>(
       animation: CurvedAnimation(
         parent: _controller,
         curve: Curves.easeOut,

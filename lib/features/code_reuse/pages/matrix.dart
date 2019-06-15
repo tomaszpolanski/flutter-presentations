@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_presentations/shared/animation_builder.dart';
-import 'package:flutter_presentations/shared/animation_mode.dart';
 import 'package:intl/intl.dart';
 import 'package:presentation/presentation.dart';
 
@@ -90,7 +88,7 @@ class _MatrixState extends State<Matrix> with SingleTickerProviderStateMixin {
           color: const Color(0xFF48C979),
           fontFamily: 'AnonymousPro',
         ),
-        child: AnimationBuilder<double>(
+        child: WrappedAnimatedBuilder<double>(
           animation: _controller,
           builder: (_, animation, child) {
             return Wrap(

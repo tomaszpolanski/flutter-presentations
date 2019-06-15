@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_driver/driver_extension.dart';
 import 'package:flutter_presentations/flutter_presentations.dart';
-import 'package:flutter_presentations/shared/animation_mode.dart';
+import 'package:presentation/presentation.dart' show AnimationMode;
 
 void main() {
   debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;

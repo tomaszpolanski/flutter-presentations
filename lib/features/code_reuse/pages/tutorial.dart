@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_presentations/shared/animation_builder.dart';
 import 'package:flutter_presentations/shared/clippers.dart';
 import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
@@ -85,7 +84,7 @@ class _TutorialGoalState extends State<TutorialGoal>
           ),
         ),
         Expanded(
-          child: AnimationBuilder<Rect>(
+          child: WrappedAnimatedBuilder<Rect>(
             animation: RectTween(
               begin: Rect.fromLTRB(0, 0, 1, 1),
               end: Rect.fromLTRB(0, 0.31, 1, 0.61),

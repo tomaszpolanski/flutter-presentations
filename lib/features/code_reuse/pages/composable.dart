@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_presentations/shared/animation_builder.dart';
 import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 
@@ -74,7 +73,7 @@ class _ComposableState extends State<Composable>
           ParallaxWidget(
             child: Stack(
               children: [
-                AnimationBuilder<double>(
+                WrappedAnimatedBuilder<double>(
                   animation: _controller,
                   builder: (_, animation, child) {
                     return Transform(
@@ -86,7 +85,7 @@ class _ComposableState extends State<Composable>
                   },
                   child: Text('reusable'),
                 ),
-                AnimationBuilder<double>(
+                WrappedAnimatedBuilder<double>(
                   animation: _controller,
                   builder: (_, animation, child) {
                     return Transform(

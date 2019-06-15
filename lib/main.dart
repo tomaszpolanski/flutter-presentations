@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart'
     show debugDefaultTargetPlatformOverride;
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/flutter_presentations.dart';
-import 'package:flutter_presentations/shared/animation_mode.dart';
+import 'package:presentation/presentation.dart' show AnimationMode;
 
 void main() {
   debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;

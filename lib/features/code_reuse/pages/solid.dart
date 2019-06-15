@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_presentations/features/code_reuse/reveal_effect.dart';
+import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 
 class Solid extends StatefulWidget {
