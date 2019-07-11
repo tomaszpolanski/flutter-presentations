@@ -52,7 +52,7 @@ class _InceptionState extends State<Inception> {
 
   @override
   Widget build(BuildContext context) {
-    return repeat(FlutterLogo(), 0, _current);
+    return repeat(const FlutterLogo(), 0, _current);
   }
 
   Widget repeat(Widget child, int current, int max) {

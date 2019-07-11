@@ -39,7 +39,7 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
     );
 
     _stateController = PageStepper<_Step>(
@@ -78,11 +78,11 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
     const offset = 130.0;
     final translateAnimation = CurvedAnimation(
       parent: _controller,
-      curve: Interval(0.0, 0.3, curve: Curves.ease),
+      curve: Interval(0, 0.3, curve: Curves.ease),
     );
     final bigTheme = Theme.of(context).textTheme.display1;
     return RevealEffect(
-      offset: Offset(0.9, 0.1),
+      offset: const Offset(0.9, 0.1),
       child: Align(
         child: Container(
           width: double.infinity,
@@ -94,7 +94,7 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
               children: [
                 AnimatedOpacity(
                   opacity: _showOnlyOpenClosed ? 0 : 1,
-                  duration: Duration(milliseconds: 300),
+                  duration: const Duration(milliseconds: 300),
                   child: _AnimatedLine(
                     index: 0,
                     animation: _controller,
@@ -121,7 +121,7 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                   left: offset * 2,
                   child: AnimatedOpacity(
                     opacity: _showOnlyOpenClosed ? 0 : 1,
-                    duration: Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 300),
                     child: AnimatedBuilder(
                       animation: translateAnimation,
                       builder: (_, child) {
@@ -142,7 +142,7 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                   left: offset * 3,
                   child: AnimatedOpacity(
                     opacity: _showOnlyOpenClosed ? 0 : 1,
-                    duration: Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 300),
                     child: AnimatedBuilder(
                       animation: translateAnimation,
                       builder: (_, child) {
@@ -163,7 +163,7 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                   left: offset * 3.5,
                   child: AnimatedOpacity(
                     opacity: _showOnlyOpenClosed ? 0 : 1,
-                    duration: Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 300),
                     child: AnimatedBuilder(
                       animation: translateAnimation,
                       builder: (_, child) {

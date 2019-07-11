@@ -16,19 +16,19 @@ class DeclarativeUi extends StatelessWidget {
                   'assets/jetpack.png',
                   height: 300,
                 ),
-                Text('Compose'),
+                const Text('Compose'),
               ],
             ),
             TableRow(
               children: [
                 Transform.translate(
-                  offset: Offset(-22, 0),
+                  offset: const Offset(-22, 0),
                   child: Image.asset(
                     'assets/swiftui.png',
                     height: 300,
                   ),
                 ),
-                Text('SwiftUI'),
+                const Text('SwiftUI'),
               ],
             )
           ],

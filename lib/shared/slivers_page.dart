@@ -13,16 +13,16 @@ class SliverPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new CustomScrollView(
+    return CustomScrollView(
       scrollDirection: Axis.vertical,
       controller: controller,
       slivers: [
-        new SliverAppBar(
+        SliverAppBar(
           pinned: true,
           automaticallyImplyLeading: false,
           backgroundColor: Colors.white,
           centerTitle: true,
-          title: new DefaultTextStyle(
+          title: DefaultTextStyle(
             style: Theme.of(context).textTheme.display1.copyWith(
                 color: const Color(0xFF6AA84F), fontWeight: FontWeight.bold),
             child: title,

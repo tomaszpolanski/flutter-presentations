@@ -3,39 +3,39 @@ import 'package:flutter/material.dart';
 class TitlePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Stack(
+    return Stack(
       children: [
-        new Align(
+        Align(
           alignment: Alignment.centerLeft,
-          child: new Padding(
+          child: Padding(
             padding: const EdgeInsets.only(left: 80.0),
-            child: new Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                new Text(
+                Text(
                   'Slivers!',
                   style: Theme.of(context).textTheme.display3.copyWith(
                       color: const Color(0xFF6AA84F),
                       fontWeight: FontWeight.bold),
                 ),
-                new Row(
+                Row(
                   textBaseline: TextBaseline.alphabetic,
                   crossAxisAlignment: CrossAxisAlignment.baseline,
                   children: <Widget>[
-                    new Stack(
+                    Stack(
                       children: [
-                        new Text(
+                        Text(
                           '🥄',
                           style: Theme.of(context).textTheme.display1,
                         ),
-                        new Text(
+                        Text(
                           '🚫',
                           style: Theme.of(context).textTheme.display1,
                         ),
                       ],
                     ),
-                    new Text(
+                    Text(
                       '(not Silvers...)',
                       style: Theme.of(context).textTheme.body1,
                     ),
@@ -45,27 +45,27 @@ class TitlePage extends StatelessWidget {
             ),
           ),
         ),
-        new Align(
+        Align(
           alignment: Alignment.bottomRight,
-          child: new Padding(
+          child: Padding(
             padding: const EdgeInsets.only(right: 18.0, bottom: 18.0),
-            child: new DefaultTextStyle(
+            child: DefaultTextStyle(
               style: Theme
                   .of(context)
                   .textTheme
                   .title
                   .copyWith(fontWeight: FontWeight.bold),
-              child: new Column(
+              child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
-                  new Text(
+                  Text(
                     'Tomek Polański',
-                    style: new TextStyle(color: Colors.black),
+                    style: TextStyle(color: Colors.black),
                   ),
-                  new Text(
+                  Text(
                     '@tpolansk',
-                    style: new TextStyle(color: Colors.blueAccent),
+                    style: TextStyle(color: Colors.blueAccent),
                   ),
                 ],
               ),

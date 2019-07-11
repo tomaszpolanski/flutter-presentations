@@ -52,15 +52,15 @@ class SimpleDemoState extends State<SimpleDemo> {
 
   @override
   Widget build(BuildContext context) {
-    return new CustomScrollView(
+    return CustomScrollView(
       controller: _controller,
       slivers: <Widget>[
-        new SliverAppBar(
+        SliverAppBar(
           floating: true,
           snap: true,
           backgroundColor: Colors.white,
           centerTitle: true,
-          title: new Text(
+          title: Text(
             'Sliver Examples',
             style: Theme.of(context).textTheme.display1.copyWith(
                   color: const Color(0xFF6AA84F),
@@ -68,19 +68,19 @@ class SimpleDemoState extends State<SimpleDemo> {
                 ),
           ),
         ),
-        new SliverGrid(
-          gridDelegate: new SliverGridDelegateWithMaxCrossAxisExtent(
+        SliverGrid(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 250.0,
             mainAxisSpacing: 10.0,
             crossAxisSpacing: 20.0,
             childAspectRatio: 4.0,
           ),
-          delegate: new SliverChildBuilderDelegate(
+          delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
-              return new Container(
+              return Container(
                 alignment: Alignment.center,
                 color: Colors.teal[100 * (index % 9)],
-                child: new Text(
+                child: Text(
                   'grid item $index',
                   style: Theme.of(context).textTheme.title,
                 ),
@@ -89,14 +89,14 @@ class SimpleDemoState extends State<SimpleDemo> {
             childCount: 20,
           ),
         ),
-        new SliverFixedExtentList(
+        SliverFixedExtentList(
           itemExtent: 50.0,
-          delegate: new SliverChildBuilderDelegate(
+          delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
-              return new Container(
+              return Container(
                 alignment: Alignment.center,
                 color: Colors.lightBlue[100 * (index % 9)],
-                child: new Text(
+                child: Text(
                   'list item $index',
                   style: Theme.of(context).textTheme.title,
                 ),
@@ -105,17 +105,16 @@ class SimpleDemoState extends State<SimpleDemo> {
             childCount: 10,
           ),
         ),
-        new SliverPadding(
+        SliverPadding(
           padding: const EdgeInsets.all(20.0),
-          sliver: new SliverList(
-            delegate: new SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-              return new Container(
-                padding:
-                    new EdgeInsets.symmetric(vertical: index.toDouble() * 2),
+          sliver: SliverList(
+            delegate:
+                SliverChildBuilderDelegate((BuildContext context, int index) {
+              return Container(
+                padding: EdgeInsets.symmetric(vertical: index.toDouble() * 2),
                 alignment: Alignment.center,
                 color: Colors.lightBlue[100 * (index % 9)],
-                child: new Text(
+                child: Text(
                   'list item $index',
                   style: Theme.of(context).textTheme.title,
                 ),
@@ -123,25 +122,25 @@ class SimpleDemoState extends State<SimpleDemo> {
             }, childCount: 10),
           ),
         ),
-        new SliverToBoxAdapter(
-          child: new Center(
-            child: new Container(
+        SliverToBoxAdapter(
+          child: Center(
+            child: Container(
               padding: const EdgeInsets.all(8.0),
               color: Colors.yellowAccent,
-              child: new Text(
+              child: Text(
                 'SliverToBoxAdapter',
                 style: Theme.of(context).textTheme.title,
               ),
             ),
           ),
         ),
-        new SliverFillViewport(
-          delegate: new SliverChildBuilderDelegate(
+        SliverFillViewport(
+          delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
-              return new Card(
+              return Card(
                 color: Colors.yellowAccent,
-                child: new Center(
-                  child: new Text(
+                child: Center(
+                  child: Text(
                     'Fill Viewport $index',
                     style: Theme.of(context).textTheme.title,
                   ),

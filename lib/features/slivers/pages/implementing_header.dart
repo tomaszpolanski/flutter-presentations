@@ -55,28 +55,28 @@ class ImplementingHeaderState extends State<ImplementingHeader> {
 
   @override
   Widget build(BuildContext context) {
-    return new Material(
+    return Material(
       color: Colors.white,
-      child: new CustomScrollView(
+      child: CustomScrollView(
         controller: _controller,
         slivers: <Widget>[
-          new SliverPersistentHeader(
-            delegate: new CustomAppBarDelegate(
+          SliverPersistentHeader(
+            delegate: CustomAppBarDelegate(
               expandedHeight: 200.0,
-              flexibleSpace: new Bar(
+              flexibleSpace: Bar(
                 start: Colors.red,
                 end: Colors.blue,
               ),
             ),
           ),
-          new SliverFixedExtentList(
+          SliverFixedExtentList(
             itemExtent: 50.0,
-            delegate: new SliverChildBuilderDelegate(
+            delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
-                return new Container(
+                return Container(
                   alignment: Alignment.center,
                   color: Colors.lightBlue[100 * (index % 9)],
-                  child: new Text(
+                  child: Text(
                     'list item $index',
                     style: Theme.of(context).textTheme.title,
                   ),

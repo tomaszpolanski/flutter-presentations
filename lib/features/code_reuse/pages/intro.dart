@@ -55,7 +55,7 @@ class Intro extends StatelessWidget {
                               text: '\nEffort ',
                               style: TextStyle(color: GTheme.flutter3),
                             ),
-                            TextSpan(text: 'Reusability'),
+                            const TextSpan(text: 'Reusability'),
                           ],
                         ),
                       ),
@@ -100,7 +100,7 @@ class __LineDecorationState extends State<_LineDecoration>
   void initState() {
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 30),
+      duration: const Duration(seconds: 30),
     );
     super.initState();
   }

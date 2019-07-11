@@ -25,7 +25,7 @@ class _RearkState extends State<Reark> with SingleTickerProviderStateMixin {
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
     );
     _stateController = PageStepper<_Step>(
       controller: widget.controller,
@@ -60,7 +60,7 @@ class _RearkState extends State<Reark> with SingleTickerProviderStateMixin {
         image: DecorationImage(
           fit: BoxFit.fitHeight,
           alignment: Alignment.centerRight,
-          image: AssetImage('assets/reark.png'),
+          image: const AssetImage('assets/reark.png'),
         ),
       ),
       child: AnimatedBuilder(

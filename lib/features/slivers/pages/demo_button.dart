@@ -5,16 +5,16 @@ class DemoTime extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Material(
-      child: new Container(
-        decoration: new BoxDecoration(
-          image: new DecorationImage(
+    return Material(
+      child: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
             image: AssetImage('assets/demo.png'),
             fit: BoxFit.cover,
           ),
         ),
-        child: new Center(
-          child: new Text(
+        child: Center(
+          child: Text(
             'Demo Time!',
             style: Theme.of(context).textTheme.display2.copyWith(
                   color: Colors.white,

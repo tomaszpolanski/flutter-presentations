@@ -32,7 +32,7 @@ class _ComposableState extends State<Composable>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
     );
     _stateController = PageStepper<_Step>(
       controller: widget.controller,
@@ -66,10 +66,10 @@ class _ComposableState extends State<Composable>
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          ParallaxWidget(child: Text('composable')),
-          Text('+'),
-          ParallaxWidget(child: Text('small chunks')),
-          Text('='),
+          const ParallaxWidget(child: Text('composable')),
+          const Text('+'),
+          const ParallaxWidget(child: Text('small chunks')),
+          const Text('='),
           ParallaxWidget(
             child: Stack(
               children: [
@@ -83,7 +83,7 @@ class _ComposableState extends State<Composable>
                       child: child,
                     );
                   },
-                  child: Text('reusable'),
+                  child: const Text('reusable'),
                 ),
                 WrappedAnimatedBuilder<double>(
                   animation: _controller,
@@ -92,10 +92,10 @@ class _ComposableState extends State<Composable>
                       transform: Matrix4.identity()
                         ..translate(0.0, (1 - animation.value) * (50.0))
                         ..rotateX((1 - animation.value) * (pi / 2)),
-                      child: animation.value == 0 ? SizedBox() : child,
+                      child: animation.value == 0 ? const SizedBox() : child,
                     );
                   },
-                  child: Text('Flutter'),
+                  child: const Text('Flutter'),
                 ),
               ],
             ),

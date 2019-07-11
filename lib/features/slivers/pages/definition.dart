@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class Definition extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Center(
-      child: new Padding(
+    return Center(
+      child: Padding(
         padding: const EdgeInsets.all(18.0),
-        child: new Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            new Text(
+            Text(
               '“A small, thin, narrow piece of '
                   'something cut or split off a larger piece”',
               style: Theme
@@ -19,11 +19,11 @@ class Definition extends StatelessWidget {
                   .display1
                   .copyWith(fontStyle: FontStyle.italic),
             ),
-            new Padding(
+            Padding(
               padding: const EdgeInsets.only(top: 12.0),
-              child: new Align(
+              child: Align(
                 alignment: Alignment.centerRight,
-                child: new Image.asset(
+                child: Image.asset(
                   'assets/google.png',
                   height: 40.0,
                 ),

@@ -24,12 +24,12 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
   @override
   void initState() {
     super.initState();
-    _controller = new AnimationController(
+    _controller = AnimationController(
       duration: const Duration(milliseconds: 700),
       vsync: this,
     );
 
-    animation = new Tween<Offset>(
+    animation = Tween<Offset>(
       begin: const Offset(0.0, -4.0),
       end: Offset.zero,
     ).animate(new CurvedAnimation(
@@ -37,12 +37,12 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
       curve: Curves.elasticOut,
     ));
 
-    opacity = new Tween<double>(
+    opacity = Tween<double>(
       begin: 0.0,
       end: 1.0,
     ).animate(new CurvedAnimation(
       parent: _controller,
-      curve: new Interval(0.0, .1),
+      curve: Interval(0.0, .1),
     ))
       ..addListener(() => setState(() {}));
 
@@ -72,28 +72,28 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
 
   @override
   Widget build(BuildContext context) {
-    return new GestureDetector(
+    return GestureDetector(
       onTap: pageStepper.next,
-      child: new Container(
-        decoration: new BoxDecoration(
-          image: new DecorationImage(
+      child: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
             image: AssetImage('assets/code.png'),
             fit: BoxFit.cover,
           ),
         ),
-        child: new Center(
-            child: new DefaultTextStyle(
+        child: Center(
+            child: DefaultTextStyle(
           style: Theme.of(context)
               .textTheme
               .display2
               .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
-          child: new Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               const Text('Loads of Code'),
-              new SlideTransition(
+              SlideTransition(
                 position: animation,
-                child: new Opacity(
+                child: Opacity(
                   opacity: opacity.value,
                   child: const Text('!'),
                 ),

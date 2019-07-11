@@ -18,13 +18,12 @@ class CustomAppBarDelegate extends SliverPersistentHeaderDelegate {
   double get minExtent => 0.0;
 
   @override
-  double get maxExtent =>
-      math.max(expandedHeight, minExtent);
+  double get maxExtent => math.max(expandedHeight, minExtent);
 
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return new BarSettings(
+    return BarSettings(
       minExtent: minExtent,
       maxExtent: maxExtent,
       currentExtent: math.max(minExtent, maxExtent - shrinkOffset),

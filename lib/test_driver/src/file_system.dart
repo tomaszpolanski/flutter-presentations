@@ -1,13 +1,6 @@
 import 'dart:io';
 
-String platformPath(String path) {
-  return Platform.isWindows ? path.replaceAll('/', '\\') : path;
-}
+String platformPath(String path) =>
+    Platform.isWindows ? path.replaceAll('/', '\\') : path;
 
-bool exists(String path) {
-  if (path != null) {
-    return File(path).existsSync();
-  } else {
-    return false;
-  }
-}
+bool exists(String path) => path != null && File(path).existsSync();

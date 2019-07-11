@@ -9,12 +9,12 @@ class ThankYouPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: GTheme.green,
-      padding: EdgeInsets.all(30.0),
+      padding: EdgeInsets.all(30),
       child: Stack(
         children: [
           Center(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 48.0),
+              padding: const EdgeInsets.only(bottom: 48),
               child: ParallaxWidget(
                 child: Text(
                   'Thank you!',
@@ -33,7 +33,7 @@ class ThankYouPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: const [
                   Text('Tomek Polański'),
-                  SizedBox(height: 5.0),
+                  SizedBox(height: 5),
                   Text('@tpolansk'),
                 ],
               ),
