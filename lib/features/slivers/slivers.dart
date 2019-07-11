@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/slivers/pages/CustomMultiChildLayoutExample.dart';
 import 'package:flutter_presentations/features/slivers/pages/cheat_sheet.dart';
 import 'package:flutter_presentations/features/slivers/pages/code.dart';
+import 'package:flutter_presentations/features/slivers/pages/custom_multi_child_layout.dart';
 import 'package:flutter_presentations/features/slivers/pages/definition.dart';
 import 'package:flutter_presentations/features/slivers/pages/demo_button.dart';
 import 'package:flutter_presentations/features/slivers/pages/examples.dart';
@@ -63,7 +63,7 @@ class SliversState extends State<Slivers> {
             ImplementingHeader(controller: presentationController),
             CheatSheet(controller: presentationController),
             CustomMultiChildLayoutExample(),
-            DemoTime(),
+            const DemoTime(),
             Thanks(),
           ],
         ),

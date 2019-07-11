@@ -9,7 +9,7 @@ class DemoTime extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/demo.png'),
+            image: const AssetImage('assets/demo.png'),
             fit: BoxFit.cover,
           ),
         ),

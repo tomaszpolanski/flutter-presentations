@@ -15,7 +15,7 @@ class CustomAppBarDelegate extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
 
   @override
-  double get minExtent => 0.0;
+  double get minExtent => 0;
 
   @override
   double get maxExtent => math.max(expandedHeight, minExtent);

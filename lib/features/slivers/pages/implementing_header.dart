@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/slivers/Bar.dart';
-import 'package:flutter_presentations/features/slivers/CustomAppBarDelegate.dart';
+import 'package:flutter_presentations/features/slivers/custom_appbar_delegate.dart';
 import 'package:presentation/presentation.dart';
 
 class ImplementingHeader extends StatefulWidget {
@@ -36,7 +36,7 @@ class ImplementingHeaderState extends State<ImplementingHeader> {
       } else {
         _controller.animateTo(
           _controller.offset + context.size.height,
-          duration: Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
       }
@@ -46,7 +46,7 @@ class ImplementingHeaderState extends State<ImplementingHeader> {
       } else {
         _controller.animateTo(
           _controller.offset - context.size.height,
-          duration: Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
       }
@@ -62,7 +62,7 @@ class ImplementingHeaderState extends State<ImplementingHeader> {
         slivers: <Widget>[
           SliverPersistentHeader(
             delegate: CustomAppBarDelegate(
-              expandedHeight: 200.0,
+              expandedHeight: 200,
               flexibleSpace: Bar(
                 start: Colors.red,
                 end: Colors.blue,
@@ -70,7 +70,7 @@ class ImplementingHeaderState extends State<ImplementingHeader> {
             ),
           ),
           SliverFixedExtentList(
-            itemExtent: 50.0,
+            itemExtent: 50,
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 return Container(

@@ -8,7 +8,7 @@ class TitlePage extends StatelessWidget {
         Align(
           alignment: Alignment.centerLeft,
           child: Padding(
-            padding: const EdgeInsets.only(left: 80.0),
+            padding: const EdgeInsets.only(left: 80),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -48,17 +48,16 @@ class TitlePage extends StatelessWidget {
         Align(
           alignment: Alignment.bottomRight,
           child: Padding(
-            padding: const EdgeInsets.only(right: 18.0, bottom: 18.0),
+            padding: const EdgeInsets.only(right: 18, bottom: 18),
             child: DefaultTextStyle(
-              style: Theme
-                  .of(context)
+              style: Theme.of(context)
                   .textTheme
                   .title
                   .copyWith(fontWeight: FontWeight.bold),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
+                children: const [
                   Text(
                     'Tomek Polański',
                     style: TextStyle(color: Colors.black),

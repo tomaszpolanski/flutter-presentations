@@ -9,7 +9,7 @@ class ThankYouPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: GTheme.green,
-      padding: EdgeInsets.all(30),
+      padding: const EdgeInsets.all(30),
       child: Stack(
         children: [
           Center(

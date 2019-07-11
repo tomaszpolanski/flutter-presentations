@@ -14,7 +14,10 @@ class SurveyPage extends StatelessWidget {
     return ImagePage(
       'assets/image19.png',
       alignment: AlignmentDirectional.bottomStart,
-      child: const Text('Survey', style: TextStyle(color: Colors.black),),
+      child: const Text(
+        'Survey',
+        style: TextStyle(color: Colors.black),
+      ),
     );
   }
 }
@@ -260,7 +263,7 @@ class MyPainter extends CustomPainter {
     final double radius = min(size.width / 2, size.height / 2);
     canvas.drawCircle(center, radius, line);
     final double arcAngle = 2 * pi * (completePercent / 100);
-    canvas.drawArc(new Rect.fromCircle(center: center, radius: radius), -pi / 2,
+    canvas.drawArc(Rect.fromCircle(center: center, radius: radius), -pi / 2,
         arcAngle, false, complete);
   }
 

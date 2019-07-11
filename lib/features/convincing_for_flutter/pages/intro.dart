@@ -287,9 +287,9 @@ class _PlatformsPageState extends State<PlatformsPage>
                   AnimatedOpacity(
                       duration: const Duration(milliseconds: 200),
                       opacity: _fuchsia,
-                      child: Image(
+                      child: const Image(
                         color: Colors.grey,
-                        image: const AssetImage('assets/fusia.png'),
+                        image: AssetImage('assets/fusia.png'),
                       )),
                 ],
               ),

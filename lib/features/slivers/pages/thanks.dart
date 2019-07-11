@@ -26,11 +26,11 @@ class Thanks extends StatelessWidget {
                     .copyWith(fontWeight: FontWeight.bold),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const Text('...questions'),
+                  children: const [
+                    Text('...questions'),
                     Shake(
-                      duration: const Duration(milliseconds: 1000),
-                      child: const Text('?'),
+                      duration: Duration(milliseconds: 1000),
+                      child: Text('?'),
                     ),
                   ],
                 ),
@@ -41,7 +41,7 @@ class Thanks extends StatelessWidget {
         Align(
           alignment: Alignment.bottomRight,
           child: Padding(
-            padding: const EdgeInsets.only(right: 18.0, bottom: 18.0),
+            padding: const EdgeInsets.only(right: 18, bottom: 18),
             child: Text(
               '@tpolansk',
               style: Theme.of(context).textTheme.title.copyWith(

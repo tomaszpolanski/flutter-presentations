@@ -33,7 +33,7 @@ class SimpleDemoState extends State<SimpleDemo> {
       } else {
         _controller.animateTo(
           _controller.offset + context.size.height,
-          duration: Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
       }
@@ -43,7 +43,7 @@ class SimpleDemoState extends State<SimpleDemo> {
       } else {
         _controller.animateTo(
           _controller.offset - context.size.height,
-          duration: Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
       }
@@ -69,11 +69,11 @@ class SimpleDemoState extends State<SimpleDemo> {
           ),
         ),
         SliverGrid(
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 250.0,
-            mainAxisSpacing: 10.0,
-            crossAxisSpacing: 20.0,
-            childAspectRatio: 4.0,
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 250,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 20,
+            childAspectRatio: 4,
           ),
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
@@ -90,7 +90,7 @@ class SimpleDemoState extends State<SimpleDemo> {
           ),
         ),
         SliverFixedExtentList(
-          itemExtent: 50.0,
+          itemExtent: 50,
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
               return Container(
@@ -106,7 +106,7 @@ class SimpleDemoState extends State<SimpleDemo> {
           ),
         ),
         SliverPadding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20),
           sliver: SliverList(
             delegate:
                 SliverChildBuilderDelegate((BuildContext context, int index) {
@@ -125,7 +125,7 @@ class SimpleDemoState extends State<SimpleDemo> {
         SliverToBoxAdapter(
           child: Center(
             child: Container(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8),
               color: Colors.yellowAccent,
               child: Text(
                 'SliverToBoxAdapter',

@@ -64,11 +64,11 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
 
   Animation<Offset> _createAnimation(AnimationController controller) {
     return Tween<Offset>(
-      begin: const Offset(1.0, 0.0),
+      begin: const Offset(1, 0),
       end: Offset.zero,
-    ).animate(new CurvedAnimation(
+    ).animate(CurvedAnimation(
       parent: controller,
-      curve: ElasticOutCurve(),
+      curve: const ElasticOutCurve(),
     ));
   }
 
@@ -88,13 +88,13 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
                 Flexible(
                   child: SlideTransition(
                     position: _createAnimation(pageViewController),
-                    child: CardElement('PageView'),
+                    child: const CardElement('PageView'),
                   ),
                 ),
                 Flexible(
                   child: SlideTransition(
                     position: _createAnimation(multiChildController),
-                    child: CardElement('CustomMultiChildLayout'),
+                    child: const CardElement('CustomMultiChildLayout'),
                   ),
                 ),
               ],
@@ -116,13 +116,13 @@ class CardElement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(30.0),
+      padding: const EdgeInsets.all(30),
       child: Card(
         child: Center(
           child: Text(
             text,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 30.0),
+            style: const TextStyle(fontSize: 30),
           ),
         ),
       ),

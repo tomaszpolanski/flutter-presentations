@@ -1,9 +1,9 @@
 import 'dart:io';
 
 class Commands {
-  Flutter get flutter => Flutter._();
+  Flutter get flutter => const Flutter._();
 
-  Tests get tests => Tests._();
+  Tests get tests => const Tests._();
 }
 
 class Tests {

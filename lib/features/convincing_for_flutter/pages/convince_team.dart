@@ -50,7 +50,7 @@ class LessTestingPage extends StatelessWidget {
           alignment: Alignment.topCenter,
           child: ParallaxWidget(
             child: Padding(
-              padding: const EdgeInsets.all(18),
+              padding: EdgeInsets.all(18),
               child: Text('Less Testing'),
             ),
           ),

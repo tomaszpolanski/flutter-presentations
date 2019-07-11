@@ -30,19 +30,19 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
     );
 
     animation = Tween<Offset>(
-      begin: const Offset(0.0, -4.0),
+      begin: const Offset(0, -4),
       end: Offset.zero,
-    ).animate(new CurvedAnimation(
+    ).animate(CurvedAnimation(
       parent: _controller,
       curve: Curves.elasticOut,
     ));
 
     opacity = Tween<double>(
-      begin: 0.0,
-      end: 1.0,
-    ).animate(new CurvedAnimation(
+      begin: 0,
+      end: 1,
+    ).animate(CurvedAnimation(
       parent: _controller,
-      curve: Interval(0.0, .1),
+      curve: Interval(0, .1),
     ))
       ..addListener(() => setState(() {}));
 
@@ -77,7 +77,7 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
       child: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/code.png'),
+            image: const AssetImage('assets/code.png'),
             fit: BoxFit.cover,
           ),
         ),

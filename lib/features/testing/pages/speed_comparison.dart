@@ -159,7 +159,7 @@ class _SpeedComparisonState extends State<SpeedComparison>
                     flex: 1,
                     child: Column(
                       children: <Widget>[
-                        Text('Driver Tests'),
+                        const Text('Driver Tests'),
                         Expanded(
                           child: SingleChildScrollView(
                             scrollDirection: Axis.vertical,
@@ -184,7 +184,7 @@ class _SpeedComparisonState extends State<SpeedComparison>
                     flex: 1,
                     child: Column(
                       children: <Widget>[
-                        Text('Widget Tests'),
+                        const Text('Widget Tests'),
                         Expanded(
                           child: SingleChildScrollView(
                             scrollDirection: Axis.vertical,
@@ -215,13 +215,13 @@ class _SpeedComparisonState extends State<SpeedComparison>
               maintainState: true,
               child: _Timer(running: _runTimer),
             ),
-            SizedBox(height: 200),
+            const SizedBox(height: 200),
           ],
         ),
         if (_showCountdown)
           Center(
             child: _CountDownWidget(
-              Duration(seconds: 5),
+              const Duration(seconds: 5),
               onDone: _stateController.next,
             ),
           ),
@@ -312,7 +312,7 @@ class _TimerState extends State<_Timer> with SingleTickerProviderStateMixin {
   void initState() {
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(days: 1),
+      duration: const Duration(days: 1),
     );
     if (widget.running) {
       _controller.forward();

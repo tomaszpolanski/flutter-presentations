@@ -12,7 +12,7 @@ class SectionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: GTheme.green,
-      padding: EdgeInsets.all(30.0),
+      padding: const EdgeInsets.all(30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -21,11 +21,11 @@ class SectionPage extends StatelessWidget {
             child: Align(
               alignment: Alignment.bottomLeft,
               child: ParallaxWidget(
-                translationFactor: 150.0,
+                translationFactor: 150,
                 child: Container(
                   color: Colors.white,
-                  height: 8.0,
-                  width: 100.0,
+                  height: 8,
+                  width: 100,
                 ),
               ),
             ),
@@ -61,19 +61,18 @@ class ImagePage extends StatelessWidget {
       fit: StackFit.expand,
       children: [
         ParallaxImage(asset),
-        child != null
-            ? SafeArea(
-                child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Align(
-                    alignment: alignment,
-                    child: ParallaxWidget(
-                      child: child,
-                    ),
-                  ),
+        if (child != null)
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(18),
+              child: Align(
+                alignment: alignment,
+                child: ParallaxWidget(
+                  child: child,
                 ),
-              )
-            : SizedBox(),
+              ),
+            ),
+          ),
       ],
     );
   }
@@ -95,7 +94,7 @@ class SummaryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: background,
-      padding: EdgeInsets.all(30.0),
+      padding: const EdgeInsets.all(30),
       child: Stack(
         children: [
           Column(
@@ -104,13 +103,13 @@ class SummaryPage extends StatelessWidget {
               Expanded(
                 flex: 2,
                 child: ParallaxWidget(
-                  translationFactor: 150.0,
+                  translationFactor: 150,
                   child: Align(
                     alignment: Alignment.bottomLeft,
                     child: Container(
                       color: Colors.white,
-                      height: 8.0,
-                      width: 100.0,
+                      height: 8,
+                      width: 100,
                     ),
                   ),
                 ),

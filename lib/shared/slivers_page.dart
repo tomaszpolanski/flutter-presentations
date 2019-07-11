@@ -28,7 +28,8 @@ class SliverPage extends StatelessWidget {
             child: title,
           ),
         ),
-      ]..addAll(slivers),
+        ...slivers,
+      ],
     );
   }
 }
