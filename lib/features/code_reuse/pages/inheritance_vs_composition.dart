@@ -119,7 +119,7 @@ class _InheritanceState extends State<_Inheritance>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
     );
     widget.controller.addListeners(
       () => _controller.forward(),
@@ -139,7 +139,7 @@ class _InheritanceState extends State<_Inheritance>
       child: _AnimatedInheritance(
         animation: CurvedAnimation(
           parent: _controller,
-          curve: Interval(0.0, 0.3, curve: Curves.ease),
+          curve: Interval(0, 0.3, curve: Curves.ease),
         ),
         child: Container(
           width: size * 5,
@@ -158,7 +158,7 @@ class _InheritanceState extends State<_Inheritance>
               child: Container(
                 width: size * 4,
                 height: size * 4,
-                margin: EdgeInsets.all(size * 0.2),
+                margin: const EdgeInsets.all(size * 0.2),
                 decoration: BoxDecoration(
                   color: Colors.blue,
                   border: Border.all(color: Colors.black),
@@ -173,7 +173,7 @@ class _InheritanceState extends State<_Inheritance>
                     child: Container(
                       width: size * 3,
                       height: size * 3,
-                      margin: EdgeInsets.all(size * 0.2),
+                      margin: const EdgeInsets.all(size * 0.2),
                       decoration: BoxDecoration(
                         color: Colors.yellow,
                         border: Border.all(color: Colors.black),
@@ -228,7 +228,7 @@ class _CompositionState extends State<_Composition>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
     );
     widget.controller.addListeners(
       () => _controller.forward(),
@@ -312,7 +312,7 @@ class _CompositionState extends State<_Composition>
               child: _AnimatedPosition(
                 animation: CurvedAnimation(
                   parent: _controller,
-                  curve: Interval(0.0, 0.4, curve: Curves.ease),
+                  curve: Interval(0, 0.4, curve: Curves.ease),
                 ),
                 child: _CompositionItem(
                   width: size * 3,
@@ -348,7 +348,7 @@ class _AnimatedPosition extends StatelessWidget {
         );
       },
       child: Transform.translate(
-        offset: Offset(0, -500),
+        offset: const Offset(0, -500),
         child: child,
       ),
     );

@@ -56,7 +56,7 @@ class _CodeReuseState extends State<CodeReuse> {
         child: Stack(
           fit: StackFit.expand,
           children: <Widget>[
-            AnimatedParallaxImage(
+            const AnimatedParallaxImage(
               asset: 'assets/blueprint_wide.jpg',
               opacity: 0.1,
             ),
@@ -76,7 +76,7 @@ class _CodeReuseState extends State<CodeReuse> {
                 Inception(presentationController),
                 PlatformStack(presentationController),
                 Tests(presentationController),
-                CI(),
+                const CI(),
                 Matrix(presentationController),
                 DeclarativeUi(),
                 Imitation(),

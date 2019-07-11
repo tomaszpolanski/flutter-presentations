@@ -40,7 +40,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
     );
     _stateController = PageStepper<_Step>(
       controller: widget.controller,
@@ -98,7 +98,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
       children: <Widget>[
         AnimatedOpacity(
           opacity: _showBlueprint ? 1 : 0,
-          duration: Duration(milliseconds: 500),
+          duration: const Duration(milliseconds: 500),
           child: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -125,7 +125,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Everything's a Widget"),
+                      const Text("Everything's a Widget"),
                       AnimatedBuilder(
                         animation: animation,
                         builder: (_, child) {
@@ -154,17 +154,17 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
               child: Center(
                 child: AnimatedOpacity(
                   opacity: _showExample ? 1 : 0,
-                  duration: Duration(milliseconds: 500),
+                  duration: const Duration(milliseconds: 500),
                   child: Container(
                     width: 480,
-                    margin: EdgeInsets.symmetric(vertical: 18),
+                    margin: const EdgeInsets.symmetric(vertical: 18),
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.black, width: 2),
                     ),
                     child: Scaffold(
                       appBar: AppBar(
                         title: _showTextTitle
-                            ? Text('The Title')
+                            ? const Text('The Title')
                             : ListView.builder(
                                 scrollDirection: Axis.horizontal,
                                 itemCount: 100,
@@ -172,7 +172,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
                                   return Container(
                                     color: GTheme.flutter1,
                                     width: 100,
-                                    margin: EdgeInsets.all(8),
+                                    margin: const EdgeInsets.all(8),
                                   );
                                 },
                               ),
@@ -185,7 +185,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
                             return Container(
                               color: GTheme.flutter1,
                               height: 100,
-                              margin: EdgeInsets.all(8),
+                              margin: const EdgeInsets.all(8),
                             );
                           },
                         ),
@@ -202,9 +202,9 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
           right: 80,
           child: AnimatedOpacity(
             opacity: _showCode ? 1 : 0,
-            duration: Duration(milliseconds: 500),
+            duration: const Duration(milliseconds: 500),
             child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(20)),
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
               child: Image.asset('assets/scrollbar.png'),
             ),
           ),

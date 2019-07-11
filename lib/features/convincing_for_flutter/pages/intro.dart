@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
-import 'package:presentation/presentation.dart';
 import 'package:presentation/effects.dart';
+import 'package:presentation/presentation.dart';
 
 class TitlePage extends StatelessWidget {
   const TitlePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return new Stack(
+    return Stack(
       children: [
         DefaultTextStyle(
           style: GTheme.big,
-          child: new Align(
+          child: Align(
             alignment: Alignment.centerLeft,
-            child: new Padding(
-              padding: const EdgeInsets.only(left: 80.0),
-              child: new Wrap(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 80),
+              child: Wrap(
                 children: [
-                  Text('Convincing your '),
-                  Text('company to '),
+                  const Text('Convincing your '),
+                  const Text('company to '),
                   ParallaxWidget(
                     child: Row(
                       children: const [
                         Image(
                           image: AssetImage('assets/image4.png'),
-                          height: 60.0,
+                          height: 60,
                         ),
                         Text('lutter'),
                       ],
@@ -40,7 +40,7 @@ class TitlePage extends StatelessWidget {
           alignment: Alignment.bottomRight,
           child: ParallaxWidget(
             child: Padding(
-              padding: const EdgeInsets.only(right: 18.0, bottom: 18.0),
+              padding: const EdgeInsets.only(right: 18, bottom: 18),
               child: DefaultTextStyle.merge(
                 style: GTheme.smaller.copyWith(color: Colors.white),
                 child: Column(
@@ -109,14 +109,14 @@ class _PlatformsPageState extends State<PlatformsPage>
     with TickerProviderStateMixin {
   PageStepper<_Step> stateController;
 
-  double _uiq = 0.0;
-  double _symbian = 0.0;
-  double _blackberry = 0.0;
-  double _qt = 0.0;
-  double _windows = 0.0;
-  double _apple = 0.0;
-  double _android = 0.0;
-  double _fuchsia = 0.0;
+  double _uiq = 0;
+  double _symbian = 0;
+  double _blackberry = 0;
+  double _qt = 0;
+  double _windows = 0;
+  double _apple = 0;
+  double _android = 0;
+  double _fuchsia = 0;
 
   @override
   void initState() {
@@ -233,29 +233,29 @@ class _PlatformsPageState extends State<PlatformsPage>
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   AnimatedOpacity(
-                    duration: Duration(milliseconds: 200),
+                    duration: const Duration(milliseconds: 200),
                     opacity: _uiq,
-                    child: Image(
+                    child: const Image(
                       image: AssetImage('assets/image8.png'),
-                      height: 140.0,
+                      height: 140,
                     ),
                   ),
                   AnimatedOpacity(
-                      duration: Duration(milliseconds: 200),
+                      duration: const Duration(milliseconds: 200),
                       opacity: _symbian,
-                      child: Image(image: AssetImage('assets/S60.png'))),
+                      child: const Image(image: AssetImage('assets/S60.png'))),
                   AnimatedOpacity(
-                    duration: Duration(milliseconds: 200),
+                    duration: const Duration(milliseconds: 200),
                     opacity: _blackberry,
-                    child: Image(
+                    child: const Image(
                       image: AssetImage('assets/blackberry.png'),
-                      height: 140.0,
+                      height: 140,
                     ),
                   ),
                   AnimatedOpacity(
-                      duration: Duration(milliseconds: 200),
+                      duration: const Duration(milliseconds: 200),
                       opacity: _qt,
-                      child: Image(image: AssetImage('assets/qt.png'))),
+                      child: const Image(image: AssetImage('assets/qt.png'))),
                 ],
               ),
             ),
@@ -264,30 +264,30 @@ class _PlatformsPageState extends State<PlatformsPage>
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   AnimatedOpacity(
-                      duration: Duration(milliseconds: 200),
+                      duration: const Duration(milliseconds: 200),
                       opacity: _windows,
-                      child: Image(
+                      child: const Image(
                         image: AssetImage('assets/windows.png'),
-                        height: 140.0,
+                        height: 140,
                       )),
                   AnimatedOpacity(
-                      duration: Duration(milliseconds: 200),
+                      duration: const Duration(milliseconds: 200),
                       opacity: _apple,
-                      child: Image(
+                      child: const Image(
                         image: AssetImage('assets/apple.png'),
-                        height: 140.0,
+                        height: 140,
                       )),
                   AnimatedOpacity(
-                      duration: Duration(milliseconds: 200),
+                      duration: const Duration(milliseconds: 200),
                       opacity: _android,
-                      child: Image(
+                      child: const Image(
                         image: AssetImage('assets/image9.png'),
-                        height: 140.0,
+                        height: 140,
                       )),
                   AnimatedOpacity(
-                      duration: Duration(milliseconds: 200),
+                      duration: const Duration(milliseconds: 200),
                       opacity: _fuchsia,
-                      child: Image(
+                      child: const Image(
                         color: Colors.grey,
                         image: AssetImage('assets/fusia.png'),
                       )),

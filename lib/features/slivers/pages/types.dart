@@ -13,7 +13,7 @@ class SliverTypesPage extends StatefulWidget {
 
 class SliverTypesPageState extends State<SliverTypesPage> {
   // Can you spot the typos? :)
-  static const _kMostUsed = const [
+  static const _kMostUsed = [
     'SilverList',
     'SliverFixedExtentList',
     'SilverGrid',
@@ -24,7 +24,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
     'SliverPadding',
   ];
 
-  static const _kTheRest = const [
+  static const _kTheRest = [
     'SliverPrototypeExtentList',
     'SliverFillRemaining',
     'RenderSliverHelpers (mixin)',
@@ -67,7 +67,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
       } else {
         _controller.animateTo(
           _controller.offset + context.size.height,
-          duration: Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
       }
@@ -77,7 +77,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
       } else {
         _controller.animateTo(
           _controller.offset - context.size.height,
-          duration: Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
       }
@@ -86,15 +86,15 @@ class SliverTypesPageState extends State<SliverTypesPage> {
 
   IndexedWidgetBuilder _sliverTypeDelegate(List<String> data) {
     return (BuildContext context, int index) {
-      return new Card(
-        child: new InkWell(
+      return Card(
+        child: InkWell(
           highlightColor: Colors.teal,
           onTap: () {},
-          child: new Container(
+          child: Container(
             color: Colors.transparent,
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             alignment: Alignment.center,
-            child: new Text(
+            child: Text(
               data[index],
               textAlign: TextAlign.center,
               style: Theme.of(context)
@@ -112,14 +112,14 @@ class SliverTypesPageState extends State<SliverTypesPage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final aspectRatio = size.width / size.height;
-    return new SliverPage(
-      title: new Text('Sliver Types'),
+    return SliverPage(
+      title: const Text('Sliver Types'),
       controller: _controller,
       slivers: [
-        new SliverToBoxAdapter(
-          child: new Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: new Text(
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: Text(
               'Most Used',
               style: Theme.of(context)
                   .textTheme
@@ -128,25 +128,25 @@ class SliverTypesPageState extends State<SliverTypesPage> {
             ),
           ),
         ),
-        new SliverPadding(
-          padding: const EdgeInsets.all(8.0),
-          sliver: new SliverGrid(
-            gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+        SliverPadding(
+          padding: const EdgeInsets.all(8),
+          sliver: SliverGrid(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: aspectRatio < 1.0 ? 1 : 2,
-              mainAxisSpacing: 10.0,
-              crossAxisSpacing: 20.0,
-              childAspectRatio: 4.0,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 20,
+              childAspectRatio: 4,
             ),
-            delegate: new SliverChildBuilderDelegate(
+            delegate: SliverChildBuilderDelegate(
               _sliverTypeDelegate(_kMostUsed),
               childCount: _kMostUsed.length,
             ),
           ),
         ),
-        new SliverToBoxAdapter(
-          child: new Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: new Text(
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: Text(
               'And the Rest',
               style: Theme.of(context)
                   .textTheme
@@ -155,16 +155,16 @@ class SliverTypesPageState extends State<SliverTypesPage> {
             ),
           ),
         ),
-        new SliverPadding(
-          padding: const EdgeInsets.all(8.0),
-          sliver: new SliverGrid(
-            gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+        SliverPadding(
+          padding: const EdgeInsets.all(8),
+          sliver: SliverGrid(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: aspectRatio < 1.0 ? 1 : 2,
-              mainAxisSpacing: 10.0,
-              crossAxisSpacing: 20.0,
-              childAspectRatio: 4.0,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 20,
+              childAspectRatio: 4,
             ),
-            delegate: new SliverChildBuilderDelegate(
+            delegate: SliverChildBuilderDelegate(
               _sliverTypeDelegate(_kTheRest),
               childCount: _kTheRest.length,
             ),

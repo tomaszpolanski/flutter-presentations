@@ -33,7 +33,7 @@ class _TutorialGoalState extends State<TutorialGoal>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
     );
     _stateController = PageStepper<_TutorialStep>(
       controller: widget.controller,
@@ -86,8 +86,8 @@ class _TutorialGoalState extends State<TutorialGoal>
         Expanded(
           child: WrappedAnimatedBuilder<Rect>(
             animation: RectTween(
-              begin: Rect.fromLTRB(0, 0, 1, 1),
-              end: Rect.fromLTRB(0, 0.31, 1, 0.61),
+              begin: const Rect.fromLTRB(0, 0, 1, 1),
+              end: const Rect.fromLTRB(0, 0.31, 1, 0.61),
             ).animate(CurvedAnimation(
               parent: _controller,
               curve: Curves.easeOut,
@@ -136,7 +136,7 @@ class _TutorialResultState extends State<TutorialResult>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
     );
     _stateController = PageStepper<_Step>(
       controller: widget.controller,
@@ -181,7 +181,7 @@ class _TutorialResultState extends State<TutorialResult>
                 alignment: Alignment.center,
                 child: AnimatedOpacity(
                   opacity: _showImage ? 1 : 0,
-                  duration: Duration(milliseconds: 100),
+                  duration: const Duration(milliseconds: 100),
                   child: Image.asset(
                     'assets/performance.png',
                     width: 245,
@@ -193,24 +193,24 @@ class _TutorialResultState extends State<TutorialResult>
               child: _showGraph
                   ? AnimatedOpacity(
                       opacity: _showGraph ? 1 : 0,
-                      duration: Duration(milliseconds: 100),
-                      child: SizedBox(
+                      duration: const Duration(milliseconds: 100),
+                      child: const SizedBox(
                         width: 250,
                         child: Placeholder(),
                       ),
                     )
-                  : SizedBox(),
+                  : const SizedBox(),
             ),
           ],
         ),
         Transform.translate(
-          offset: Offset(0, 80),
+          offset: const Offset(0, 80),
           child: Row(
             children: [
               Expanded(
                 child: AnimatedOpacity(
                   opacity: _showImage ? 1 : 0,
-                  duration: Duration(milliseconds: 100),
+                  duration: const Duration(milliseconds: 100),
                   child: Text(
                     'Image',
                     style: Theme.of(context).textTheme.title,
@@ -221,7 +221,7 @@ class _TutorialResultState extends State<TutorialResult>
               Expanded(
                 child: AnimatedOpacity(
                   opacity: _showGraph ? 1 : 0,
-                  duration: Duration(milliseconds: 100),
+                  duration: const Duration(milliseconds: 100),
                   child: Text(
                     'Widget',
                     style: Theme.of(context).textTheme.title,

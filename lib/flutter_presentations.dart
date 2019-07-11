@@ -27,31 +27,31 @@ class _PresentationList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Presentations'),
+        title: const Text('Presentations'),
       ),
       body: ListView(
         children: <Widget>[
           ListTile(
-            title: Text(Slivers.title),
-            subtitle: Text(Slivers.subtitle),
+            title: const Text(Slivers.title),
+            subtitle: const Text(Slivers.subtitle),
             onTap: () => Navigator.of(context)
                 .push(MaterialPageRoute(builder: (_) => Slivers())),
           ),
           ListTile(
-            title: Text(Convincing.title),
-            subtitle: Text(Convincing.subtitle),
+            title: const Text(Convincing.title),
+            subtitle: const Text(Convincing.subtitle),
             onTap: () => Navigator.of(context)
                 .push(MaterialPageRoute(builder: (_) => Convincing())),
           ),
           ListTile(
-            title: Text(CodeReuse.title),
-            subtitle: Text(CodeReuse.subtitle),
+            title: const Text(CodeReuse.title),
+            subtitle: const Text(CodeReuse.subtitle),
             onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => CodeReuse())),
+                .push(MaterialPageRoute(builder: (_) => const CodeReuse())),
           ),
           ListTile(
-            title: Text(Testing.title),
-            subtitle: Text(CodeReuse.subtitle),
+            title: const Text(Testing.title),
+            subtitle: const Text(CodeReuse.subtitle),
             onTap: () => Navigator.of(context)
                 .push(MaterialPageRoute(builder: (_) => const Testing())),
           ),

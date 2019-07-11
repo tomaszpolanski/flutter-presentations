@@ -13,7 +13,7 @@ class _GrouponAppState extends State<GrouponApp> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
+        const Expanded(
           child: FlutterLogo(
             size: 250,
             style: FlutterLogoStyle.stacked,
@@ -23,7 +23,7 @@ class _GrouponAppState extends State<GrouponApp> {
           child: Center(
             child: Container(
               width: 480,
-              margin: EdgeInsets.symmetric(vertical: 18),
+              margin: const EdgeInsets.symmetric(vertical: 18),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black, width: 2),
               ),
@@ -34,13 +34,13 @@ class _GrouponAppState extends State<GrouponApp> {
                         color: Colors.transparent,
                         child: Center(
                           child: Image(
-                            image: AssetImage('assets/image7.png'),
-                            height: 100.0,
+                            image: const AssetImage('assets/image7.png'),
+                            height: 100,
                           ),
                         ),
                       ),
                     )
-                  : Placeholder(),
+                  : const Placeholder(),
             ),
           ),
         ),

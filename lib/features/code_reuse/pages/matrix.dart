@@ -35,7 +35,7 @@ class _MatrixState extends State<Matrix> with SingleTickerProviderStateMixin {
     _text = 'Call trans opt: received. $formattedDate REC:Log>';
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1300),
+      duration: const Duration(milliseconds: 1300),
     )..addStatusListener((status) {
         setState(() {
           _isBlinking = status == AnimationStatus.dismissed ||
@@ -82,10 +82,10 @@ class _MatrixState extends State<Matrix> with SingleTickerProviderStateMixin {
       color: Colors.black,
       height: double.infinity,
       width: double.infinity,
-      padding: EdgeInsets.all(30),
+      padding: const EdgeInsets.all(30),
       child: DefaultTextStyle.merge(
-        style: TextStyle(
-          color: const Color(0xFF48C979),
+        style: const TextStyle(
+          color: Color(0xFF48C979),
           fontFamily: 'AnonymousPro',
         ),
         child: WrappedAnimatedBuilder<double>(
@@ -152,7 +152,7 @@ class _CursorState extends State<Cursor> with SingleTickerProviderStateMixin {
   void initState() {
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 300),
     );
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
@@ -202,7 +202,7 @@ class _CursorState extends State<Cursor> with SingleTickerProviderStateMixin {
         width: 40,
         decoration: BoxDecoration(
           color: const Color(0xFFA4F2DD),
-          borderRadius: BorderRadius.all(Radius.circular(1)),
+          borderRadius: const BorderRadius.all(Radius.circular(1)),
           border: Border.all(color: const Color(0xFF48AB7F), width: 1),
           boxShadow: [
             BoxShadow(

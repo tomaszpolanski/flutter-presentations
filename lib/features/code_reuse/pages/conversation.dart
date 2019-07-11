@@ -30,7 +30,7 @@ class _ConversationState extends State<Conversation>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 3),
+      duration: const Duration(seconds: 3),
     );
     _stateController = PageStepper<_Step>(
       controller: widget.controller,
@@ -85,9 +85,9 @@ class _ConversationState extends State<Conversation>
             children: [
               _SlideIn(
                 animation: _controller,
-                curve: Interval(0.0, 0.25, curve: Curves.ease),
+                curve: Interval(0, 0.25, curve: Curves.ease),
                 slideInDirection: TextDirection.ltr,
-                child: _Message(
+                child: const _Message(
                   avatar: 'assets/norbert.jpg',
                   user: Text('Norbert'),
                   child: Text(
@@ -101,7 +101,7 @@ class _ConversationState extends State<Conversation>
                 animation: _controller,
                 curve: Interval(0.25, 0.5, curve: Curves.ease),
                 slideInDirection: TextDirection.rtl,
-                child: _Message(
+                child: const _Message(
                   avatar: 'assets/salih.jpg',
                   user: Text('salih'),
                   child: Text(
@@ -116,7 +116,7 @@ class _ConversationState extends State<Conversation>
                 slideInDirection: TextDirection.ltr,
                 child: _Message(
                   avatar: 'assets/rafal.jpg',
-                  user: Text('Rafal'),
+                  user: const Text('Rafal'),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const <Widget>[
@@ -132,9 +132,9 @@ class _ConversationState extends State<Conversation>
               ),
               _SlideIn(
                 animation: _controller,
-                curve: Interval(0.75, 1.0, curve: Curves.ease),
+                curve: Interval(0.75, 1, curve: Curves.ease),
                 slideInDirection: TextDirection.rtl,
-                child: _Message(
+                child: const _Message(
                   avatar: 'assets/norbert.jpg',
                   user: Text('Norbert'),
                   child: Text('haha 😂'),
@@ -206,9 +206,9 @@ class _Message extends StatelessWidget {
         Container(
           height: 120,
           width: 120,
-          margin: EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
             image: DecorationImage(
               image: AssetImage(avatar),
             ),

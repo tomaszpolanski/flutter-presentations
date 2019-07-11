@@ -4,44 +4,42 @@ import 'package:presentation/presentation.dart';
 class WhatIsSliver extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new PresentationPage(
-      title: new Text('What is a Sliver?'),
-      child: new Row(
+    return PresentationPage(
+      title: const Text('What is a Sliver?'),
+      child: Row(
         children: <Widget>[
-          new Flexible(
+          Flexible(
             flex: 1,
-            child: new Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
-              child: new Column(
-                children: <Widget>[
-                  new SingleList(),
-                  new Text('List'),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+              child: Column(
+                children: const [
+                  SingleList(),
+                  Text('List'),
                 ],
               ),
             ),
           ),
-          new Flexible(
+          Flexible(
             flex: 1,
-            child: new Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
-              child: new Column(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+              child: Column(
                 children: <Widget>[
-                  new Container(
-                    padding: const EdgeInsets.all(8.0),
-                    decoration: new BoxDecoration(
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
                         color: Colors.purple,
-                        border: new Border.all(color: Colors.black)),
-                    child: new Column(
-                      children: <Widget>[
-                        new SingleList(sizeFactor: 0.5),
-                        new SingleList(sizeFactor: 0.5),
-                        new SingleList(sizeFactor: 0.5, count: 2),
+                        border: Border.all(color: Colors.black)),
+                    child: Column(
+                      children: const [
+                        SingleList(sizeFactor: 0.5),
+                        SingleList(sizeFactor: 0.5),
+                        SingleList(sizeFactor: 0.5, count: 2),
                       ],
                     ),
                   ),
-                  new Text('Sliver'),
+                  const Text('Sliver'),
                 ],
               ),
             ),
@@ -63,20 +61,20 @@ class SingleList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      padding: const EdgeInsets.all(8.0),
-      decoration: new BoxDecoration(
-          color: Colors.green, border: new Border.all(color: Colors.black)),
-      child: new Column(
-        children: new List.generate(
+    return Container(
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+          color: Colors.green, border: Border.all(color: Colors.black)),
+      child: Column(
+        children: List.generate(
           count,
-          (_) => new Padding(
-                padding: const EdgeInsets.all(2.0),
-                child: new Container(
-                  height: 30.0 * sizeFactor,
-                  color: Colors.red,
-                ),
-              ),
+          (_) => Padding(
+            padding: const EdgeInsets.all(2),
+            child: Container(
+              height: 30.0 * sizeFactor,
+              color: Colors.red,
+            ),
+          ),
         ),
       ),
     );

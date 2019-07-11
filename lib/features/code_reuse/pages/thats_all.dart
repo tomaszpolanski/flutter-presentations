@@ -53,11 +53,11 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 3),
+      duration: const Duration(seconds: 3),
     )..addListener(() => setState(() {}));
     _fadeInController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 10),
+      duration: const Duration(seconds: 10),
     )..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
           setState(() => _showQuestions = true);
@@ -96,7 +96,7 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
             scale: 2.5,
             child: Stack(
               children: [
-                GradientContainer(fraction: 1),
+                const GradientContainer(fraction: 1),
                 GradientContainer(
                   fraction: 0.7,
                   beat: _controller.value,
@@ -121,9 +121,9 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
                   children: _format("That's all Folks!").toList(),
                 ),
                 DefaultTextStyle.merge(
-                  style: TextStyle(fontSize: 100),
+                  style: const TextStyle(fontSize: 100),
                   child: AnimatedCrossFade(
-                    duration: Duration(milliseconds: 500),
+                    duration: const Duration(milliseconds: 500),
                     crossFadeState: _showQuestions
                         ? CrossFadeState.showSecond
                         : CrossFadeState.showFirst,
@@ -143,10 +143,10 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
           Align(
             alignment: Alignment.bottomRight,
             child: AnimatedOpacity(
-              duration: Duration(milliseconds: 500),
+              duration: const Duration(milliseconds: 500),
               opacity: _showQuestions ? 1 : 0,
               child: DefaultTextStyle.merge(
-                style: TextStyle(fontSize: 30),
+                style: const TextStyle(fontSize: 30),
                 child: Padding(
                   padding: const EdgeInsets.all(8),
                   child: Column(

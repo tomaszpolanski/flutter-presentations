@@ -9,7 +9,7 @@ void main() {
   runApp(
     const AnimationMode(
       enabled: true,
-      child: const FlutterPresentations(),
+      child: FlutterPresentations(),
     ),
   );
 }

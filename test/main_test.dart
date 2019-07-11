@@ -9,20 +9,20 @@ void main() {
   group('Presentation', () {
     setUp(() {
       WidgetsBinding.instance.renderView.configuration =
-          ViewConfiguration(size: const Size(4000, 4000));
+          const ViewConfiguration(size: Size(4000, 4000));
     });
 
     testWidgets('execute steps', (WidgetTester tester) async {
       await tester.pumpWidget(const AnimationMode(
         enabled: false,
-        child: const FlutterPresentations(),
+        child: FlutterPresentations(),
       ));
 
       await tester.pumpAndSettle();
       await tester.tap(find.text('True Effort Reuse'));
       await tester.pumpAndSettle();
       while (!tester.any(find.byType(ThatsAll))) {
-        expect(find.byKey(Key('presentation')), findsOneWidget);
+        expect(find.byKey(const Key('presentation')), findsOneWidget);
         tester
             .widget<Presentation>(find.byType(Presentation))
             .presentationController

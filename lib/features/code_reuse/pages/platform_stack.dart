@@ -30,7 +30,7 @@ class _PlatformStackState extends State<PlatformStack>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
     );
     _stateController = PageStepper<_Step>(
       controller: widget.controller,
@@ -67,16 +67,16 @@ class _PlatformStackState extends State<PlatformStack>
           ),
       textAlign: TextAlign.center,
       child: Container(
-        padding: EdgeInsets.all(30),
+        padding: const EdgeInsets.all(30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            _PlatformComponent(
-              color: const Color(0xFF0F9D58),
+            const _PlatformComponent(
+              color: Color(0xFF0F9D58),
               title: Text('Framework\n(Dart)'),
-              children: const [
+              children: [
                 _Layer(
-                  children: const [
+                  children: [
                     _TextCell(child: Text('Material')),
                     _TextCell(child: Text('Cupertino')),
                   ],
@@ -84,7 +84,7 @@ class _PlatformStackState extends State<PlatformStack>
                 _TextCell(child: Text('Widgets')),
                 _TextCell(child: Text('Renderinig')),
                 _Layer(
-                  children: const [
+                  children: [
                     _TextCell(child: Text('Animation')),
                     _TextCell(child: Text('Painting')),
                     _TextCell(child: Text('Gestures')),
@@ -103,22 +103,22 @@ class _PlatformStackState extends State<PlatformStack>
                       child: child,
                     );
                   },
-                  child: _PlatformComponent(
-                    color: const Color(0xFF4285F4),
+                  child: const _PlatformComponent(
+                    color: Color(0xFF4285F4),
                     title: Text('Engine\n(C++)'),
-                    children: const [
+                    children: [
                       _Layer(
-                        children: const [
+                        children: [
                           _TextCell(
-                            background: const Color(0xFF4285F4),
+                            background: Color(0xFF4285F4),
                             child: Text('Skia'),
                           ),
                           _TextCell(
-                            background: const Color(0xFF4285F4),
+                            background: Color(0xFF4285F4),
                             child: Text('Dart'),
                           ),
                           _TextCell(
-                            background: const Color(0xFF4285F4),
+                            background: Color(0xFF4285F4),
                             child: Text('Text'),
                           ),
                         ],
@@ -134,22 +134,22 @@ class _PlatformStackState extends State<PlatformStack>
                       child: child,
                     );
                   },
-                  child: _PlatformComponent(
-                    color: const Color(0xFFF7AB2E),
+                  child: const _PlatformComponent(
+                    color: Color(0xFFF7AB2E),
                     title: Text('Browser\n(C++, JS)'),
-                    children: const [
+                    children: [
                       _Layer(
-                        children: const [
+                        children: [
                           _TextCell(
-                            background: const Color(0xFFF7AB2E),
+                            background: Color(0xFFF7AB2E),
                             child: Text('Canvas'),
                           ),
                           _TextCell(
-                            background: const Color(0xFFF7AB2E),
+                            background: Color(0xFFF7AB2E),
                             child: Text('JS Engine'),
                           ),
                           _TextCell(
-                            background: const Color(0xFFF7AB2E),
+                            background: Color(0xFFF7AB2E),
                             child: Text('DOM'),
                           ),
                         ],
@@ -182,7 +182,7 @@ class _PlatformComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: color.withOpacity(0.3),
-      padding: EdgeInsets.all(30),
+      padding: const EdgeInsets.all(30),
       child: Row(
         children: [
           Expanded(flex: 2, child: title),
@@ -191,7 +191,8 @@ class _PlatformComponent extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                ...join(separator: SizedBox(height: 20), children: children)
+                ...join(
+                    separator: const SizedBox(height: 20), children: children)
               ],
             ),
           )
@@ -228,9 +229,9 @@ class _TextCell extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: background,
-      margin: EdgeInsets.only(right: 20),
+      margin: const EdgeInsets.only(right: 20),
       child: DefaultTextStyle.merge(
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
         child: child,
       ),
     );

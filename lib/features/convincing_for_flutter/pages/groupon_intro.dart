@@ -11,9 +11,9 @@ class PuppyPage extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: <Widget>[
-        ParallaxImage('assets/image34.jpg'),
+        const ParallaxImage('assets/image34.jpg'),
         Padding(
-          padding: const EdgeInsets.all(18.0),
+          padding: const EdgeInsets.all(18),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
@@ -45,7 +45,7 @@ class CustomerPage extends StatelessWidget {
         Expanded(
             child: Image(
           image: AssetImage('assets/image13.png'),
-          height: 250.0,
+          height: 250,
         )),
         Expanded(
           child: ParallaxWidget(
@@ -67,7 +67,7 @@ class MerchantPage extends StatelessWidget {
         Expanded(
           child: Image(
             image: AssetImage('assets/image7.png'),
-            height: 250.0,
+            height: 250,
           ),
         ),
         Expanded(

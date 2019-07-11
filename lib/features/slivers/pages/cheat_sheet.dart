@@ -13,7 +13,7 @@ class CheatSheet extends StatefulWidget {
   final PresentationController controller;
 
   @override
-  CheatSheetState createState() => new CheatSheetState();
+  CheatSheetState createState() => CheatSheetState();
 }
 
 class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
@@ -25,17 +25,17 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
   void initState() {
     super.initState();
 
-    pageViewController = new AnimationController(
+    pageViewController = AnimationController(
       duration: const Duration(milliseconds: 800),
       vsync: this,
     );
 
-    multiChildController = new AnimationController(
+    multiChildController = AnimationController(
       duration: const Duration(milliseconds: 800),
       vsync: this,
     );
 
-    stateController = new PageStepper<_Step>(
+    stateController = PageStepper<_Step>(
       controller: widget.controller,
       steps: _Step.values,
     )
@@ -63,38 +63,38 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
   }
 
   Animation<Offset> _createAnimation(AnimationController controller) {
-    return new Tween<Offset>(
-      begin: const Offset(1.0, 0.0),
+    return Tween<Offset>(
+      begin: const Offset(1, 0),
       end: Offset.zero,
-    ).animate(new CurvedAnimation(
+    ).animate(CurvedAnimation(
       parent: controller,
-      curve: new ElasticOutCurve(),
+      curve: const ElasticOutCurve(),
     ));
   }
 
   @override
   Widget build(BuildContext context) {
-    return new PresentationPage(
+    return PresentationPage(
       title: const Text('Cheat Sheet'),
-      child: new GestureDetector(
+      child: GestureDetector(
         onTap: stateController.next,
-        child: new ClipRect(
-          child: new Container(
+        child: ClipRect(
+          child: Container(
             color: Colors.transparent,
-            child: new Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                new Flexible(
-                  child: new SlideTransition(
+                Flexible(
+                  child: SlideTransition(
                     position: _createAnimation(pageViewController),
-                    child: new CardElement('PageView'),
+                    child: const CardElement('PageView'),
                   ),
                 ),
-                new Flexible(
-                  child: new SlideTransition(
+                Flexible(
+                  child: SlideTransition(
                     position: _createAnimation(multiChildController),
-                    child: new CardElement('CustomMultiChildLayout'),
+                    child: const CardElement('CustomMultiChildLayout'),
                   ),
                 ),
               ],
@@ -115,14 +115,14 @@ class CardElement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Padding(
-      padding: const EdgeInsets.all(30.0),
-      child: new Card(
-        child: new Center(
-          child: new Text(
+    return Padding(
+      padding: const EdgeInsets.all(30),
+      child: Card(
+        child: Center(
+          child: Text(
             text,
             textAlign: TextAlign.center,
-            style: new TextStyle(fontSize: 30.0),
+            style: const TextStyle(fontSize: 30),
           ),
         ),
       ),

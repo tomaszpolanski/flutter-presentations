@@ -4,46 +4,46 @@ import 'package:presentation/presentation.dart';
 class CustomMultiChildLayoutExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new PresentationPage(
+    return PresentationPage(
       title: const Text(
         'CustomMultiChildLayout',
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),
-      child: new Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: new CustomMultiChildLayout(
-          delegate: new _Layout(),
+      child: Padding(
+        padding: const EdgeInsets.all(0),
+        child: CustomMultiChildLayout(
+          delegate: _Layout(),
           children: <Widget>[
-            new LayoutId(
+            LayoutId(
               id: Colors.red,
-              child: new Container(
-                width: 40.0,
-                height: 40.0,
+              child: Container(
+                width: 40,
+                height: 40,
                 color: Colors.red,
               ),
             ),
-            new LayoutId(
+            LayoutId(
               id: Colors.blue,
-              child: new Container(
-                width: 40.0,
-                height: 75.0,
+              child: Container(
+                width: 40,
+                height: 75,
                 color: Colors.blue,
               ),
             ),
-            new LayoutId(
+            LayoutId(
               id: Colors.orange,
-              child: new Container(
-                width: 300.0,
-                height: 15.0,
+              child: Container(
+                width: 300,
+                height: 15,
                 color: Colors.orange,
               ),
             ),
-            new LayoutId(
+            LayoutId(
               id: Colors.green,
-              child: new Container(
-                width: 50.0,
-                height: 100.0,
+              child: Container(
+                width: 50,
+                height: 100,
                 color: Colors.green,
               ),
             ),
@@ -57,20 +57,20 @@ class CustomMultiChildLayoutExample extends StatelessWidget {
 class _Layout extends MultiChildLayoutDelegate {
   @override
   void performLayout(Size size) {
-    var offset = Offset(0.0, 0.0);
-    var itemSize = layoutChild(Colors.blue, BoxConstraints());
+    var offset = const Offset(0, 0);
+    var itemSize = layoutChild(Colors.blue, const BoxConstraints());
     positionChild(Colors.blue, offset);
 
-    offset += new Offset(itemSize.width, itemSize.height);
-    itemSize = layoutChild(Colors.red, BoxConstraints());
+    offset += Offset(itemSize.width, itemSize.height);
+    itemSize = layoutChild(Colors.red, const BoxConstraints());
     positionChild(Colors.red, offset);
 
-    offset += new Offset(itemSize.width, itemSize.height);
-    itemSize = layoutChild(Colors.orange, BoxConstraints());
+    offset += Offset(itemSize.width, itemSize.height);
+    itemSize = layoutChild(Colors.orange, const BoxConstraints());
     positionChild(Colors.orange, offset);
 
-    offset += new Offset(itemSize.width, itemSize.height);
-    itemSize = layoutChild(Colors.green, BoxConstraints());
+    offset += Offset(itemSize.width, itemSize.height);
+    itemSize = layoutChild(Colors.green, const BoxConstraints());
     positionChild(Colors.green, offset);
   }
 

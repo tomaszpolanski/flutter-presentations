@@ -41,7 +41,7 @@ class _TestingState extends State<Testing> {
         child: Stack(
           fit: StackFit.expand,
           children: <Widget>[
-            AnimatedParallaxImage(
+            const AnimatedParallaxImage(
               asset: 'assets/blueprint_wide.jpg',
               opacity: 0.1,
             ),

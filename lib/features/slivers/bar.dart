@@ -26,7 +26,7 @@ class Bar extends StatelessWidget {
         (1.0 - (settings.currentExtent - settings.minExtent) / deltaExtent)
             .clamp(0.0, 1.0);
 
-    return new Container(color: Color.lerp(start, end, t));
+    return Container(color: Color.lerp(start, end, t));
   }
 }
 

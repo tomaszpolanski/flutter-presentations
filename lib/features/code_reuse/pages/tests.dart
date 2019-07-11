@@ -88,7 +88,7 @@ class _TestsState extends State<Tests> {
     return Column(
       children: <Widget>[
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 20),
           child: Text(
             'Tests',
             style: Theme.of(context).textTheme.title,
@@ -99,15 +99,15 @@ class _TestsState extends State<Tests> {
           child: Center(
             child: Table(
               columnWidths: const {
-                0: const FlexColumnWidth(2),
-                1: const FlexColumnWidth(1),
-                2: const FlexColumnWidth(1),
-                3: const FlexColumnWidth(1),
+                0: FlexColumnWidth(2),
+                1: FlexColumnWidth(1),
+                2: FlexColumnWidth(1),
+                3: FlexColumnWidth(1),
               },
               children: [
                 TableRow(
                   children: [
-                    SizedBox(),
+                    const SizedBox(),
                     Text('Unit', style: description),
                     Text('Widget', style: description),
                     Text('Integration', style: description),
@@ -119,7 +119,7 @@ class _TestsState extends State<Tests> {
                       .toList(),
                 ),
                 TableRow(
-                  key: Key('confidence'),
+                  key: const Key('confidence'),
                   decoration: BoxDecoration(
                     color: Colors.grey.withOpacity(0.2),
                   ),
@@ -136,7 +136,7 @@ class _TestsState extends State<Tests> {
                       .toList(),
                 ),
                 TableRow(
-                  key: Key('cost'),
+                  key: const Key('cost'),
                   children: [
                     Text('Maintenance cost', style: description),
                     Text('Low', style: good),
@@ -150,7 +150,7 @@ class _TestsState extends State<Tests> {
                       .toList(),
                 ),
                 TableRow(
-                  key: Key('speed'),
+                  key: const Key('speed'),
                   decoration: BoxDecoration(
                     color: Colors.grey.withOpacity(0.2),
                   ),
@@ -160,8 +160,8 @@ class _TestsState extends State<Tests> {
                     Text('Slower', style: medium),
                     AnimatedDefaultTextStyle(
                         style: _style,
-                        duration: Duration(milliseconds: 400),
-                        child: Text('Slowest')),
+                        duration: const Duration(milliseconds: 400),
+                        child: const Text('Slowest')),
                   ]
                       .map((widget) => Padding(
                             padding: const EdgeInsets.symmetric(vertical: 30),

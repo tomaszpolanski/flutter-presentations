@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
-import 'package:presentation/presentation.dart';
 import 'package:presentation/effects.dart';
+import 'package:presentation/presentation.dart';
 
 class SurveyPage extends StatelessWidget {
   const SurveyPage({Key key}) : super(key: key);
@@ -14,7 +14,10 @@ class SurveyPage extends StatelessWidget {
     return ImagePage(
       'assets/image19.png',
       alignment: AlignmentDirectional.bottomStart,
-      child: Text('Survey', style: TextStyle(color: Colors.black)),
+      child: const Text(
+        'Survey',
+        style: TextStyle(color: Colors.black),
+      ),
     );
   }
 }
@@ -38,9 +41,7 @@ class CriteriaPage extends StatefulWidget {
   final Widget title;
 
   @override
-  CriteriaPageState createState() {
-    return new CriteriaPageState();
-  }
+  CriteriaPageState createState() => CriteriaPageState();
 }
 
 class CriteriaPageState extends State<CriteriaPage>
@@ -53,19 +54,19 @@ class CriteriaPageState extends State<CriteriaPage>
   void initState() {
     super.initState();
     _businessController = AnimationController(
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       vsync: this,
     )..addListener(() {
         setState(() {});
       });
     _techController = AnimationController(
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       vsync: this,
     )..addListener(() {
         setState(() {});
       });
     _peopleController = AnimationController(
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       vsync: this,
     )..addListener(() {
         setState(() {});
@@ -102,19 +103,19 @@ class CriteriaPageState extends State<CriteriaPage>
             Align(
               alignment: Alignment.topCenter,
               child: Padding(
-                padding: const EdgeInsets.all(28.0),
+                padding: const EdgeInsets.all(28),
                 child: widget.title,
               ),
             ),
             Transform.translate(
-              offset: Offset(0.0, 70.0),
+              offset: const Offset(0, 70),
               child: Stack(
                 children: [
                   Align(
                     child: Transform.translate(
-                      offset: Offset(0.0, -arrowHeight - 20.0),
+                      offset: const Offset(0, -arrowHeight - 20),
                       child: AnimatedOpacity(
-                        duration: Duration(milliseconds: 200),
+                        duration: const Duration(milliseconds: 200),
                         opacity: _businessController.status ==
                                 AnimationStatus.completed
                             ? 1.0
@@ -127,19 +128,19 @@ class CriteriaPageState extends State<CriteriaPage>
                   ),
                   Align(
                     child: CustomPaint(
-                      size: Size(10.0, arrowHeight),
+                      size: const Size(10, arrowHeight),
                       painter: ArrowPainter(
                         color: widget.business,
                         opacity: _businessController.value * 1.0,
-                        rotation: 0.0,
+                        rotation: 0,
                       ),
                     ),
                   ),
                   Align(
                     child: Transform.translate(
-                      offset: Offset(arrowHeight, arrowHeight - 30.0),
+                      offset: const Offset(arrowHeight, arrowHeight - 30.0),
                       child: AnimatedOpacity(
-                        duration: Duration(milliseconds: 200),
+                        duration: const Duration(milliseconds: 200),
                         opacity:
                             _techController.status == AnimationStatus.completed
                                 ? 1.0
@@ -153,7 +154,7 @@ class CriteriaPageState extends State<CriteriaPage>
                   ),
                   Align(
                     child: CustomPaint(
-                      size: Size(10.0, arrowHeight),
+                      size: const Size(10, arrowHeight),
                       painter: ArrowPainter(
                         color: widget.technology,
                         opacity: _techController.value,
@@ -163,9 +164,9 @@ class CriteriaPageState extends State<CriteriaPage>
                   ),
                   Align(
                     child: Transform.translate(
-                      offset: Offset(-arrowHeight, arrowHeight - 30.0),
+                      offset: const Offset(-arrowHeight, arrowHeight - 30.0),
                       child: AnimatedOpacity(
-                        duration: Duration(milliseconds: 200),
+                        duration: const Duration(milliseconds: 200),
                         opacity: _peopleController.status ==
                                 AnimationStatus.completed
                             ? 1.0
@@ -178,7 +179,7 @@ class CriteriaPageState extends State<CriteriaPage>
                   ),
                   Align(
                     child: CustomPaint(
-                      size: Size(10.0, arrowHeight),
+                      size: const Size(10, arrowHeight),
                       painter: ArrowPainter(
                         color: widget.people,
                         opacity: _peopleController.value,
@@ -211,16 +212,16 @@ class ArrowPainter extends CustomPainter {
     const lineWidth = 3.0;
 
     final Path p = Path()
-      ..lineTo(lineWidth / 2, 0.0)
+      ..lineTo(lineWidth / 2, 0)
       ..lineTo(lineWidth / 2, height - edgeHeight)
       ..lineTo(edgeWidth / 2, height - edgeHeight)
-      ..lineTo(0.0, height)
+      ..lineTo(0, height)
       ..lineTo(-edgeWidth / 2, height - edgeHeight)
       ..lineTo(-lineWidth / 2, height - edgeHeight)
-      ..lineTo(-lineWidth / 2, 0.0)
+      ..lineTo(-lineWidth / 2, 0)
       ..close();
 
-    final Paint line = new Paint()
+    final Paint line = Paint()
       ..color = color.withOpacity(opacity)
       ..style = PaintingStyle.fill;
 
@@ -248,21 +249,21 @@ class MyPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final Paint line = new Paint()
+    final Paint line = Paint()
       ..color = lineColor
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke
       ..strokeWidth = width;
-    final Paint complete = new Paint()
+    final Paint complete = Paint()
       ..color = completeColor
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke
       ..strokeWidth = width;
-    final Offset center = new Offset(size.width / 2, size.height / 2);
+    final Offset center = Offset(size.width / 2, size.height / 2);
     final double radius = min(size.width / 2, size.height / 2);
     canvas.drawCircle(center, radius, line);
     final double arcAngle = 2 * pi * (completePercent / 100);
-    canvas.drawArc(new Rect.fromCircle(center: center, radius: radius), -pi / 2,
+    canvas.drawArc(Rect.fromCircle(center: center, radius: radius), -pi / 2,
         arcAngle, false, complete);
   }
 
@@ -280,7 +281,7 @@ class DevDesignPage extends StatelessWidget {
         Expanded(
           flex: 4,
           child: Center(
-              child: Text(
+              child: const Text(
             'Design by Dev',
             textAlign: TextAlign.center,
           )),
@@ -319,7 +320,7 @@ class GrouponPlus extends StatelessWidget {
             flex: 4,
             child: ParallaxWidget(child: Image.asset('assets/image21.png')),
           ),
-          Expanded(
+          const Expanded(
             flex: 1,
             child: SizedBox(),
           ),
@@ -350,7 +351,7 @@ class IntegrationTestPage extends StatelessWidget {
         Align(
           alignment: Alignment.topCenter,
           child: Padding(
-            padding: const EdgeInsets.all(18.0),
+            padding: const EdgeInsets.all(18),
             child: ParallaxWidget(
               child: Text(
                 'Integrations Tests',
@@ -362,7 +363,7 @@ class IntegrationTestPage extends StatelessWidget {
         ),
         Center(
           child: Container(
-            height: 200.0,
+            height: 200,
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -421,7 +422,7 @@ class FlutterDartPage extends StatelessWidget {
           alignment: Alignment.topCenter,
           child: ParallaxWidget(
             child: Padding(
-              padding: const EdgeInsets.all(18.0),
+              padding: const EdgeInsets.all(18),
               child: Text(
                 'Flutter vs Dart',
                 textAlign: TextAlign.center,
@@ -432,7 +433,7 @@ class FlutterDartPage extends StatelessWidget {
         ),
         Center(
           child: Container(
-            height: 200.0,
+            height: 200,
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -477,7 +478,7 @@ class LaunchPage extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: ParallaxWidget(
                 child: Padding(
-                  padding: const EdgeInsets.all(28.0),
+                  padding: const EdgeInsets.all(28),
                   child: Text(
                     'The Launch',
                     style: GTheme.big.copyWith(color: Colors.white),
@@ -501,7 +502,7 @@ class ApplePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(48.0),
+      padding: const EdgeInsets.all(48),
       child: Row(
         children: <Widget>[
           Expanded(child: Image.asset('assets/apple.png')),
@@ -512,16 +513,16 @@ class ApplePage extends StatelessWidget {
               children: <Widget>[
                 Container(
                   color: GTheme.flutter1,
-                  width: 30.0,
-                  height: 120.0,
+                  width: 30,
+                  height: 120,
                 ),
-                SizedBox(
-                  width: 30.0,
+                const SizedBox(
+                  width: 30,
                 ),
                 Container(
                   color: GTheme.flutter2,
-                  width: 30.0,
-                  height: 120.0,
+                  width: 30,
+                  height: 120,
                 )
               ],
             ),
@@ -536,7 +537,7 @@ class AndroidPage extends StatefulWidget {
   const AndroidPage({Key key}) : super(key: key);
 
   @override
-  AndroidPageState createState() => new AndroidPageState();
+  AndroidPageState createState() => AndroidPageState();
 }
 
 class AndroidPageState extends State<AndroidPage>
@@ -549,11 +550,11 @@ class AndroidPageState extends State<AndroidPage>
   void initState() {
     super.initState();
     controller =
-        AnimationController(duration: Duration(seconds: 1), vsync: this)
+        AnimationController(duration: const Duration(seconds: 1), vsync: this)
           ..repeat();
 
-    first = new CurvedAnimation(parent: controller, curve: FirstCurve());
-    second = new CurvedAnimation(parent: controller, curve: SecondCurve());
+    first = CurvedAnimation(parent: controller, curve: FirstCurve());
+    second = CurvedAnimation(parent: controller, curve: SecondCurve());
   }
 
   @override
@@ -565,7 +566,7 @@ class AndroidPageState extends State<AndroidPage>
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(48.0),
+      padding: const EdgeInsets.all(48),
       child: Row(
         children: <Widget>[
           Expanded(
@@ -584,8 +585,8 @@ class AndroidPageState extends State<AndroidPage>
                         clipper: TriangleClipper(),
                         child: Container(
                           color: GTheme.flutter1,
-                          width: 120.0,
-                          height: 120.0,
+                          width: 120,
+                          height: 120,
                         ),
                       ),
                     ),
@@ -595,8 +596,8 @@ class AndroidPageState extends State<AndroidPage>
                         clipper: TriangleClipper(),
                         child: Container(
                           color: GTheme.flutter2,
-                          width: 120.0,
-                          height: 120.0,
+                          width: 120,
+                          height: 120,
                         ),
                       ),
                     ),
@@ -613,7 +614,7 @@ class TriangleClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) => Path()
     ..lineTo(size.width, size.height / 2)
-    ..lineTo(0.0, size.height)
+    ..lineTo(0, size.height)
     ..close();
 
   @override

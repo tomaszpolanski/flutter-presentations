@@ -13,7 +13,7 @@ void main() {
   runApp(
     const AnimationMode(
       enabled: false,
-      child: const FlutterPresentations(),
+      child: FlutterPresentations(),
     ),
   );
 }

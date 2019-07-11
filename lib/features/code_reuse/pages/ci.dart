@@ -11,7 +11,7 @@ class CI extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       child: Column(
         children: [
-          Text('CI'),
+          const Text('CI'),
           Expanded(
             child: Image.asset('assets/pipeline.png'),
           )

@@ -26,7 +26,7 @@ class UmphPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ImagePage(
+    return const ImagePage(
       'assets/image39.jpg',
       alignment: AlignmentDirectional.topCenter,
       child: Text(
@@ -50,7 +50,7 @@ class LessTestingPage extends StatelessWidget {
           alignment: Alignment.topCenter,
           child: ParallaxWidget(
             child: Padding(
-              padding: const EdgeInsets.all(18.0),
+              padding: EdgeInsets.all(18),
               child: Text('Less Testing'),
             ),
           ),
@@ -68,7 +68,7 @@ class DevelopersPage extends StatelessWidget {
     return ImagePage(
       'assets/image41.jpg',
       alignment: AlignmentDirectional.centerStart,
-      child: Text(
+      child: const Text(
         'Developers',
         style: TextStyle(color: Colors.white),
       ),
@@ -83,7 +83,7 @@ class WorkshopPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        Expanded(
+        const Expanded(
           flex: 6,
           child: Center(
             child: ParallaxWidget(
@@ -111,7 +111,7 @@ class ManagersPage extends StatelessWidget {
     return ImagePage(
       'assets/image40.jpg',
       alignment: AlignmentDirectional.topEnd,
-      child: Text(
+      child: const Text(
         'Managers',
         style: TextStyle(color: Colors.white),
       ),
@@ -127,7 +127,7 @@ class MergingPage extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: <Widget>[
-        ParallaxImage('assets/image18.jpg'),
+        const ParallaxImage('assets/image18.jpg'),
         Row(
           children: const [
             Expanded(
