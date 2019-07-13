@@ -7,10 +7,12 @@ This presentation is run on desktop with use of
 This application should be run on high resolution device or a desktop - currently it does not rented properly on small screens.
 
 ## Building on Desktop
-* Last tested version of Flutter that works with this repo is `v1.6.3`:
-  * `flutter version v1.6.3`
-* Mac/Linux :
-  * Add the following to `.bash_profile` but replace `/Users/tomek/flutter/` with path to your Flutter folder
+* Last tested version of Flutter that works with this repo is `v1.7.8+hotfix.3`:
+  * `flutter version v1.7.8+hotfix.3`
+
+## Building and running Desktop application
+### Linux
+- Add the following to `.bash_profile` but replace `/Users/tomek/flutter/` with path to your Flutter folder
 ```
 # Add Flutter
 export PATH="$PATH:/Users/tomek/flutter/bin"
@@ -18,9 +20,24 @@ export PATH="$PATH:/Users/tomek/flutter/bin"
 export PATH="$PATH:/Users/tomek/flutter/bin/cache/dart-sdk/bin"
 export ENABLE_FLUTTER_DESKTOP=true
 ```
-* Windows:
-  * Need to install Visual Studio 2017 or 2019, including the "Desktop development with C++" workload
-  * Add to PATH paths to dart and flutter and add `ENABLE_FLUTTER_DESKTOP` set to `true` to env variables
+### Mac
+- Add the following to `.bash_profile` but replace `/Users/tomek/flutter/` with path to your Flutter folder
+```
+# Add Flutter
+export PATH="$PATH:/Users/tomek/flutter/bin"
+# Add Dart
+export PATH="$PATH:/Users/tomek/flutter/bin/cache/dart-sdk/bin"
+export ENABLE_FLUTTER_DESKTOP=true
+```
+- Update CocoaPods:
+```
+brew upgrade cocoapods
+pod setup
+gem install cocoapods
+```
+### Windows
+- Add to PATH paths to dart and flutter and add `ENABLE_FLUTTER_DESKTOP` to env variables
+
 * Check if `flutter devices` now shows your desktop device
 
 ## Running on Desktop

@@ -13,15 +13,17 @@
 // limitations under the License.
 
 import Cocoa
+import FlutterMacOS
 
 class ExampleWindow: NSWindow {
   @IBOutlet weak var flutterViewController: FLEViewController!
 
   override func awakeFromNib() {
     var framee = self.frame
-    framee.size = CGSize(width: 800, height: 600)
+    framee.size = CGSize(width: 500, height: 900)
     self.setFrame(framee, display: true, animate: false)
-    PluginRegistrant.register(with: flutterViewController)
+
+    RegisterGeneratedPlugins(registry: flutterViewController)
 
     let assets = NSURL.fileURL(withPath: "flutter_assets", relativeTo: Bundle.main.resourceURL)
     var arguments: [String] = [];
