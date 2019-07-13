@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/slivers/Bar.dart';
+import 'package:flutter_presentations/features/slivers/bar.dart';
 import 'package:flutter_presentations/features/slivers/custom_appbar_delegate.dart';
 import 'package:presentation/presentation.dart';
 
