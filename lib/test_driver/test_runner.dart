@@ -25,7 +25,8 @@ Future main(List<String> paths) async {
   }
 
   Directory('build').createSync(recursive: true);
-  if (result[screenshots]) {
+  final makeScreenshot = result[screenshots] == true;
+  if (makeScreenshot) {
     final dir = Directory(screenshots);
 
     if (dir.existsSync()) {
@@ -36,7 +37,10 @@ Future main(List<String> paths) async {
   if (result[file] != null) {
     await setUp(() async {
       if (exists(result[file])) {
-        await test(testFile: result[file]);
+        await test(
+          testFile: result[file],
+          makeScreenshot: makeScreenshot,
+        );
       } else {
         stderr.writeln('Specified file "${result[file]}" does not exist');
         exitCode = 1;
@@ -45,7 +49,10 @@ Future main(List<String> paths) async {
   } else if (result[directory] != null) {
     await setUp(() async {
       for (final file in await _tests(result[directory])) {
-        await test(testFile: file);
+        await test(
+          testFile: file,
+          makeScreenshot: makeScreenshot,
+        );
       }
     });
   }
@@ -110,7 +117,10 @@ ArgParser createParser() {
 
 const _main = 'lib/main.dart';
 
-Future<void> test({@required String testFile}) async {
+Future<void> test({
+  @required String testFile,
+  @required bool makeScreenshot,
+}) async {
   assert(testFile != null);
 
   final completer = Completer<String>();
@@ -139,7 +149,11 @@ Future<void> test({@required String testFile}) async {
 
   final url = await completer.future;
 
-  await Shell().run(Commands().flutter.dart(testFile, ['-u', url]));
+  await Shell().run(Commands().flutter.dart(testFile, [
+    '-u',
+    url,
+    if (makeScreenshot) '-s',
+  ]));
 
   input.add('q');
 }

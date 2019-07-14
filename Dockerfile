@@ -53,6 +53,6 @@ RUN cd ${PRESENTATIONS_HOME} && \
 ENV DISPLAY :0
 
 CMD ["Xvfb", ":0", "-screen", "0", "1824x1824x16"]
-#./build_docker.sh v1.6.0 ./
+#./build_docker.sh v1.7.8+hotfix.3 ./
 #docker run -d tomek/flutter:latest
 #docker exec aea281ea4ac1bec020d5d9b1a38600de500f7084aba799dc1e942494f7d98fb4 sh -c "cd /home/user/flutter-presentations/ && ./run_tests.sh"
