@@ -50,21 +50,22 @@ Open in your ide `flutter-presentations`
 In IntelliJ/VS Code select appropriate device via device picker and run tha app
 
 ## Running on Docker
-1) Build docker image (will take a couple of minutes)
+1) Install `docker`
+2) Build docker image (will take a couple of minutes)
 ```
 ./build_docker.sh v1.7.8+hotfix.3 ./
 ```
-2) Run docker container
+3) Run docker container
 ```
 docker run -d tomek/flutter:latest
 ```
-3) Copy the container id that `docker run` returned
-4) Execute Flutter tests with screenshots (in case you don't belie that actual application is being run ;))
+4) Copy the container id that `docker run` returned
+5) Execute Flutter tests with screenshots (in case you don't belie that actual application is being run ;))
 
 ```
 docker exec <containerId> sh -c "cd /home/user/flutter-presentations/ && ./run_tests.sh -s"
 ```
-5) Copy screenshots to local `screenshots` folder
+6) Copy screenshots to local `screenshots` folder
 ```
 docker cp <containerId> :/home/user/flutter-presentations/screenshots screenshots
 ```
