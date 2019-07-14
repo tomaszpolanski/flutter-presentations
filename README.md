@@ -50,7 +50,7 @@ Open in your ide `flutter-presentations`
 In IntelliJ/VS Code select appropriate device via device picker and run tha app
 
 ## Running on Docker
-1) Build docker image
+1) Build docker image (will take a couple of minutes)
 ```
 ./build_docker.sh v1.7.8+hotfix.3 ./
 ```
