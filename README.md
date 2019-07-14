@@ -12,21 +12,21 @@ This application should be run on high resolution device or a desktop - currentl
 
 ## Building and running Desktop application
 ### Linux
-- Add the following to `.bash_profile` but replace `/Users/tomek/flutter/` with path to your Flutter folder
+- Add the following to `.bash_profile` but replace `$HOME/flutter/` with path to your Flutter folder
 ```
 # Add Flutter
-export PATH="$PATH:/Users/tomek/flutter/bin"
+export PATH="$PATH:$HOME/flutter/bin"
 # Add Dart
-export PATH="$PATH:/Users/tomek/flutter/bin/cache/dart-sdk/bin"
+export PATH="$PATH:$HOME/flutter/bin/cache/dart-sdk/bin"
 export ENABLE_FLUTTER_DESKTOP=true
 ```
 ### Mac
-- Add the following to `.bash_profile` but replace `/Users/tomek/flutter/` with path to your Flutter folder
+- Add the following to `.bash_profile` but replace `$HOME/flutter/` with path to your Flutter folder
 ```
 # Add Flutter
-export PATH="$PATH:/Users/tomek/flutter/bin"
+export PATH="$PATH:$HOME/flutter/bin"
 # Add Dart
-export PATH="$PATH:/Users/tomek/flutter/bin/cache/dart-sdk/bin"
+export PATH="$PATH:$HOME/flutter/bin/cache/dart-sdk/bin"
 export ENABLE_FLUTTER_DESKTOP=true
 ```
 - Update CocoaPods:
