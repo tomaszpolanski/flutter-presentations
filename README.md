@@ -71,5 +71,5 @@ docker cp <containerId> :/home/user/flutter-presentations/screenshots screenshot
 
 (optional) Doing screenshots slow down Flutter driver tests, if you want to skip the screenshots just execute tests withou `-s`
 ```
-docker exec <containerId> sh -c "cd /home/user/flutter-presentations/ && ./run_tests.sh -s"
+docker exec <containerId> sh -c "cd /home/user/flutter-presentations/ && ./run_tests.sh"
 ```
