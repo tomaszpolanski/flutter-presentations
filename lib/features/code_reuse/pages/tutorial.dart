@@ -86,8 +86,8 @@ class _TutorialGoalState extends State<TutorialGoal>
         Expanded(
           child: WrappedAnimatedBuilder<Rect>(
             animation: RectTween(
-              begin: Rect.fromLTRB(0, 0, 1, 1),
-              end: Rect.fromLTRB(0, 0.31, 1, 0.61),
+              begin: const Rect.fromLTRB(0, 0, 1, 1),
+              end: const Rect.fromLTRB(0, 0.31, 1, 0.61),
             ).animate(CurvedAnimation(
               parent: _controller,
               curve: Curves.easeOut,
