@@ -36,15 +36,15 @@ class _BigWidgetState extends State<BigWidget> {
         fromStep: _Step.init,
         toStep: _Step.bottom,
         forward: () => _controller.animateTo(
-              maxScroll,
-              duration: Duration(seconds: 10),
-              curve: Curves.ease,
-            ),
+          maxScroll,
+          duration: const Duration(seconds: 10),
+          curve: Curves.ease,
+        ),
         reverse: () => _controller.animateTo(
-              0,
-              duration: Duration(seconds: 10),
-              curve: Curves.ease,
-            ),
+          0,
+          duration: const Duration(seconds: 10),
+          curve: Curves.ease,
+        ),
       )
       ..add(
         fromStep: _Step.bottom,
@@ -97,7 +97,7 @@ class _BigWidgetState extends State<BigWidget> {
             animation: _controller,
             builder: (_, child) {
               return AnimatedOpacity(
-                duration: Duration(milliseconds: 400),
+                duration: const Duration(milliseconds: 400),
                 opacity: _controller.offset > 0.5 * maxScroll &&
                         _controller.offset < 0.9 * maxScroll
                     ? 1
