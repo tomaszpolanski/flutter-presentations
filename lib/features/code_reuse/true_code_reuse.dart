@@ -5,6 +5,7 @@ import 'package:flutter_presentations/features/code_reuse/pages/ci.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/composable.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/declerative_ui.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/everythigs_widget.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/flutter_animations.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/imitation_fluttery.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/inception.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/inheritance_vs_composition.dart';
@@ -75,6 +76,7 @@ class _CodeReuseState extends State<CodeReuse> {
                 GrouponApp(),
                 Inception(presentationController),
                 PlatformStack(presentationController),
+                const AnimationSheet(),
                 Tests(presentationController),
                 const CI(),
                 Matrix(presentationController),

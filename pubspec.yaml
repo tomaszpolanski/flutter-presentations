@@ -11,6 +11,10 @@ dependencies:
   #   path: c:\Users\tpolanski\Documents\GitHub\mobile_flutter_merchant\
   flutter_localizations:
     sdk: flutter
+  animation_cheat_page:
+    git:
+      url: git://github.com/tomaszpolanski/flutter-animations.git
+      ref: desktop
 
   cupertino_icons: ^0.1.0
   http: ^0.12.0+1
