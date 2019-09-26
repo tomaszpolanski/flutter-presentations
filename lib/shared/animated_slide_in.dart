@@ -18,7 +18,10 @@ class AnimatedSlideIn extends ImplicitlyAnimatedWidget {
 
 class _AnimatedSlideInState
     extends ImplicitlyAnimatedWidgetState<AnimatedSlideIn> {
-  Tween<Offset> _offset;
+  Tween<Offset> _offset = Tween<Offset>(
+    begin: const Offset(0, 0),
+    end: const Offset(0, 0),
+  );
   Animation<Offset> _animation;
 
   @override

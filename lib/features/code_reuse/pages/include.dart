@@ -100,12 +100,12 @@ class _OpacitySlideIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedSlideIn(
-      position: visible ? const Offset(0, 0) : const Offset(-0.2, 0),
+    return AnimatedOpacity(
       duration: const Duration(milliseconds: 300),
-      child: AnimatedOpacity(
+      opacity: visible ? 1 : 0,
+      child: AnimatedSlideIn(
+        position: visible ? const Offset(0, 0) : const Offset(-0.2, 0),
         duration: const Duration(milliseconds: 300),
-        opacity: visible ? 1 : 0,
         child: child,
       ),
     );
