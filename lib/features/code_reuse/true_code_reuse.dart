@@ -8,6 +8,7 @@ import 'package:flutter_presentations/features/code_reuse/pages/everythigs_widge
 import 'package:flutter_presentations/features/code_reuse/pages/flutter_animations.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/imitation_fluttery.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/inception.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/include.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/inheritance_vs_composition.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/intro.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/matrix.dart';
@@ -77,6 +78,7 @@ class _CodeReuseState extends State<CodeReuse> {
                 Inception(presentationController),
                 PlatformStack(presentationController),
                 const AnimationSheet(),
+                IncludeFlutter(presentationController),
                 Tests(presentationController),
                 const CI(),
                 Matrix(presentationController),
