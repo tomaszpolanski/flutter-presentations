@@ -22,7 +22,7 @@ enum _Step {
 class _BigWidgetState extends State<BigWidget> {
   PageStepper<_Step> _stateController;
   ScrollController _controller;
-  static const maxScroll = 400000.0;
+  static const maxScroll = 550000.0;
 
   @override
   void initState() {
@@ -67,27 +67,29 @@ class _BigWidgetState extends State<BigWidget> {
       children: <Widget>[
         Container(
           color: const Color(0xFF2B2B2B),
-          child: ListView.builder(
-            controller: _controller,
-            itemCount: 500,
-            itemBuilder: (BuildContext context, int index) {
-              if (index == 0) {
-                return Image.asset(
-                  'assets/start.png',
-                  fit: BoxFit.fitWidth,
-                );
-              } else if (index == 499) {
-                return Image.asset(
-                  'assets/end.png',
-                  fit: BoxFit.fitWidth,
-                );
-              } else {
-                return Image.asset(
-                  'assets/mid.png',
-                  fit: BoxFit.fitWidth,
-                );
-              }
-            },
+          child: Scrollbar(
+            child: ListView.builder(
+              controller: _controller,
+              itemCount: 500,
+              itemBuilder: (BuildContext context, int index) {
+                if (index == 0) {
+                  return Image.asset(
+                    'assets/start.png',
+                    fit: BoxFit.fitWidth,
+                  );
+                } else if (index == 499) {
+                  return Image.asset(
+                    'assets/end.png',
+                    fit: BoxFit.fitWidth,
+                  );
+                } else {
+                  return Image.asset(
+                    'assets/mid.png',
+                    fit: BoxFit.fitWidth,
+                  );
+                }
+              },
+            ),
           ),
         ),
         Positioned(
