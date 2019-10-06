@@ -3,16 +3,32 @@ import 'package:qr_flutter/qr_flutter.dart';
 
 class QrCode extends StatelessWidget {
   const QrCode({
+    @required this.child,
     Key key,
   }) : super(key: key);
 
+  final Widget child;
+
   @override
   Widget build(BuildContext context) {
-    return QrImage(
-      data: 'This is a simple QR code',
-      version: QrVersions.auto,
-      size: 320,
-      gapless: false,
+    return LayoutBuilder(
+      builder: (context, c) {
+        return Stack(
+          alignment: Alignment.center,
+          children: [
+            QrImage(
+              data: 'https://github.com/tomaszpolanski/flutter-presentations',
+              version: QrVersions.auto,
+              gapless: true,
+              //  embeddedImage: const AssetImage('assets/apple.png'),
+            ),
+            SizedBox(
+                height: c.biggest.shortestSide / 4.5,
+                width: c.biggest.shortestSide / 4.5,
+                child: child),
+          ],
+        );
+      },
     );
   }
 }

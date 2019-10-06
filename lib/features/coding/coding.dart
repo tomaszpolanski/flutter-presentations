@@ -44,8 +44,15 @@ class _CodingState extends State<Coding> {
             Presentation(
               controller: controller,
               presentationController: presentationController,
-              children: const [
-                QrCode(),
+              children: [
+                QrCode(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.red,
+                    ),
+                  ),
+                ),
               ],
             ),
           ],
