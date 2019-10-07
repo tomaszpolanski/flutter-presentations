@@ -49,7 +49,13 @@ class _CodingState extends State<Coding> {
                   child: Container(
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.red,
+                      color: Colors.yellowAccent,
+                    ),
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(120),
+                      ),
+                      child: Image.asset('assets/tomek.png'),
                     ),
                   ),
                 ),

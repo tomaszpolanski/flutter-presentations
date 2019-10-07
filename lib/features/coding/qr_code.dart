@@ -23,9 +23,17 @@ class QrCode extends StatelessWidget {
               //  embeddedImage: const AssetImage('assets/apple.png'),
             ),
             SizedBox(
-                height: c.biggest.shortestSide / 4.5,
-                width: c.biggest.shortestSide / 4.5,
-                child: child),
+              height: c.biggest.shortestSide / 4.5,
+              width: c.biggest.shortestSide / 4.5,
+              child: FittedBox(
+                fit: BoxFit.fitWidth,
+                child: SizedBox(
+                  height: c.biggest.shortestSide / 5,
+                  width: c.biggest.shortestSide / 5,
+                  child: Align(child: child),
+                ),
+              ),
+            ),
           ],
         );
       },
