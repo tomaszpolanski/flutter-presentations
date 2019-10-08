@@ -33,12 +33,6 @@ class _PresentationList extends StatelessWidget {
       body: ListView(
         children: [
           ListTile(
-            title: const Text(Coding.title),
-            subtitle: const Text(Coding.subtitle),
-            onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => const Coding())),
-          ),
-          ListTile(
             title: const Text(Slivers.title),
             subtitle: const Text(Slivers.subtitle),
             onTap: () => Navigator.of(context)
@@ -61,6 +55,12 @@ class _PresentationList extends StatelessWidget {
             subtitle: const Text(CodeReuse.subtitle),
             onTap: () => Navigator.of(context)
                 .push(MaterialPageRoute(builder: (_) => const Testing())),
+          ),
+          ListTile(
+            title: const Text(Coding.title),
+            subtitle: const Text(Coding.subtitle),
+            onTap: () => Navigator.of(context)
+                .push(MaterialPageRoute(builder: (_) => const Coding())),
           ),
         ],
       ),

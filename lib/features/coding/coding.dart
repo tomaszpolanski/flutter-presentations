@@ -46,11 +46,9 @@ class _CodingState extends State<Coding> {
               presentationController: presentationController,
               children: [
                 QrCode(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.yellowAccent,
-                    ),
+                  child: AnimatedColor(
+                    begin: Colors.red,
+                    end: Colors.yellowAccent,
                     child: ClipRRect(
                       borderRadius: const BorderRadius.all(
                         Radius.circular(120),
@@ -64,6 +62,61 @@ class _CodingState extends State<Coding> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class AnimatedColor extends StatefulWidget {
+  const AnimatedColor({
+    Key key,
+    this.child,
+    @required this.begin,
+    @required this.end,
+  }) : super(key: key);
+
+  final Widget child;
+  final Color begin;
+  final Color end;
+
+  @override
+  _AnimatedColorState createState() => _AnimatedColorState();
+}
+
+class _AnimatedColorState extends State<AnimatedColor>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+    )..repeat(reverse: true);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return WrappedAnimatedBuilder(
+      animation: _controller.drive(ColorTween(
+        begin: widget.begin,
+        end: widget.end,
+      )),
+      builder: (_, animation, child) => Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: animation.value,
+          border: Border.all(color: Colors.transparent, width: 3),
+        ),
+        child: child,
+      ),
+      child: widget.child,
     );
   }
 }
