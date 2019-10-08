@@ -20,19 +20,11 @@ class QrCode extends StatelessWidget {
               data: 'https://github.com/tomaszpolanski/flutter-presentations',
               version: QrVersions.auto,
               gapless: true,
-              //  embeddedImage: const AssetImage('assets/apple.png'),
             ),
             SizedBox(
               height: c.biggest.shortestSide / 4.5,
               width: c.biggest.shortestSide / 4.5,
-              child: FittedBox(
-                fit: BoxFit.fitWidth,
-                child: SizedBox(
-                  height: c.biggest.shortestSide / 5,
-                  width: c.biggest.shortestSide / 5,
-                  child: Align(child: child),
-                ),
-              ),
+              child: child,
             ),
           ],
         );
