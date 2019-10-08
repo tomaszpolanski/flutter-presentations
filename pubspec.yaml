@@ -17,20 +17,20 @@ dependencies:
       ref: desktop
 
   cupertino_icons: ^0.1.0
+  flutter_sidekick: ^0.1.3
   http: ^0.12.0+1
   mockito: 3.0.0
-  flutter_sidekick: ^0.1.3
-  process_run: ^0.10.1
-  rxdart: ^0.22.0
   presentation: ^0.0.5
     #path: ../presentation/
+  process_run: ^0.10.1
+  qr_flutter: ^3.0.1
+  rxdart: ^0.22.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_driver:
     sdk: flutter
-
 
 
 flutter:
