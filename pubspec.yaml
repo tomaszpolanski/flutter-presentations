@@ -18,7 +18,7 @@ dependencies:
   flutter_sidekick: ^0.1.3
   process_run: ^0.10.1
   rxdart: ^0.22.0
-  presentation: ^0.0.5
+  presentation: ^0.0.6
     #path: ../presentation/
 
 dev_dependencies:

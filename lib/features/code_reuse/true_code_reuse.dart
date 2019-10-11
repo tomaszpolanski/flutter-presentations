@@ -55,12 +55,13 @@ class _CodeReuseState extends State<CodeReuse> {
         color: Colors.white,
         child: Stack(
           fit: StackFit.expand,
-          children: <Widget>[
+          children: [
             const AnimatedParallaxImage(
               asset: 'assets/blueprint_wide.jpg',
               opacity: 0.1,
             ),
             Presentation(
+              enableMouseNavigation: true,
               controller: controller,
               presentationController: presentationController,
               children: [
