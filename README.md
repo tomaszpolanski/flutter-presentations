@@ -7,8 +7,8 @@ This presentation is run on desktop with use of
 This application should be run on high resolution device or a desktop - currently it does not rented properly on small screens.
 
 ## Building on Desktop
-* Last tested version of Flutter that works with this repo is `v1.7.8+hotfix.3`:
-  * `flutter version v1.7.8+hotfix.3`
+* Last tested version of Flutter that works with this repo is `v1.10.7`:
+  * `flutter version v1.10.7`
 
 ## Building and running Desktop application
 ### Linux
@@ -53,7 +53,7 @@ In IntelliJ/VS Code select appropriate device via device picker and run tha app
 1) Install `docker`
 2) Build docker image (will take a couple of minutes)
 ```
-./build_docker.sh v1.7.8+hotfix.3 ./
+./build_docker.sh v1.10.7 ./
 ```
 3) Run docker container
 ```
