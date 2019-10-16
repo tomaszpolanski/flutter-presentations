@@ -129,7 +129,7 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
                         : CrossFadeState.showFirst,
                     firstChild: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: _format('Thank you!').toList(),
+                      children: _format('Multumesc!').toList(),
                     ),
                     secondChild: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
