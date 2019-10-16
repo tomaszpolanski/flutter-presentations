@@ -23,3 +23,5 @@ windows/flutter/generated_plugin_registrant.cc
 linux/flutter/generated_plugin_registrant.cc
 linux/flutter/generated_plugin_registrant.h
 windows/flutter/Generated.props
+android/gradle.properties
+macos/Flutter/GeneratedPluginRegistrant.swift
