@@ -20,3 +20,6 @@ lib/generated/i18n.dart
 ios/Flutter/flutter_export_environment.sh
 windows/flutter/generated_plugin_registrant.h
 windows/flutter/generated_plugin_registrant.cc
+linux/flutter/generated_plugin_registrant.cc
+linux/flutter/generated_plugin_registrant.h
+windows/flutter/Generated.props

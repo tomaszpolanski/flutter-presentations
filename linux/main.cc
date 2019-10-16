@@ -20,6 +20,8 @@
 #include <memory>
 #include <vector>
 
+#include "flutter/generated_plugin_registrant.h"
+
 namespace {
 
 // Returns the path of the directory containing this executable, or an empty
@@ -58,15 +60,16 @@ int main(int argc, char **argv) {
 
   flutter::FlutterWindowController flutter_controller(icu_data_path);
   flutter::WindowProperties window_properties = {};
-  window_properties.title = "Flutter Desktop Example";
-  window_properties.width = 800;
-  window_properties.height = 600;
+  window_properties.title = "Flutter Presentation";
+  window_properties.width = 500;
+  window_properties.height = 900;
 
   // Start the engine.
   if (!flutter_controller.CreateWindow(window_properties, assets_path,
                                        arguments)) {
     return EXIT_FAILURE;
   }
+  RegisterPlugins(&flutter_controller);
 
   // Run until the window is closed.
   while (flutter_controller.RunEventLoopWithTimeout(
