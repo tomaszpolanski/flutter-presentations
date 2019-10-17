@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/coding/qr_code.dart';
+import 'package:flutter_presentations/features/coding/pages/editor.dart';
+import 'package:flutter_presentations/features/coding/pages/qr_code.dart';
 import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
 
@@ -45,6 +46,7 @@ class _CodingState extends State<Coding> {
               controller: controller,
               presentationController: presentationController,
               children: [
+                const Editor(),
                 QrCode(
                   child: AnimatedColor(
                     begin: Colors.red,
