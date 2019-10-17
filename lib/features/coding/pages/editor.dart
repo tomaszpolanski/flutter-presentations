@@ -78,6 +78,15 @@ Iterable<InlineSpan> createAt(String word) {
     word,
     RegExp('@'),
     onMatch: (m) => AtSpan.create('${m.group(0)}'),
+    onNonMatch: (m) => createNumber(m),
+  );
+}
+
+Iterable<InlineSpan> createNumber(String word) {
+  return splitMapJoin(
+    word,
+    RegExp(r'\d'),
+    onMatch: (m) => NumberSpan.create('${m.group(0)}'),
     onNonMatch: (m) => createWords(m),
   );
 }
@@ -155,6 +164,15 @@ class AtSpan {
     return TextSpan(
       text: data,
       style: const TextStyle(color: EditorColor.at),
+    );
+  }
+}
+
+class NumberSpan {
+  static InlineSpan create(String data) {
+    return TextSpan(
+      text: data,
+      style: const TextStyle(color: EditorColor.number),
     );
   }
 }
