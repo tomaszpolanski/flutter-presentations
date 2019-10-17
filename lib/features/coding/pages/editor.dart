@@ -60,6 +60,24 @@ Iterable<InlineSpan> createStrings(String word) {
     word,
     RegExp(r"'.+'"),
     onMatch: (m) => StringTextSpan.create('${m.group(0)}'),
+    onNonMatch: (m) => createValue(m),
+  );
+}
+
+Iterable<InlineSpan> createValue(String word) {
+  return splitMapJoin(
+    word,
+    RegExp(r'\.\w+[\w\d]+'),
+    onMatch: (m) => ValueSpan.create('${m.group(0)}'),
+    onNonMatch: (m) => createAt(m),
+  );
+}
+
+Iterable<InlineSpan> createAt(String word) {
+  return splitMapJoin(
+    word,
+    RegExp('@'),
+    onMatch: (m) => AtSpan.create('${m.group(0)}'),
     onNonMatch: (m) => createWords(m),
   );
 }
@@ -67,6 +85,8 @@ Iterable<InlineSpan> createStrings(String word) {
 Iterable<InlineSpan> createWords(String word) sync* {
   if (KeywordSpan.match(word)) {
     yield KeywordSpan.create(word);
+  } else if (ClassSpan.match(word)) {
+    yield ClassSpan.create(word);
   } else {
     yield PlainSpan.create(word);
   }
@@ -112,6 +132,46 @@ class StringTextSpan {
     return TextSpan(
       text: data,
       style: const TextStyle(color: EditorColor.text),
+    );
+  }
+}
+
+class ValueSpan {
+  static InlineSpan create(String data) {
+    return TextSpan(
+      children: [
+        const TextSpan(text: '.'),
+        TextSpan(
+          text: data.replaceAll('.', ''),
+          style: const TextStyle(color: EditorColor.value),
+        ),
+      ],
+    );
+  }
+}
+
+class AtSpan {
+  static InlineSpan create(String data) {
+    return TextSpan(
+      text: data,
+      style: const TextStyle(color: EditorColor.at),
+    );
+  }
+}
+
+class ClassSpan {
+  static const words = {
+    'build',
+    'LayoutBuilder',
+    'Stack',
+    'SizedBox',
+  };
+
+  static bool match(String data) => words.contains(data);
+  static InlineSpan create(String data) {
+    return TextSpan(
+      text: data,
+      style: const TextStyle(color: EditorColor.clazz),
     );
   }
 }

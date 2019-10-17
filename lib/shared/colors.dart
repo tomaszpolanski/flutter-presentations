@@ -9,4 +9,5 @@ abstract class EditorColor {
   static const Color value = Color(0xFF9876aa);
   static const Color text = Color(0xFF6a8759);
   static const Color brackets = Color(0xFFe6b422);
+  static const Color at = Color(0xFFbbb529);
 }
