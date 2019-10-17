@@ -9,11 +9,9 @@ class Editor extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: EditorColor.background,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          EditorLine('class Editor extends StatelessWidget {'),
-          EditorLine('  const Editor({Key key}) : super(key: key);'),
+      child: ListView(
+        children: [
+          for (final line in test.split('\r\n')) EditorLine(line),
         ],
       ),
     );
@@ -51,8 +49,17 @@ List<InlineSpan> create(String data) {
 Iterable<InlineSpan> createBrackets(String word) {
   return splitMapJoin(
     word,
-    RegExp(r'[{}()<>]'),
+    RegExp(r'[\[\]{}()<>]'),
     onMatch: (m) => BracketsSpan.create('${m.group(0)}'),
+    onNonMatch: (m) => createStrings(m),
+  );
+}
+
+Iterable<InlineSpan> createStrings(String word) {
+  return splitMapJoin(
+    word,
+    RegExp(r"'.+'"),
+    onMatch: (m) => StringTextSpan.create('${m.group(0)}'),
     onNonMatch: (m) => createWords(m),
   );
 }
@@ -76,6 +83,9 @@ class KeywordSpan {
     'return',
     'import',
     ';',
+    ',',
+    'true,',
+    'false,',
   };
 
   static bool match(String data) => words.contains(data);
@@ -83,7 +93,7 @@ class KeywordSpan {
   static InlineSpan create(String data) {
     return TextSpan(
       text: data,
-      style: TextStyle(color: EditorColor.keyword),
+      style: const TextStyle(color: EditorColor.keyword),
     );
   }
 }
@@ -92,7 +102,16 @@ class BracketsSpan {
   static InlineSpan create(String data) {
     return TextSpan(
       text: data,
-      style: TextStyle(color: EditorColor.brackets),
+      style: const TextStyle(color: EditorColor.brackets),
+    );
+  }
+}
+
+class StringTextSpan {
+  static InlineSpan create(String data) {
+    return TextSpan(
+      text: data,
+      style: const TextStyle(color: EditorColor.text),
     );
   }
 }
@@ -101,16 +120,44 @@ class PlainSpan {
   static InlineSpan create(String data) {
     return TextSpan(
       text: data,
-      style: TextStyle(color: EditorColor.plain),
+      style: const TextStyle(color: EditorColor.plain),
     );
   }
 }
 
-//static const Color background = Color(0xFF2B2B2B);
-//static const Color plain = Color(0xFFa9b7c6);
-//static const Color keyword = Color(0xFFcc7832);
-//static const Color clazz = Color(0xFFffc66d);
-//static const Color number = Color(0xFF6897bb);
-//static const Color value = Color(0xFF9876aa);
-//static const Color text = Color(0xFF6a8759);
-//static const Color brackets = Color(0xFFe6b422);
+const test = '''
+import 'package:flutter/material.dart';
+import 'package:qr_flutter/qr_flutter.dart';
+
+class QrCode extends StatelessWidget {
+  const QrCode({
+    @required this.child,
+    Key key,
+  }) : super(key: key);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, c) {
+        return Stack(
+          alignment: Alignment.center,
+          children: [
+            QrImage(
+              data: 'https://github.com/tomaszpolanski/flutter-presentations',
+              version: QrVersions.auto,
+              gapless: true,
+            ),
+            SizedBox(
+              height: c.biggest.shortestSide / 4.5,
+              width: c.biggest.shortestSide / 4.5,
+              child: child,
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+''';
