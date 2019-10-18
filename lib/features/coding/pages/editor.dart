@@ -7,10 +7,12 @@ class Editor extends StatefulWidget {
     this.data, {
     Key key,
     this.brightness = Brightness.dark,
+    this.padding = EdgeInsets.zero,
   }) : super(key: key);
 
   final String data;
   final Brightness brightness;
+  final EdgeInsetsGeometry padding;
 
   @override
   _EditorState createState() => _EditorState();
@@ -52,14 +54,17 @@ class _EditorState extends State<Editor> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Container(
       color: EditorColor.background.lerp(_controller.value),
-      child: ListView(
-        children: [
-          for (final line in widget.data.split('\r\n'))
-            EditorLine(
-              line,
-              animation: _controller,
-            ),
-        ],
+      child: Scrollbar(
+        child: ListView(
+          padding: widget.padding,
+          children: [
+            for (final line in widget.data.split('\r\n'))
+              EditorLine(
+                line,
+                animation: _controller,
+              ),
+          ],
+        ),
       ),
     );
   }
@@ -117,7 +122,10 @@ Iterable<InlineSpan> _createValue(String word, Animation<double> animation) =>
           const TextSpan(text: '.'),
           TextSpan(
             text: m.group(0).replaceAll('.', ''),
-            style: TextStyle(color: EditorColor.value.lerp(animation.value)),
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              color: EditorColor.value.lerp(animation.value),
+            ),
           ),
         ],
       ),
@@ -128,7 +136,14 @@ Iterable<InlineSpan> _createAt(String word, Animation<double> animation) =>
     _createSpans(RegExp('@'), EditorColor.at, _createNumber)(word, animation);
 
 Iterable<InlineSpan> _createNumber(String word, Animation<double> animation) =>
-    _createSpans(RegExp(r'\d'), EditorColor.number, _createWords)(
+    _createSpans(RegExp(r'\d'), EditorColor.number, _createSeparator)(
+      word,
+      animation,
+    );
+
+Iterable<InlineSpan> _createSeparator(
+        String word, Animation<double> animation) =>
+    _createSpans(RegExp(r'[,;]'), EditorColor.keyword, _createWords)(
       word,
       animation,
     );
@@ -137,14 +152,15 @@ Iterable<InlineSpan> _createWords(
   String word,
   Animation<double> animation,
 ) sync* {
-  if (_KeywordSpan.match(word)) {
+  if (_keywords.contains(word)) {
     yield TextSpan(
       text: word,
       style: TextStyle(
+        fontWeight: FontWeight.w700,
         color: EditorColor.keyword.lerp(animation.value),
       ),
     );
-  } else if (_ClassSpan.match(word)) {
+  } else if (_classes.contains(word)) {
     yield TextSpan(
       text: word,
       style: TextStyle(
@@ -173,32 +189,22 @@ _SpanCreator _createSpans(
           onNonMatch: (m) => next(m, animation),
         );
 
-class _KeywordSpan {
-  static const words = {
-    'class',
-    'extends',
-    'const',
-    'this',
-    'super',
-    'final',
-    'return',
-    'import',
-    ';',
-    ',',
-    'true,',
-    'false,',
-  };
+const _keywords = {
+  'class',
+  'extends',
+  'const',
+  'this',
+  'super',
+  'final',
+  'return',
+  'import',
+  'true',
+  'false',
+};
 
-  static bool match(String data) => words.contains(data);
-}
-
-class _ClassSpan {
-  static const words = {
-    'build',
-    'LayoutBuilder',
-    'Stack',
-    'SizedBox',
-  };
-
-  static bool match(String data) => words.contains(data);
-}
+const _classes = {
+  'build',
+  'LayoutBuilder',
+  'Stack',
+  'SizedBox',
+};

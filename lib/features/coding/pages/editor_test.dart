@@ -19,7 +19,11 @@ class _EditorTestState extends State<EditorTest> {
               : Brightness.dark;
         });
       },
-      child: Editor(test, brightness: _brightness),
+      child: Editor(
+        test,
+        brightness: _brightness,
+        padding: const EdgeInsets.only(left: 60),
+      ),
     );
   }
 }
