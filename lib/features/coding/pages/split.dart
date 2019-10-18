@@ -1,9 +1,5 @@
 import 'package:animation_cheat_page/shared/material_import.dart';
 
-String _matchString(Match match) => match[0];
-
-String _stringIdentity(String string) => string;
-
 Iterable<InlineSpan> splitMapJoin(
   String data,
   Pattern pattern, {
@@ -11,7 +7,7 @@ Iterable<InlineSpan> splitMapJoin(
   Iterable<InlineSpan> Function(String nonMatch) onNonMatch,
 }) sync* {
   if (pattern is! Pattern) {
-    throw ArgumentError("${pattern} is not a Pattern");
+    throw ArgumentError('$pattern is not a Pattern');
   }
 
   int startIndex = 0;
