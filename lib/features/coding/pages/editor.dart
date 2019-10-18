@@ -3,7 +3,14 @@ import 'package:flutter_presentations/features/coding/pages/split.dart';
 import 'package:flutter_presentations/shared/colors.dart';
 
 class Editor extends StatefulWidget {
-  const Editor({Key key}) : super(key: key);
+  const Editor(
+    this.data, {
+    Key key,
+    this.brightness = Brightness.dark,
+  }) : super(key: key);
+
+  final String data;
+  final Brightness brightness;
 
   @override
   _EditorState createState() => _EditorState();
@@ -17,7 +24,9 @@ class _EditorState extends State<Editor> with SingleTickerProviderStateMixin {
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1000),
-    )..value = 1;
+    )
+      ..value = widget.brightness == Brightness.dark ? 0 : 1
+      ..addListener(() => setState(() {}));
     super.initState();
   }
 
@@ -25,6 +34,18 @@ class _EditorState extends State<Editor> with SingleTickerProviderStateMixin {
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+
+  @override
+  void didUpdateWidget(Editor oldWidget) {
+    if (oldWidget.brightness != widget.brightness) {
+      if (widget.brightness == Brightness.dark) {
+        _controller.reverse();
+      } else {
+        _controller.forward();
+      }
+    }
+    super.didUpdateWidget(oldWidget);
   }
 
   @override
@@ -37,7 +58,7 @@ class _EditorState extends State<Editor> with SingleTickerProviderStateMixin {
       ),
       child: ListView(
         children: [
-          for (final line in test.split('\r\n'))
+          for (final line in widget.data.split('\r\n'))
             EditorLine(
               line,
               animation: _controller,
@@ -324,40 +345,3 @@ class PlainSpan {
     );
   }
 }
-
-const test = '''
-import 'package:flutter/material.dart';
-import 'package:qr_flutter/qr_flutter.dart';
-
-class QrCode extends StatelessWidget {
-  const QrCode({
-    @required this.child,
-    Key key,
-  }) : super(key: key);
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, c) {
-        return Stack(
-          alignment: Alignment.center,
-          children: [
-            QrImage(
-              data: 'https://github.com/tomaszpolanski/flutter-presentations',
-              version: QrVersions.auto,
-              gapless: true,
-            ),
-            SizedBox(
-              height: c.biggest.shortestSide / 4.5,
-              width: c.biggest.shortestSide / 4.5,
-              child: child,
-            ),
-          ],
-        );
-      },
-    );
-  }
-}
-''';
