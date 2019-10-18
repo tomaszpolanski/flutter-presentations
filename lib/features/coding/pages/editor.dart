@@ -52,18 +52,19 @@ class _EditorState extends State<Editor> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final lines = widget.data.split('\r\n');
     return Container(
       color: EditorColor.background.lerp(_controller.value),
       child: Scrollbar(
-        child: ListView(
+        child: ListView.builder(
           padding: widget.padding,
-          children: [
-            for (final line in widget.data.split('\r\n'))
-              EditorLine(
-                line,
-                animation: _controller,
-              ),
-          ],
+          itemCount: lines.length,
+          itemBuilder: (context, index) {
+            return EditorLine(
+              lines[index],
+              animation: _controller,
+            );
+          },
         ),
       ),
     );
@@ -95,41 +96,61 @@ class EditorLine extends StatelessWidget {
 }
 
 Iterable<InlineSpan> _create(String data, Animation<double> animation) =>
-    _createSpans(RegExp(r'\s+'), EditorColor.plain, _createBrackets)(
+    _createSpans(RegExp(r'\s+'), EditorColor.plain, _createStrings)(
       data,
       animation,
     );
 
-Iterable<InlineSpan> _createBrackets(
-        String word, Animation<double> animation) =>
-    _createSpans(RegExp(r'[\[\]{}()<>]'), EditorColor.brackets, _createStrings)(
+Iterable<InlineSpan> _createStrings(String word, Animation<double> animation) =>
+    _createSpans(
+      RegExp(r"'.+'"),
+      EditorColor.text,
+      _createKeywords,
+      fontWeight: FontWeight.w700,
+    )(
       word,
       animation,
     );
 
-Iterable<InlineSpan> _createStrings(String word, Animation<double> animation) =>
-    _createSpans(RegExp(r"'.+'"), EditorColor.text, _createValue)(
-      word,
+Iterable<InlineSpan> _createKeywords(
+        String data, Animation<double> animation) =>
+    _createSpans(
+      RegExp(_keywords.map((it) => '\\b$it\\b').join('|')),
+      EditorColor.keyword,
+      _createValue,
+      fontWeight: FontWeight.w700,
+    )(
+      data,
       animation,
     );
 
 Iterable<InlineSpan> _createValue(String word, Animation<double> animation) =>
     splitMapJoin(
       word,
-      RegExp(r'\.(\w+[\w\d]+)'),
-      onMatch: (m) => TextSpan(
-        children: [
-          const TextSpan(text: '.'),
-          TextSpan(
-            text: m.group(0).replaceAll('.', ''),
-            style: TextStyle(
-              fontWeight: FontWeight.w700,
-              color: EditorColor.value.lerp(animation.value),
+      RegExp(r'[\.|_](?=([a-z][\w\d]+))\1(?!\()'),
+      onMatch: (m) {
+        final first = m.group(0).substring(0, 1);
+        return TextSpan(
+          children: [
+            if (first == '.') TextSpan(text: first),
+            TextSpan(
+              text: m.group(0).replaceAll('.', ''),
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+                color: EditorColor.value.lerp(animation.value),
+              ),
             ),
-          ),
-        ],
-      ),
-      onNonMatch: (m) => _createAt(m, animation),
+          ],
+        );
+      },
+      onNonMatch: (m) => _createBrackets(m, animation),
+    );
+
+Iterable<InlineSpan> _createBrackets(
+        String word, Animation<double> animation) =>
+    _createSpans(RegExp(r'[\[\]{}()<>]'), EditorColor.brackets, _createAt)(
+      word,
+      animation,
     );
 
 Iterable<InlineSpan> _createAt(String word, Animation<double> animation) =>
@@ -178,28 +199,84 @@ typedef _SpanCreator = Iterable<InlineSpan> Function(
 );
 
 _SpanCreator _createSpans(
-        Pattern pattern, EditorColor color, _SpanCreator next) =>
+  Pattern pattern,
+  EditorColor color,
+  _SpanCreator next, {
+  FontWeight fontWeight,
+}) =>
     (String word, Animation<double> animation) => splitMapJoin(
           word,
           pattern,
           onMatch: (m) => TextSpan(
             text: m.group(0),
-            style: TextStyle(color: color.lerp(animation.value)),
+            style: TextStyle(
+              color: color.lerp(animation.value),
+              fontWeight: fontWeight,
+            ),
           ),
           onNonMatch: (m) => next(m, animation),
         );
 
 const _keywords = {
-  'class',
-  'extends',
-  'const',
-  'this',
-  'super',
-  'final',
-  'return',
+  'abstract',
+  'dynamic',
+  'implements',
+  'show',
+  'as',
+  'else',
   'import',
-  'true',
+  'static',
+  'assert',
+  'enum',
+  'in',
+  'super',
+  'async',
+  'export',
+  'interface',
+  'switch',
+  'await',
+  'extends',
+  'is',
+  'sync',
+  'break',
+  'external',
+  'library',
+  'this',
+  'case',
+  'factory',
+  'mixin',
+  'throw',
+  'catch',
   'false',
+  'new',
+  'true',
+  'class',
+  'final',
+  'null',
+  'try',
+  'const',
+  'finally',
+  'on',
+  'typedef',
+  'continue',
+  'for',
+  'operator',
+  'var',
+  'covariant',
+  'part',
+  'void',
+  'default',
+  'get',
+  'rethrow',
+  'while',
+  'deferred',
+  'hide',
+  'return',
+  'with',
+  'do',
+  'if',
+  'set',
+  'yield',
 };
 
 const _classes = {
@@ -207,4 +284,6 @@ const _classes = {
   'LayoutBuilder',
   'Stack',
   'SizedBox',
+  'Duration',
+  'AnimationController',
 };
