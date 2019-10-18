@@ -2,6 +2,10 @@ import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:flutter_presentations/features/coding/pages/split.dart';
 import 'package:flutter_presentations/shared/colors.dart';
 
+extension on Color {
+  Color lerp(Color color, double t) => Color.lerp(this, color, t);
+}
+
 class Editor extends StatefulWidget {
   const Editor(
     this.data, {
@@ -51,8 +55,7 @@ class _EditorState extends State<Editor> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.lerp(
-        EditorDartColor.background,
+      color: EditorDartColor.background.lerp(
         EditorLightColor.background,
         _controller.value,
       ),
@@ -86,8 +89,7 @@ class EditorLine extends StatelessWidget {
       style: TextStyle(
         fontFamily: 'Consolas',
         fontWeight: FontWeight.w300,
-        color: Color.lerp(
-          EditorDartColor.plain,
+        color: EditorDartColor.plain.lerp(
           EditorLightColor.plain,
           animation.value,
         ),
@@ -104,8 +106,7 @@ List<InlineSpan> create(String data, Animation<double> animation) {
     onMatch: (m) => TextSpan(
       text: '${m.group(0)}',
       style: TextStyle(
-        color: Color.lerp(
-          EditorDartColor.plain,
+        color: EditorDartColor.plain.lerp(
           EditorLightColor.plain,
           animation.value,
         ),
@@ -122,8 +123,7 @@ Iterable<InlineSpan> createBrackets(String word, Animation<double> animation) {
     onMatch: (m) => TextSpan(
       text: '${m.group(0)}',
       style: TextStyle(
-        color: Color.lerp(
-          EditorDartColor.brackets,
+        color: EditorDartColor.brackets.lerp(
           EditorLightColor.brackets,
           animation.value,
         ),
@@ -140,8 +140,7 @@ Iterable<InlineSpan> createStrings(String word, Animation<double> animation) {
     onMatch: (m) => TextSpan(
       text: '${m.group(0)}',
       style: TextStyle(
-        color: Color.lerp(
-          EditorDartColor.text,
+        color: EditorDartColor.text.lerp(
           EditorLightColor.text,
           animation.value,
         ),
@@ -158,8 +157,7 @@ Iterable<InlineSpan> createValue(String word, Animation<double> animation) {
     onMatch: (m) => TextSpan(
       text: '${m.group(0)}',
       style: TextStyle(
-        color: Color.lerp(
-          EditorDartColor.value,
+        color: EditorDartColor.value.lerp(
           EditorLightColor.value,
           animation.value,
         ),
@@ -176,8 +174,7 @@ Iterable<InlineSpan> createAt(String word, Animation<double> animation) {
     onMatch: (m) => TextSpan(
       text: '${m.group(0)}',
       style: TextStyle(
-        color: Color.lerp(
-          EditorDartColor.at,
+        color: EditorDartColor.at.lerp(
           EditorLightColor.at,
           animation.value,
         ),
@@ -187,6 +184,12 @@ Iterable<InlineSpan> createAt(String word, Animation<double> animation) {
   );
 }
 
+//typedef SpanCreator = Iterable<InlineSpan> Function(String word, Animation<double> animation);
+//
+//SpanCreator aaa(Pattern pattern, Color color, next) {
+//
+//}
+
 Iterable<InlineSpan> createNumber(String word, Animation<double> animation) {
   return splitMapJoin(
     word,
@@ -194,8 +197,7 @@ Iterable<InlineSpan> createNumber(String word, Animation<double> animation) {
     onMatch: (m) => TextSpan(
       text: '${m.group(0)}',
       style: TextStyle(
-        color: Color.lerp(
-          EditorDartColor.number,
+        color: EditorDartColor.number.lerp(
           EditorLightColor.number,
           animation.value,
         ),
@@ -211,8 +213,7 @@ Iterable<InlineSpan> createWords(
     yield TextSpan(
       text: word,
       style: TextStyle(
-        color: Color.lerp(
-          EditorDartColor.keyword,
+        color: EditorDartColor.keyword.lerp(
           EditorLightColor.keyword,
           animation.value,
         ),
@@ -222,8 +223,7 @@ Iterable<InlineSpan> createWords(
     yield TextSpan(
       text: word,
       style: TextStyle(
-        color: Color.lerp(
-          EditorDartColor.clazz,
+        color: EditorDartColor.clazz.lerp(
           EditorLightColor.clazz,
           animation.value,
         ),
@@ -233,8 +233,7 @@ Iterable<InlineSpan> createWords(
     yield TextSpan(
       text: word,
       style: TextStyle(
-        color: Color.lerp(
-          EditorDartColor.plain,
+        color: EditorDartColor.plain.lerp(
           EditorLightColor.plain,
           animation.value,
         ),

@@ -2,7 +2,7 @@ name: flutter_presentations
 description: Presentations made with Flutter
 
 environment:
-  sdk: ">=2.3.0-dev.0.3.flutter-c46deebfb6 <3.0.0"
+  sdk: ">=2.6.0-dev.4.0.flutter-1103600280 <3.0.0"
 
 dependencies:
   flutter:
