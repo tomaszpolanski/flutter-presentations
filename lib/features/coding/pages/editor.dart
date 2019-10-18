@@ -7,10 +7,12 @@ class Editor extends StatefulWidget {
     this.data, {
     Key key,
     this.brightness = Brightness.dark,
+    this.padding = EdgeInsets.zero,
   }) : super(key: key);
 
   final String data;
   final Brightness brightness;
+  final EdgeInsetsGeometry padding;
 
   @override
   _EditorState createState() => _EditorState();
@@ -50,16 +52,20 @@ class _EditorState extends State<Editor> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final lines = widget.data.split('\r\n');
     return Container(
       color: EditorColor.background.lerp(_controller.value),
-      child: ListView(
-        children: [
-          for (final line in widget.data.split('\r\n'))
-            EditorLine(
-              line,
+      child: Scrollbar(
+        child: ListView.builder(
+          padding: widget.padding,
+          itemCount: lines.length,
+          itemBuilder: (context, index) {
+            return EditorLine(
+              lines[index],
               animation: _controller,
-            ),
-        ],
+            );
+          },
+        ),
       ),
     );
   }
@@ -90,45 +96,75 @@ class EditorLine extends StatelessWidget {
 }
 
 Iterable<InlineSpan> _create(String data, Animation<double> animation) =>
-    _createSpans(RegExp(r'\s+'), EditorColor.plain, _createBrackets)(
+    _createSpans(RegExp(r'\s+'), EditorColor.plain, _createStrings)(
       data,
       animation,
     );
 
-Iterable<InlineSpan> _createBrackets(
-        String word, Animation<double> animation) =>
-    _createSpans(RegExp(r'[\[\]{}()<>]'), EditorColor.brackets, _createStrings)(
+Iterable<InlineSpan> _createStrings(String word, Animation<double> animation) =>
+    _createSpans(
+      RegExp(r"'.+'"),
+      EditorColor.text,
+      _createKeywords,
+      fontWeight: FontWeight.w700,
+    )(
       word,
       animation,
     );
 
-Iterable<InlineSpan> _createStrings(String word, Animation<double> animation) =>
-    _createSpans(RegExp(r"'.+'"), EditorColor.text, _createValue)(
-      word,
+Iterable<InlineSpan> _createKeywords(
+        String data, Animation<double> animation) =>
+    _createSpans(
+      RegExp(_keywords.map((it) => '\\b$it\\b').join('|')),
+      EditorColor.keyword,
+      _createValue,
+      fontWeight: FontWeight.w700,
+    )(
+      data,
       animation,
     );
 
 Iterable<InlineSpan> _createValue(String word, Animation<double> animation) =>
     splitMapJoin(
       word,
-      RegExp(r'\.(\w+[\w\d]+)'),
-      onMatch: (m) => TextSpan(
-        children: [
-          const TextSpan(text: '.'),
-          TextSpan(
-            text: m.group(0).replaceAll('.', ''),
-            style: TextStyle(color: EditorColor.value.lerp(animation.value)),
-          ),
-        ],
-      ),
-      onNonMatch: (m) => _createAt(m, animation),
+      RegExp(r'[\.|_](?=([a-z][\w\d]+))\1(?!\()'),
+      onMatch: (m) {
+        final first = m.group(0).substring(0, 1);
+        return TextSpan(
+          children: [
+            if (first == '.') TextSpan(text: first),
+            TextSpan(
+              text: m.group(0).replaceAll('.', ''),
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+                color: EditorColor.value.lerp(animation.value),
+              ),
+            ),
+          ],
+        );
+      },
+      onNonMatch: (m) => _createBrackets(m, animation),
+    );
+
+Iterable<InlineSpan> _createBrackets(
+        String word, Animation<double> animation) =>
+    _createSpans(RegExp(r'[\[\]{}()<>]'), EditorColor.brackets, _createAt)(
+      word,
+      animation,
     );
 
 Iterable<InlineSpan> _createAt(String word, Animation<double> animation) =>
     _createSpans(RegExp('@'), EditorColor.at, _createNumber)(word, animation);
 
 Iterable<InlineSpan> _createNumber(String word, Animation<double> animation) =>
-    _createSpans(RegExp(r'\d'), EditorColor.number, _createWords)(
+    _createSpans(RegExp(r'\d'), EditorColor.number, _createSeparator)(
+      word,
+      animation,
+    );
+
+Iterable<InlineSpan> _createSeparator(
+        String word, Animation<double> animation) =>
+    _createSpans(RegExp(r'[,;]'), EditorColor.keyword, _createWords)(
       word,
       animation,
     );
@@ -137,14 +173,15 @@ Iterable<InlineSpan> _createWords(
   String word,
   Animation<double> animation,
 ) sync* {
-  if (_KeywordSpan.match(word)) {
+  if (_keywords.contains(word)) {
     yield TextSpan(
       text: word,
       style: TextStyle(
+        fontWeight: FontWeight.w700,
         color: EditorColor.keyword.lerp(animation.value),
       ),
     );
-  } else if (_ClassSpan.match(word)) {
+  } else if (_classes.contains(word)) {
     yield TextSpan(
       text: word,
       style: TextStyle(
@@ -162,43 +199,91 @@ typedef _SpanCreator = Iterable<InlineSpan> Function(
 );
 
 _SpanCreator _createSpans(
-        Pattern pattern, EditorColor color, _SpanCreator next) =>
+  Pattern pattern,
+  EditorColor color,
+  _SpanCreator next, {
+  FontWeight fontWeight,
+}) =>
     (String word, Animation<double> animation) => splitMapJoin(
           word,
           pattern,
           onMatch: (m) => TextSpan(
             text: m.group(0),
-            style: TextStyle(color: color.lerp(animation.value)),
+            style: TextStyle(
+              color: color.lerp(animation.value),
+              fontWeight: fontWeight,
+            ),
           ),
           onNonMatch: (m) => next(m, animation),
         );
 
-class _KeywordSpan {
-  static const words = {
-    'class',
-    'extends',
-    'const',
-    'this',
-    'super',
-    'final',
-    'return',
-    'import',
-    ';',
-    ',',
-    'true,',
-    'false,',
-  };
+const _keywords = {
+  'abstract',
+  'dynamic',
+  'implements',
+  'show',
+  'as',
+  'else',
+  'import',
+  'static',
+  'assert',
+  'enum',
+  'in',
+  'super',
+  'async',
+  'export',
+  'interface',
+  'switch',
+  'await',
+  'extends',
+  'is',
+  'sync',
+  'break',
+  'external',
+  'library',
+  'this',
+  'case',
+  'factory',
+  'mixin',
+  'throw',
+  'catch',
+  'false',
+  'new',
+  'true',
+  'class',
+  'final',
+  'null',
+  'try',
+  'const',
+  'finally',
+  'on',
+  'typedef',
+  'continue',
+  'for',
+  'operator',
+  'var',
+  'covariant',
+  'part',
+  'void',
+  'default',
+  'get',
+  'rethrow',
+  'while',
+  'deferred',
+  'hide',
+  'return',
+  'with',
+  'do',
+  'if',
+  'set',
+  'yield',
+};
 
-  static bool match(String data) => words.contains(data);
-}
-
-class _ClassSpan {
-  static const words = {
-    'build',
-    'LayoutBuilder',
-    'Stack',
-    'SizedBox',
-  };
-
-  static bool match(String data) => words.contains(data);
-}
+const _classes = {
+  'build',
+  'LayoutBuilder',
+  'Stack',
+  'SizedBox',
+  'Duration',
+  'AnimationController',
+};
