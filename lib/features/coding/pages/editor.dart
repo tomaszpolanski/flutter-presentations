@@ -2,16 +2,46 @@ import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:flutter_presentations/features/coding/pages/split.dart';
 import 'package:flutter_presentations/shared/colors.dart';
 
-class Editor extends StatelessWidget {
+class Editor extends StatefulWidget {
   const Editor({Key key}) : super(key: key);
+
+  @override
+  _EditorState createState() => _EditorState();
+}
+
+class _EditorState extends State<Editor> with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1000),
+    )..value = 1;
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: EditorColor.background,
+      color: Color.lerp(
+        EditorDartColor.background,
+        EditorLightColor.background,
+        _controller.value,
+      ),
       child: ListView(
         children: [
-          for (final line in test.split('\r\n')) EditorLine(line),
+          for (final line in test.split('\r\n'))
+            EditorLine(
+              line,
+              animation: _controller,
+            ),
         ],
       ),
     );
@@ -19,85 +49,176 @@ class Editor extends StatelessWidget {
 }
 
 class EditorLine extends StatelessWidget {
-  const EditorLine(this.data, {Key key}) : super(key: key);
+  const EditorLine(
+    this.data, {
+    @required this.animation,
+    Key key,
+  }) : super(key: key);
 
   final String data;
+  final Animation<double> animation;
 
   @override
   Widget build(BuildContext context) {
     return Text.rich(
-      TextSpan(children: create(data)),
+      TextSpan(children: create(data, animation)),
       style: TextStyle(
         fontFamily: 'Consolas',
         fontWeight: FontWeight.w300,
-        color: EditorColor.plain,
+        color: Color.lerp(
+          EditorDartColor.plain,
+          EditorLightColor.plain,
+          animation.value,
+        ),
         fontSize: 20,
       ),
     );
   }
 }
 
-List<InlineSpan> create(String data) {
+List<InlineSpan> create(String data, Animation<double> animation) {
   return splitMapJoin(
     data,
     RegExp(r'\s+'),
-    onMatch: (m) => PlainSpan.create('${m.group(0)}'),
-    onNonMatch: (m) => createBrackets(m),
+    onMatch: (m) => TextSpan(
+      text: '${m.group(0)}',
+      style: TextStyle(
+        color: Color.lerp(
+          EditorDartColor.plain,
+          EditorLightColor.plain,
+          animation.value,
+        ),
+      ),
+    ),
+    onNonMatch: (m) => createBrackets(m, animation),
   ).toList(growable: false);
 }
 
-Iterable<InlineSpan> createBrackets(String word) {
+Iterable<InlineSpan> createBrackets(String word, Animation<double> animation) {
   return splitMapJoin(
     word,
     RegExp(r'[\[\]{}()<>]'),
-    onMatch: (m) => BracketsSpan.create('${m.group(0)}'),
-    onNonMatch: (m) => createStrings(m),
+    onMatch: (m) => TextSpan(
+      text: '${m.group(0)}',
+      style: TextStyle(
+        color: Color.lerp(
+          EditorDartColor.brackets,
+          EditorLightColor.brackets,
+          animation.value,
+        ),
+      ),
+    ),
+    onNonMatch: (m) => createStrings(m, animation),
   );
 }
 
-Iterable<InlineSpan> createStrings(String word) {
+Iterable<InlineSpan> createStrings(String word, Animation<double> animation) {
   return splitMapJoin(
     word,
     RegExp(r"'.+'"),
-    onMatch: (m) => StringTextSpan.create('${m.group(0)}'),
-    onNonMatch: (m) => createValue(m),
+    onMatch: (m) => TextSpan(
+      text: '${m.group(0)}',
+      style: TextStyle(
+        color: Color.lerp(
+          EditorDartColor.text,
+          EditorLightColor.text,
+          animation.value,
+        ),
+      ),
+    ),
+    onNonMatch: (m) => createValue(m, animation),
   );
 }
 
-Iterable<InlineSpan> createValue(String word) {
+Iterable<InlineSpan> createValue(String word, Animation<double> animation) {
   return splitMapJoin(
     word,
     RegExp(r'\.\w+[\w\d]+'),
-    onMatch: (m) => ValueSpan.create('${m.group(0)}'),
-    onNonMatch: (m) => createAt(m),
+    onMatch: (m) => TextSpan(
+      text: '${m.group(0)}',
+      style: TextStyle(
+        color: Color.lerp(
+          EditorDartColor.value,
+          EditorLightColor.value,
+          animation.value,
+        ),
+      ),
+    ),
+    onNonMatch: (m) => createAt(m, animation),
   );
 }
 
-Iterable<InlineSpan> createAt(String word) {
+Iterable<InlineSpan> createAt(String word, Animation<double> animation) {
   return splitMapJoin(
     word,
     RegExp('@'),
-    onMatch: (m) => AtSpan.create('${m.group(0)}'),
-    onNonMatch: (m) => createNumber(m),
+    onMatch: (m) => TextSpan(
+      text: '${m.group(0)}',
+      style: TextStyle(
+        color: Color.lerp(
+          EditorDartColor.at,
+          EditorLightColor.at,
+          animation.value,
+        ),
+      ),
+    ),
+    onNonMatch: (m) => createNumber(m, animation),
   );
 }
 
-Iterable<InlineSpan> createNumber(String word) {
+Iterable<InlineSpan> createNumber(String word, Animation<double> animation) {
   return splitMapJoin(
     word,
     RegExp(r'\d'),
-    onMatch: (m) => NumberSpan.create('${m.group(0)}'),
-    onNonMatch: (m) => createWords(m),
+    onMatch: (m) => TextSpan(
+      text: '${m.group(0)}',
+      style: TextStyle(
+        color: Color.lerp(
+          EditorDartColor.number,
+          EditorLightColor.number,
+          animation.value,
+        ),
+      ),
+    ),
+    onNonMatch: (m) => createWords(m, animation),
   );
 }
 
-Iterable<InlineSpan> createWords(String word) sync* {
+Iterable<InlineSpan> createWords(
+    String word, Animation<double> animation) sync* {
   if (KeywordSpan.match(word)) {
-    yield KeywordSpan.create(word);
+    yield TextSpan(
+      text: word,
+      style: TextStyle(
+        color: Color.lerp(
+          EditorDartColor.keyword,
+          EditorLightColor.keyword,
+          animation.value,
+        ),
+      ),
+    );
   } else if (ClassSpan.match(word)) {
-    yield ClassSpan.create(word);
+    yield TextSpan(
+      text: word,
+      style: TextStyle(
+        color: Color.lerp(
+          EditorDartColor.clazz,
+          EditorLightColor.clazz,
+          animation.value,
+        ),
+      ),
+    );
   } else {
-    yield PlainSpan.create(word);
+    yield TextSpan(
+      text: word,
+      style: TextStyle(
+        color: Color.lerp(
+          EditorDartColor.plain,
+          EditorLightColor.plain,
+          animation.value,
+        ),
+      ),
+    );
   }
 }
 
@@ -122,7 +243,7 @@ class KeywordSpan {
   static InlineSpan create(String data) {
     return TextSpan(
       text: data,
-      style: const TextStyle(color: EditorColor.keyword),
+      style: const TextStyle(color: EditorDartColor.keyword),
     );
   }
 }
@@ -131,7 +252,7 @@ class BracketsSpan {
   static InlineSpan create(String data) {
     return TextSpan(
       text: data,
-      style: const TextStyle(color: EditorColor.brackets),
+      style: const TextStyle(color: EditorDartColor.brackets),
     );
   }
 }
@@ -140,7 +261,7 @@ class StringTextSpan {
   static InlineSpan create(String data) {
     return TextSpan(
       text: data,
-      style: const TextStyle(color: EditorColor.text),
+      style: const TextStyle(color: EditorDartColor.text),
     );
   }
 }
@@ -152,7 +273,7 @@ class ValueSpan {
         const TextSpan(text: '.'),
         TextSpan(
           text: data.replaceAll('.', ''),
-          style: const TextStyle(color: EditorColor.value),
+          style: const TextStyle(color: EditorDartColor.value),
         ),
       ],
     );
@@ -163,7 +284,7 @@ class AtSpan {
   static InlineSpan create(String data) {
     return TextSpan(
       text: data,
-      style: const TextStyle(color: EditorColor.at),
+      style: const TextStyle(color: EditorDartColor.at),
     );
   }
 }
@@ -172,7 +293,7 @@ class NumberSpan {
   static InlineSpan create(String data) {
     return TextSpan(
       text: data,
-      style: const TextStyle(color: EditorColor.number),
+      style: const TextStyle(color: EditorDartColor.number),
     );
   }
 }
@@ -186,10 +307,11 @@ class ClassSpan {
   };
 
   static bool match(String data) => words.contains(data);
+
   static InlineSpan create(String data) {
     return TextSpan(
       text: data,
-      style: const TextStyle(color: EditorColor.clazz),
+      style: const TextStyle(color: EditorDartColor.clazz),
     );
   }
 }
@@ -198,7 +320,7 @@ class PlainSpan {
   static InlineSpan create(String data) {
     return TextSpan(
       text: data,
-      style: const TextStyle(color: EditorColor.plain),
+      style: const TextStyle(color: EditorDartColor.plain),
     );
   }
 }
