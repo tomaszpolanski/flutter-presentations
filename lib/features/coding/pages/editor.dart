@@ -85,7 +85,8 @@ class EditorLine extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text.rich(
       TextSpan(
-          children: _createWidget(data, animation).toList(growable: false)),
+        children: _createWidget(data, animation).toList(growable: false),
+      ),
       style: TextStyle(
         fontFamily: 'Consolas',
         fontWeight: FontWeight.w300,
@@ -104,7 +105,7 @@ Iterable<InlineSpan> _createWidget(String word, Animation<double> animation) =>
           child: Container(
         color: Colors.red,
         width: 50,
-        height: 40,
+        height: 20,
       )),
       onNonMatch: (m) => _createSpaces(m, animation),
     );
