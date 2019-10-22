@@ -84,7 +84,8 @@ class EditorLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text.rich(
-      TextSpan(children: _create(data, animation).toList(growable: false)),
+      TextSpan(
+          children: _createWidget(data, animation).toList(growable: false)),
       style: TextStyle(
         fontFamily: 'Consolas',
         fontWeight: FontWeight.w300,
@@ -95,7 +96,20 @@ class EditorLine extends StatelessWidget {
   }
 }
 
-Iterable<InlineSpan> _create(String data, Animation<double> animation) =>
+Iterable<InlineSpan> _createWidget(String word, Animation<double> animation) =>
+    splitMapJoin(
+      word,
+      RegExp(r'Consolas'),
+      onMatch: (m) => WidgetSpan(
+          child: Container(
+        color: Colors.red,
+        width: 50,
+        height: 40,
+      )),
+      onNonMatch: (m) => _createSpaces(m, animation),
+    );
+
+Iterable<InlineSpan> _createSpaces(String data, Animation<double> animation) =>
     _createSpans(RegExp(r'\s+'), EditorColor.plain, _createStrings)(
       data,
       animation,
