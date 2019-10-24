@@ -1,4 +1,5 @@
 import 'package:animation_cheat_page/shared/material_import.dart';
+import 'package:flutter_presentations/features/coding/coding.dart';
 import 'package:flutter_presentations/features/coding/pages/editor.dart';
 
 class EditorTest extends StatefulWidget {
@@ -24,10 +25,13 @@ class _EditorTestState extends State<EditorTest> {
         brightness: _brightness,
         padding: const EdgeInsets.only(left: 60),
         children: [
-          Container(
-            height: 20,
-            width: 40,
-            color: Colors.pink,
+          AnimatedColor(
+            begin: Colors.red,
+            end: Colors.yellowAccent,
+            child: const SizedBox(
+              height: 20,
+              width: 20,
+            ),
           ),
         ],
       ),
