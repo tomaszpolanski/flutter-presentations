@@ -1,4 +1,5 @@
 import 'package:animation_cheat_page/shared/material_import.dart';
+import 'package:flutter_presentations/features/coding/coding.dart';
 import 'package:flutter_presentations/features/coding/pages/editor.dart';
 
 class EditorTest extends StatefulWidget {
@@ -20,9 +21,19 @@ class _EditorTestState extends State<EditorTest> {
         });
       },
       child: Editor(
-        test2,
+        test,
         brightness: _brightness,
         padding: const EdgeInsets.only(left: 60),
+        children: [
+          AnimatedColor(
+            begin: Colors.red,
+            end: Colors.yellowAccent,
+            child: const SizedBox(
+              height: 20,
+              width: 20,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -43,7 +54,7 @@ class QrCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (context, c) {
+      builder: (context, {0}) {
         return Stack(
           alignment: Alignment.center,
           children: [

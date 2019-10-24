@@ -8,11 +8,13 @@ class Editor extends StatefulWidget {
     Key key,
     this.brightness = Brightness.dark,
     this.padding = EdgeInsets.zero,
+    this.children = const [],
   }) : super(key: key);
 
   final String data;
   final Brightness brightness;
   final EdgeInsetsGeometry padding;
+  final List<Widget> children;
 
   @override
   _EditorState createState() => _EditorState();
@@ -63,6 +65,7 @@ class _EditorState extends State<Editor> with SingleTickerProviderStateMixin {
             return EditorLine(
               lines[index],
               animation: _controller,
+              children: widget.children,
             );
           },
         ),
@@ -75,16 +78,24 @@ class EditorLine extends StatelessWidget {
   const EditorLine(
     this.data, {
     @required this.animation,
+    @required this.children,
     Key key,
   }) : super(key: key);
 
   final String data;
   final Animation<double> animation;
+  final List<Widget> children;
 
   @override
   Widget build(BuildContext context) {
     return Text.rich(
-      TextSpan(children: _create(data, animation).toList(growable: false)),
+      TextSpan(
+        children: _createWidget(
+          data,
+          animation,
+          children,
+        ).toList(growable: false),
+      ),
       style: TextStyle(
         fontFamily: 'Consolas',
         fontWeight: FontWeight.w300,
@@ -95,7 +106,28 @@ class EditorLine extends StatelessWidget {
   }
 }
 
-Iterable<InlineSpan> _create(String data, Animation<double> animation) =>
+Iterable<InlineSpan> _createWidget(
+  String word,
+  Animation<double> animation,
+  List<Widget> widgetSpans,
+) =>
+    splitMapJoin(
+      word,
+      RegExp(r'{(\d+)}'),
+      onMatch: (m) {
+        final index = int.parse(m.group(1));
+        assert(
+            index < widgetSpans.length,
+            'You need to provide at least the amount of'
+            'widget spans as you provider placeholders in the data');
+        return WidgetSpan(
+          child: widgetSpans[index],
+        );
+      },
+      onNonMatch: (m) => _createSpaces(m, animation),
+    );
+
+Iterable<InlineSpan> _createSpaces(String data, Animation<double> animation) =>
     _createSpans(RegExp(r'\s+'), EditorColor.plain, _createStrings)(
       data,
       animation,
