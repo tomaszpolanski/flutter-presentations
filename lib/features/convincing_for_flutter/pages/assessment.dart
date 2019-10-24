@@ -278,13 +278,14 @@ class DevDesignPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        Expanded(
+        const Expanded(
           flex: 4,
           child: Center(
-              child: const Text(
-            'Design by Dev',
-            textAlign: TextAlign.center,
-          )),
+            child: Text(
+              'Design by Dev',
+              textAlign: TextAlign.center,
+            ),
+          ),
         ),
         Expanded(
           flex: 6,

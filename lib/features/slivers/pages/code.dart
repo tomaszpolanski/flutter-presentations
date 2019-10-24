@@ -42,7 +42,7 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
       end: 1,
     ).animate(CurvedAnimation(
       parent: _controller,
-      curve: Interval(0, .1),
+      curve: const Interval(0, .1),
     ))
       ..addListener(() => setState(() {}));
 
@@ -75,32 +75,33 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
     return GestureDetector(
       onTap: pageStepper.next,
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
-            image: const AssetImage('assets/code.png'),
+            image: AssetImage('assets/code.png'),
             fit: BoxFit.cover,
           ),
         ),
         child: Center(
-            child: DefaultTextStyle(
-          style: Theme.of(context)
-              .textTheme
-              .display2
-              .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text('Loads of Code'),
-              SlideTransition(
-                position: animation,
-                child: Opacity(
-                  opacity: opacity.value,
-                  child: const Text('!'),
+          child: DefaultTextStyle(
+            style: Theme.of(context)
+                .textTheme
+                .display2
+                .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const Text('Loads of Code'),
+                SlideTransition(
+                  position: animation,
+                  child: Opacity(
+                    opacity: opacity.value,
+                    child: const Text('!'),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        )),
+        ),
       ),
     );
   }

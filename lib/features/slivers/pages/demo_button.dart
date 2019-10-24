@@ -7,9 +7,9 @@ class DemoTime extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
-            image: const AssetImage('assets/demo.png'),
+            image: AssetImage('assets/demo.png'),
             fit: BoxFit.cover,
           ),
         ),
