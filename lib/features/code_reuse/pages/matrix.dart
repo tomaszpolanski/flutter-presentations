@@ -204,9 +204,9 @@ class _CursorState extends State<Cursor> with SingleTickerProviderStateMixin {
           color: const Color(0xFFA4F2DD),
           borderRadius: const BorderRadius.all(Radius.circular(1)),
           border: Border.all(color: const Color(0xFF48AB7F), width: 1),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
-              color: const Color(0xFF005122),
+              color: Color(0xFF005122),
               blurRadius: 20,
               spreadRadius: 9,
             ),
