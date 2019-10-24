@@ -20,9 +20,16 @@ class _EditorTestState extends State<EditorTest> {
         });
       },
       child: Editor(
-        test2,
+        test,
         brightness: _brightness,
         padding: const EdgeInsets.only(left: 60),
+        children: [
+          Container(
+            height: 20,
+            width: 40,
+            color: Colors.pink,
+          ),
+        ],
       ),
     );
   }
@@ -43,7 +50,7 @@ class QrCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (context, c) {
+      builder: (context, {0}) {
         return Stack(
           alignment: Alignment.center,
           children: [
