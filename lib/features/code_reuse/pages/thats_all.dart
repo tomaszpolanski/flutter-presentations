@@ -20,17 +20,17 @@ class GradientContainer extends StatelessWidget {
       child: Container(
         height: size * fraction + 10 * beat,
         width: size * fraction + 10 * beat,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           shape: BoxShape.circle,
           gradient: RadialGradient(
-            colors: const [
+            colors: [
               Color(0xFFdc5921),
               Color(0xFFdc5921),
               Color(0xFF670625),
               Color(0xFF35051f),
               Colors.black,
             ],
-            stops: const [0, 0.7, 0.8, 0.98, 1],
+            stops: [0, 0.7, 0.8, 0.98, 1],
           ),
         ),
       ),

@@ -116,17 +116,17 @@ class ConvincingState extends State<Convincing> {
               ),
             ),
             const AndroidPage(),
-            SummaryPage(
+            const SummaryPage(
               title: 'For many,',
               subtitle: 'but not everyone.',
               background: GTheme.green,
             ),
-            SummaryPage(
+            const SummaryPage(
               title: 'Integration',
               subtitle: 'adds complexity',
               background: GTheme.green,
             ),
-            SummaryPage(
+            const SummaryPage(
               title: 'Flutter',
               subtitle: ' has potential!',
               background: GTheme.green,

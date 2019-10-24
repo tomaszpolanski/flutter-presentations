@@ -56,11 +56,11 @@ class _RearkState extends State<Reark> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     final animation = _controller.drive(CurveTween(curve: Curves.ease));
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.fitHeight,
           alignment: Alignment.centerRight,
-          image: const AssetImage('assets/reark.png'),
+          image: AssetImage('assets/reark.png'),
         ),
       ),
       child: AnimatedBuilder(

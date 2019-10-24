@@ -32,9 +32,9 @@ class _GrouponAppState extends State<GrouponApp> {
                       onTap: () => setState(() => _showSplash = false),
                       child: Container(
                         color: Colors.transparent,
-                        child: Center(
+                        child: const Center(
                           child: Image(
-                            image: const AssetImage('assets/image7.png'),
+                            image: AssetImage('assets/image7.png'),
                             height: 100,
                           ),
                         ),
