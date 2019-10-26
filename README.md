@@ -36,10 +36,7 @@ pod setup
 gem install cocoapods
 ```
 ### Windows
-- Install Visual Studio Community 2019 with components:
-* `MSVC v141 - VS 2017 C++ x64/x86 build tools (v14.16)`
-* `MSVC v142 - VS 2019 C++ x64/x86 build tools (v14.23)`
-* `Windows 10 SDK (10.0.18362.0)` 
+- Install Visual Studio Community 2019 with [Desktop development with C++](https://devblogs.microsoft.com/cppblog/windows-desktop-development-with-c-in-visual-studio/#installation)
 - Add to PATH paths to dart and flutter and add `ENABLE_FLUTTER_DESKTOP` to env variables
 
 * Check if `flutter devices` now shows your desktop device
