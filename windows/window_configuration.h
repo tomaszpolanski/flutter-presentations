@@ -25,6 +25,7 @@
 // customizations like this, without requiring native code changes.
 
 extern const wchar_t *kFlutterWindowTitle;
+extern const bool kShowFullScreen;
 extern const unsigned int kFlutterWindowOriginX;
 extern const unsigned int kFlutterWindowOriginY;
 extern const unsigned int kFlutterWindowWidth;

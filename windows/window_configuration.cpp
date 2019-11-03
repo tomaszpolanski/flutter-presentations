@@ -15,7 +15,8 @@
 #include "window_configuration.h"
 
 const wchar_t *kFlutterWindowTitle = L"Flutter Presentation";
+const bool kShowFullScreen = true;
 const unsigned int kFlutterWindowOriginX = 10;
 const unsigned int kFlutterWindowOriginY = 10;
-const unsigned int kFlutterWindowWidth = 800; // Example width 340
-const unsigned int kFlutterWindowHeight = 800; // Example height 520
+const unsigned int kFlutterWindowWidth = 340;
+const unsigned int kFlutterWindowHeight = 520;
