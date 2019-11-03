@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/features/code_reuse/examples/examples.dart';
 import 'package:flutter_presentations/features/code_reuse/true_code_reuse.dart';
 import 'package:flutter_presentations/features/coding/coding.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/convincing.dart';
@@ -61,6 +62,12 @@ class _PresentationList extends StatelessWidget {
             subtitle: const Text(Coding.subtitle),
             onTap: () => Navigator.of(context)
                 .push(MaterialPageRoute(builder: (_) => const Coding())),
+          ),
+          ListTile(
+            title: const Text(Examples.title),
+            subtitle: const Text(Examples.subtitle),
+            onTap: () => Navigator.of(context)
+                .push(MaterialPageRoute(builder: (_) => const Examples())),
           ),
         ],
       ),
