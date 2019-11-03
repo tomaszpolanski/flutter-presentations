@@ -17,5 +17,5 @@
 const wchar_t *kFlutterWindowTitle = L"Flutter Presentation";
 const unsigned int kFlutterWindowOriginX = 10;
 const unsigned int kFlutterWindowOriginY = 10;
-const unsigned int kFlutterWindowWidth = 800;
-const unsigned int kFlutterWindowHeight = 800;
+const unsigned int kFlutterWindowWidth = 800; // Example width 340
+const unsigned int kFlutterWindowHeight = 800; // Example height 520
