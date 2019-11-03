@@ -49,6 +49,29 @@ bool Win32Window::CreateAndShow(const std::wstring &title, const Point &origin,
   return window != nullptr;
 }
 
+bool Win32Window::CreateAndShowFullScreen(const std::wstring& title) {
+	Destroy();
+
+	WNDCLASS window_class = RegisterWindowClass();
+
+	HMONITOR defaut_monitor =
+		MonitorFromWindow(nullptr, MONITOR_DEFAULTTOPRIMARY);
+	UINT dpi_x = 0, dpi_y = 0;
+	GetDpiForMonitor(defaut_monitor, MDT_EFFECTIVE_DPI, &dpi_x, &dpi_y);
+
+	double scale_factor = static_cast<double>(dpi_x) / kBaseDpi;
+	MONITORINFO mi = { sizeof(mi) };
+	if (!GetMonitorInfo(defaut_monitor, &mi)) return NULL;
+
+	HWND window = CreateWindow(
+		window_class.lpszClassName, title.c_str(),
+		WS_POPUP | WS_VISIBLE, mi.rcMonitor.left,
+		mi.rcMonitor.top, mi.rcMonitor.right - mi.rcMonitor.left,
+		mi.rcMonitor.bottom - mi.rcMonitor.top, nullptr, nullptr,
+		window_class.hInstance, this);
+	return window != nullptr;
+}
+
 WNDCLASS Win32Window::RegisterWindowClass() {
   WNDCLASS window_class{};
   window_class.hCursor = LoadCursor(nullptr, IDC_ARROW);

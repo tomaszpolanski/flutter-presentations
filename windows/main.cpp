@@ -77,7 +77,10 @@ int APIENTRY wWinMain(HINSTANCE instance, HINSTANCE prev, wchar_t *command_line,
 
   // Create a top-level win32 window to host the Flutter view.
   Win32Window window;
-  if (!window.CreateAndShow(kFlutterWindowTitle, origin, size)) {
+  bool success = kShowFullScreen 
+	  ? window.CreateAndShowFullScreen(kFlutterWindowTitle) 
+	  : window.CreateAndShow(kFlutterWindowTitle, origin, size);
+  if (!success) {
     return EXIT_FAILURE;
   }
 

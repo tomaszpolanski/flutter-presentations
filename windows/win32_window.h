@@ -42,6 +42,9 @@ class Win32Window {
   bool CreateAndShow(const std::wstring &title, const Point &origin,
                      const Size &size);
 
+  // Same as create and show but in full screen
+  bool CreateAndShowFullScreen(const std::wstring& title);
+
   // Release OS resources asociated with window.
   void Destroy();
 
