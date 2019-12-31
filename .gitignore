@@ -26,3 +26,4 @@ windows/flutter/Generated.props
 android/gradle.properties
 macos/Flutter/GeneratedPluginRegistrant.swift
 macos/Flutter/GeneratedPluginRegistrant.swift
+.flutter-plugins-dependencies

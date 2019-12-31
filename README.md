@@ -6,11 +6,23 @@ This presentation is run on desktop with use of
 
 This application should be run on high resolution device or a desktop - currently it does not rented properly on small screens.
 
-## Building on Desktop
-* Last tested version of Flutter that works with this repo is `v1.10.7`:
-  * `flutter version v1.10.7`
+# Building
+Last tested version of Flutter that works with this repo is `v1.12.13+hotfix.5`:
+  * **Important**: Use `version` otherwise desktop won't be picked up: `v1.12.13+hotfix.5`
 
-## Building and running Desktop application
+## Building for Web
+Upgrade flutter to minimum `v1.12.13+hotfix.5`, enable web compilation and run:
+```
+flutter version v1.12.13+hotfix.5
+flutter config --enable-web
+flutter run -d chrome -v
+```
+
+## Building for Desktop
+Enable desktop builds by running in the terminal:
+```
+flutter config --enable-linux-desktop --enable-macos-desktop --enable-windows-desktop
+```
 ### Linux
 - Add the following to `.bash_profile` but replace `$HOME/flutter/` with path to your Flutter folder
 ```
@@ -18,7 +30,6 @@ This application should be run on high resolution device or a desktop - currentl
 export PATH="$PATH:$HOME/flutter/bin"
 # Add Dart
 export PATH="$PATH:$HOME/flutter/bin/cache/dart-sdk/bin"
-export ENABLE_FLUTTER_DESKTOP=true
 ```
 ### Mac
 - Add the following to `.bash_profile` but replace `$HOME/flutter/` with path to your Flutter folder
@@ -27,7 +38,6 @@ export ENABLE_FLUTTER_DESKTOP=true
 export PATH="$PATH:$HOME/flutter/bin"
 # Add Dart
 export PATH="$PATH:$HOME/flutter/bin/cache/dart-sdk/bin"
-export ENABLE_FLUTTER_DESKTOP=true
 ```
 - Update CocoaPods:
 ```
@@ -36,10 +46,10 @@ pod setup
 gem install cocoapods
 ```
 ### Windows
-- Install Visual Studio Community 2019 with [Desktop development with C++](https://devblogs.microsoft.com/cppblog/windows-desktop-development-with-c-in-visual-studio/#installation)
-- Add to PATH paths to dart and flutter and add `ENABLE_FLUTTER_DESKTOP` to env variables
-
-* Check if `flutter devices` now shows your desktop device
+- Install Visual Studio Community 2019 with [Desktop development with C++](https://devblogs.microsoft.com/cppblog/windows-desktop-development-with-c-in-visual-studio/#installation). 
+Make sure that those components are installed:
+* `MSVC v142 - VS 2019 C++ x64/x86 build tools (v14.23)`	
+* `Windows 10 SDK (10.0.17763.0)` 
 
 ## Running on Desktop
 Enter `flutter-presentations` in your terminal and run `flutter run`. 
@@ -54,7 +64,7 @@ In IntelliJ/VS Code select appropriate device via device picker and run tha app
 1) Install `docker`
 2) Build docker image (will take a couple of minutes)
 ```
-./build_docker.sh v1.10.7 ./
+./build_docker.sh v1.12.13+hotfix.5 ./
 ```
 3) Run docker container
 ```
