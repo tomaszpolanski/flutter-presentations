@@ -1,4 +1,4 @@
-import 'package:animation_cheat_page/shared/material_import.dart';
+import 'package:flutter/material.dart';
 
 class EditorColor {
   const EditorColor._({@required this.dark, @required this.light});

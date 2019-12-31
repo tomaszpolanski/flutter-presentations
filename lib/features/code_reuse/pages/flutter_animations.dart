@@ -1,4 +1,5 @@
 import 'package:animation_cheat_page/animations_cheat_sheet.dart';
+import 'package:animation_cheat_page/config.dart';
 import 'package:flutter/material.dart';
 
 class AnimationSheet extends StatelessWidget {
@@ -6,6 +7,6 @@ class AnimationSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AnimationCheatSheet();
+    return const AnimationCheatSheet(config: Configuration());
   }
 }
