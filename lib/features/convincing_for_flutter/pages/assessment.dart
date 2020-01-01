@@ -349,10 +349,10 @@ class IntegrationTestPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Align(
+        const Align(
           alignment: Alignment.topCenter,
           child: Padding(
-            padding: const EdgeInsets.all(18),
+            padding: EdgeInsets.all(18),
             child: ParallaxWidget(
               child: Text(
                 'Integrations Tests',
@@ -419,11 +419,11 @@ class FlutterDartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Align(
+        const Align(
           alignment: Alignment.topCenter,
           child: ParallaxWidget(
             child: Padding(
-              padding: const EdgeInsets.all(18),
+              padding: EdgeInsets.all(18),
               child: Text(
                 'Flutter vs Dart',
                 textAlign: TextAlign.center,

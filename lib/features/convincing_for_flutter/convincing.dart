@@ -96,7 +96,7 @@ class ConvincingState extends State<Convincing> {
               background: Colors.white,
               technology: Colors.red,
               people: Colors.red,
-              title: Text(
+              title: const Text(
                 'iOS',
                 textAlign: TextAlign.center,
                 style: GTheme.medium,
@@ -109,7 +109,7 @@ class ConvincingState extends State<Convincing> {
               background: Colors.white,
               technology: GTheme.green,
               people: GTheme.green,
-              title: Text(
+              title: const Text(
                 'Android',
                 textAlign: TextAlign.center,
                 style: GTheme.medium,
