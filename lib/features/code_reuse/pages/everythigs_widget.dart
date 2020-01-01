@@ -165,16 +165,20 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
                       appBar: AppBar(
                         title: _showTextTitle
                             ? const Text('The Title')
-                            : ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: 100,
-                                itemBuilder: (_, __) {
-                                  return Container(
-                                    color: GTheme.flutter1,
-                                    width: 100,
-                                    margin: const EdgeInsets.all(8),
-                                  );
-                                },
+                            : SizedBox(
+                                height: 50,
+                                child: ListView.builder(
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: 100,
+                                  itemBuilder: (_, __) {
+                                    return Container(
+                                      color: GTheme.flutter1,
+                                      width: 100,
+                                      margin: const EdgeInsets.all(8),
+                                    );
+                                  },
+                                ),
                               ),
                         automaticallyImplyLeading: true,
                       ),

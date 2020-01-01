@@ -13,7 +13,7 @@ void main() {
     });
 
     testWidgets('execute steps', (WidgetTester tester) async {
-      await tester.pumpWidget(const AnimationMode(
+      await tester.pumpWidget(const TickerMode(
         enabled: false,
         child: FlutterPresentations(),
       ));
