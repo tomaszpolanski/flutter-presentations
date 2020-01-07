@@ -132,7 +132,7 @@ class _SpeedComparisonState extends State<SpeedComparison>
       setState(() {
         controller.text = '${controller.text}\n$data';
       });
-    }, onError: (error) {
+    }, onError: (dynamic error) {
       setState(() {
         controller.text = '${controller.text}\n$error';
       });

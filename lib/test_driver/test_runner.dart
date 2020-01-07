@@ -16,11 +16,11 @@ const language = 'language';
 const screenshots = 'screenshots';
 const help = 'help';
 
-Future main(List<String> paths) async {
+Future<void> main(List<String> paths) async {
   final parser = createParser();
   final result = parser.parse(paths);
   if (result[help] == true) {
-    print(parser.usage);
+    print(parser.usage); // ignore: avoid_print
     return;
   }
 

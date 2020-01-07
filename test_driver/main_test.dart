@@ -35,7 +35,7 @@ void main(List<String> args) {
         await screenshot.takeScreenshot(step.toString());
         final page = find.byValueKey('presentation');
         await driver.tap(page);
-        await Future.delayed(const Duration(milliseconds: 300));
+        await Future<void>.delayed(const Duration(milliseconds: 300));
       });
     });
   });
