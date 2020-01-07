@@ -16,7 +16,7 @@ class Examples extends StatelessWidget {
           ListTile(
             title: const Text(SliverFillRemainingPage.title),
             onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(
+              MaterialPageRoute<void>(
                 builder: (context) => const _DoubleTapBack(
                   child: SliverFillRemainingPage(),
                 ),

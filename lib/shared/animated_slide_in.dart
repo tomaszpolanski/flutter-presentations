@@ -25,7 +25,7 @@ class _AnimatedSlideInState
   Animation<Offset> _animation;
 
   @override
-  void forEachTween(visitor) {
+  void forEachTween(TweenVisitor<dynamic> visitor) {
     _offset = visitor(
       _offset,
       widget.position,

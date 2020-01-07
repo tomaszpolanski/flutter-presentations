@@ -37,37 +37,37 @@ class _PresentationList extends StatelessWidget {
             title: const Text(Slivers.title),
             subtitle: const Text(Slivers.subtitle),
             onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => Slivers())),
+                .push(MaterialPageRoute<void>(builder: (_) => Slivers())),
           ),
           ListTile(
             title: const Text(Convincing.title),
             subtitle: const Text(Convincing.subtitle),
             onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => Convincing())),
+                .push(MaterialPageRoute<void>(builder: (_) => Convincing())),
           ),
           ListTile(
             title: const Text(CodeReuse.title),
             subtitle: const Text(CodeReuse.subtitle),
-            onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => const CodeReuse())),
+            onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(builder: (_) => const CodeReuse())),
           ),
           ListTile(
             title: const Text(Testing.title),
             subtitle: const Text(CodeReuse.subtitle),
             onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => const Testing())),
+                .push(MaterialPageRoute<void>(builder: (_) => const Testing())),
           ),
           ListTile(
             title: const Text(Coding.title),
             subtitle: const Text(Coding.subtitle),
             onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => const Coding())),
+                .push(MaterialPageRoute<void>(builder: (_) => const Coding())),
           ),
           ListTile(
             title: const Text(Examples.title),
             subtitle: const Text(Examples.subtitle),
-            onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => const Examples())),
+            onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(builder: (_) => const Examples())),
           ),
         ],
       ),
