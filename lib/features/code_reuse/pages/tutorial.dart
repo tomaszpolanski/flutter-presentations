@@ -78,7 +78,7 @@ class _TutorialGoalState extends State<TutorialGoal>
                   : Text(
                       'Feature Reveal',
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.title,
+                      style: Theme.of(context).textTheme.headline6,
                     ),
             ),
           ),
@@ -213,7 +213,7 @@ class _TutorialResultState extends State<TutorialResult>
                   duration: const Duration(milliseconds: 100),
                   child: Text(
                     'Image',
-                    style: Theme.of(context).textTheme.title,
+                    style: Theme.of(context).textTheme.headline6,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -224,7 +224,7 @@ class _TutorialResultState extends State<TutorialResult>
                   duration: const Duration(milliseconds: 100),
                   child: Text(
                     'Widget',
-                    style: Theme.of(context).textTheme.title,
+                    style: Theme.of(context).textTheme.headline6,
                     textAlign: TextAlign.center,
                   ),
                 ),

@@ -15,7 +15,7 @@ class TitlePage extends StatelessWidget {
               children: <Widget>[
                 Text(
                   'Slivers!',
-                  style: Theme.of(context).textTheme.display3.copyWith(
+                  style: Theme.of(context).textTheme.headline2.copyWith(
                       color: const Color(0xFF6AA84F),
                       fontWeight: FontWeight.bold),
                 ),
@@ -27,17 +27,17 @@ class TitlePage extends StatelessWidget {
                       children: [
                         Text(
                           '🥄',
-                          style: Theme.of(context).textTheme.display1,
+                          style: Theme.of(context).textTheme.headline4,
                         ),
                         Text(
                           '🚫',
-                          style: Theme.of(context).textTheme.display1,
+                          style: Theme.of(context).textTheme.headline4,
                         ),
                       ],
                     ),
                     Text(
                       '(not Silvers...)',
-                      style: Theme.of(context).textTheme.body1,
+                      style: Theme.of(context).textTheme.bodyText2,
                     ),
                   ],
                 ),
@@ -52,7 +52,7 @@ class TitlePage extends StatelessWidget {
             child: DefaultTextStyle(
               style: Theme.of(context)
                   .textTheme
-                  .title
+                  .headline6
                   .copyWith(fontWeight: FontWeight.bold),
               child: Column(
                 mainAxisSize: MainAxisSize.min,

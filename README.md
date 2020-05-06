@@ -7,13 +7,13 @@ This presentation is run on desktop with use of
 This application should be run on high resolution device or a desktop - currently it does not rented properly on small screens.
 
 # Building
-Last tested version of Flutter that works with this repo is `v1.12.13+hotfix.5`:
-  * **Important**: Use `version` otherwise desktop won't be picked up: `v1.12.13+hotfix.5`
+Last tested version of Flutter that works with this repo is `v1.17.0`:
+  * **Important**: Use `version` otherwise desktop won't be picked up: `v1.17.0`
 
 ## Building for Web
-Upgrade flutter to minimum `v1.12.13+hotfix.5`, enable web compilation and run:
+Upgrade flutter to minimum `v1.17.0`, enable web compilation and run:
 ```
-flutter version v1.12.13+hotfix.5
+flutter version v1.17.0
 flutter config --enable-web
 flutter run -d chrome -v
 ```
@@ -64,7 +64,7 @@ In IntelliJ/VS Code select appropriate device via device picker and run tha app
 1) Install `docker`
 2) Build docker image (will take a couple of minutes)
 ```
-./build_docker.sh v1.12.13+hotfix.5 ./
+./build_docker.sh v1.17.0 ./
 ```
 3) Run docker container
 ```

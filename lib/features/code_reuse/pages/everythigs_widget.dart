@@ -119,7 +119,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
           children: <Widget>[
             Expanded(
               child: DefaultTextStyle.merge(
-                style: Theme.of(context).textTheme.body1,
+                style: Theme.of(context).textTheme.bodyText2,
                 child: Center(
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,

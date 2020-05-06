@@ -62,7 +62,7 @@ class SimpleDemoState extends State<SimpleDemo> {
           centerTitle: true,
           title: Text(
             'Sliver Examples',
-            style: Theme.of(context).textTheme.display1.copyWith(
+            style: Theme.of(context).textTheme.headline4.copyWith(
                   color: const Color(0xFF6AA84F),
                   fontWeight: FontWeight.bold,
                 ),
@@ -82,7 +82,7 @@ class SimpleDemoState extends State<SimpleDemo> {
                 color: Colors.teal[100 * (index % 9)],
                 child: Text(
                   'grid item $index',
-                  style: Theme.of(context).textTheme.title,
+                  style: Theme.of(context).textTheme.headline6,
                 ),
               );
             },
@@ -98,7 +98,7 @@ class SimpleDemoState extends State<SimpleDemo> {
                 color: Colors.lightBlue[100 * (index % 9)],
                 child: Text(
                   'list item $index',
-                  style: Theme.of(context).textTheme.title,
+                  style: Theme.of(context).textTheme.headline6,
                 ),
               );
             },
@@ -116,7 +116,7 @@ class SimpleDemoState extends State<SimpleDemo> {
                 color: Colors.lightBlue[100 * (index % 9)],
                 child: Text(
                   'list item $index',
-                  style: Theme.of(context).textTheme.title,
+                  style: Theme.of(context).textTheme.headline6,
                 ),
               );
             }, childCount: 10),
@@ -129,7 +129,7 @@ class SimpleDemoState extends State<SimpleDemo> {
               color: Colors.yellowAccent,
               child: Text(
                 'SliverToBoxAdapter',
-                style: Theme.of(context).textTheme.title,
+                style: Theme.of(context).textTheme.headline6,
               ),
             ),
           ),
@@ -142,7 +142,7 @@ class SimpleDemoState extends State<SimpleDemo> {
                 child: Center(
                   child: Text(
                     'Fill Viewport $index',
-                    style: Theme.of(context).textTheme.title,
+                    style: Theme.of(context).textTheme.headline6,
                   ),
                 ),
               );

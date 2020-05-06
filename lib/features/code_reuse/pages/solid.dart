@@ -80,7 +80,7 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
       parent: _controller,
       curve: Interval(0, 0.3, curve: Curves.ease),
     );
-    final bigTheme = Theme.of(context).textTheme.display1;
+    final bigTheme = Theme.of(context).textTheme.headline4;
     return RevealEffect(
       offset: const Offset(0.9, 0.1),
       child: Align(
@@ -255,7 +255,7 @@ class _Letter extends StatelessWidget {
           },
           child: Text(
             text.substring(1, text.length),
-            style: Theme.of(context).textTheme.title,
+            style: Theme.of(context).textTheme.headline6,
           ),
         ),
       ],

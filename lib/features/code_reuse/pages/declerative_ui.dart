@@ -5,7 +5,8 @@ class DeclarativeUi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle.merge(
-      style: Theme.of(context).textTheme.title.copyWith(color: Colors.black),
+      style:
+          Theme.of(context).textTheme.headline6.copyWith(color: Colors.black),
       child: Center(
         child: Table(
           defaultVerticalAlignment: TableCellVerticalAlignment.middle,

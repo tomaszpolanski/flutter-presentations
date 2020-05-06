@@ -4,10 +4,10 @@ import 'package:flutter_presentations/features/convincing_for_flutter/shared/gro
 ThemeData blueLight() {
   return ThemeData.light().copyWith(
     textTheme: TextTheme(
-      display1: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 140),
-      headline: GTheme.big.copyWith(color: GTheme.flutter2, fontSize: 90),
-      title: GTheme.big.copyWith(color: GTheme.flutter2, fontSize: 80),
-      body1: GTheme.big.copyWith(color: GTheme.flutter2),
+      headline4: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 140),
+      headline5: GTheme.big.copyWith(color: GTheme.flutter2, fontSize: 90),
+      headline6: GTheme.big.copyWith(color: GTheme.flutter2, fontSize: 80),
+      bodyText2: GTheme.big.copyWith(color: GTheme.flutter2),
       caption: GTheme.smaller.copyWith(color: GTheme.flutter1),
     ),
   );
@@ -16,10 +16,10 @@ ThemeData blueLight() {
 ThemeData greenLight() {
   return ThemeData.light().copyWith(
     textTheme: TextTheme(
-      display1: GTheme.big.copyWith(color: GTheme.green, fontSize: 140),
-      headline: GTheme.big.copyWith(color: GTheme.green, fontSize: 90),
-      title: GTheme.big.copyWith(color: GTheme.green, fontSize: 80),
-      body1: GTheme.big.copyWith(color: GTheme.green),
+      headline4: GTheme.big.copyWith(color: GTheme.green, fontSize: 140),
+      headline5: GTheme.big.copyWith(color: GTheme.green, fontSize: 90),
+      headline6: GTheme.big.copyWith(color: GTheme.green, fontSize: 80),
+      bodyText2: GTheme.big.copyWith(color: GTheme.green),
       caption: GTheme.smaller.copyWith(color: GTheme.green),
     ),
   );

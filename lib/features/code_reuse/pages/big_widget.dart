@@ -109,7 +109,7 @@ class _BigWidgetState extends State<BigWidget> {
             },
             child: Text(
               'Yeah, I know...',
-              style: Theme.of(context).textTheme.body1,
+              style: Theme.of(context).textTheme.bodyText2,
             ),
           ),
         )

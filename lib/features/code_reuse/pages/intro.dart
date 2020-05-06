@@ -33,14 +33,14 @@ class Intro extends StatelessWidget {
             children: [
               Expanded(
                 child: DefaultTextStyle.merge(
-                  style: Theme.of(context).textTheme.headline,
+                  style: Theme.of(context).textTheme.headline5,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       RichText(
                         text: TextSpan(
-                          style: Theme.of(context).textTheme.headline,
+                          style: Theme.of(context).textTheme.headline5,
                           text: 'True ',
                           children: [
                             TextSpan(

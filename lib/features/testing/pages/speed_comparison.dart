@@ -285,7 +285,7 @@ class _CountDownWidgetState extends State<_CountDownWidget>
           scale: scale,
           child: Text(
             time.toString(),
-            style: Theme.of(context).textTheme.display1,
+            style: Theme.of(context).textTheme.headline4,
           ),
         );
       },
@@ -355,7 +355,7 @@ class _TimerState extends State<_Timer> with SingleTickerProviderStateMixin {
             Expanded(
               child: Text(
                 seconds.floor().toString(),
-                style: Theme.of(context).textTheme.display1,
+                style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.end,
               ),
             ),

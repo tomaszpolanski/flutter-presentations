@@ -66,7 +66,7 @@ class _TestsState extends State<Tests> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _style = Theme.of(context).textTheme.body1.copyWith(
+    _style = Theme.of(context).textTheme.bodyText2.copyWith(
           fontWeight: FontWeight.normal,
           color: Colors.red,
         );
@@ -74,7 +74,7 @@ class _TestsState extends State<Tests> {
 
   @override
   Widget build(BuildContext context) {
-    final description = Theme.of(context).textTheme.body1.copyWith(
+    final description = Theme.of(context).textTheme.bodyText2.copyWith(
           fontWeight: FontWeight.bold,
           color: Colors.black,
         );
@@ -91,7 +91,7 @@ class _TestsState extends State<Tests> {
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: Text(
             'Tests',
-            style: Theme.of(context).textTheme.title,
+            style: Theme.of(context).textTheme.headline6,
             textAlign: TextAlign.center,
           ),
         ),
