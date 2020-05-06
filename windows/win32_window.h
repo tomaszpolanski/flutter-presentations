@@ -1,7 +1,3 @@
-// Copyright 2013 The Flutter Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 #ifndef WIN32_WINDOW_H_
 #define WIN32_WINDOW_H_
 
@@ -31,7 +27,7 @@ class Win32Window {
   };
 
   Win32Window();
-  ~Win32Window();
+  virtual ~Win32Window();
 
   // Creates and shows a win32 window with |title| and position and size using
   // |origin| and |size|. New windows are created on the default monitor. Window
@@ -42,21 +38,14 @@ class Win32Window {
   bool CreateAndShow(const std::wstring &title, const Point &origin,
                      const Size &size);
 
-  // Same as create and show but in full screen
-  bool CreateAndShowFullScreen(const std::wstring& title);
-
   // Release OS resources asociated with window.
   void Destroy();
 
   // Inserts |content| into the window tree.
   void SetChildContent(HWND content);
 
-  // Process window messages until the user closes the Window. |callback| will
-  // be called on each loop iteration.
-  void RunMessageLoop(std::function<void()> callback);
-
   // Returns the backing Window handle to enable clients to set icon and other
-  // window properties.
+  // window properties. Returns nullptr if the window has been destroyed.
   HWND GetHandle();
 
  protected:
