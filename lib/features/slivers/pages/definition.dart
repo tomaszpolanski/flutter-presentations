@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Definition extends StatelessWidget {
+  const Definition({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Center(

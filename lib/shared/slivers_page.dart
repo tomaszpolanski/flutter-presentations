@@ -14,7 +14,6 @@ class SliverPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      scrollDirection: Axis.vertical,
       controller: controller,
       slivers: [
         SliverAppBar(

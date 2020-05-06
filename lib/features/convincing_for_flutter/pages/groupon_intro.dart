@@ -21,7 +21,7 @@ class PuppyPage extends StatelessWidget {
               Expanded(
                 child: ParallaxWidget(
                   child: Text(
-                    'It\'s Good to be Small',
+                    "It's Good to be Small",
                     style: GTheme.big,
                     textAlign: TextAlign.right,
                   ),

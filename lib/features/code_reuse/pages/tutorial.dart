@@ -178,7 +178,6 @@ class _TutorialResultState extends State<TutorialResult>
           children: <Widget>[
             Expanded(
               child: Align(
-                alignment: Alignment.center,
                 child: AnimatedOpacity(
                   opacity: _showImage ? 1 : 0,
                   duration: const Duration(milliseconds: 100),

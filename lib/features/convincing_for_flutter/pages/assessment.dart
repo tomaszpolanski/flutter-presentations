@@ -322,7 +322,6 @@ class GrouponPlus extends StatelessWidget {
             child: ParallaxWidget(child: Image.asset('assets/image21.png')),
           ),
           const Expanded(
-            flex: 1,
             child: SizedBox(),
           ),
           Expanded(
@@ -336,6 +335,7 @@ class GrouponPlus extends StatelessWidget {
 }
 
 class AppiumPage extends StatelessWidget {
+  const AppiumPage({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ParallaxWidget(child: Image.asset('assets/image37.png'));

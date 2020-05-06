@@ -13,6 +13,8 @@ import 'package:flutter_presentations/features/slivers/pages/what_is_sliver.dart
 import 'package:presentation/presentation.dart';
 
 class Slivers extends StatefulWidget {
+  const Slivers({Key key}) : super(key: key);
+
   static const String title = 'Slivers!';
   static const String subtitle = '(not Silvers)';
 
@@ -54,17 +56,17 @@ class SliversState extends State<Slivers> {
         body: PageView(
           controller: controller,
           children: [
-            TitlePage(),
+            const TitlePage(),
             LoadsOfCode(controller: presentationController),
-            Definition(),
-            WhatIsSliver(),
+            const Definition(),
+            const WhatIsSliver(),
             SimpleDemo(controller: presentationController),
             SliverTypesPage(controller: presentationController),
             ImplementingHeader(controller: presentationController),
             CheatSheet(controller: presentationController),
-            CustomMultiChildLayoutExample(),
+            const CustomMultiChildLayoutExample(),
             const DemoTime(),
-            Thanks(),
+            const Thanks(),
           ],
         ),
       ),

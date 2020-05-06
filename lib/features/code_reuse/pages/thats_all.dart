@@ -39,6 +39,7 @@ class GradientContainer extends StatelessWidget {
 }
 
 class ThatsAll extends StatefulWidget {
+  const ThatsAll({Key key}) : super(key: key);
   @override
   _ThatsAllState createState() => _ThatsAllState();
 }
