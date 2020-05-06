@@ -30,7 +30,7 @@ class Imitation extends StatelessWidget {
                   text: TextSpan(
                     style: Theme.of(context)
                         .textTheme
-                        .title
+                        .headline6
                         .copyWith(color: Colors.black),
                     children: const [
                       TextSpan(

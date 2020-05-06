@@ -15,7 +15,7 @@ class Definition extends StatelessWidget {
               'something cut or split off a larger piece”',
               style: Theme.of(context)
                   .textTheme
-                  .display1
+                  .headline4
                   .copyWith(fontStyle: FontStyle.italic),
             ),
             Padding(

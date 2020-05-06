@@ -62,7 +62,7 @@ class _ComposableState extends State<Composable>
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle.merge(
-      style: Theme.of(context).textTheme.body1,
+      style: Theme.of(context).textTheme.bodyText2,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

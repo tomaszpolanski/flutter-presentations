@@ -23,7 +23,7 @@ class SliverPage extends StatelessWidget {
           backgroundColor: Colors.white,
           centerTitle: true,
           title: DefaultTextStyle(
-            style: Theme.of(context).textTheme.display1.copyWith(
+            style: Theme.of(context).textTheme.headline4.copyWith(
                 color: const Color(0xFF6AA84F), fontWeight: FontWeight.bold),
             child: title,
           ),

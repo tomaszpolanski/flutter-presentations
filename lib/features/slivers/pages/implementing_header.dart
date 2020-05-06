@@ -78,7 +78,7 @@ class ImplementingHeaderState extends State<ImplementingHeader> {
                   color: Colors.lightBlue[100 * (index % 9)],
                   child: Text(
                     'list item $index',
-                    style: Theme.of(context).textTheme.title,
+                    style: Theme.of(context).textTheme.headline6,
                   ),
                 );
               },

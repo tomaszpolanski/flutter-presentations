@@ -99,7 +99,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
               textAlign: TextAlign.center,
               style: Theme.of(context)
                   .textTheme
-                  .title
+                  .headline6
                   .copyWith(color: Colors.black),
             ),
           ),
@@ -123,7 +123,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
               'Most Used',
               style: Theme.of(context)
                   .textTheme
-                  .headline
+                  .headline5
                   .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
             ),
           ),
@@ -150,7 +150,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
               'And the Rest',
               style: Theme.of(context)
                   .textTheme
-                  .headline
+                  .headline5
                   .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
             ),
           ),

@@ -16,7 +16,7 @@ class DemoTime extends StatelessWidget {
         child: Center(
           child: Text(
             'Demo Time!',
-            style: Theme.of(context).textTheme.display2.copyWith(
+            style: Theme.of(context).textTheme.headline3.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),

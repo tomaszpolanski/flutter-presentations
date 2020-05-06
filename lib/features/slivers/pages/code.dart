@@ -85,7 +85,7 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
           child: DefaultTextStyle(
             style: Theme.of(context)
                 .textTheme
-                .display2
+                .headline3
                 .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
