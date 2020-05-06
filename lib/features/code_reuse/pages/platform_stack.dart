@@ -210,7 +210,7 @@ class _Layer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        for (final child in children) Expanded(flex: 1, child: child),
+        for (final child in children) Expanded(child: child),
       ],
     );
   }

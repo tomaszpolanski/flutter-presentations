@@ -5,6 +5,7 @@ import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 
 class Intro extends StatelessWidget {
+  const Intro({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Stack(

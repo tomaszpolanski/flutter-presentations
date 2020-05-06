@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
 
 class WhatIsSliver extends StatelessWidget {
+  const WhatIsSliver({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return PresentationPage(
@@ -9,7 +10,6 @@ class WhatIsSliver extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Flexible(
-            flex: 1,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               child: Column(
@@ -21,7 +21,6 @@ class WhatIsSliver extends StatelessWidget {
             ),
           ),
           Flexible(
-            flex: 1,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               child: Column(

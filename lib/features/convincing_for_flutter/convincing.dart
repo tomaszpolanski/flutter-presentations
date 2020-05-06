@@ -10,6 +10,7 @@ import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
 
 class Convincing extends StatefulWidget {
+  const Convincing({Key key}) : super(key: key);
   static const String title = 'Convincing your company to Flutter';
   static const String subtitle = '(Groupon)';
 
@@ -81,7 +82,7 @@ class ConvincingState extends State<Convincing> {
             const DevDesignPage(),
             const GrouponPlus(),
             const ImagePage('assets/image38.jpg'),
-            AppiumPage(),
+            const AppiumPage(),
             const IntegrationTestPage(),
             const WidgetTestPage(),
             const ManagersPage(),

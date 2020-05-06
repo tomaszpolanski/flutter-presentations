@@ -46,7 +46,7 @@ class _CodingState extends State<Coding> {
               controller: controller,
               presentationController: presentationController,
               children: [
-                EditorTest(),
+                const EditorTest(),
                 QrCode(
                   child: AnimatedColor(
                     begin: Colors.red,

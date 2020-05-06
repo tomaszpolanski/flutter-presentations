@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
 
 class CustomMultiChildLayoutExample extends StatelessWidget {
+  const CustomMultiChildLayoutExample({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return PresentationPage(

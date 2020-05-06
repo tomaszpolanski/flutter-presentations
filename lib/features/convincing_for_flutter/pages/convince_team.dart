@@ -28,7 +28,6 @@ class UmphPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ImagePage(
       'assets/image39.jpg',
-      alignment: AlignmentDirectional.topCenter,
       child: Text(
         'Umph',
         style: TextStyle(color: Colors.white),

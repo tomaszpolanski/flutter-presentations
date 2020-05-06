@@ -52,20 +52,20 @@ class _TestingState extends State<Testing> {
                 SpeedComparison(
                   presentationController,
                   driverTest:
-                      'cd C:\\Users\\tpolanski\\Documents\\GitHub\\flutter-presentations'
-                      ' && dart lib\\test_driver\\test_runner.dart -f test_driver\\main_test.dart',
+                      r'cd C:\Users\tpolanski\Documents\GitHub\flutter-presentations '
+                      r'&& dart lib\test_driver\test_runner.dart -f test_driver\main_test.dart',
                   unitTest:
-                      'cd C:\\Users\\tpolanski\\Documents\\GitHub\\flutter-presentations'
-                      ' && flutter test test\\main_test.dart',
+                      r'cd C:\Users\tpolanski\Documents\GitHub\flutter-presentations '
+                      r'&& flutter test test\main_test.dart',
                 ),
                 SpeedComparison(
                   presentationController,
                   driverTest:
-                      'cd c:\\Users\\tpolanski\\Documents\\GitHub\\flutter-desktop-embedding\\mobile-flutter-merchant'
-                      ' && dart lib\\test_driver\\runner.dart -f test_driver\\inbox_test.dart',
+                      r'cd c:\Users\tpolanski\Documents\GitHub\flutter-desktop-embedding\mobile-flutter-merchant '
+                      r'&& dart lib\test_driver\runner.dart -f test_driver\inbox_test.dart',
                   unitTest:
-                      'cd c:\\Users\\tpolanski\\Documents\\GitHub\\flutter-desktop-embedding\\mobile-flutter-merchant'
-                      ' && flutter test test\\features\\case_management\\inbox_integration_test.dart',
+                      r'cd c:\Users\tpolanski\Documents\GitHub\flutter-desktop-embedding\mobile-flutter-merchant '
+                      r'&& flutter test test\features\case_management\inbox_integration_test.dart',
                 ),
               ],
             ),

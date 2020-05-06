@@ -4,6 +4,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/shared/gro
 import 'package:presentation/effects.dart';
 
 class Imitation extends StatelessWidget {
+  const Imitation({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(

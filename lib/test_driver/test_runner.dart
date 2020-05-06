@@ -128,7 +128,7 @@ Future<void> test({
   final StreamController<List<int>> output = StreamController();
   final PublishSubject<String> input = PublishSubject();
   output.stream.transform(utf8.decoder).listen((data) async {
-    final match = RegExp(r'is available at: (http://.*/)').firstMatch(data);
+    final match = RegExp('is available at: (http://.*/)').firstMatch(data);
     if (match != null) {
       completer.complete(match.group(1));
     }

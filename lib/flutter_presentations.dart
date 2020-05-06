@@ -37,13 +37,13 @@ class _PresentationList extends StatelessWidget {
             title: const Text(Slivers.title),
             subtitle: const Text(Slivers.subtitle),
             onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute<void>(builder: (_) => Slivers())),
+                .push(MaterialPageRoute<void>(builder: (_) => const Slivers())),
           ),
           ListTile(
             title: const Text(Convincing.title),
             subtitle: const Text(Convincing.subtitle),
-            onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute<void>(builder: (_) => Convincing())),
+            onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(builder: (_) => const Convincing())),
           ),
           ListTile(
             title: const Text(CodeReuse.title),

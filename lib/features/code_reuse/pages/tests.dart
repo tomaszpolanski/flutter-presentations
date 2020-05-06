@@ -100,9 +100,9 @@ class _TestsState extends State<Tests> {
             child: Table(
               columnWidths: const {
                 0: FlexColumnWidth(2),
-                1: FlexColumnWidth(1),
-                2: FlexColumnWidth(1),
-                3: FlexColumnWidth(1),
+                1: FlexColumnWidth(),
+                2: FlexColumnWidth(),
+                3: FlexColumnWidth(),
               },
               children: [
                 TableRow(

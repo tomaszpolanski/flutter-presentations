@@ -3,6 +3,7 @@ import 'package:flutter_presentations/features/coding/coding.dart';
 import 'package:presentation/presentation.dart';
 
 class EditorTest extends StatefulWidget {
+  const EditorTest({Key key}) : super(key: key);
   @override
   _EditorTestState createState() => _EditorTestState();
 }
@@ -76,7 +77,7 @@ class QrCode extends StatelessWidget {
 }
 ''';
 
-const test2 = '''
+const test2 = r'''
 import 'package:animation_cheat_page/shared/material_import.dart';
 import 'package:flutter_presentations/features/coding/pages/split.dart';
 import 'package:flutter_presentations/shared/colors.dart';
@@ -131,7 +132,7 @@ class _EditorState extends State<Editor> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    final lines = widget.data.split('\\r\\n');
+    final lines = widget.data.split('\r\n');
     return Container(
       color: EditorColor.background.lerp(_controller.value),
       child: Scrollbar(
