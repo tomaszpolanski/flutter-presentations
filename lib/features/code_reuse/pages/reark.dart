@@ -71,10 +71,10 @@ class _RearkState extends State<Reark> with SingleTickerProviderStateMixin {
           );
         },
         animation: animation,
-        child: Align(
+        child: const Align(
           alignment: Alignment.centerLeft,
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.all(20),
             child: Text(
               'Reark',
               style: TextStyle(color: GTheme.flutter3),

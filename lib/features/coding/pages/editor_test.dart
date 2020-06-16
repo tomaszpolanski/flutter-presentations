@@ -25,11 +25,11 @@ class _EditorTestState extends State<EditorTest> {
         test,
         brightness: _brightness,
         padding: const EdgeInsets.only(left: 60),
-        children: [
+        children: const [
           AnimatedColor(
             begin: Colors.red,
             end: Colors.yellowAccent,
-            child: const SizedBox(
+            child: SizedBox(
               height: 20,
               width: 20,
             ),

@@ -28,8 +28,9 @@ class WhatIsSliver extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                        color: Colors.purple,
-                        border: Border.all(color: Colors.black)),
+                      color: Colors.purple,
+                      border: Border.all(),
+                    ),
                     child: Column(
                       children: const [
                         SingleList(sizeFactor: 0.5),
@@ -63,7 +64,9 @@ class SingleList extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-          color: Colors.green, border: Border.all(color: Colors.black)),
+        color: Colors.green,
+        border: Border.all(),
+      ),
       child: Column(
         children: List.generate(
           count,

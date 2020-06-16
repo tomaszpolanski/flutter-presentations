@@ -64,10 +64,10 @@ class DevelopersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ImagePage(
+    return const ImagePage(
       'assets/image41.jpg',
       alignment: AlignmentDirectional.centerStart,
-      child: const Text(
+      child: Text(
         'Developers',
         style: TextStyle(color: Colors.white),
       ),
@@ -107,10 +107,10 @@ class ManagersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ImagePage(
+    return const ImagePage(
       'assets/image40.jpg',
       alignment: AlignmentDirectional.topEnd,
-      child: const Text(
+      child: Text(
         'Managers',
         style: TextStyle(color: Colors.white),
       ),

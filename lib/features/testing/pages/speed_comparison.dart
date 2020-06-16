@@ -149,7 +149,6 @@ class _SpeedComparisonState extends State<SpeedComparison>
     return Stack(
       children: <Widget>[
         Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Expanded(
               child: Row(
@@ -161,7 +160,6 @@ class _SpeedComparisonState extends State<SpeedComparison>
                         const Text('Driver Tests'),
                         Expanded(
                           child: SingleChildScrollView(
-                            scrollDirection: Axis.vertical,
                             reverse: true,
                             child: TextField(
                               enabled: false,

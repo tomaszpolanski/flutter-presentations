@@ -85,7 +85,7 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle.merge(
-      style: TextStyle(
+      style: const TextStyle(
         color: Colors.white,
         fontFamily: 'Floks',
         fontWeight: FontWeight.w400,
