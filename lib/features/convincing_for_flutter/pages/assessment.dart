@@ -11,10 +11,10 @@ class SurveyPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ImagePage(
+    return const ImagePage(
       'assets/image19.png',
       alignment: AlignmentDirectional.bottomStart,
-      child: const Text(
+      child: Text(
         'Survey',
         style: TextStyle(color: Colors.black),
       ),
@@ -366,7 +366,6 @@ class IntegrationTestPage extends StatelessWidget {
           child: Container(
             height: 200,
             child: Row(
-              mainAxisSize: MainAxisSize.max,
               children: [
                 Expanded(child: Image.asset('assets/image28.png')),
                 Expanded(child: Image.asset('assets/image26.png')),
@@ -436,7 +435,6 @@ class FlutterDartPage extends StatelessWidget {
           child: Container(
             height: 200,
             child: Row(
-              mainAxisSize: MainAxisSize.max,
               children: [
                 Expanded(child: Image.asset('assets/image4.png')),
                 Expanded(child: Image.asset('assets/image25.png')),

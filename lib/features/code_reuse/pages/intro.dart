@@ -12,17 +12,17 @@ class Intro extends StatelessWidget {
       fit: StackFit.expand,
       children: <Widget>[
         Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.bottomLeft,
               end: Alignment.topRight,
-              colors: const [
+              colors: [
                 Colors.white,
                 Colors.white,
                 Colors.transparent,
                 Colors.transparent,
               ],
-              stops: const [0, 0.3, 0.9, 1],
+              stops: [0, 0.3, 0.9, 1],
             ),
           ),
         ),
@@ -52,7 +52,7 @@ class Intro extends StatelessWidget {
                                 color: Colors.grey.withOpacity(0.5),
                               ),
                             ),
-                            TextSpan(
+                            const TextSpan(
                               text: '\nEffort ',
                               style: TextStyle(color: GTheme.flutter3),
                             ),

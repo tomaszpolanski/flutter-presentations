@@ -18,8 +18,6 @@ class QrCode extends StatelessWidget {
           children: [
             QrImage(
               data: 'https://github.com/tomaszpolanski/flutter-presentations',
-              version: QrVersions.auto,
-              gapless: true,
             ),
             SizedBox(
               height: c.biggest.shortestSide / 4.5,

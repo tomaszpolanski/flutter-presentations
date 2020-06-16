@@ -26,7 +26,7 @@ class _GrouponAppState extends State<GrouponApp> {
               width: 480,
               margin: const EdgeInsets.symmetric(vertical: 18),
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.black, width: 2),
+                border: Border.all(width: 2),
               ),
               child: _showSplash
                   ? GestureDetector(

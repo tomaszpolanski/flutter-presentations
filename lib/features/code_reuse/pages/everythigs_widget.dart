@@ -100,17 +100,17 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
           opacity: _showBlueprint ? 1 : 0,
           duration: const Duration(milliseconds: 500),
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.bottomLeft,
                 end: Alignment.topRight,
-                colors: const [
+                colors: [
                   Colors.white,
                   Colors.white,
                   Colors.transparent,
                   Colors.transparent,
                 ],
-                stops: const [0, 0.5, 0.9, 1],
+                stops: [0, 0.5, 0.9, 1],
               ),
             ),
           ),
@@ -137,7 +137,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
                             ),
                           );
                         },
-                        child: Text(
+                        child: const Text(
                           '✱',
                           style: TextStyle(
                             fontSize: 30,
@@ -159,7 +159,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
                     width: 480,
                     margin: const EdgeInsets.symmetric(vertical: 18),
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black, width: 2),
+                      border: Border.all(width: 2),
                     ),
                     child: Scaffold(
                       appBar: AppBar(
@@ -180,7 +180,6 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
                                   },
                                 ),
                               ),
-                        automaticallyImplyLeading: true,
                       ),
                       body: Scrollbar(
                         child: ListView.builder(

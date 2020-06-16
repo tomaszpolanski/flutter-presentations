@@ -78,7 +78,7 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
     const offset = 130.0;
     final translateAnimation = CurvedAnimation(
       parent: _controller,
-      curve: Interval(0, 0.3, curve: Curves.ease),
+      curve: const Interval(0, 0.3, curve: Curves.ease),
     );
     final bigTheme = Theme.of(context).textTheme.headline4;
     return RevealEffect(

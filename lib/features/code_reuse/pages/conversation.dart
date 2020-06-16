@@ -85,7 +85,7 @@ class _ConversationState extends State<Conversation>
             children: [
               _SlideIn(
                 animation: _controller,
-                curve: Interval(0, 0.25, curve: Curves.ease),
+                curve: const Interval(0, 0.25, curve: Curves.ease),
                 slideInDirection: TextDirection.ltr,
                 child: const _Message(
                   avatar: 'assets/norbert.jpg',
@@ -99,7 +99,7 @@ class _ConversationState extends State<Conversation>
               ),
               _SlideIn(
                 animation: _controller,
-                curve: Interval(0.25, 0.5, curve: Curves.ease),
+                curve: const Interval(0.25, 0.5, curve: Curves.ease),
                 slideInDirection: TextDirection.rtl,
                 child: const _Message(
                   avatar: 'assets/salih.jpg',
@@ -112,7 +112,7 @@ class _ConversationState extends State<Conversation>
               ),
               _SlideIn(
                 animation: _controller,
-                curve: Interval(0.5, 0.75, curve: Curves.ease),
+                curve: const Interval(0.5, 0.75, curve: Curves.ease),
                 slideInDirection: TextDirection.ltr,
                 child: _Message(
                   avatar: 'assets/rafal.jpg',
@@ -132,7 +132,7 @@ class _ConversationState extends State<Conversation>
               ),
               _SlideIn(
                 animation: _controller,
-                curve: Interval(0.75, 1, curve: Curves.ease),
+                curve: const Interval(0.75, 1, curve: Curves.ease),
                 slideInDirection: TextDirection.rtl,
                 child: const _Message(
                   avatar: 'assets/norbert.jpg',

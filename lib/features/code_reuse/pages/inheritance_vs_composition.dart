@@ -139,21 +139,21 @@ class _InheritanceState extends State<_Inheritance>
       child: _AnimatedInheritance(
         animation: CurvedAnimation(
           parent: _controller,
-          curve: Interval(0, 0.3, curve: Curves.ease),
+          curve: const Interval(0, 0.3, curve: Curves.ease),
         ),
         child: Container(
           width: size * 5,
           height: size * 4,
           decoration: BoxDecoration(
             color: Colors.red,
-            border: Border.all(color: Colors.black),
+            border: Border.all(),
           ),
           child: Align(
             alignment: Alignment.topLeft,
             child: _AnimatedInheritance(
               animation: CurvedAnimation(
                 parent: _controller,
-                curve: Interval(0.3, 0.6, curve: Curves.ease),
+                curve: const Interval(0.3, 0.6, curve: Curves.ease),
               ),
               child: Container(
                 width: size * 4,
@@ -161,14 +161,14 @@ class _InheritanceState extends State<_Inheritance>
                 margin: const EdgeInsets.all(size * 0.2),
                 decoration: BoxDecoration(
                   color: Colors.blue,
-                  border: Border.all(color: Colors.black),
+                  border: Border.all(),
                 ),
                 child: Align(
                   alignment: Alignment.topLeft,
                   child: _AnimatedInheritance(
                     animation: CurvedAnimation(
                       parent: _controller,
-                      curve: Interval(0.6, 1, curve: Curves.ease),
+                      curve: const Interval(0.6, 1, curve: Curves.ease),
                     ),
                     child: Container(
                       width: size * 3,
@@ -176,7 +176,7 @@ class _InheritanceState extends State<_Inheritance>
                       margin: const EdgeInsets.all(size * 0.2),
                       decoration: BoxDecoration(
                         color: Colors.yellow,
-                        border: Border.all(color: Colors.black),
+                        border: Border.all(),
                       ),
                     ),
                   ),
@@ -255,9 +255,9 @@ class _CompositionState extends State<_Composition>
               child: _AnimatedPosition(
                 animation: CurvedAnimation(
                   parent: _controller,
-                  curve: Interval(0.7, 1, curve: Curves.ease),
+                  curve: const Interval(0.7, 1, curve: Curves.ease),
                 ),
-                child: _CompositionItem(
+                child: const _CompositionItem(
                   width: size * 4,
                   height: size,
                   color: Colors.red,
@@ -269,9 +269,9 @@ class _CompositionState extends State<_Composition>
               child: _AnimatedPosition(
                 animation: CurvedAnimation(
                   parent: _controller,
-                  curve: Interval(0.6, 0.9, curve: Curves.ease),
+                  curve: const Interval(0.6, 0.9, curve: Curves.ease),
                 ),
-                child: _CompositionItem(
+                child: const _CompositionItem(
                   width: size,
                   height: size * 4,
                   color: Colors.blue,
@@ -284,9 +284,9 @@ class _CompositionState extends State<_Composition>
               child: _AnimatedPosition(
                 animation: CurvedAnimation(
                   parent: _controller,
-                  curve: Interval(0.5, 0.8, curve: Curves.ease),
+                  curve: const Interval(0.5, 0.8, curve: Curves.ease),
                 ),
-                child: _CompositionItem(
+                child: const _CompositionItem(
                   width: size,
                   height: size * 3,
                   color: Colors.green,
@@ -298,9 +298,9 @@ class _CompositionState extends State<_Composition>
               child: _AnimatedPosition(
                 animation: CurvedAnimation(
                   parent: _controller,
-                  curve: Interval(0.3, 0.7, curve: Curves.ease),
+                  curve: const Interval(0.3, 0.7, curve: Curves.ease),
                 ),
-                child: _CompositionItem(
+                child: const _CompositionItem(
                   width: size * 3,
                   height: size * 2,
                   color: Colors.yellow,
@@ -312,9 +312,9 @@ class _CompositionState extends State<_Composition>
               child: _AnimatedPosition(
                 animation: CurvedAnimation(
                   parent: _controller,
-                  curve: Interval(0, 0.4, curve: Curves.ease),
+                  curve: const Interval(0, 0.4, curve: Curves.ease),
                 ),
-                child: _CompositionItem(
+                child: const _CompositionItem(
                   width: size * 3,
                   height: size,
                   color: Colors.orange,
@@ -373,7 +373,7 @@ class _CompositionItem extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.black),
+        border: Border.all(),
         color: color,
       ),
     );

@@ -63,7 +63,7 @@ class ImplementingHeaderState extends State<ImplementingHeader> {
           SliverPersistentHeader(
             delegate: CustomAppBarDelegate(
               expandedHeight: 200,
-              flexibleSpace: Bar(
+              flexibleSpace: const Bar(
                 start: Colors.red,
                 end: Colors.blue,
               ),

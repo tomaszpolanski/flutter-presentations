@@ -225,8 +225,6 @@ class _PlatformsPageState extends State<PlatformsPage>
       child: Container(
         color: Colors.transparent,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
           children: <Widget>[
             Expanded(
               child: Row(

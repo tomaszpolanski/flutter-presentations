@@ -203,7 +203,7 @@ class _CursorState extends State<Cursor> with SingleTickerProviderStateMixin {
         decoration: BoxDecoration(
           color: const Color(0xFFA4F2DD),
           borderRadius: const BorderRadius.all(Radius.circular(1)),
-          border: Border.all(color: const Color(0xFF48AB7F), width: 1),
+          border: Border.all(color: const Color(0xFF48AB7F)),
           boxShadow: const [
             BoxShadow(
               color: Color(0xFF005122),

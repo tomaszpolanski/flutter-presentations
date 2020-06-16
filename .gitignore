@@ -9,7 +9,6 @@ build/
 
 .flutter-plugins
 *.iml
-*.lock
 .vscode/launch.json
 test_driver/screenshots/
 /screenshots
@@ -25,5 +24,7 @@ linux/flutter/generated_plugin_registrant.h
 windows/flutter/Generated.props
 android/gradle.properties
 macos/Flutter/GeneratedPluginRegistrant.swift
-macos/Flutter/GeneratedPluginRegistrant.swift
 .flutter-plugins-dependencies
+linux/flutter/generated_plugins.cmake
+lib/generated_plugin_registrant.dart
+dependencies/presentation/pubspec.lock
