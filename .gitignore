@@ -27,3 +27,4 @@ android/gradle.properties
 macos/Flutter/GeneratedPluginRegistrant.swift
 macos/Flutter/GeneratedPluginRegistrant.swift
 .flutter-plugins-dependencies
+linux/flutter/generated_plugins.cmake
