@@ -1,3 +1,4 @@
+set(CMAKE_INSTALL_PREFIX ${CMAKE_BINARY_DIR})
 cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
