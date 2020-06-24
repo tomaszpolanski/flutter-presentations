@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/features/big_applications/pages/widget_is_function.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/intro.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
@@ -61,15 +62,12 @@ class _BigApplicationsState extends State<BigApplications> {
         body: Stack(
           fit: StackFit.expand,
           children: [
-            const AnimatedParallaxImage(
-              asset: 'assets/blueprint_wide.jpg',
-              opacity: 0.1,
-            ),
             Presentation(
               controller: controller,
               presentationController: presentationController,
               children: [
                 const Intro(),
+                WidgetIsFunction(presentationController),
                 ...[
                   const SectionPage('Prototyping'),
                   const SummaryPage(
@@ -111,7 +109,6 @@ class _BigApplicationsState extends State<BigApplications> {
               ],
             ),
             Positioned(
-              left: 30,
               bottom: 0,
               child: AnimatedBuilder(
                 animation: controller,
