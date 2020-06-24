@@ -11,7 +11,7 @@ class SectionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: GTheme.green,
+      color: Theme.of(context).accentColor,
       padding: const EdgeInsets.all(30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,8 +81,8 @@ class ImagePage extends StatelessWidget {
 class SummaryPage extends StatelessWidget {
   const SummaryPage({
     Key key,
-    this.title,
-    this.subtitle,
+    @required this.title,
+    @required this.subtitle,
     this.background,
   }) : super(key: key);
 
@@ -93,7 +93,7 @@ class SummaryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: background,
+      color: background ?? Theme.of(context).accentColor,
       padding: const EdgeInsets.all(30),
       child: Stack(
         children: [
