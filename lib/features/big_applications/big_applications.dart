@@ -25,10 +25,7 @@ class _BigApplicationsState extends State<BigApplications> {
   @override
   void initState() {
     super.initState();
-    controller = PageController()
-      ..addListener(() {
-        setState(() {});
-      });
+    controller = PageController();
     presentationController = PresentationController(
       controller: controller,
       animationDuration: const Duration(milliseconds: 600),
@@ -116,28 +113,31 @@ class _BigApplicationsState extends State<BigApplications> {
             Positioned(
               left: 30,
               bottom: 0,
-              child: Logo(
-                visible: (controller.page * 1000).floor() % 1000 == 0,
-                child: Row(
-                  children: [
-                    Image.asset(
-                      'assets/gdg.png',
-                      height: 110,
+              child: AnimatedBuilder(
+                animation: controller,
+                builder: (_, __) {
+                  final page = controller.page ?? 0.0;
+                  return Logo(
+                    visible: (page * 1000).floor() % 1000 == 0,
+                    child: Row(
+                      children: [
+                        Image.asset('assets/gdg.png', height: 110),
+                        Text(
+                          'GDG Jeddah',
+                          style: GoogleFonts.poppins(
+                            textStyle:
+                                Theme.of(context).textTheme.headline4.copyWith(
+                                      color: (page.round() == 0
+                                              ? Colors.black
+                                              : Colors.white)
+                                          .withOpacity(0.6),
+                                    ),
+                          ),
+                        )
+                      ],
                     ),
-                    Text(
-                      'GDG Jeddah',
-                      style: GoogleFonts.poppins(
-                        textStyle:
-                            Theme.of(context).textTheme.headline4.copyWith(
-                                  color: (controller.page.round() == 0
-                                          ? Colors.black
-                                          : Colors.white)
-                                      .withOpacity(0.6),
-                                ),
-                      ),
-                    )
-                  ],
-                ),
+                  );
+                },
               ),
             )
           ],
