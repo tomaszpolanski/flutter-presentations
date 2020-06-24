@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/intro.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
+import 'package:flutter_presentations/shared/logo.dart';
 import 'package:flutter_presentations/shared/themes.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:presentation/presentation.dart';
 
 class BigApplications extends StatefulWidget {
@@ -23,7 +25,10 @@ class _BigApplicationsState extends State<BigApplications> {
   @override
   void initState() {
     super.initState();
-    controller = PageController();
+    controller = PageController()
+      ..addListener(() {
+        setState(() {});
+      });
     presentationController = PresentationController(
       controller: controller,
       animationDuration: const Duration(milliseconds: 600),
@@ -105,9 +110,36 @@ class _BigApplicationsState extends State<BigApplications> {
                 ...[
                   const SectionPage('Pride'),
                 ],
-                const ThatsAll(),
+                const ThatsAll(thanks: 'Thank you!'),
               ],
             ),
+            Positioned(
+              left: 30,
+              bottom: 0,
+              child: Logo(
+                visible: (controller.page * 1000).floor() % 1000 == 0,
+                child: Row(
+                  children: [
+                    Image.asset(
+                      'assets/gdg.png',
+                      height: 110,
+                    ),
+                    Text(
+                      'GDG Jeddah',
+                      style: GoogleFonts.poppins(
+                        textStyle:
+                            Theme.of(context).textTheme.headline4.copyWith(
+                                  color: (controller.page.round() == 0
+                                          ? Colors.black
+                                          : Colors.white)
+                                      .withOpacity(0.6),
+                                ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       ),

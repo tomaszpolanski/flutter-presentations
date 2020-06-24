@@ -84,7 +84,7 @@ class _CodeReuseState extends State<CodeReuse> {
                 Matrix(presentationController),
                 const DeclarativeUi(),
                 const Imitation(),
-                const ThatsAll(),
+                const ThatsAll(thanks: 'Multumesc!'),
               ],
             ),
           ],

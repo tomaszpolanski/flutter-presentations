@@ -15,15 +15,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.39.10"
-  animation_cheat_page:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: master
-      resolved-ref: "93499ff6e27aae33367babd961d939c3d83dde5f"
-      url: "git://github.com/tomaszpolanski/flutter-animations.git"
-    source: git
-    version: "0.0.0"
   archive:
     dependency: transitive
     description:
@@ -167,7 +158,7 @@ packages:
     source: hosted
     version: "1.2.0"
   google_fonts:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: google_fonts
       url: "https://pub.dartlang.org"
@@ -312,7 +303,7 @@ packages:
       name: path_provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.10"
+    version: "1.6.11"
   path_provider_linux:
     dependency: transitive
     description:
@@ -372,10 +363,10 @@ packages:
   presentation:
     dependency: "direct main"
     description:
-      name: presentation
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.10+2"
+      path: "../presentation"
+      relative: true
+    source: path
+    version: "0.0.10+3"
   process:
     dependency: transitive
     description:
@@ -535,20 +526,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.6"
-  universal_html:
-    dependency: transitive
-    description:
-      name: universal_html
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.2.3"
-  universal_io:
-    dependency: transitive
-    description:
-      name: universal_io
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.1"
   url_launcher:
     dependency: "direct main"
     description:
@@ -640,13 +617,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.1"
-  zone_local:
-    dependency: transitive
-    description:
-      name: zone_local
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.2"
 sdks:
   dart: ">=2.7.0 <3.0.0"
   flutter: ">=1.17.0 <2.0.0"
