@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/big_applications/pages/widget_is_function.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/everythigs_widget.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/intro.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
@@ -67,43 +68,51 @@ class _BigApplicationsState extends State<BigApplications> {
               presentationController: presentationController,
               children: [
                 const Intro(),
-                WidgetIsFunction(presentationController),
                 ...[
                   const SectionPage('Prototyping'),
                   const SummaryPage(
-                    title: 'Prototyping',
-                    subtitle: 'iOS/Android',
+                    title: 'iOS/Android',
+                    subtitle: 'Prototyping',
                   ),
                   ...[
                     const SummaryPage(
-                      title: 'Prototyping',
-                      subtitle: 'Flutter',
+                      title: 'Flutter',
+                      subtitle: 'Prototyping',
                     ),
                   ],
                 ],
                 ...[
-                  const SectionPage('Scalable'),
+                  const SectionPage('Scalable?'),
                   ...[
+                    const SectionPage('Architecture'),
                     const SummaryPage(
-                      title: 'Scalable',
+                      title: 'Which To Pick?',
                       subtitle: 'Architecture',
                     ),
                   ],
                   ...[
+                    const SectionPage('Maintainable Code'),
+                    WidgetIsFunction(presentationController),
+                    EverythingsWidget(presentationController),
                     const SummaryPage(
-                      title: 'Scalable',
-                      subtitle: 'Testing',
+                      title: 'Pride',
+                      subtitle: 'Maintainable Code',
                     ),
                   ],
                   ...[
-                    const SummaryPage(
-                      title: 'Scalable',
-                      subtitle: 'Framework',
-                    ),
+                    const SectionPage('Testing'),
                   ],
                 ],
                 ...[
-                  const SectionPage('Pride'),
+                  const SectionPage('🐘 in the Room'),
+                  const SummaryPage(
+                    title: 'Simpler',
+                    subtitle: 'All at Once',
+                  ),
+                  const SummaryPage(
+                    title: 'Harder',
+                    subtitle: 'Piece by Piece',
+                  ),
                 ],
                 const ThatsAll(thanks: 'Thank you!'),
               ],
