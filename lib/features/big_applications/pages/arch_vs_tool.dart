@@ -3,8 +3,8 @@ import 'package:presentation/presentation.dart';
 
 import 'file:///C:/Users/tpolanski/Documents/GitHub/flutter-presentations/lib/shared/stacked_page.dart';
 
-class TheApp extends StatelessWidget {
-  const TheApp(
+class Tools extends StatelessWidget {
+  const Tools(
     this.controller, {
     Key key,
   }) : super(key: key);
@@ -17,10 +17,11 @@ class TheApp extends StatelessWidget {
       child: StackedPage(
         controller: controller,
         children: const [
-          Text('🧑👧 500,000+'),
-          Text('📃 91'),
-          Text('✅ 4800'),
-          Text('✅📱 257'),
+          Text('🗡️ Dagger'),
+          Text('🖧 Okhttp '),
+          Text('🏠 Room'),
+          Text('🚀 Jetpack'),
+          Text('... tools.'),
         ],
       ),
     );
