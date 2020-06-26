@@ -66,99 +66,118 @@ class _BigApplicationsState extends State<BigApplications> {
                 ],
               )
             : null,
-        body: Stack(
-          fit: StackFit.expand,
-          children: [
-            Presentation(
-              controller: controller,
-              presentationController: presentationController,
-              children: [
-                const Intro(),
-                TheApp(presentationController),
+        body: Builder(
+          builder: (_) {
+            final children = [
+              const Intro(),
+              TheApp(presentationController),
+              ...[
+                const SectionPage('Prototyping'),
+                const SummaryPage(
+                  title: 'iOS/Android',
+                  subtitle: 'Prototyping',
+                ),
                 ...[
-                  const SectionPage('Prototyping'),
                   const SummaryPage(
-                    title: 'iOS/Android',
+                    title: 'Flutter',
                     subtitle: 'Prototyping',
                   ),
-                  ...[
-                    const SummaryPage(
-                      title: 'Flutter',
-                      subtitle: 'Prototyping',
-                    ),
-                  ],
                 ],
-                ...[
-                  const SectionPage('Scalable?'),
-                  ...[
-                    const SectionPage('Architecture'),
-                    Tools(presentationController),
-                    const SummaryPage(
-                      title: 'Which To Pick?',
-                      subtitle: 'Architecture',
-                    ),
-                    Architectures(presentationController),
-                  ],
-                  ...[
-                    const SectionPage('Maintainable Code'),
-                    WidgetIsFunction(presentationController),
-                    EverythingsWidget(presentationController),
-                    const SummaryPage(
-                      title: 'Pride',
-                      subtitle: 'Maintainable Code',
-                    ),
-                  ],
-                  ...[
-                    const SectionPage('Testing'),
-                    Tests(presentationController),
-                  ],
-                ],
-                ...[
-                  const SummaryPage(
-                    title: 'Simpler',
-                    subtitle: 'All at Once',
-                  ),
-                  const SummaryPage(
-                    title: 'Harder',
-                    subtitle: 'Piece by Piece',
-                  ),
-                ],
-                ...[
-                  const SectionPage('🐘 Issues'), // explosion emoji
-
-                  const DartIssues(),
-                  const Crashes(),
-                ],
-                const ThatsAll(thanks: 'Thank you!'),
               ],
-            ),
-            Positioned(
-              bottom: 0,
-              child: AnimatedBuilder(
-                animation: controller,
-                builder: (_, __) {
-                  final page = controller.page ?? 0.0;
-                  return Logo(
-                    visible: (page * 1000).floor() % 1000 == 0,
-                    child: Row(
-                      children: [
-                        Image.asset('assets/gdg.png', height: 110),
-                        Text(
-                          'GDG Jeddah',
-                          style: GoogleFonts.poppins(
-                            textStyle:
-                                Theme.of(context).textTheme.headline4.copyWith(
-                                      color: Colors.black.withOpacity(0.6),
+              ...[
+                const SectionPage('Scalable?'),
+                ...[
+                  const SectionPage('Architecture'),
+                  Tools(presentationController),
+                  const SummaryPage(
+                    title: 'Which To Pick?',
+                    subtitle: 'Architecture',
+                  ),
+                  Architectures(presentationController),
+                  const SummaryPage(
+                    title: 'Provider?',
+                    subtitle: 'InheritedWidget on Steroids',
+                  ),
+                ],
+                ...[
+                  const SectionPage('Maintainable Code'),
+                  WidgetIsFunction(presentationController),
+                  EverythingsWidget(presentationController),
+                  const SummaryPage(
+                    title: 'Pride',
+                    subtitle: 'Maintainable Code',
+                  ),
+                ],
+                ...[
+                  const SectionPage('Testing'),
+                  Tests(presentationController),
+                ],
+              ],
+              ...[
+                const SummaryPage(
+                  title: 'Simpler',
+                  subtitle: 'All at Once',
+                ),
+                const SummaryPage(
+                  title: 'Harder',
+                  subtitle: 'Piece by Piece',
+                ),
+              ],
+              ...[
+                const SectionPage('💥 Issues 💥'), // explosion emoji
+
+                const DartIssues(),
+                const Crashes(),
+                const SummaryPage(
+                  title: '😃 89 images',
+                  subtitle: '😬 90 images',
+                ),
+              ],
+              const ThatsAll(thanks: 'Thank you!'),
+            ];
+            return Stack(
+              fit: StackFit.expand,
+              children: [
+                Presentation(
+                  controller: controller,
+                  presentationController: presentationController,
+                  children: children,
+                ),
+                Positioned(
+                  bottom: 0,
+                  child: AnimatedBuilder(
+                    animation: controller,
+                    builder: (_, __) {
+                      final page = controller.page ?? 0.0;
+                      return Logo(
+                        visible: (page * 1000).floor() % 1000 == 0,
+                        child: Row(
+                          children: [
+                            Image.asset('assets/gdg.png', height: 110),
+                            Text(
+                              'GDG Jeddah',
+                              style: GoogleFonts.poppins(
+                                textStyle: Theme.of(context)
+                                    .textTheme
+                                    .headline4
+                                    .copyWith(
+                                      color:
+                                          (page.round() == children.length - 1
+                                                  ? Colors.white
+                                                  : Colors.black)
+                                              .withOpacity(0.6),
                                     ),
-                          ),
-                        )
-                      ],
-                    ),
-                  );
-                },
-              ),
-            )
-          ],
+                              ),
+                            )
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                )
+              ],
+            );
+          },
         ),
       ),
     );
