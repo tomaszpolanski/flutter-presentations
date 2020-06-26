@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/features/big_applications/pages/crashes.dart';
 import 'package:flutter_presentations/features/big_applications/pages/dart_issues.dart';
 import 'package:flutter_presentations/features/big_applications/pages/the_app.dart';
 import 'package:flutter_presentations/features/big_applications/pages/widget_is_function.dart';
@@ -122,6 +123,7 @@ class _BigApplicationsState extends State<BigApplications> {
                   const SectionPage('🐘 Issues'), // explosion emoji
 
                   const DartIssues(),
+                  const Crashes(),
                 ],
                 const ThatsAll(thanks: 'Thank you!'),
               ],

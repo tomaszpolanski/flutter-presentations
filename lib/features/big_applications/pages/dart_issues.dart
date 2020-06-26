@@ -9,6 +9,7 @@ class DartIssues extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Editor(
       '$_invalid\n\n\n\n$_valid',
+      brightness: Brightness.light,
       padding: EdgeInsets.symmetric(vertical: 140, horizontal: 50),
     );
   }
