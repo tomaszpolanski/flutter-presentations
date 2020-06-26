@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/big_applications/pages/arch_vs_tool.dart';
+import 'package:flutter_presentations/features/big_applications/pages/architectures.dart';
 import 'package:flutter_presentations/features/big_applications/pages/crashes.dart';
 import 'package:flutter_presentations/features/big_applications/pages/dart_issues.dart';
 import 'package:flutter_presentations/features/big_applications/pages/the_app.dart';
@@ -96,6 +97,7 @@ class _BigApplicationsState extends State<BigApplications> {
                       title: 'Which To Pick?',
                       subtitle: 'Architecture',
                     ),
+                    Architectures(presentationController),
                   ],
                   ...[
                     const SectionPage('Maintainable Code'),
