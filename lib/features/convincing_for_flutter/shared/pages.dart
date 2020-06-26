@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:presentation/effects.dart';
 
 class SectionPage extends StatelessWidget {
@@ -23,7 +22,7 @@ class SectionPage extends StatelessWidget {
               child: ParallaxWidget(
                 translationFactor: 150,
                 child: Container(
-                  color: Colors.white,
+                  color: Theme.of(context).textTheme.headline6.color,
                   height: 8,
                   width: 100,
                 ),
@@ -34,7 +33,7 @@ class SectionPage extends StatelessWidget {
             flex: 7,
             child: Text(
               text,
-              style: GTheme.big.copyWith(color: Colors.white),
+              style: Theme.of(context).textTheme.headline6,
             ),
           ),
         ],
@@ -107,7 +106,7 @@ class SummaryPage extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.bottomLeft,
                     child: Container(
-                      color: Colors.white,
+                      color: Theme.of(context).textTheme.headline6.color,
                       height: 8,
                       width: 100,
                     ),
@@ -118,7 +117,7 @@ class SummaryPage extends StatelessWidget {
                 flex: 7,
                 child: Text(
                   title,
-                  style: GTheme.big.copyWith(color: Colors.white),
+                  style: Theme.of(context).textTheme.headline6,
                 ),
               ),
             ],
@@ -128,7 +127,7 @@ class SummaryPage extends StatelessWidget {
             child: Text(
               subtitle,
               textAlign: TextAlign.end,
-              style: GTheme.big.copyWith(color: Colors.white),
+              style: Theme.of(context).textTheme.headline6,
             ),
           )
         ],

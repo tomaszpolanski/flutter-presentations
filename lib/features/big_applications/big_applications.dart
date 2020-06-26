@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/features/big_applications/pages/the_app.dart';
 import 'package:flutter_presentations/features/big_applications/pages/widget_is_function.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/everythigs_widget.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/intro.dart';
@@ -44,7 +45,7 @@ class _BigApplicationsState extends State<BigApplications> {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: blueLight(),
+      data: blueDark(),
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: _showAppBar
@@ -68,6 +69,7 @@ class _BigApplicationsState extends State<BigApplications> {
               presentationController: presentationController,
               children: [
                 const Intro(),
+                TheApp(presentationController),
                 ...[
                   const SectionPage('Prototyping'),
                   const SummaryPage(
@@ -133,10 +135,7 @@ class _BigApplicationsState extends State<BigApplications> {
                           style: GoogleFonts.poppins(
                             textStyle:
                                 Theme.of(context).textTheme.headline4.copyWith(
-                                      color: (page.round() == 0
-                                              ? Colors.black
-                                              : Colors.white)
-                                          .withOpacity(0.6),
+                                      color: Colors.black.withOpacity(0.6),
                                     ),
                           ),
                         )
