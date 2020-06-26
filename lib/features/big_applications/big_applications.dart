@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/features/big_applications/pages/dart_issues.dart';
 import 'package:flutter_presentations/features/big_applications/pages/the_app.dart';
 import 'package:flutter_presentations/features/big_applications/pages/widget_is_function.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/everythigs_widget.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/intro.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/tests.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
 import 'package:flutter_presentations/shared/logo.dart';
@@ -103,10 +105,10 @@ class _BigApplicationsState extends State<BigApplications> {
                   ],
                   ...[
                     const SectionPage('Testing'),
+                    Tests(presentationController),
                   ],
                 ],
                 ...[
-                  const SectionPage('🐘 in the Room'),
                   const SummaryPage(
                     title: 'Simpler',
                     subtitle: 'All at Once',
@@ -115,6 +117,11 @@ class _BigApplicationsState extends State<BigApplications> {
                     title: 'Harder',
                     subtitle: 'Piece by Piece',
                   ),
+                ],
+                ...[
+                  const SectionPage('🐘 Issues'), // explosion emoji
+
+                  const DartIssues(),
                 ],
                 const ThatsAll(thanks: 'Thank you!'),
               ],

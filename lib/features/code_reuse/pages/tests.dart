@@ -85,95 +85,81 @@ class _TestsState extends State<Tests> {
     final medium = good.copyWith(color: Colors.orange);
     final bad = good.copyWith(color: Colors.red);
 
-    return Column(
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          child: Text(
-            'Tests',
-            style: Theme.of(context).textTheme.headline6,
-            textAlign: TextAlign.center,
+    return Center(
+      child: Table(
+        columnWidths: const {
+          0: FlexColumnWidth(4),
+          1: FlexColumnWidth(2),
+          2: FlexColumnWidth(3),
+          3: FlexColumnWidth(3),
+        },
+        children: [
+          TableRow(
+            children: [
+              const SizedBox(),
+              Text('Unit', style: description),
+              Text('Widget', style: description),
+              Text('Integration', style: description),
+            ]
+                .map((widget) => Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 30),
+                      child: widget,
+                    ))
+                .toList(),
           ),
-        ),
-        Expanded(
-          child: Center(
-            child: Table(
-              columnWidths: const {
-                0: FlexColumnWidth(2),
-                1: FlexColumnWidth(),
-                2: FlexColumnWidth(),
-                3: FlexColumnWidth(),
-              },
-              children: [
-                TableRow(
-                  children: [
-                    const SizedBox(),
-                    Text('Unit', style: description),
-                    Text('Widget', style: description),
-                    Text('Integration', style: description),
-                  ]
-                      .map((widget) => Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 30),
-                            child: widget,
-                          ))
-                      .toList(),
-                ),
-                TableRow(
-                  key: const Key('confidence'),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.2),
-                  ),
-                  children: [
-                    Text('Confidence', style: description),
-                    Text('Low', style: bad),
-                    Text('Higher', style: medium),
-                    Text('Highest', style: good),
-                  ]
-                      .map((widget) => Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 30),
-                            child: widget,
-                          ))
-                      .toList(),
-                ),
-                TableRow(
-                  key: const Key('cost'),
-                  children: [
-                    Text('Maintenance cost', style: description),
-                    Text('Low', style: good),
-                    Text('Higher', style: medium),
-                    Text('Highest', style: bad),
-                  ]
-                      .map((widget) => Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 30),
-                            child: widget,
-                          ))
-                      .toList(),
-                ),
-                TableRow(
-                  key: const Key('speed'),
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.2),
-                  ),
-                  children: [
-                    Text('Execution speed', style: description),
-                    Text('Quick', style: good),
-                    Text('Slower', style: medium),
-                    AnimatedDefaultTextStyle(
-                        style: _style,
-                        duration: const Duration(milliseconds: 400),
-                        child: const Text('Slowest')),
-                  ]
-                      .map((widget) => Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 30),
-                            child: widget,
-                          ))
-                      .toList(),
-                ),
-              ],
+          TableRow(
+            key: const Key('confidence'),
+            decoration: BoxDecoration(
+              color: Colors.grey.withOpacity(0.2),
             ),
+            children: [
+              Text('Confidence', style: description),
+              Text('Low', style: bad),
+              Text('Higher', style: medium),
+              Text('Highest', style: good),
+            ]
+                .map((widget) => Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 30),
+                      child: widget,
+                    ))
+                .toList(),
           ),
-        ),
-      ],
+          TableRow(
+            key: const Key('cost'),
+            children: [
+              Text('Maintenance', style: description),
+              Text('Low', style: good),
+              Text('Higher', style: medium),
+              Text('Highest', style: bad),
+            ]
+                .map((widget) => Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 30),
+                      child: widget,
+                    ))
+                .toList(),
+          ),
+          TableRow(
+            key: const Key('speed'),
+            decoration: BoxDecoration(
+              color: Colors.grey.withOpacity(0.2),
+            ),
+            children: [
+              Text('Speed', style: description),
+              Text('Quick', style: good),
+              Text('Slower', style: medium),
+              AnimatedDefaultTextStyle(
+                  style: _style,
+                  duration: const Duration(milliseconds: 400),
+                  child: const Text('Slowest')),
+            ]
+                .map((widget) => Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 30),
+                      child: widget,
+                    ))
+                .toList(),
+          ),
+        ],
+      ),
     );
   }
 }

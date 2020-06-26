@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/shared/stacked_page.dart';
 import 'package:presentation/presentation.dart';
+
+import 'file:///C:/Users/tpolanski/Documents/GitHub/flutter-presentations/lib/shared/stacked_page.dart';
 
 class TheApp extends StatelessWidget {
   const TheApp(
