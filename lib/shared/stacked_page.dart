@@ -57,19 +57,22 @@ class _StackedPageState extends State<StackedPage>
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      runAlignment: WrapAlignment.center,
-      alignment: WrapAlignment.center,
-      runSpacing: 200,
-      spacing: 200,
-      crossAxisAlignment: WrapCrossAlignment.center,
-      children: widget.children.mapIndexed<Widget>((index, item) {
-        return AnimatedOpacity(
-          duration: const Duration(milliseconds: 200),
-          opacity: _visibleChildren > index ? 1 : 0,
-          child: item,
-        );
-      }).toList(),
+    return DefaultTextStyle.merge(
+      style: Theme.of(context).textTheme.headline5,
+      child: Wrap(
+        runAlignment: WrapAlignment.center,
+        alignment: WrapAlignment.center,
+        runSpacing: 200,
+        spacing: 200,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: widget.children.mapIndexed<Widget>((index, item) {
+          return AnimatedOpacity(
+            duration: const Duration(milliseconds: 200),
+            opacity: _visibleChildren > index ? 1 : 0,
+            child: item,
+          );
+        }).toList(),
+      ),
     );
   }
 }

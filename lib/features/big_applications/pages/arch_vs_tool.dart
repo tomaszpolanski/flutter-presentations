@@ -12,18 +12,15 @@ class Tools extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTextStyle.merge(
-      style: Theme.of(context).textTheme.headline5,
-      child: StackedPage(
-        controller: controller,
-        children: const [
-          Text('🗡️ Dagger'),
-          Text('🖧 Okhttp '),
-          Text('🏠 Room'),
-          Text('🚀 Jetpack'),
-          Text('... tools.'),
-        ],
-      ),
+    return StackedPage(
+      controller: controller,
+      children: const [
+        Text('🗡️ Dagger'),
+        Text('🖧 Okhttp '),
+        Text('🏠 Room'),
+        Text('🚀 Jetpack'),
+        Text('... tools.'),
+      ],
     );
   }
 }

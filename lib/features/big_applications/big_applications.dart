@@ -3,6 +3,7 @@ import 'package:flutter_presentations/features/big_applications/pages/arch_vs_to
 import 'package:flutter_presentations/features/big_applications/pages/architectures.dart';
 import 'package:flutter_presentations/features/big_applications/pages/crashes.dart';
 import 'package:flutter_presentations/features/big_applications/pages/dart_issues.dart';
+import 'package:flutter_presentations/features/big_applications/pages/flutter_is_fun.dart';
 import 'package:flutter_presentations/features/big_applications/pages/the_app.dart';
 import 'package:flutter_presentations/features/big_applications/pages/widget_is_function.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/everythigs_widget.dart';
@@ -11,6 +12,7 @@ import 'package:flutter_presentations/features/code_reuse/pages/tests.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
 import 'package:flutter_presentations/shared/logo.dart';
+import 'package:flutter_presentations/shared/stacked_page.dart';
 import 'package:flutter_presentations/shared/themes.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:presentation/presentation.dart';
@@ -104,6 +106,10 @@ class _BigApplicationsState extends State<BigApplications> {
                   WidgetIsFunction(presentationController),
                   EverythingsWidget(presentationController),
                   const SummaryPage(
+                    title: 'No Code',
+                    subtitle: 'Only 🏗️ Lego',
+                  ),
+                  const SummaryPage(
                     title: 'Pride',
                     subtitle: 'Maintainable Code',
                   ),
@@ -132,6 +138,25 @@ class _BigApplicationsState extends State<BigApplications> {
                   title: '😃 89 images',
                   subtitle: '😬 90 images',
                 ),
+                StackedPage(
+                  controller: presentationController,
+                  children: const [
+                    Text('👨🏽‍💼'),
+                    Text('👨🏽‍💼👩‍💼'),
+                    Text('👨🏽‍💼👩‍💼👨‍💼'),
+                  ],
+                ),
+              ],
+              ...[
+                const SummaryPage(
+                  title: 'Was it Worth it?',
+                  subtitle: '// Demo',
+                ),
+                const SummaryPage(
+                  title: 'Refactoring',
+                  subtitle: 'Without Fear',
+                ),
+                FlutterIsFun(presentationController),
               ],
               const ThatsAll(thanks: 'Thank you!'),
             ];

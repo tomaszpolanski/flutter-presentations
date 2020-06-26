@@ -91,6 +91,28 @@ class SummaryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return SummaryWidgetPage(
+      title: Text(title),
+      subtitle: Text(subtitle),
+      background: background,
+    );
+  }
+}
+
+class SummaryWidgetPage extends StatelessWidget {
+  const SummaryWidgetPage({
+    Key key,
+    @required this.title,
+    @required this.subtitle,
+    this.background,
+  }) : super(key: key);
+
+  final Widget title;
+  final Widget subtitle;
+  final Color background;
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       color: background ?? Theme.of(context).accentColor,
       padding: const EdgeInsets.all(30),
@@ -115,19 +137,19 @@ class SummaryPage extends StatelessWidget {
               ),
               Expanded(
                 flex: 7,
-                child: Text(
-                  title,
+                child: DefaultTextStyle.merge(
                   style: Theme.of(context).textTheme.headline6,
+                  child: title,
                 ),
               ),
             ],
           ),
           Align(
             alignment: Alignment.bottomRight,
-            child: Text(
-              subtitle,
-              textAlign: TextAlign.end,
+            child: DefaultTextStyle.merge(
               style: Theme.of(context).textTheme.headline6,
+              textAlign: TextAlign.end,
+              child: subtitle,
             ),
           )
         ],
