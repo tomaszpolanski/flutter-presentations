@@ -81,7 +81,7 @@ class _BigApplicationsState extends State<BigApplications> {
                 ),
                 ...[
                   const SummaryPage(
-                    title: 'Flutter',
+                    title: 'Flutter 🔥',
                     subtitle: 'Prototyping',
                   ),
                 ],
@@ -89,7 +89,7 @@ class _BigApplicationsState extends State<BigApplications> {
               ...[
                 const SectionPage('Scalable?'),
                 ...[
-                  const SectionPage('Architecture'),
+                  const SectionPage('Architecture 📐'),
                   Tools(presentationController),
                   const SummaryPage(
                     title: 'Which To Pick?',
@@ -170,6 +170,7 @@ class _BigApplicationsState extends State<BigApplications> {
                 ),
                 Positioned(
                   bottom: 0,
+                  left: 20,
                   child: AnimatedBuilder(
                     animation: controller,
                     builder: (_, __) {
