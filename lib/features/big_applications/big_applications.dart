@@ -116,16 +116,24 @@ class _BigApplicationsState extends State<BigApplications> {
                 ],
                 ...[
                   const SectionPage('Testing'),
+                  StackedPage(
+                    controller: presentationController,
+                    children: const [
+                      Text('🤩‍❌'),
+                      Text('🤢✅'),
+                    ],
+                  ),
                   Tests(presentationController),
                 ],
               ],
               ...[
+                const SectionPage('🐘 in the Room'), // explosion emoji
                 const SummaryPage(
-                  title: 'Simpler',
+                  title: 'Simpler Approach',
                   subtitle: 'All at Once',
                 ),
                 const SummaryPage(
-                  title: 'Harder',
+                  title: 'Complex Approach',
                   subtitle: 'Piece by Piece',
                 ),
               ],

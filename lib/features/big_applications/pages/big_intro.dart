@@ -81,7 +81,7 @@ class __FlutterProjectsState extends State<_FlutterProjects>
   void didChangeDependencies() {
     super.didChangeDependencies();
     if (AnimationMode.of(context)) {
-      _controller.repeat(reverse: true);
+      _controller.repeat();
     }
   }
 
