@@ -15,7 +15,7 @@ class Crashes extends StatelessWidget {
       child: Text(
         _crash,
         style: GoogleFonts.robotoMono(
-          textStyle: TextStyle(
+          textStyle: const TextStyle(
             color: Colors.black,
             fontSize: 20,
           ),

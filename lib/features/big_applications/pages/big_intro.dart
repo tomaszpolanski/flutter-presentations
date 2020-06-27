@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
+import 'package:presentation/presentation.dart';
 
 class BigIntro extends StatelessWidget {
   const BigIntro({Key key}) : super(key: key);
@@ -65,7 +66,7 @@ class __FlutterProjectsState extends State<_FlutterProjects>
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 5),
-    )..repeat();
+    );
     _circles = _createCircles(math.Random()).toList();
     super.initState();
   }
@@ -74,6 +75,14 @@ class __FlutterProjectsState extends State<_FlutterProjects>
   void dispose() {
     _controller.dispose();
     super.dispose();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (AnimationMode.of(context)) {
+      _controller.repeat(reverse: true);
+    }
   }
 
   @override

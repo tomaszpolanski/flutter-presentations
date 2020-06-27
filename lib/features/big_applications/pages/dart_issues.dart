@@ -14,7 +14,7 @@ class _DartIssuesState extends State<DartIssues> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
+      onLongPress: () {
         setState(() {
           _brightness = _brightness == Brightness.light
               ? Brightness.dark

@@ -36,6 +36,7 @@ dev_dependencies:
   flutter_driver:
     sdk: flutter
   test: ^1.9.4
+  fast_flutter_driver: ^1.0.0
 
 flutter:
 
