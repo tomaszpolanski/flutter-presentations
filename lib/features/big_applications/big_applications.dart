@@ -7,8 +7,8 @@ import 'package:flutter_presentations/features/big_applications/pages/dart_issue
 import 'package:flutter_presentations/features/big_applications/pages/flutter_is_fun.dart';
 import 'package:flutter_presentations/features/big_applications/pages/the_app.dart';
 import 'package:flutter_presentations/features/big_applications/pages/widget_is_function.dart';
+import 'package:flutter_presentations/features/big_applications/pages/you_can_make.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/everythigs_widget.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/intro.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/tests.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
@@ -73,6 +73,7 @@ class _BigApplicationsState extends State<BigApplications> {
           builder: (_) {
             final children = [
               const BigIntro(),
+              const YouCanMake(),
               TheApp(presentationController),
               ...[
                 const SectionPage('Prototyping'),
@@ -159,6 +160,7 @@ class _BigApplicationsState extends State<BigApplications> {
                 ),
                 FlutterIsFun(presentationController),
               ],
+              YouCanMake(controller: presentationController),
               const ThatsAll(thanks: 'Thank you!'),
             ];
             return Stack(
