@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:presentation/effects.dart';
 
 class SectionPage extends StatelessWidget {
@@ -11,7 +10,7 @@ class SectionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: GTheme.green,
+      color: Theme.of(context).accentColor,
       padding: const EdgeInsets.all(30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,7 +22,7 @@ class SectionPage extends StatelessWidget {
               child: ParallaxWidget(
                 translationFactor: 150,
                 child: Container(
-                  color: Colors.white,
+                  color: Theme.of(context).textTheme.headline6.color,
                   height: 8,
                   width: 100,
                 ),
@@ -34,7 +33,7 @@ class SectionPage extends StatelessWidget {
             flex: 7,
             child: Text(
               text,
-              style: GTheme.big.copyWith(color: Colors.white),
+              style: Theme.of(context).textTheme.headline6,
             ),
           ),
         ],
@@ -81,8 +80,8 @@ class ImagePage extends StatelessWidget {
 class SummaryPage extends StatelessWidget {
   const SummaryPage({
     Key key,
-    this.title,
-    this.subtitle,
+    @required this.title,
+    @required this.subtitle,
     this.background,
   }) : super(key: key);
 
@@ -92,8 +91,30 @@ class SummaryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return SummaryWidgetPage(
+      title: Text(title),
+      subtitle: Text(subtitle),
+      background: background,
+    );
+  }
+}
+
+class SummaryWidgetPage extends StatelessWidget {
+  const SummaryWidgetPage({
+    Key key,
+    @required this.title,
+    @required this.subtitle,
+    this.background,
+  }) : super(key: key);
+
+  final Widget title;
+  final Widget subtitle;
+  final Color background;
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
-      color: background,
+      color: background ?? Theme.of(context).accentColor,
       padding: const EdgeInsets.all(30),
       child: Stack(
         children: [
@@ -107,7 +128,7 @@ class SummaryPage extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.bottomLeft,
                     child: Container(
-                      color: Colors.white,
+                      color: Theme.of(context).textTheme.headline6.color,
                       height: 8,
                       width: 100,
                     ),
@@ -116,19 +137,19 @@ class SummaryPage extends StatelessWidget {
               ),
               Expanded(
                 flex: 7,
-                child: Text(
-                  title,
-                  style: GTheme.big.copyWith(color: Colors.white),
+                child: DefaultTextStyle.merge(
+                  style: Theme.of(context).textTheme.headline6,
+                  child: title,
                 ),
               ),
             ],
           ),
           Align(
             alignment: Alignment.bottomRight,
-            child: Text(
-              subtitle,
+            child: DefaultTextStyle.merge(
+              style: Theme.of(context).textTheme.headline6,
               textAlign: TextAlign.end,
-              style: GTheme.big.copyWith(color: Colors.white),
+              child: subtitle,
             ),
           )
         ],

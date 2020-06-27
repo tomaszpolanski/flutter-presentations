@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/features/big_applications/big_applications.dart';
 import 'package:flutter_presentations/features/code_reuse/examples/examples.dart';
 import 'package:flutter_presentations/features/code_reuse/true_code_reuse.dart';
 import 'package:flutter_presentations/features/coding/coding.dart';
@@ -33,6 +34,12 @@ class _PresentationList extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          ListTile(
+            title: const Text(BigApplications.title),
+            subtitle: const Text(BigApplications.subtitle),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(
+                builder: (_) => const BigApplications())),
+          ),
           ListTile(
             title: const Text(Slivers.title),
             subtitle: const Text(Slivers.subtitle),

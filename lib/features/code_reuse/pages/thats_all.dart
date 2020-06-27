@@ -39,7 +39,13 @@ class GradientContainer extends StatelessWidget {
 }
 
 class ThatsAll extends StatefulWidget {
-  const ThatsAll({Key key}) : super(key: key);
+  const ThatsAll({
+    Key key,
+    @required this.thanks,
+  }) : super(key: key);
+
+  final String thanks;
+
   @override
   _ThatsAllState createState() => _ThatsAllState();
 }
@@ -130,7 +136,7 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
                         : CrossFadeState.showFirst,
                     firstChild: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: _format('Multumesc!').toList(),
+                      children: _format(widget.thanks).toList(),
                     ),
                     secondChild: Row(
                       mainAxisAlignment: MainAxisAlignment.center,

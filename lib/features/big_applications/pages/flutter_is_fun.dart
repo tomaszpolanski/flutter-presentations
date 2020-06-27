@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
 import 'package:flutter_presentations/shared/revolving_widget.dart';
-import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 
-class Composable extends StatefulWidget {
-  const Composable(
+class FlutterIsFun extends StatefulWidget {
+  const FlutterIsFun(
     this.controller, {
     Key key,
   }) : super(key: key);
   final PresentationController controller;
 
   @override
-  _ComposableState createState() => _ComposableState();
+  _FlutterIsFunState createState() => _FlutterIsFunState();
 }
 
 enum _Step {
@@ -21,7 +21,7 @@ enum _Step {
   next,
 }
 
-class _ComposableState extends State<Composable>
+class _FlutterIsFunState extends State<FlutterIsFun>
     with SingleTickerProviderStateMixin {
   PageStepper<_Step> _stateController;
   RevolvingState _revolvingState = RevolvingState.showFirst;
@@ -59,24 +59,15 @@ class _ComposableState extends State<Composable>
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTextStyle.merge(
-      style: Theme.of(context).textTheme.bodyText2,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          const ParallaxWidget(child: Text('composable')),
-          const Text('+'),
-          const ParallaxWidget(child: Text('small chunks')),
-          const Text('='),
-          ParallaxWidget(
-            child: RevolvingWidget(
-              firstChild: const Text('reusable'),
-              secondChild: const Text('Flutter'),
-              state: _revolvingState,
-            ),
-          )
-        ],
+    return SummaryWidgetPage(
+      title: RevolvingWidget(
+        firstChild: const Text('Desktop'),
+        secondChild: const Text(
+          'Flutter',
+        ),
+        state: _revolvingState,
       ),
+      subtitle: const Text('Is Fun'),
     );
   }
 }
