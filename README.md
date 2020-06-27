@@ -1,4 +1,5 @@
 # Flutter Presentations
+[![](https://github.com/tomaszpolanski/flutter-presentations/workflows/Analyze/badge.svg)](https://github.com/tomaszpolanski/fast_flutter_driver/actions?query=workflow%3A%22Analyze%22)
 
 Presentations made with Flutter
 This presentation is run on desktop with use of
