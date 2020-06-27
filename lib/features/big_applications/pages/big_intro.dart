@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 
 class BigIntro extends StatelessWidget {
   const BigIntro({Key key}) : super(key: key);
@@ -9,9 +10,37 @@ class BigIntro extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: Placeholder()),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 30),
+            child: _Title(),
+          ),
+        ),
         Expanded(child: _FlutterProjects()),
       ],
+    );
+  }
+}
+
+class _Title extends StatelessWidget {
+  const _Title({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text.rich(
+      TextSpan(
+        style: Theme.of(context).textTheme.headline5,
+        children: <InlineSpan>[
+          const TextSpan(text: 'Large '),
+          WidgetSpan(
+            child: Image.asset(
+              'assets/image4.png',
+              height: 130,
+            ),
+          ),
+          const TextSpan(text: 'applications'),
+        ],
+      ),
     );
   }
 }
@@ -22,6 +51,9 @@ class _FlutterProjects extends StatefulWidget {
   @override
   __FlutterProjectsState createState() => __FlutterProjectsState();
 }
+
+const minSize = 10.0;
+const maxSize = 250.0;
 
 class __FlutterProjectsState extends State<_FlutterProjects>
     with SingleTickerProviderStateMixin {
@@ -54,7 +86,6 @@ class __FlutterProjectsState extends State<_FlutterProjects>
       },
       child: LayoutBuilder(
         builder: (context, c) {
-          print('QQQ1  $c');
           return Stack(
             fit: StackFit.expand,
             children: _circles
@@ -63,7 +94,15 @@ class __FlutterProjectsState extends State<_FlutterProjects>
                       top: c.maxHeight * i.y,
                       child: LoopTransition(
                         scale: _controller,
-                        child: _Bubble(size: i.size),
+                        radius: 400 / i.size,
+                        child: _Bubble(
+                          size: i.size,
+                          color: Color.lerp(
+                            Colors.lightBlueAccent,
+                            GTheme.flutter3,
+                            i.size / maxSize,
+                          ),
+                        ),
                       ),
                     ))
                 .toList(),
@@ -82,37 +121,27 @@ class __FlutterProjectsState extends State<_FlutterProjects>
   }
 
   Iterable<_Circle> _createCircles(math.Random random) sync* {
-    const minSize = 30;
-    const maxSize = 200;
-
-    for (int i = 0; i < 20; i++) {
-      yield _createSmallCircle(random);
+    for (int i = 0; i < 2; i++) {
+      yield _createLargeCircle(random);
     }
     for (int i = 0; i < 10; i++) {
       yield _createMediumCircle(random);
     }
-
-    for (int i = 0; i < 2; i++) {
-      yield _createLargeCircle(random);
+    for (int i = 0; i < 20; i++) {
+      yield _createSmallCircle(random);
     }
   }
 
   _Circle _createSmallCircle(math.Random random) {
-    const minSize = 30.0;
-    const maxSize = 50.0;
-    return _generateCircle(random, min: minSize, max: maxSize);
+    return _generateCircle(random, min: minSize, max: 50);
   }
 
   _Circle _createMediumCircle(math.Random random) {
-    const minSize = 50.0;
-    const maxSize = 120.0;
-    return _generateCircle(random, min: minSize, max: maxSize);
+    return _generateCircle(random, min: 50, max: 120);
   }
 
   _Circle _createLargeCircle(math.Random random) {
-    const minSize = 180.0;
-    const maxSize = 250.0;
-    return _generateCircle(random, min: minSize, max: maxSize);
+    return _generateCircle(random, min: 120, max: maxSize);
   }
 }
 
