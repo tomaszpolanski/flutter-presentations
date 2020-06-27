@@ -7,6 +7,6 @@ class AnimationSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return null; //const AnimationCheatSheet(config: Configuration());
+    return const SizedBox(); //const AnimationCheatSheet(config: Configuration());
   }
 }
