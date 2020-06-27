@@ -2,15 +2,30 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
 
-class DartIssues extends StatelessWidget {
+class DartIssues extends StatefulWidget {
   const DartIssues({Key key}) : super(key: key);
 
   @override
+  _DartIssuesState createState() => _DartIssuesState();
+}
+
+class _DartIssuesState extends State<DartIssues> {
+  Brightness _brightness = Brightness.light;
+  @override
   Widget build(BuildContext context) {
-    return const Editor(
-      '$_invalid\n\n\n\n$_valid',
-      brightness: Brightness.light,
-      padding: EdgeInsets.symmetric(vertical: 140, horizontal: 50),
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _brightness = _brightness == Brightness.light
+              ? Brightness.dark
+              : Brightness.light;
+        });
+      },
+      child: Editor(
+        '$_invalid\n\n\n\n$_valid',
+        brightness: _brightness,
+        padding: const EdgeInsets.symmetric(vertical: 140, horizontal: 50),
+      ),
     );
   }
 }
