@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/big_applications/pages/arch_vs_tool.dart';
 import 'package:flutter_presentations/features/big_applications/pages/architectures.dart';
+import 'package:flutter_presentations/features/big_applications/pages/big_intro.dart';
 import 'package:flutter_presentations/features/big_applications/pages/crashes.dart';
 import 'package:flutter_presentations/features/big_applications/pages/dart_issues.dart';
 import 'package:flutter_presentations/features/big_applications/pages/flutter_is_fun.dart';
@@ -71,7 +72,7 @@ class _BigApplicationsState extends State<BigApplications> {
         body: Builder(
           builder: (_) {
             final children = [
-              const Intro(),
+              const BigIntro(),
               TheApp(presentationController),
               ...[
                 const SectionPage('Prototyping'),
