@@ -18,7 +18,7 @@ void main(List<String> args) {
       screenshot = await Screenshot.create(
         driver,
         'big_app',
-        enabled: true,
+        enabled: properties.arguments['screenshots'],
       );
     });
 

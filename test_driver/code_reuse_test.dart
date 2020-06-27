@@ -18,7 +18,7 @@ void main(List<String> args) {
       screenshot = await Screenshot.create(
         driver,
         'code_reuse',
-        enabled: true,
+        enabled: properties.arguments['screenshots'],
       );
     });
 
