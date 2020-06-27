@@ -9,10 +9,10 @@ class BigIntro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [
+      children: const [
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.only(left: 30),
+            padding: EdgeInsets.only(left: 30),
             child: _Title(),
           ),
         ),
@@ -53,7 +53,7 @@ class _FlutterProjects extends StatefulWidget {
 }
 
 const minSize = 10.0;
-const maxSize = 250.0;
+const maxSize = 290.0;
 
 class __FlutterProjectsState extends State<_FlutterProjects>
     with SingleTickerProviderStateMixin {
@@ -141,7 +141,7 @@ class __FlutterProjectsState extends State<_FlutterProjects>
   }
 
   _Circle _createLargeCircle(math.Random random) {
-    return _generateCircle(random, min: 120, max: maxSize);
+    return _generateCircle(random, min: 200, max: maxSize);
   }
 }
 
