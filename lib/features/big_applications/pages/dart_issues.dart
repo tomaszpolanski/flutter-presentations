@@ -24,6 +24,7 @@ class _DartIssuesState extends State<DartIssues> {
       child: Editor(
         '$_invalid\n\n\n\n$_valid',
         brightness: _brightness,
+        fontSize: 40,
         padding: const EdgeInsets.symmetric(vertical: 140, horizontal: 50),
       ),
     );

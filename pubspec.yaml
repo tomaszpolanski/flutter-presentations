@@ -25,8 +25,7 @@ dependencies:
   process_run: ^0.10.1
   qr_flutter: ^3.0.1
   rxdart: ^0.24.1
-  presentation:
-    path: ../presentation/
+  presentation: ^0.0.11
   url_launcher: ^5.4.1
 
 

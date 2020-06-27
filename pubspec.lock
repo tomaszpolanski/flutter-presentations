@@ -405,10 +405,10 @@ packages:
   presentation:
     dependency: "direct main"
     description:
-      path: "../presentation"
-      relative: true
-    source: path
-    version: "0.0.10+3"
+      name: presentation
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.11"
   process:
     dependency: transitive
     description:
