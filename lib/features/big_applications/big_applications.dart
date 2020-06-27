@@ -5,6 +5,7 @@ import 'package:flutter_presentations/features/big_applications/pages/big_intro.
 import 'package:flutter_presentations/features/big_applications/pages/crashes.dart';
 import 'package:flutter_presentations/features/big_applications/pages/dart_issues.dart';
 import 'package:flutter_presentations/features/big_applications/pages/flutter_is_fun.dart';
+import 'package:flutter_presentations/features/big_applications/pages/pride.dart';
 import 'package:flutter_presentations/features/big_applications/pages/the_app.dart';
 import 'package:flutter_presentations/features/big_applications/pages/widget_is_function.dart';
 import 'package:flutter_presentations/features/big_applications/pages/you_can_make.dart';
@@ -111,10 +112,7 @@ class _BigApplicationsState extends State<BigApplications> {
                     title: 'No Code',
                     subtitle: 'Only 🏗️ Lego',
                   ),
-                  const SummaryPage(
-                    title: 'Pride',
-                    subtitle: 'Maintainable Code',
-                  ),
+                  const Pride(),
                 ],
                 ...[
                   const SectionPage('Testing'),
