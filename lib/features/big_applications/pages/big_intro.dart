@@ -102,6 +102,7 @@ class __FlutterProjectsState extends State<_FlutterProjects>
                       left: c.maxWidth * i.x,
                       top: c.maxHeight * i.y,
                       child: LoopTransition(
+                        seed: math.Random().nextDouble(),
                         scale: _controller,
                         radius: 400 / i.size,
                         child: _Bubble(
@@ -194,6 +195,7 @@ class LoopTransition extends AnimatedWidget {
     Key key,
     @required Animation<double> scale,
     this.radius = 40,
+    @required this.seed,
     this.child,
   })  : assert(scale != null),
         super(key: key, listenable: scale);
@@ -202,11 +204,13 @@ class LoopTransition extends AnimatedWidget {
 
   final Widget child;
   final double radius;
+  final double seed;
 
   @override
   Widget build(BuildContext context) {
-    final x = radius * math.sin(2 * math.pi * scale.value);
-    final y = radius * math.cos(2 * math.pi * scale.value);
+    final x =
+        radius * math.sin((2 * math.pi * scale.value) + 2 * math.pi * seed);
+    final y = radius * math.cos(2 * math.pi * scale.value + 2 * math.pi * seed);
     return Transform.translate(
       offset: Offset(x, y),
       child: child,

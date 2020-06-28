@@ -94,14 +94,14 @@ class _BigApplicationsState extends State<BigApplications> {
                 ...[
                   const SectionPage('Architecture 📐'),
                   Tools(presentationController),
-                  const SummaryPage(
-                    title: 'Which To Pick?',
-                    subtitle: 'Architecture',
-                  ),
                   Architectures(presentationController),
                   const SummaryPage(
                     title: 'Provider?',
                     subtitle: 'InheritedWidget on Steroids',
+                  ),
+                  const SummaryPage(
+                    title: 'Which To Pick?',
+                    subtitle: 'Architecture',
                   ),
                 ],
                 ...[
