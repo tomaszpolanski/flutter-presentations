@@ -17,9 +17,9 @@ class TheApp extends StatelessWidget {
         controller: controller,
         children: const [
           Text('🧑👧 500,000+'),
-          Text('📃 91'),
+          Text('📃 90'),
           Text('✅ 4800'),
-          Text('✅📱 257'),
+          Text('✅📱 260'),
         ],
       ),
     );

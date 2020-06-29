@@ -39,7 +39,7 @@ class _Title extends StatelessWidget {
               height: 130,
             ),
           ),
-          const TextSpan(text: 'applications'),
+          const TextSpan(text: 'Applications'),
         ],
       ),
     );
@@ -137,7 +137,7 @@ class __FlutterProjectsState extends State<_FlutterProjects>
     for (int i = 0; i < 10; i++) {
       yield _createMediumCircle(random);
     }
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 200; i++) {
       yield _createSmallCircle(random);
     }
   }

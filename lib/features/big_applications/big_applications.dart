@@ -32,7 +32,6 @@ class BigApplications extends StatefulWidget {
 class _BigApplicationsState extends State<BigApplications> {
   PageController controller;
   PresentationController presentationController;
-  bool _showAppBar = true;
 
   @override
   void initState() {
@@ -57,19 +56,6 @@ class _BigApplicationsState extends State<BigApplications> {
       data: blueDark(),
       child: Scaffold(
         backgroundColor: Colors.white,
-        appBar: _showAppBar
-            ? AppBar(
-                title: const Text(BigApplications.title),
-                actions: [
-                  IconButton(
-                    icon: const Icon(Icons.fullscreen),
-                    onPressed: () {
-                      setState(() => _showAppBar = !_showAppBar);
-                    },
-                  )
-                ],
-              )
-            : null,
         body: Builder(
           builder: (_) {
             final children = [
@@ -96,18 +82,22 @@ class _BigApplicationsState extends State<BigApplications> {
                   Tools(presentationController),
                   Architectures(presentationController),
                   const SummaryPage(
-                    title: 'Provider?',
-                    subtitle: 'InheritedWidget on Steroids',
-                  ),
-                  const SummaryPage(
                     title: 'Which To Pick?',
                     subtitle: 'Architecture',
+                  ),
+                  const SummaryPage(
+                    title: 'Provider?',
+                    subtitle: 'InheritedWidget on Steroids',
                   ),
                 ],
                 ...[
                   const SectionPage('Maintainable Code'),
                   WidgetIsFunction(presentationController),
                   EverythingsWidget(presentationController),
+                  const SummaryPage(
+                    title: '✂ until',
+                    subtitle: 'cannot ✂ any more',
+                  ),
                   const SummaryPage(
                     title: 'No Code',
                     subtitle: 'Only 🏗️ Lego',
