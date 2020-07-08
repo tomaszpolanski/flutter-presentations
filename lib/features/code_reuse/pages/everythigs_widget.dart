@@ -136,6 +136,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
                     ),
                     child: Scaffold(
                       appBar: AppBar(
+                        automaticallyImplyLeading: false,
                         title: _showTextTitle
                             ? const Text('The Title')
                             : SizedBox(

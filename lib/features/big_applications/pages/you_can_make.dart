@@ -79,7 +79,7 @@ class _YouCanMakeState extends State<YouCanMake>
                     ),
                   ),
                 ),
-                const TextSpan(text: ' make large Flutter app'),
+                const TextSpan(text: ' make large Flutter apps'),
                 WidgetSpan(
                   child: DefaultTextStyle.merge(
                     style: const TextStyle(color: GTheme.flutter3),
