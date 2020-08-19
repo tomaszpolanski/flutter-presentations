@@ -8,49 +8,24 @@ This presentation is run on desktop with use of
 This application should be run on high resolution device or a desktop - currently it does not rented properly on small screens.
 
 # Building
-Last tested version of Flutter that works with this repo is `1.19.0-4.1.pre`:
-  * **Important**: Use `version` otherwise desktop won't be picked up: `1.19.0-4.1.pre`
+Last tested version of Flutter that works with this repo is `1.20.2`:
+  * **Important**: Use `version` otherwise desktop won't be picked up: `1.20.2`
 
 ## Building for Web
-Upgrade flutter to minimum `1.19.0-4.1.pre`, enable web compilation and run:
+Upgrade flutter to minimum `1.20.2`, enable web compilation and run:
 ```
-flutter version 1.19.0-4.1.pre
+flutter version 1.20.2
 flutter config --enable-web
 flutter run -d chrome -v
 ```
 
 ## Building for Desktop
-
-### Linux
-- Add the following to `.bash_profile` but replace `$HOME/flutter/` with path to your Flutter folder
-```
-# Add Flutter
-export PATH="$PATH:$HOME/flutter/bin"
-# Add Dart
-export PATH="$PATH:$HOME/flutter/bin/cache/dart-sdk/bin"
-```
-### Mac
-- Add the following to `.bash_profile` but replace `$HOME/flutter/` with path to your Flutter folder
-```
-# Add Flutter
-export PATH="$PATH:$HOME/flutter/bin"
-# Add Dart
-export PATH="$PATH:$HOME/flutter/bin/cache/dart-sdk/bin"
-```
-- Update CocoaPods:
-```
-brew upgrade cocoapods
-pod setup
-gem install cocoapods
-```
-### Windows
-- Install Visual Studio Community 2019 with [Desktop development with C++](https://devblogs.microsoft.com/cppblog/windows-desktop-development-with-c-in-visual-studio/#installation). 
-Make sure that those components are installed:
-* `MSVC v142 - VS 2019 C++ x64/x86 build tools (v14.23)`	
-* `Windows 10 SDK (10.0.17763.0)` 
+* Run `flutter config --enable-linux-desktop --enable-macos-desktop --enable-windows-desktop`
+* Check what desktop components are missing by running `flutter doctor`
+* Install missing components that you can see under Flutter doctor's  `Linux`/`Window`/`MacOS` section
 
 ## Running on Desktop
-Enter `flutter-presentations` in your terminal and run `flutter run`. 
+Enter `flutter-presentations` folder in your terminal and run `flutter run`. 
 You might need to use `-d` to pick desktop if you have any other device connected.
 
 OR
@@ -62,7 +37,7 @@ In IntelliJ/VS Code select appropriate device via device picker and run tha app
 1) Install `docker`
 2) Build docker image (will take a couple of minutes)
 ```
-./build_docker.sh 1.19.0-4.1.pre ./
+./build_docker.sh 1.20.2 ./
 ```
 3) Run docker container
 ```
