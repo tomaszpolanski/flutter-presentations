@@ -20,6 +20,7 @@ RUN apt-get -qqy update && \
     git-core \
     lcov \
     lib32gcc1  \
+    lib32ncurses5 \
     lib32stdc++6 \
     lib32z1 \
     libc6-i386  \
@@ -27,11 +28,14 @@ RUN apt-get -qqy update && \
     libglu1 \
     libglu1-mesa \
     libgtk-3.0 \
+    libgtk-3-dev \
     libstdc++6 \
+    libsqlite3-dev \
     locales \
     maven  \
     ninja-build \
     qemu-kvm \
+    pkg-config \
     rsync \
     screen  \
     scrot \
@@ -40,7 +44,9 @@ RUN apt-get -qqy update && \
     tmux  \
     unzip \
     wget  \
+    x11-xserver-utils \
     xvfb \
+    zip \
     && rm -rf /var/lib/apt/lists/*
 
 RUN sh -c 'echo "en_US.UTF-8 UTF-8" > /etc/locale.gen' && \
@@ -72,7 +78,7 @@ RUN cd ${PRESENTATIONS_HOME} && \
 
 ENV DISPLAY :0
 
-CMD ["Xvfb", ":0", "-screen", "0", "1824x1824x16"]
+CMD ["Xvfb", ":0", "-screen", "0", "1824x1824x24"]
 
 RUN cd /home/user/flutter-presentations/ && flutter run -d linux -v
 #./build_docker.sh 1.19.0-4.1.pre ./
