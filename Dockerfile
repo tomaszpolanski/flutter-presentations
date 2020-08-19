@@ -71,7 +71,6 @@ RUN flutter config --enable-linux-desktop
 RUN flutter precache --linux
 
 ENV PRESENTATIONS_HOME /home/user/flutter-presentations
-RUN pwd
 RUN git clone https://github.com/tomaszpolanski/flutter-presentations.git ${PRESENTATIONS_HOME}
 RUN cd ${PRESENTATIONS_HOME} && \
     flutter packages get
@@ -86,4 +85,4 @@ CMD ["Xvfb", ":0", "-screen", "0", "1920x1920x24"]
 #./build_docker.sh 1.20.2 ./
 #docker run -d tomek/flutter:latest
 #docker exec -d 798f91f95392573bb183b7813cb2c73a92a70647327aea187eeaf530befa1f30 sh -c "Xvfb :0 -screen 0 1920x1920x24"
-#docker exec -d 798f91f95392573bb183b7813cb2c73a92a70647327aea187eeaf530befa1f30 sh -c "cd /home/user/flutter-presentations/ && fastdriver"
+#docker exec 798f91f95392573bb183b7813cb2c73a92a70647327aea187eeaf530befa1f30 sh -c "cd /home/user/flutter-presentations/ && fastdriver"

@@ -52,8 +52,8 @@ docker exec -d <containerId> sh -c "Xvfb :0 -screen 0 1920x1920x24"
 ```
 docker exec <containerId> sh -c "cd /home/user/flutter-presentations/ && fastdriver -s"
 ```
-6) Copy screenshots to local `screenshots` folder
+6) Copy screenshots to local `screenshots` folder so you can preview them
 ```
-docker cp <containerId> :/home/user/flutter-presentations/screenshots screenshots
+docker cp <containerId>:/home/user/flutter-presentations/screenshots screenshots
 ```
 
