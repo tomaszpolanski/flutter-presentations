@@ -71,18 +71,19 @@ RUN flutter config --enable-linux-desktop
 RUN flutter precache --linux
 
 ENV PRESENTATIONS_HOME /home/user/flutter-presentations
-RUN ls
+RUN pwd
 RUN git clone https://github.com/tomaszpolanski/flutter-presentations.git ${PRESENTATIONS_HOME}
 RUN cd ${PRESENTATIONS_HOME} && \
     flutter packages get
 
 RUN cd ${PRESENTATIONS_HOME} && flutter build linux
+RUN pub global activate fast_flutter_driver_tool
+ENV PATH /home/user/.pub-cache/bin:$PATH
 ENV DISPLAY :0
 CMD ["Xvfb", ":0", "-screen", "0", "1920x1920x24"]
 
 
-#./build_docker.sh 1.19.0-4.1.pre ./
+#./build_docker.sh 1.20.2 ./
 #docker run -d tomek/flutter:latest
 #docker exec -d 798f91f95392573bb183b7813cb2c73a92a70647327aea187eeaf530befa1f30 sh -c "Xvfb :0 -screen 0 1920x1920x24"
-#docker exec -d 798f91f95392573bb183b7813cb2c73a92a70647327aea187eeaf530befa1f30 sh -c "cd /home/user/flutter-presentations/ && flutter run -d linux -v"
-#docker exec 798f91f95392573bb183b7813cb2c73a92a70647327aea187eeaf530befa1f30 sh -c "cd /home/user/flutter-presentations/ && ./run_tests.sh"
+#docker exec -d 798f91f95392573bb183b7813cb2c73a92a70647327aea187eeaf530befa1f30 sh -c "cd /home/user/flutter-presentations/ && fastdriver"

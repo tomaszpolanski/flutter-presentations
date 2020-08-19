@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:fake_async/fake_async.dart';
 import 'package:flutter_driver/flutter_driver.dart';
 
 const _dirPath = 'screenshots';
@@ -33,7 +34,7 @@ class Screenshot {
 
   Future<void> takeScreenshot(String name) async {
     if (enabled) {
-      final List<int> pixels = await driver.screenshot();
+      final List<int> pixels = await screenshot(driver);
       final File file = File('$dir/$name.png');
       await file.writeAsBytes(pixels);
     }
@@ -41,4 +42,14 @@ class Screenshot {
 
   Future<Directory> _setupScreenshots() =>
       Directory(dir).create(recursive: true);
+}
+
+Future<List<int>> screenshot(FlutterDriver driver) async {
+  await Future<void>.delayed(const Duration(milliseconds: 200));
+
+  return FakeAsync().run((async) {
+    final result = driver.screenshot();
+    async.elapse(const Duration(minutes: 1));
+    return result;
+  });
 }

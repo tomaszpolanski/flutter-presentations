@@ -43,18 +43,17 @@ In IntelliJ/VS Code select appropriate device via device picker and run tha app
 ```
 docker run -d tomek/flutter:latest
 ```
-4) Copy the container id that `docker run` returned
-5) Execute Flutter tests with screenshots (in case you don't belie that actual application is being run ;))
+4) Start X11 UI
+```
+docker exec -d <containerId> sh -c "Xvfb :0 -screen 0 1920x1920x24"
+```
+5) Execute Flutter tests with screenshots (in case you don't believe that actual application is being run ;))
 
 ```
-docker exec <containerId> sh -c "cd /home/user/flutter-presentations/ && ./run_tests.sh -s"
+docker exec <containerId> sh -c "cd /home/user/flutter-presentations/ && fastdriver -s"
 ```
 6) Copy screenshots to local `screenshots` folder
 ```
 docker cp <containerId> :/home/user/flutter-presentations/screenshots screenshots
 ```
 
-(optional) Doing screenshots slow down Flutter driver tests, if you want to skip the screenshots just execute tests withou `-s`
-```
-docker exec <containerId> sh -c "cd /home/user/flutter-presentations/ && ./run_tests.sh"
-```
