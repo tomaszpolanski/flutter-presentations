@@ -71,6 +71,7 @@ RUN flutter config --enable-linux-desktop
 RUN flutter precache --linux
 
 ENV PRESENTATIONS_HOME /home/user/flutter-presentations
+RUN ls
 RUN git clone https://github.com/tomaszpolanski/flutter-presentations.git ${PRESENTATIONS_HOME}
 RUN cd ${PRESENTATIONS_HOME} && \
     flutter packages get

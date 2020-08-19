@@ -22,7 +22,7 @@ class Flutter {
   const Flutter._();
 
   String run() {
-    return 'flutter run -d $_device';
+    return 'flutter run -d $_device -v';
   }
 
   String attach(String debugUri) {
