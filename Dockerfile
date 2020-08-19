@@ -20,7 +20,6 @@ RUN apt-get -qqy update && \
     git-core \
     lcov \
     lib32gcc1  \
-    lib32ncurses5 \
     lib32stdc++6 \
     lib32z1 \
     libc6-i386  \
@@ -76,11 +75,13 @@ RUN git clone https://github.com/tomaszpolanski/flutter-presentations.git ${PRES
 RUN cd ${PRESENTATIONS_HOME} && \
     flutter packages get
 
+RUN cd ${PRESENTATIONS_HOME} && flutter build linux
 ENV DISPLAY :0
+CMD ["Xvfb", ":0", "-screen", "0", "1920x1920x24"]
 
-CMD ["Xvfb", ":0", "-screen", "0", "1824x1824x24"]
 
-RUN cd /home/user/flutter-presentations/ && flutter run -d linux -v
 #./build_docker.sh 1.19.0-4.1.pre ./
 #docker run -d tomek/flutter:latest
+#docker exec -d 798f91f95392573bb183b7813cb2c73a92a70647327aea187eeaf530befa1f30 sh -c "Xvfb :0 -screen 0 1920x1920x24"
+#docker exec -d 798f91f95392573bb183b7813cb2c73a92a70647327aea187eeaf530befa1f30 sh -c "cd /home/user/flutter-presentations/ && flutter run -d linux -v"
 #docker exec 798f91f95392573bb183b7813cb2c73a92a70647327aea187eeaf530befa1f30 sh -c "cd /home/user/flutter-presentations/ && ./run_tests.sh"
