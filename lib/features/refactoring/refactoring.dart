@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/big_applications/pages/big_intro.dart';
+import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
+import 'package:flutter_presentations/features/refactoring/pages/container.dart';
 import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
 
@@ -44,6 +46,45 @@ class _RefactoringState extends State<Refactoring> {
           builder: (_) {
             final children = [
               const BigIntro(),
+              ...[
+                // Size
+                const SummaryPage(
+                  title: 'Widgets',
+                  subtitle: 'As small As possible',
+                ),
+                // do not do
+                //  final child = ...
+                //   final header = ...
+                //   return Column(...)
+
+                // StefanText vs buildThemedText - widgets vs methods
+                // widgets are transparent
+              ],
+              ...[
+                const SummaryPage(
+                  title: 'Context',
+                  subtitle: 'a.k.a Element',
+                ),
+                // explain context
+                //
+                // as close as possible
+              ],
+              ...[
+                const SummaryPage(
+                  title: 'Container',
+                  subtitle: "Don't user for everything",
+                ),
+                FlutterContainer(presentationController),
+                // explain context
+                //
+                // as close as possible
+              ],
+              ...[
+                const SummaryPage(
+                  title: "Don't always use Function",
+                  subtitle: 'basic_types.dart',
+                ),
+              ],
             ];
             return Presentation(
               controller: controller,

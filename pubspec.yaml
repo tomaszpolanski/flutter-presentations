@@ -12,20 +12,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # mobile_flutter_merchant:
-  #   path: c:\Users\tpolanski\Documents\GitHub\mobile_flutter_merchant\
   flutter_localizations:
     sdk: flutter
-#  animation_cheat_page:
-#    git:
-#      url: git://github.com/tomaszpolanski/flutter-animations.git
-#      ref: master
-
-  cupertino_icons: ^0.1.0
   flutter_sidekick: ^0.1.3
   google_fonts: ^1.1.0
   http: ^0.12.0+1
-  mockito: ^4.1.1
   process_run: ^0.10.1
   qr_flutter: ^3.0.1
   rxdart: ^0.24.1
@@ -41,6 +32,7 @@ dev_dependencies:
     sdk: flutter
   test: ^1.9.4
   fast_flutter_driver: ^1.1.0
+  mockito: ^4.1.1
 
 flutter:
 
