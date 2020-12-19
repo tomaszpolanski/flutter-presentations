@@ -97,7 +97,7 @@ class _MatrixState extends State<Matrix> with SingleTickerProviderStateMixin {
                     .substring(0, (_text.length * animation.value).toInt())
                     .split('')
                     .map((letter) => _GlowingLetter(letter)),
-                child,
+                if (child != null) child,
               ],
             );
           },
