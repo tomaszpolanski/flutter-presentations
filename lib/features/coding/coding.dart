@@ -110,15 +110,15 @@ class _AnimatedColorState extends State<AnimatedColor>
         begin: widget.begin,
         end: widget.end,
       )),
-      builder: (_, Animation<Color> animation, child) => Container(
+      builder: (_, Animation<Color?>? animation, child) => Container(
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: animation.value,
+          color: animation!.value!,
           border: Border.all(color: Colors.transparent, width: 3),
         ),
         child: child,
       ),
-      child: widget.child!,
+      child: widget.child,
     );
   }
 }

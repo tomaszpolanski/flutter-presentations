@@ -26,7 +26,7 @@ class _InceptionState extends State<Inception> {
       steps: steps,
     );
     for (final step in steps) {
-      _stateController!.add(
+      _stateController.add(
         fromStep: step,
         toStep: step + 1,
         forward: () => setState(() => _current = step + 1),
@@ -46,7 +46,7 @@ class _InceptionState extends State<Inception> {
 
   @override
   void dispose() {
-    _stateController!.dispose();
+    _stateController.dispose();
     super.dispose();
   }
 

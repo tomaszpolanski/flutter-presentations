@@ -51,7 +51,7 @@ class _StackedPageState extends State<StackedPage>
   @override
   void dispose() {
     _controller.dispose();
-    _stateController!.dispose();
+    _stateController.dispose();
     super.dispose();
   }
 
