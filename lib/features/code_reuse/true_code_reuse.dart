@@ -32,8 +32,8 @@ class CodeReuse extends StatefulWidget {
 
 class _CodeReuseState extends State<CodeReuse> {
   late PageController controller;
-  PresentationController? presentationController;
-  List<ValueGetter<Widget>>? pageCreator;
+  late PresentationController presentationController;
+  late List<ValueGetter<Widget>> pageCreator;
 
   @override
   void initState() {
@@ -44,7 +44,7 @@ class _CodeReuseState extends State<CodeReuse> {
 
   @override
   void dispose() {
-    presentationController!.dispose();
+    presentationController.dispose();
     controller.dispose();
     super.dispose();
   }
@@ -64,7 +64,7 @@ class _CodeReuseState extends State<CodeReuse> {
             ),
             Presentation(
               controller: controller,
-              presentationController: presentationController!,
+              presentationController: presentationController,
               children: [
                 const Intro(),
                 Solid(presentationController),

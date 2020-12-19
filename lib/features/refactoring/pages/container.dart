@@ -9,10 +9,8 @@ class FlutterContainer extends StatelessWidget {
   }) : super(key: key);
   final PresentationController controller;
 
-
   @override
   Widget build(BuildContext context) {
-    ValueGetter<dynamic>
     return DefaultTextStyle.merge(
       style: Theme.of(context).textTheme.headline5,
       child: StackedPage(

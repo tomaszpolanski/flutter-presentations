@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/big_applications/pages/big_intro.dart';
+import 'package:flutter_presentations/features/code_reuse/pages/big_widget.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
 import 'package:flutter_presentations/features/refactoring/pages/container.dart';
 import 'package:flutter_presentations/shared/themes.dart';
@@ -48,6 +49,8 @@ class _RefactoringState extends State<Refactoring> {
               const BigIntro(),
               ...[
                 // Size
+                const SectionPage('Size Matters'),
+                BigWidget(presentationController),
                 const SummaryPage(
                   title: 'Widgets',
                   subtitle: 'As small As possible',
@@ -59,6 +62,12 @@ class _RefactoringState extends State<Refactoring> {
 
                 // StefanText vs buildThemedText - widgets vs methods
                 // widgets are transparent
+
+                const SummaryPage(
+                  title: 'What about',
+                  subtitle: 'Slivers?',
+                ),
+                // slivers can be a stateless widgets
               ],
               ...[
                 const SummaryPage(
