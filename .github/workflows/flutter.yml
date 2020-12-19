@@ -5,12 +5,22 @@ jobs:
   build:
     name: Analyze
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        channel: [ "beta" ]
+
     steps:
-    - uses: actions/checkout@v1
-    - uses: subosito/flutter-action@v1.3.2
-      with:
-        channel: 'beta'
-    - run: flutter doctor && flutter pub get
-    - run: flutter analyze
-    - run: flutter test
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: ${{ matrix.channel }}
+
+      - name: Install dependencies
+        run: flutter packages get
+
+      - name: Analyze
+        run: dart analyze
+
+      - name: Run tests
+        run: flutter test --no-sound-null-safety ./test
 
