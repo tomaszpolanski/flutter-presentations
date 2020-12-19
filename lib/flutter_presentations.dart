@@ -4,19 +4,20 @@ import 'package:flutter_presentations/features/code_reuse/examples/examples.dart
 import 'package:flutter_presentations/features/code_reuse/true_code_reuse.dart';
 import 'package:flutter_presentations/features/coding/coding.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/convincing.dart';
+import 'package:flutter_presentations/features/refactoring/refactoring.dart';
 import 'package:flutter_presentations/features/slivers/slivers.dart';
 import 'package:flutter_presentations/features/testing/testing.dart';
 
 class FlutterPresentations extends StatelessWidget {
   const FlutterPresentations({Key? key}) : super(key: key);
 
-  static final GlobalKey gKey = GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> gKey = GlobalKey<NavigatorState>();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      navigatorKey: gKey as GlobalKey<NavigatorState>?,
+      navigatorKey: gKey,
       theme: ThemeData(fontFamily: 'Montserrat'),
       home: const _PresentationList(),
     );
@@ -34,6 +35,15 @@ class _PresentationList extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          ListTile(
+            title: const Text(Refactoring.title),
+            subtitle: const Text(Refactoring.subtitle),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (_) => const Refactoring(),
+              ),
+            ),
+          ),
           ListTile(
             title: const Text(BigApplications.title),
             subtitle: const Text(BigApplications.subtitle),
