@@ -5,9 +5,9 @@ import 'package:presentation/presentation.dart';
 class Tools extends StatelessWidget {
   const Tools(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
-  final PresentationController controller;
+  final PresentationController? controller;
 
   @override
   Widget build(BuildContext context) {

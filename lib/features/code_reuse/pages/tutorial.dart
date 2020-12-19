@@ -7,9 +7,9 @@ import 'package:presentation/presentation.dart';
 class TutorialGoal extends StatefulWidget {
   const TutorialGoal(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
-  final PresentationController controller;
+  final PresentationController? controller;
 
   @override
   _TutorialGoalState createState() => _TutorialGoalState();
@@ -24,8 +24,8 @@ enum _TutorialStep {
 
 class _TutorialGoalState extends State<TutorialGoal>
     with SingleTickerProviderStateMixin {
-  PageStepper<_TutorialStep> _stateController;
-  AnimationController _controller;
+  late PageStepper<_TutorialStep> _stateController;
+  late AnimationController _controller;
   bool _showTutorial = false;
 
   @override
@@ -36,7 +36,7 @@ class _TutorialGoalState extends State<TutorialGoal>
       duration: const Duration(milliseconds: 500),
     );
     _stateController = PageStepper<_TutorialStep>(
-      controller: widget.controller,
+      controller: widget.controller!,
       steps: _TutorialStep.values,
     )
       ..add(
@@ -54,7 +54,7 @@ class _TutorialGoalState extends State<TutorialGoal>
       ..add(
         fromStep: _TutorialStep.tutorial,
         toStep: _TutorialStep.next,
-        forward: widget.controller.nextSlide,
+        forward: widget.controller!.nextSlide,
       )
       ..build();
   }
@@ -84,7 +84,7 @@ class _TutorialGoalState extends State<TutorialGoal>
           ),
         ),
         Expanded(
-          child: WrappedAnimatedBuilder<Rect>(
+          child: WrappedAnimatedBuilder<Rect?>(
             animation: RectTween(
               begin: const Rect.fromLTRB(0, 0, 1, 1),
               end: const Rect.fromLTRB(0, 0.31, 1, 0.61),
@@ -109,9 +109,9 @@ class _TutorialGoalState extends State<TutorialGoal>
 class TutorialResult extends StatefulWidget {
   const TutorialResult(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
-  final PresentationController controller;
+  final PresentationController? controller;
 
   @override
   _TutorialResultState createState() => _TutorialResultState();
@@ -126,8 +126,8 @@ enum _Step {
 
 class _TutorialResultState extends State<TutorialResult>
     with SingleTickerProviderStateMixin {
-  PageStepper<_Step> _stateController;
-  AnimationController _controller;
+  late PageStepper<_Step> _stateController;
+  late AnimationController _controller;
   bool _showImage = false;
   bool _showGraph = false;
 
@@ -139,7 +139,7 @@ class _TutorialResultState extends State<TutorialResult>
       duration: const Duration(milliseconds: 500),
     );
     _stateController = PageStepper<_Step>(
-      controller: widget.controller,
+      controller: widget.controller!,
       steps: _Step.values,
     )
       ..add(
@@ -157,7 +157,7 @@ class _TutorialResultState extends State<TutorialResult>
       ..add(
         fromStep: _Step.graph,
         toStep: _Step.next,
-        forward: () => widget.controller.nextSlide(),
+        forward: () => widget.controller!.nextSlide(),
       )
       ..build();
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class EditorColor {
-  const EditorColor._({@required this.dark, @required this.light});
+  const EditorColor._({required this.dark, required this.light});
 
   static const background = EditorColor._(
     dark: Color(0xFF2B2B2B),
@@ -43,5 +43,5 @@ class EditorColor {
   final Color dark;
   final Color light;
 
-  Color lerp(double t) => Color.lerp(dark, light, t);
+  Color? lerp(double t) => Color.lerp(dark, light, t);
 }

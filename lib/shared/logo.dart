@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class Logo extends StatefulWidget {
   const Logo({
-    Key key,
-    @required this.child,
+    Key? key,
+    required this.child,
     this.visible = true,
   }) : super(key: key);
 
@@ -15,7 +15,7 @@ class Logo extends StatefulWidget {
 }
 
 class _LogoState extends State<Logo> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {

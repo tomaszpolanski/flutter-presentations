@@ -15,7 +15,7 @@ void main() {
   timeDilation = 0.1;
   enableFlutterDriverExtension(
     handler: (playload) => configureTest(
-      TestConfiguration.fromJson(json.decode(playload)),
+      TestConfiguration.fromJson(json.decode(playload!)),
     ),
   );
 

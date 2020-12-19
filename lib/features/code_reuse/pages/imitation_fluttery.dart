@@ -4,7 +4,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/shared/gro
 import 'package:presentation/effects.dart';
 
 class Imitation extends StatelessWidget {
-  const Imitation({Key key}) : super(key: key);
+  const Imitation({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -31,7 +31,7 @@ class Imitation extends StatelessWidget {
                   text: TextSpan(
                     style: Theme.of(context)
                         .textTheme
-                        .headline6
+                        .headline6!
                         .copyWith(color: Colors.black),
                     children: const [
                       TextSpan(

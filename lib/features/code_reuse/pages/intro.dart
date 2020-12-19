@@ -5,7 +5,7 @@ import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 
 class Intro extends StatelessWidget {
-  const Intro({Key key}) : super(key: key);
+  const Intro({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -95,7 +95,7 @@ class _LineDecoration extends StatefulWidget {
 
 class __LineDecorationState extends State<_LineDecoration>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {

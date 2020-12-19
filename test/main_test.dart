@@ -8,7 +8,7 @@ import 'package:presentation/presentation.dart';
 void main() {
   group('Presentation', () {
     setUp(() {
-      WidgetsBinding.instance.renderView.configuration =
+      WidgetsBinding.instance!.renderView.configuration =
           const ViewConfiguration(size: Size(4000, 4000));
     });
 

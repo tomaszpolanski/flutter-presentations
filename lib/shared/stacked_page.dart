@@ -3,11 +3,11 @@ import 'package:presentation/presentation.dart';
 
 class StackedPage extends StatefulWidget {
   const StackedPage({
-    Key key,
-    @required this.controller,
-    @required this.children,
+    Key? key,
+    required this.controller,
+    required this.children,
   }) : super(key: key);
-  final PresentationController controller;
+  final PresentationController? controller;
   final List<Widget> children;
 
   @override
@@ -16,8 +16,8 @@ class StackedPage extends StatefulWidget {
 
 class _StackedPageState extends State<StackedPage>
     with SingleTickerProviderStateMixin {
-  PageStepper<int> _stateController;
-  AnimationController _controller;
+  late PageStepper<int> _stateController;
+  late AnimationController _controller;
   int _visibleChildren = 0;
 
   @override
@@ -28,7 +28,7 @@ class _StackedPageState extends State<StackedPage>
       duration: const Duration(milliseconds: 500),
     );
     _stateController = PageStepper<int>(
-      controller: widget.controller,
+      controller: widget.controller!,
       steps: List.generate(widget.children.length + 2, (index) => index),
     );
     for (int step = 0; step < widget.children.length; step++) {
@@ -43,7 +43,7 @@ class _StackedPageState extends State<StackedPage>
       ..add(
         fromStep: widget.children.length,
         toStep: widget.children.length + 1,
-        forward: widget.controller.nextSlide,
+        forward: widget.controller!.nextSlide,
       )
       ..build();
   }
@@ -51,7 +51,7 @@ class _StackedPageState extends State<StackedPage>
   @override
   void dispose() {
     _controller.dispose();
-    _stateController.dispose();
+    _stateController!.dispose();
     super.dispose();
   }
 

@@ -5,7 +5,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/shared/gro
 import 'package:presentation/presentation.dart';
 
 class BigIntro extends StatelessWidget {
-  const BigIntro({Key key}) : super(key: key);
+  const BigIntro({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class BigIntro extends StatelessWidget {
 }
 
 class _Title extends StatelessWidget {
-  const _Title({Key key}) : super(key: key);
+  const _Title({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class _Title extends StatelessWidget {
 }
 
 class _FlutterProjects extends StatefulWidget {
-  const _FlutterProjects({Key key}) : super(key: key);
+  const _FlutterProjects({Key? key}) : super(key: key);
 
   @override
   __FlutterProjectsState createState() => __FlutterProjectsState();
@@ -58,8 +58,8 @@ const maxSize = 290.0;
 
 class __FlutterProjectsState extends State<_FlutterProjects>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  List<_Circle> _circles;
+  late AnimationController _controller;
+  late List<_Circle> _circles;
 
   @override
   void initState() {
@@ -122,7 +122,7 @@ class __FlutterProjectsState extends State<_FlutterProjects>
     );
   }
 
-  _Circle _generateCircle(math.Random random, {double min, double max}) {
+  _Circle _generateCircle(math.Random random, {required double min, required double max}) {
     return _Circle(
       size: random.nextDouble() * (max - min) + min,
       x: random.nextDouble(),
@@ -157,9 +157,9 @@ class __FlutterProjectsState extends State<_FlutterProjects>
 
 class _Circle {
   const _Circle({
-    @required this.size,
-    @required this.x,
-    @required this.y,
+    required this.size,
+    required this.x,
+    required this.y,
   });
 
   final double size;
@@ -169,13 +169,13 @@ class _Circle {
 
 class _Bubble extends StatelessWidget {
   const _Bubble({
-    Key key,
+    Key? key,
     this.size = 30,
     this.color = Colors.orange,
   }) : super(key: key);
 
   final double size;
-  final Color color;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -192,17 +192,17 @@ class _Bubble extends StatelessWidget {
 
 class LoopTransition extends AnimatedWidget {
   const LoopTransition({
-    Key key,
-    @required Animation<double> scale,
+    Key? key,
+    required Animation<double> scale,
     this.radius = 40,
-    @required this.seed,
+    required this.seed,
     this.child,
   })  : assert(scale != null),
         super(key: key, listenable: scale);
 
-  Animation<double> get scale => listenable;
+  Animation<double> get scale => listenable as Animation<double>;
 
-  final Widget child;
+  final Widget? child;
   final double radius;
   final double seed;
 

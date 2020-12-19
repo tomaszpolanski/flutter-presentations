@@ -3,7 +3,7 @@ import 'package:flutter_presentations/features/coding/coding.dart';
 import 'package:presentation/presentation.dart';
 
 class EditorTest extends StatefulWidget {
-  const EditorTest({Key key}) : super(key: key);
+  const EditorTest({Key? key}) : super(key: key);
   @override
   _EditorTestState createState() => _EditorTestState();
 }

@@ -9,8 +9,8 @@ import 'screenshots.dart';
 
 void main(List<String> args) {
   group('Big App', () {
-    FlutterDriver driver;
-    Screenshot screenshot;
+    FlutterDriver? driver;
+    late Screenshot screenshot;
     final properties = TestProperties(args);
 
     setUpAll(() async {
@@ -27,7 +27,7 @@ void main(List<String> args) {
     });
 
     setUpAll(() async {
-      await driver.requestData(
+      await driver!.requestData(
         json.encode(
           TestConfiguration(
             resolution: properties.resolution,
@@ -38,7 +38,7 @@ void main(List<String> args) {
 
     test('main page', () async {
       await screenshot.takeScreenshot('setup');
-      await driver.tap(find.text('Big Applications'));
+      await driver!.tap(find.text('Big Applications'));
     });
 
     // ignore: avoid_function_literals_in_foreach_calls
@@ -46,7 +46,7 @@ void main(List<String> args) {
       test('make screenshots for step $step', () async {
         await screenshot.takeScreenshot(step.toString());
         final page = find.byValueKey('presentation');
-        await driver.tap(page);
+        await driver!.tap(page);
         await Future<void>.delayed(const Duration(milliseconds: 300));
       });
     });

@@ -3,9 +3,9 @@ import 'package:flutter_presentations/shared/slivers_page.dart';
 import 'package:presentation/presentation.dart';
 
 class SliverTypesPage extends StatefulWidget {
-  const SliverTypesPage({Key key, @required this.controller}) : super(key: key);
+  const SliverTypesPage({Key? key, required this.controller}) : super(key: key);
 
-  final PresentationController controller;
+  final PresentationController? controller;
 
   @override
   SliverTypesPageState createState() => SliverTypesPageState();
@@ -44,39 +44,39 @@ class SliverTypesPageState extends State<SliverTypesPage> {
     'RenderSliverFillRemaining',
     'RenderSliverToBoxAdapter',
   ];
-  ScrollController _controller;
+  ScrollController? _controller;
 
   @override
   void initState() {
     super.initState();
     _controller = ScrollController();
-    widget.controller.addListener(_handlePageAction);
+    widget.controller!.addListener(_handlePageAction);
   }
 
   @override
   void dispose() {
-    widget.controller.removeListener(_handlePageAction);
-    _controller.dispose();
+    widget.controller!.removeListener(_handlePageAction);
+    _controller!.dispose();
     super.dispose();
   }
 
   void _handlePageAction(PageAction action) {
     if (action == PageAction.next) {
-      if (_controller.position.maxScrollExtent == _controller.offset) {
-        widget.controller.nextSlide();
+      if (_controller!.position.maxScrollExtent == _controller!.offset) {
+        widget.controller!.nextSlide();
       } else {
-        _controller.animateTo(
-          _controller.offset + context.size.height,
+        _controller!.animateTo(
+          _controller!.offset + context.size!.height,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
       }
     } else {
-      if (0.0 == _controller.offset) {
-        widget.controller.previousSlide();
+      if (0.0 == _controller!.offset) {
+        widget.controller!.previousSlide();
       } else {
-        _controller.animateTo(
-          _controller.offset - context.size.height,
+        _controller!.animateTo(
+          _controller!.offset - context.size!.height,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
@@ -99,7 +99,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
               textAlign: TextAlign.center,
               style: Theme.of(context)
                   .textTheme
-                  .headline6
+                  .headline6!
                   .copyWith(color: Colors.black),
             ),
           ),
@@ -123,7 +123,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
               'Most Used',
               style: Theme.of(context)
                   .textTheme
-                  .headline5
+                  .headline5!
                   .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
             ),
           ),
@@ -150,7 +150,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
               'And the Rest',
               style: Theme.of(context)
                   .textTheme
-                  .headline5
+                  .headline5!
                   .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
             ),
           ),

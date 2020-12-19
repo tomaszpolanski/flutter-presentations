@@ -8,7 +8,7 @@ import 'package:flutter_presentations/features/slivers/slivers.dart';
 import 'package:flutter_presentations/features/testing/testing.dart';
 
 class FlutterPresentations extends StatelessWidget {
-  const FlutterPresentations({Key key}) : super(key: key);
+  const FlutterPresentations({Key? key}) : super(key: key);
 
   static final GlobalKey gKey = GlobalKey<NavigatorState>();
 
@@ -16,7 +16,7 @@ class FlutterPresentations extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      navigatorKey: gKey,
+      navigatorKey: gKey as GlobalKey<NavigatorState>?,
       theme: ThemeData(fontFamily: 'Montserrat'),
       home: const _PresentationList(),
     );
@@ -24,7 +24,7 @@ class FlutterPresentations extends StatelessWidget {
 }
 
 class _PresentationList extends StatelessWidget {
-  const _PresentationList({Key key}) : super(key: key);
+  const _PresentationList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

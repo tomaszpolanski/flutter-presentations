@@ -10,7 +10,7 @@ import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
 
 class Convincing extends StatefulWidget {
-  const Convincing({Key key}) : super(key: key);
+  const Convincing({Key? key}) : super(key: key);
   static const String title = 'Convincing your company to Flutter';
   static const String subtitle = '(Groupon)';
 
@@ -19,9 +19,9 @@ class Convincing extends StatefulWidget {
 }
 
 class ConvincingState extends State<Convincing> {
-  PageController controller;
-  PresentationController presentationController;
-  List<ValueGetter<Widget>> pageCreator;
+  late PageController controller;
+  PresentationController? presentationController;
+  List<ValueGetter<Widget>>? pageCreator;
 
   @override
   void initState() {
@@ -33,7 +33,7 @@ class ConvincingState extends State<Convincing> {
 
   @override
   void dispose() {
-    presentationController.dispose();
+    presentationController!.dispose();
     controller.dispose();
     super.dispose();
   }
@@ -46,7 +46,7 @@ class ConvincingState extends State<Convincing> {
         color: Colors.white,
         child: Presentation(
           controller: controller,
-          presentationController: presentationController,
+          presentationController: presentationController!,
           children: [
             const TitlePage(),
             const PopularityPage(),

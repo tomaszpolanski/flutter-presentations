@@ -9,17 +9,17 @@ enum _Step {
 }
 
 class CheatSheet extends StatefulWidget {
-  const CheatSheet({Key key, @required this.controller}) : super(key: key);
-  final PresentationController controller;
+  const CheatSheet({Key? key, required this.controller}) : super(key: key);
+  final PresentationController? controller;
 
   @override
   CheatSheetState createState() => CheatSheetState();
 }
 
 class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
-  AnimationController pageViewController;
-  AnimationController multiChildController;
-  PageStepper<_Step> stateController;
+  late AnimationController pageViewController;
+  late AnimationController multiChildController;
+  late PageStepper<_Step> stateController;
 
   @override
   void initState() {
@@ -36,7 +36,7 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
     );
 
     stateController = PageStepper<_Step>(
-      controller: widget.controller,
+      controller: widget.controller!,
       steps: _Step.values,
     )
       ..addStep(_Step.init, _Step.pageView, () {
@@ -109,7 +109,7 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
 class CardElement extends StatelessWidget {
   const CardElement(
     this.text, {
-    Key key,
+    Key? key,
   }) : super(key: key);
   final String text;
 

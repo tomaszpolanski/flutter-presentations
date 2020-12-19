@@ -10,10 +10,10 @@ enum RevolvingState {
 
 class RevolvingWidget extends StatefulWidget {
   const RevolvingWidget({
-    Key key,
-    @required this.firstChild,
-    @required this.secondChild,
-    @required this.state,
+    Key? key,
+    required this.firstChild,
+    required this.secondChild,
+    required this.state,
   }) : super(key: key);
 
   final Widget firstChild;
@@ -26,7 +26,7 @@ class RevolvingWidget extends StatefulWidget {
 
 class _RevolvingWidgetState extends State<RevolvingWidget>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {

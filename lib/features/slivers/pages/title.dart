@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TitlePage extends StatelessWidget {
-  const TitlePage({Key key}) : super(key: key);
+  const TitlePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -16,7 +16,7 @@ class TitlePage extends StatelessWidget {
               children: <Widget>[
                 Text(
                   'Slivers!',
-                  style: Theme.of(context).textTheme.headline2.copyWith(
+                  style: Theme.of(context).textTheme.headline2!.copyWith(
                       color: const Color(0xFF6AA84F),
                       fontWeight: FontWeight.bold),
                 ),
@@ -53,7 +53,7 @@ class TitlePage extends StatelessWidget {
             child: DefaultTextStyle(
               style: Theme.of(context)
                   .textTheme
-                  .headline6
+                  .headline6!
                   .copyWith(fontWeight: FontWeight.bold),
               child: Column(
                 mainAxisSize: MainAxisSize.min,

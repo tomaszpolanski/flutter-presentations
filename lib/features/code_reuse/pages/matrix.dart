@@ -7,9 +7,9 @@ import 'package:presentation/presentation.dart';
 class Matrix extends StatefulWidget {
   const Matrix(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
-  final PresentationController controller;
+  final PresentationController? controller;
 
   @override
   _MatrixState createState() => _MatrixState();
@@ -23,9 +23,9 @@ enum _Step {
 }
 
 class _MatrixState extends State<Matrix> with SingleTickerProviderStateMixin {
-  PageStepper<_Step> _stateController;
-  AnimationController _controller;
-  String _text;
+  late PageStepper<_Step> _stateController;
+  late AnimationController _controller;
+  late String _text;
   bool _isBlinking = true;
 
   @override
@@ -43,7 +43,7 @@ class _MatrixState extends State<Matrix> with SingleTickerProviderStateMixin {
         });
       });
     _stateController = PageStepper<_Step>(
-      controller: widget.controller,
+      controller: widget.controller!,
       steps: _Step.values,
     )
       ..add(
@@ -61,7 +61,7 @@ class _MatrixState extends State<Matrix> with SingleTickerProviderStateMixin {
       ..add(
         fromStep: _Step.stop,
         toStep: _Step.next,
-        forward: widget.controller.nextSlide,
+        forward: widget.controller!.nextSlide,
       )
       ..addListener(() => setState(() {}))
       ..build();
@@ -111,7 +111,7 @@ class _MatrixState extends State<Matrix> with SingleTickerProviderStateMixin {
 class _GlowingLetter extends StatelessWidget {
   const _GlowingLetter(
     this.letter, {
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final String letter;
@@ -136,16 +136,16 @@ class _GlowingLetter extends StatelessWidget {
 }
 
 class Cursor extends StatefulWidget {
-  const Cursor({Key key, this.isBlinking}) : super(key: key);
+  const Cursor({Key? key, this.isBlinking}) : super(key: key);
 
-  final bool isBlinking;
+  final bool? isBlinking;
 
   @override
   _CursorState createState() => _CursorState();
 }
 
 class _CursorState extends State<Cursor> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
   bool _isVisible = true;
 
   @override
@@ -175,7 +175,7 @@ class _CursorState extends State<Cursor> with SingleTickerProviderStateMixin {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    if (AnimationMode.of(context) && widget.isBlinking) {
+    if (AnimationMode.of(context) && widget.isBlinking!) {
       _controller.forward();
     }
   }
@@ -183,7 +183,7 @@ class _CursorState extends State<Cursor> with SingleTickerProviderStateMixin {
   @override
   void didUpdateWidget(Cursor oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (AnimationMode.of(context) && widget.isBlinking) {
+    if (AnimationMode.of(context) && widget.isBlinking!) {
       _controller.forward(from: 0);
     } else {
       _controller.stop(canceled: false);

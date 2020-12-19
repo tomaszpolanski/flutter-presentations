@@ -1,11 +1,10 @@
 import 'package:fast_flutter_driver/tool.dart';
-import 'package:meta/meta.dart';
 
 class TestConfiguration implements BaseConfiguration {
   const TestConfiguration({
-    @required this.resolution,
+    required this.resolution,
     this.platform,
-  }) : assert(resolution != null);
+  });
 
   factory TestConfiguration.fromJson(Map<String, dynamic> json) {
     return TestConfiguration(
@@ -14,7 +13,7 @@ class TestConfiguration implements BaseConfiguration {
     );
   }
   @override
-  final TestPlatform platform;
+  final TestPlatform? platform;
   @override
   final Resolution resolution;
   @override

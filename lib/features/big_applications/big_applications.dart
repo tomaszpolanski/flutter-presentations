@@ -20,7 +20,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:presentation/presentation.dart';
 
 class BigApplications extends StatefulWidget {
-  const BigApplications({Key key}) : super(key: key);
+  const BigApplications({Key? key}) : super(key: key);
 
   static const String title = 'Big Applications';
   static const String subtitle = 'with Flutter';
@@ -30,8 +30,8 @@ class BigApplications extends StatefulWidget {
 }
 
 class _BigApplicationsState extends State<BigApplications> {
-  PageController controller;
-  PresentationController presentationController;
+  late PageController controller;
+  PresentationController? presentationController;
 
   @override
   void initState() {
@@ -45,7 +45,7 @@ class _BigApplicationsState extends State<BigApplications> {
 
   @override
   void dispose() {
-    presentationController.dispose();
+    presentationController!.dispose();
     controller.dispose();
     super.dispose();
   }
@@ -164,7 +164,7 @@ class _BigApplicationsState extends State<BigApplications> {
               children: [
                 Presentation(
                   controller: controller,
-                  presentationController: presentationController,
+                  presentationController: presentationController!,
                   children: children,
                 ),
                 Positioned(
@@ -184,7 +184,7 @@ class _BigApplicationsState extends State<BigApplications> {
                               style: GoogleFonts.poppins(
                                 textStyle: Theme.of(context)
                                     .textTheme
-                                    .headline4
+                                    .headline4!
                                     .copyWith(
                                       color:
                                           (page.round() == children.length - 1

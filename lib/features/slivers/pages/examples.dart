@@ -2,47 +2,47 @@ import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
 
 class SimpleDemo extends StatefulWidget {
-  const SimpleDemo({Key key, @required this.controller}) : super(key: key);
-  final PresentationController controller;
+  const SimpleDemo({Key? key, required this.controller}) : super(key: key);
+  final PresentationController? controller;
 
   @override
   SimpleDemoState createState() => SimpleDemoState();
 }
 
 class SimpleDemoState extends State<SimpleDemo> {
-  ScrollController _controller;
+  ScrollController? _controller;
 
   @override
   void initState() {
     super.initState();
     _controller = ScrollController();
-    widget.controller.addListener(_handlePageAction);
+    widget.controller!.addListener(_handlePageAction);
   }
 
   @override
   void dispose() {
-    widget.controller.removeListener(_handlePageAction);
-    _controller.dispose();
+    widget.controller!.removeListener(_handlePageAction);
+    _controller!.dispose();
     super.dispose();
   }
 
   void _handlePageAction(PageAction action) {
     if (action == PageAction.next) {
-      if (_controller.position.maxScrollExtent == _controller.offset) {
-        widget.controller.nextSlide();
+      if (_controller!.position.maxScrollExtent == _controller!.offset) {
+        widget.controller!.nextSlide();
       } else {
-        _controller.animateTo(
-          _controller.offset + context.size.height,
+        _controller!.animateTo(
+          _controller!.offset + context.size!.height,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
       }
     } else {
-      if (0.0 == _controller.offset) {
-        widget.controller.previousSlide();
+      if (0.0 == _controller!.offset) {
+        widget.controller!.previousSlide();
       } else {
-        _controller.animateTo(
-          _controller.offset - context.size.height,
+        _controller!.animateTo(
+          _controller!.offset - context.size!.height,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
@@ -62,7 +62,7 @@ class SimpleDemoState extends State<SimpleDemo> {
           centerTitle: true,
           title: Text(
             'Sliver Examples',
-            style: Theme.of(context).textTheme.headline4.copyWith(
+            style: Theme.of(context).textTheme.headline4!.copyWith(
                   color: const Color(0xFF6AA84F),
                   fontWeight: FontWeight.bold,
                 ),

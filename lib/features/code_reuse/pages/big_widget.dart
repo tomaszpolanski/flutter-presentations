@@ -5,9 +5,9 @@ import 'package:presentation/presentation.dart';
 class BigWidget extends StatefulWidget {
   const BigWidget(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
-  final PresentationController controller;
+  final PresentationController? controller;
 
   @override
   _BigWidgetState createState() => _BigWidgetState();
@@ -20,8 +20,8 @@ enum _Step {
 }
 
 class _BigWidgetState extends State<BigWidget> {
-  PageStepper<_Step> _stateController;
-  ScrollController _controller;
+  late PageStepper<_Step> _stateController;
+  ScrollController? _controller;
   static const maxScroll = 550000.0;
 
   @override
@@ -29,18 +29,18 @@ class _BigWidgetState extends State<BigWidget> {
     super.initState();
     _controller = ScrollController();
     _stateController = PageStepper<_Step>(
-      controller: widget.controller,
+      controller: widget.controller!,
       steps: _Step.values,
     )
       ..add(
         fromStep: _Step.init,
         toStep: _Step.bottom,
-        forward: () => _controller.animateTo(
+        forward: () => _controller!.animateTo(
           maxScroll,
           duration: const Duration(seconds: 10),
           curve: Curves.ease,
         ),
-        reverse: () => _controller.animateTo(
+        reverse: () => _controller!.animateTo(
           0,
           duration: const Duration(seconds: 10),
           curve: Curves.ease,
@@ -49,14 +49,14 @@ class _BigWidgetState extends State<BigWidget> {
       ..add(
         fromStep: _Step.bottom,
         toStep: _Step.next,
-        forward: widget.controller.nextSlide,
+        forward: widget.controller!.nextSlide,
       )
       ..build();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller!.dispose();
     _stateController.dispose();
     super.dispose();
   }
@@ -96,12 +96,12 @@ class _BigWidgetState extends State<BigWidget> {
           bottom: 50,
           right: 50,
           child: AnimatedBuilder(
-            animation: _controller,
+            animation: _controller!,
             builder: (_, child) {
               return AnimatedOpacity(
                 duration: const Duration(milliseconds: 400),
-                opacity: _controller.offset > 0.5 * maxScroll &&
-                        _controller.offset < 0.9 * maxScroll
+                opacity: _controller!.offset > 0.5 * maxScroll &&
+                        _controller!.offset < 0.9 * maxScroll
                     ? 1
                     : 0,
                 child: child,

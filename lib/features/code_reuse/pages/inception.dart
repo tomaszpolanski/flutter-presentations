@@ -5,16 +5,16 @@ import 'package:presentation/presentation.dart';
 class Inception extends StatefulWidget {
   const Inception(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
-  final PresentationController controller;
+  final PresentationController? controller;
 
   @override
   _InceptionState createState() => _InceptionState();
 }
 
 class _InceptionState extends State<Inception> {
-  PageStepper<int> _stateController;
+  late PageStepper<int> _stateController;
   int _current = 1;
 
   @override
@@ -22,11 +22,11 @@ class _InceptionState extends State<Inception> {
     super.initState();
     final steps = List.generate(10, (i) => i + 1);
     _stateController = PageStepper<int>(
-      controller: widget.controller,
+      controller: widget.controller!,
       steps: steps,
     );
     for (final step in steps) {
-      _stateController.add(
+      _stateController!.add(
         fromStep: step,
         toStep: step + 1,
         forward: () => setState(() => _current = step + 1),
@@ -38,7 +38,7 @@ class _InceptionState extends State<Inception> {
       ..add(
         fromStep: steps.length - 2,
         toStep: steps.length - 2,
-        forward: widget.controller.nextSlide,
+        forward: widget.controller!.nextSlide,
       )
       ..addListener(() => setState(() {}))
       ..build();
@@ -46,7 +46,7 @@ class _InceptionState extends State<Inception> {
 
   @override
   void dispose() {
-    _stateController.dispose();
+    _stateController!.dispose();
     super.dispose();
   }
 
@@ -63,9 +63,9 @@ class _InceptionState extends State<Inception> {
 }
 
 class _Inception extends StatelessWidget {
-  const _Inception({Key key, this.child}) : super(key: key);
+  const _Inception({Key? key, this.child}) : super(key: key);
 
-  final Widget child;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {

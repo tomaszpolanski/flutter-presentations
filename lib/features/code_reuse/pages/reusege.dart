@@ -3,8 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:presentation/presentation.dart';
 
 class BigWidget extends StatefulWidget {
-  const BigWidget({Key key, this.controller}) : super(key: key);
-  final PresentationController controller;
+  const BigWidget({Key? key, this.controller}) : super(key: key);
+  final PresentationController? controller;
 
   @override
   _BigWidgetState createState() => _BigWidgetState();
@@ -17,26 +17,26 @@ enum _Step {
 }
 
 class _BigWidgetState extends State<BigWidget> {
-  PageStepper<_Step> _stateController;
-  ScrollController _controller;
+  late PageStepper<_Step> _stateController;
+  ScrollController? _controller;
 
   @override
   void initState() {
     super.initState();
     _controller = ScrollController();
     _stateController = PageStepper<_Step>(
-      controller: widget.controller,
+      controller: widget.controller!,
       steps: _Step.values,
     )
       ..add(
         fromStep: _Step.init,
         toStep: _Step.bottom,
-        forward: () => _controller.animateTo(
+        forward: () => _controller!.animateTo(
           300000,
           duration: const Duration(seconds: 10),
           curve: Curves.ease,
         ),
-        reverse: () => _controller.animateTo(
+        reverse: () => _controller!.animateTo(
           0,
           duration: const Duration(seconds: 10),
           curve: Curves.ease,
@@ -45,14 +45,14 @@ class _BigWidgetState extends State<BigWidget> {
       ..add(
         fromStep: _Step.bottom,
         toStep: _Step.next,
-        forward: widget.controller.nextSlide,
+        forward: widget.controller!.nextSlide,
       )
       ..build();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller!.dispose();
     _stateController.dispose();
     super.dispose();
   }

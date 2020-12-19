@@ -8,9 +8,9 @@ import 'package:presentation/presentation.dart';
 class EverythingsWidget extends StatefulWidget {
   const EverythingsWidget(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
-  final PresentationController controller;
+  final PresentationController? controller;
 
   @override
   _EverythingsWidgetState createState() => _EverythingsWidgetState();
@@ -27,8 +27,8 @@ enum _Step {
 
 class _EverythingsWidgetState extends State<EverythingsWidget>
     with SingleTickerProviderStateMixin {
-  PageStepper<_Step> _stateController;
-  AnimationController _controller;
+  late PageStepper<_Step> _stateController;
+  late AnimationController _controller;
   bool _showExample = false;
   bool _showTextTitle = true;
   bool _showCode = false;
@@ -41,7 +41,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
       duration: const Duration(milliseconds: 500),
     );
     _stateController = PageStepper<_Step>(
-      controller: widget.controller,
+      controller: widget.controller!,
       steps: _Step.values,
     )
       ..add(
@@ -71,7 +71,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
       ..add(
         fromStep: _Step.showCode,
         toStep: _Step.next,
-        forward: widget.controller.nextSlide,
+        forward: widget.controller!.nextSlide,
       )
       ..build();
   }

@@ -6,9 +6,9 @@ import 'package:presentation/presentation.dart';
 class Tests extends StatefulWidget {
   const Tests(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
-  final PresentationController controller;
+  final PresentationController? controller;
 
   @override
   _TestsState createState() => _TestsState();
@@ -22,14 +22,14 @@ enum _Step {
 }
 
 class _TestsState extends State<Tests> {
-  PageStepper<_Step> _stateController;
-  TextStyle _style;
+  late PageStepper<_Step> _stateController;
+  late TextStyle _style;
 
   @override
   void initState() {
     super.initState();
     _stateController = PageStepper<_Step>(
-      controller: widget.controller,
+      controller: widget.controller!,
       steps: _Step.values,
     )
       ..add(
@@ -51,7 +51,7 @@ class _TestsState extends State<Tests> {
       ..add(
         fromStep: _Step.color_changed,
         toStep: _Step.next,
-        forward: widget.controller.nextSlide,
+        forward: widget.controller!.nextSlide,
       )
       ..addListener(() => setState(() {}))
       ..build();
@@ -66,7 +66,7 @@ class _TestsState extends State<Tests> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _style = Theme.of(context).textTheme.bodyText2.copyWith(
+    _style = Theme.of(context).textTheme.bodyText2!.copyWith(
           fontWeight: FontWeight.normal,
           color: Colors.red,
         );
@@ -74,7 +74,7 @@ class _TestsState extends State<Tests> {
 
   @override
   Widget build(BuildContext context) {
-    final description = Theme.of(context).textTheme.bodyText2.copyWith(
+    final description = Theme.of(context).textTheme.bodyText2!.copyWith(
           fontWeight: FontWeight.bold,
           color: Colors.black,
         );
@@ -108,7 +108,7 @@ class _TestsState extends State<Tests> {
                 .toList(),
           ),
           TableRow(
-            key: const Key('confidence'),
+            key: const Key('confidence') as LocalKey?,
             decoration: BoxDecoration(
               color: Colors.grey.withOpacity(0.2),
             ),
@@ -125,7 +125,7 @@ class _TestsState extends State<Tests> {
                 .toList(),
           ),
           TableRow(
-            key: const Key('cost'),
+            key: const Key('cost') as LocalKey?,
             children: [
               Text('Maintenance', style: description),
               Text('Low', style: good),
@@ -139,7 +139,7 @@ class _TestsState extends State<Tests> {
                 .toList(),
           ),
           TableRow(
-            key: const Key('speed'),
+            key: const Key('speed') as LocalKey?,
             decoration: BoxDecoration(
               color: Colors.grey.withOpacity(0.2),
             ),

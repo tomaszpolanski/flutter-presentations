@@ -13,27 +13,27 @@ class Screenshot {
   });
 
   final String dir;
-  final FlutterDriver driver;
-  final bool enabled;
+  final FlutterDriver? driver;
+  final bool? enabled;
 
   static Future<Screenshot> create(
-    FlutterDriver driver,
+    FlutterDriver? driver,
     String group, {
-    bool enabled,
+    bool? enabled,
   }) async {
     final ss = Screenshot._(
       '$_dirPath/$group',
       driver,
       enabled: enabled,
     );
-    if (ss.enabled) {
+    if (ss.enabled!) {
       await ss._setupScreenshots();
     }
     return ss;
   }
 
   Future<void> takeScreenshot(String name) async {
-    if (enabled) {
+    if (enabled!) {
       final List<int> pixels = await screenshot(driver);
       final File file = File('$dir/$name.png');
       await file.writeAsBytes(pixels);
@@ -44,11 +44,11 @@ class Screenshot {
       Directory(dir).create(recursive: true);
 }
 
-Future<List<int>> screenshot(FlutterDriver driver) async {
+Future<List<int>> screenshot(FlutterDriver? driver) async {
   await Future<void>.delayed(const Duration(milliseconds: 200));
 
   return FakeAsync().run((async) {
-    final result = driver.screenshot();
+    final result = driver!.screenshot();
     async.elapse(const Duration(minutes: 1));
     return result;
   });

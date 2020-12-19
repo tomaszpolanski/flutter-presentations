@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
 
 class SliverFillRemainingPage extends StatelessWidget {
-  const SliverFillRemainingPage({Key key}) : super(key: key);
+  const SliverFillRemainingPage({Key? key}) : super(key: key);
 
   static const title = 'SliverFillRemaining';
 

@@ -4,7 +4,7 @@ import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
 
 class Testing extends StatefulWidget {
-  const Testing({Key key}) : super(key: key);
+  const Testing({Key? key}) : super(key: key);
 
   static const String title = 'Flutter testing';
   static const String subtitle = 'is awesome';
@@ -14,9 +14,9 @@ class Testing extends StatefulWidget {
 }
 
 class _TestingState extends State<Testing> {
-  PageController controller;
-  PresentationController presentationController;
-  List<ValueGetter<Widget>> pageCreator;
+  late PageController controller;
+  PresentationController? presentationController;
+  List<ValueGetter<Widget>>? pageCreator;
 
   @override
   void initState() {
@@ -27,7 +27,7 @@ class _TestingState extends State<Testing> {
 
   @override
   void dispose() {
-    presentationController.dispose();
+    presentationController!.dispose();
     controller.dispose();
     super.dispose();
   }
@@ -47,7 +47,7 @@ class _TestingState extends State<Testing> {
             ),
             Presentation(
               controller: controller,
-              presentationController: presentationController,
+              presentationController: presentationController!,
               children: [
                 SpeedComparison(
                   presentationController,

@@ -7,9 +7,9 @@ import 'package:presentation/presentation.dart';
 class Composable extends StatefulWidget {
   const Composable(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
-  final PresentationController controller;
+  final PresentationController? controller;
 
   @override
   _ComposableState createState() => _ComposableState();
@@ -23,14 +23,14 @@ enum _Step {
 
 class _ComposableState extends State<Composable>
     with SingleTickerProviderStateMixin {
-  PageStepper<_Step> _stateController;
+  late PageStepper<_Step> _stateController;
   RevolvingState _revolvingState = RevolvingState.showFirst;
 
   @override
   void initState() {
     super.initState();
     _stateController = PageStepper<_Step>(
-      controller: widget.controller,
+      controller: widget.controller!,
       steps: _Step.values,
     )
       ..add(
@@ -46,7 +46,7 @@ class _ComposableState extends State<Composable>
       ..add(
         fromStep: _Step.flutter,
         toStep: _Step.next,
-        forward: widget.controller.nextSlide,
+        forward: widget.controller!.nextSlide,
       )
       ..build();
   }

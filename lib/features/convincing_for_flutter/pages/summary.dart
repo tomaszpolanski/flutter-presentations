@@ -3,7 +3,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/shared/gro
 import 'package:presentation/effects.dart';
 
 class ThankYouPage extends StatelessWidget {
-  const ThankYouPage({Key key}) : super(key: key);
+  const ThankYouPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -7,8 +7,8 @@ import 'package:meta/meta.dart';
 
 class CustomAppBarDelegate extends SliverPersistentHeaderDelegate {
   CustomAppBarDelegate({
-    @required this.flexibleSpace,
-    @required this.expandedHeight,
+    required this.flexibleSpace,
+    required this.expandedHeight,
   });
 
   final Widget flexibleSpace;

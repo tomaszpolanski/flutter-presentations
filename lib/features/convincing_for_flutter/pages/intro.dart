@@ -4,7 +4,7 @@ import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 
 class TitlePage extends StatelessWidget {
-  const TitlePage({Key key}) : super(key: key);
+  const TitlePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +67,7 @@ class TitlePage extends StatelessWidget {
 }
 
 class PopularityPage extends StatelessWidget {
-  const PopularityPage({Key key}) : super(key: key);
+  const PopularityPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -97,9 +97,9 @@ enum _Step {
 }
 
 class PlatformsPage extends StatefulWidget {
-  const PlatformsPage(this.controller, {Key key}) : super(key: key);
+  const PlatformsPage(this.controller, {Key? key}) : super(key: key);
 
-  final PresentationController controller;
+  final PresentationController? controller;
 
   @override
   _PlatformsPageState createState() => _PlatformsPageState();
@@ -107,7 +107,7 @@ class PlatformsPage extends StatefulWidget {
 
 class _PlatformsPageState extends State<PlatformsPage>
     with TickerProviderStateMixin {
-  PageStepper<_Step> stateController;
+  late PageStepper<_Step> stateController;
 
   double _uiq = 0;
   double _symbian = 0;
@@ -122,7 +122,7 @@ class _PlatformsPageState extends State<PlatformsPage>
   void initState() {
     super.initState();
     stateController = PageStepper<_Step>(
-      controller: widget.controller,
+      controller: widget.controller!,
       steps: _Step.values,
     )
       ..add(
@@ -206,7 +206,7 @@ class _PlatformsPageState extends State<PlatformsPage>
       ..add(
         fromStep: _Step.fuchsia,
         toStep: _Step.next,
-        forward: () => widget.controller.nextSlide(),
+        forward: () => widget.controller!.nextSlide(),
       )
       ..addListener(() => setState(() {}))
       ..build();

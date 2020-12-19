@@ -1,8 +1,8 @@
 import 'package:meta/meta.dart';
 
 Iterable<T> join<T>({
-  @required T separator,
-  @required Iterable<T> children,
+  required T separator,
+  required Iterable<T> children,
 }) sync* {
   final iterator = children.iterator;
   if (iterator.moveNext()) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CI extends StatelessWidget {
   const CI({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

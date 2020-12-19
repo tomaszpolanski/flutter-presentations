@@ -3,8 +3,8 @@ import 'package:qr_flutter/qr_flutter.dart';
 
 class QrCode extends StatelessWidget {
   const QrCode({
-    @required this.child,
-    Key key,
+    required this.child,
+    Key? key,
   }) : super(key: key);
 
   final Widget child;

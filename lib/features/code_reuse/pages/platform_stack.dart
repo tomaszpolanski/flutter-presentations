@@ -6,9 +6,9 @@ import 'package:presentation/presentation.dart';
 class PlatformStack extends StatefulWidget {
   const PlatformStack(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
-  final PresentationController controller;
+  final PresentationController? controller;
 
   @override
   _PlatformStackState createState() => _PlatformStackState();
@@ -22,8 +22,8 @@ enum _Step {
 
 class _PlatformStackState extends State<PlatformStack>
     with SingleTickerProviderStateMixin {
-  PageStepper<_Step> _stateController;
-  AnimationController _controller;
+  late PageStepper<_Step> _stateController;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -33,7 +33,7 @@ class _PlatformStackState extends State<PlatformStack>
       duration: const Duration(milliseconds: 500),
     );
     _stateController = PageStepper<_Step>(
-      controller: widget.controller,
+      controller: widget.controller!,
       steps: _Step.values,
     )
       ..add(
@@ -45,7 +45,7 @@ class _PlatformStackState extends State<PlatformStack>
       ..add(
         fromStep: _Step.web,
         toStep: _Step.next,
-        forward: widget.controller.nextSlide,
+        forward: widget.controller!.nextSlide,
       )
       ..addListener(() => setState(() {}))
       ..build();
@@ -61,7 +61,7 @@ class _PlatformStackState extends State<PlatformStack>
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle.merge(
-      style: Theme.of(context).textTheme.bodyText2.copyWith(
+      style: Theme.of(context).textTheme.bodyText2!.copyWith(
             fontWeight: FontWeight.normal,
             color: Colors.black,
           ),
@@ -168,10 +168,10 @@ class _PlatformStackState extends State<PlatformStack>
 
 class _PlatformComponent extends StatelessWidget {
   const _PlatformComponent({
-    Key key,
-    @required this.title,
-    @required this.children,
-    @required this.color,
+    Key? key,
+    required this.title,
+    required this.children,
+    required this.color,
   }) : super(key: key);
 
   final Widget title;
@@ -203,7 +203,7 @@ class _PlatformComponent extends StatelessWidget {
 }
 
 class _Layer extends StatelessWidget {
-  const _Layer({Key key, @required this.children}) : super(key: key);
+  const _Layer({Key? key, required this.children}) : super(key: key);
   final List<Widget> children;
 
   @override
@@ -218,11 +218,11 @@ class _Layer extends StatelessWidget {
 
 class _TextCell extends StatelessWidget {
   const _TextCell({
-    Key key,
+    Key? key,
     this.background = const Color(0xFF0F9D58),
     this.child,
   }) : super(key: key);
-  final Widget child;
+  final Widget? child;
   final Color background;
 
   @override
@@ -232,7 +232,7 @@ class _TextCell extends StatelessWidget {
       margin: const EdgeInsets.only(right: 20),
       child: DefaultTextStyle.merge(
         style: const TextStyle(color: Colors.white),
-        child: child,
+        child: child!,
       ),
     );
   }

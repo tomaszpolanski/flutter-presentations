@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 class AnimatedSlideIn extends ImplicitlyAnimatedWidget {
   const AnimatedSlideIn({
-    Key key,
+    Key? key,
     this.child,
-    @required this.position,
+    required this.position,
     Curve curve = Curves.linear,
-    @required Duration duration,
+    required Duration duration,
   }) : super(key: key, curve: curve, duration: duration);
 
   final Offset position;
-  final Widget child;
+  final Widget? child;
 
   @override
   _AnimatedSlideInState createState() => _AnimatedSlideInState();
@@ -18,11 +18,11 @@ class AnimatedSlideIn extends ImplicitlyAnimatedWidget {
 
 class _AnimatedSlideInState
     extends ImplicitlyAnimatedWidgetState<AnimatedSlideIn> {
-  Tween<Offset> _offset = Tween<Offset>(
+  Tween<Offset?>? _offset = Tween<Offset>(
     begin: const Offset(0, 0),
     end: const Offset(0, 0),
   );
-  Animation<Offset> _animation;
+  late Animation<Offset?> _animation;
 
   @override
   void forEachTween(TweenVisitor<dynamic> visitor) {
@@ -33,18 +33,18 @@ class _AnimatedSlideInState
         begin: value,
         end: const Offset(0, 0),
       ),
-    );
+    ) as Tween<Offset?>?;
   }
 
   @override
   void didUpdateTweens() {
-    _animation = animation.drive(_offset);
+    _animation = animation!.drive(_offset!);
   }
 
   @override
   Widget build(BuildContext context) {
     return SlideTransition(
-      position: _animation,
+      position: _animation as Animation<Offset>,
       child: widget.child,
     );
   }

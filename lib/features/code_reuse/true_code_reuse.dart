@@ -21,7 +21,7 @@ import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
 
 class CodeReuse extends StatefulWidget {
-  const CodeReuse({Key key}) : super(key: key);
+  const CodeReuse({Key? key}) : super(key: key);
 
   static const String title = 'True Effort Reuse';
   static const String subtitle = 'with Flutter';
@@ -31,9 +31,9 @@ class CodeReuse extends StatefulWidget {
 }
 
 class _CodeReuseState extends State<CodeReuse> {
-  PageController controller;
-  PresentationController presentationController;
-  List<ValueGetter<Widget>> pageCreator;
+  late PageController controller;
+  PresentationController? presentationController;
+  List<ValueGetter<Widget>>? pageCreator;
 
   @override
   void initState() {
@@ -44,7 +44,7 @@ class _CodeReuseState extends State<CodeReuse> {
 
   @override
   void dispose() {
-    presentationController.dispose();
+    presentationController!.dispose();
     controller.dispose();
     super.dispose();
   }
@@ -64,7 +64,7 @@ class _CodeReuseState extends State<CodeReuse> {
             ),
             Presentation(
               controller: controller,
-              presentationController: presentationController,
+              presentationController: presentationController!,
               children: [
                 const Intro(),
                 Solid(presentationController),
