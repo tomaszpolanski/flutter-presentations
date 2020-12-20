@@ -7,10 +7,10 @@ class RefactoringWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Theme(
       data: ThemeData.light(),
-      child: Align(
+      child: const Align(
         child: SizedBox(
           width: 600,
-          child: const MyApp(),
+          child: MyApp(),
         ),
       ),
     );
@@ -92,8 +92,8 @@ class MyApp extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Image.asset(
-            'images/lake.jpg',
+          Image.network(
+            'https://unsplash.com/photos/mhqoyciC5I0/download?force=true',
             width: 600,
             height: 240,
             fit: BoxFit.cover,
@@ -127,3 +127,155 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class MyRefactoredApp extends StatelessWidget {
+  const MyRefactoredApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Flutter layout demo'),
+      ),
+      body: ListView(
+        children: [
+          Image.network(
+            'https://unsplash.com/photos/mhqoyciC5I0/download?force=true',
+            width: 600,
+            height: 240,
+            fit: BoxFit.cover,
+          ),
+          const _TitleSection1(),
+          _ButtonSection1(color: Theme.of(context).primaryColor),
+          const _TextSection(),
+        ],
+      ),
+    );
+  }
+}
+// 1. Change those into widgets:
+//           titleSection,
+//           buttonSection,
+//           textSection,
+
+class _TitleSection1 extends StatelessWidget {
+  const _TitleSection1({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(32),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    'Oeschinen Lake Campground',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Text(
+                  'Kandersteg, Switzerland',
+                  style: TextStyle(
+                    color: Colors.grey[500],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          /*3*/
+          Icon(
+            Icons.star,
+            color: Colors.red[500],
+          ),
+          const Text('41'),
+        ],
+      ),
+    );
+  }
+}
+
+class _ButtonSection1 extends StatelessWidget {
+  const _ButtonSection1({
+    required this.color,
+    Key? key,
+  }) : super(key: key);
+
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        _SingleButton(color: color, icon: Icons.call, label: 'CALL'),
+        _SingleButton(color: color, icon: Icons.near_me, label: 'ROUTE'),
+        _SingleButton(color: color, icon: Icons.share, label: 'SHARE'),
+      ],
+    );
+  }
+}
+
+class _SingleButton extends StatelessWidget {
+  const _SingleButton({
+    Key? key,
+    required this.color,
+    required this.icon,
+    required this.label,
+  }) : super(key: key);
+
+  final Color color;
+  final IconData icon;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(icon, color: color),
+        Padding(
+          padding: const EdgeInsets.only(top: 8),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: color,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _TextSection extends StatelessWidget {
+  const _TextSection({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.all(32),
+      child: Text(
+        'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese '
+        'Alps. Situated 1,578 meters above sea level, it is one of the '
+        'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a '
+        'half-hour walk through pastures and pine forest, leads you to the '
+        'lake, which warms to 20 degrees Celsius in the summer. Activities '
+        'enjoyed here include rowing, and riding the summer toboggan run.',
+        softWrap: true,
+      ),
+    );
+  }
+}
+
+// 2. Not needed Containers
+// 3. Widgets not methods
