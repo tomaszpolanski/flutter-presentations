@@ -4,6 +4,7 @@ import 'package:flutter_presentations/features/code_reuse/pages/big_widget.dart'
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
 import 'package:flutter_presentations/features/refactoring/pages/bad_slivers.dart';
 import 'package:flutter_presentations/features/refactoring/pages/container.dart';
+import 'package:flutter_presentations/features/refactoring/pages/refactoring_widget.dart';
 import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
 
@@ -51,12 +52,14 @@ class _RefactoringState extends State<Refactoring> {
               // - change name to body to child and then you can remove
               ...[
                 // Size
+                const RefactoringWidget(),
                 const SectionPage('Size Matters'),
                 BigWidget(presentationController),
                 const SummaryPage(
                   title: 'Widgets',
                   subtitle: 'As small As possible',
                 ),
+                const RefactoringWidget(),
                 // do not do
                 //  final child = ...
                 //   final header = ...
