@@ -11,7 +11,7 @@ class InheritanceVsComposition extends StatefulWidget {
     Key? key,
   }) : super(key: key);
 
-  final PresentationController? controller;
+  final PresentationController controller;
 
   @override
   _InheritanceVsCompositionState createState() =>
@@ -27,8 +27,8 @@ enum _Step {
 
 class _InheritanceVsCompositionState extends State<InheritanceVsComposition> {
   late PageStepper<_Step> _stateController;
-  _Controller? _inheritanceController;
-  _Controller? _compositionController;
+  late _Controller _inheritanceController;
+  late _Controller _compositionController;
 
   @override
   void initState() {
@@ -36,25 +36,25 @@ class _InheritanceVsCompositionState extends State<InheritanceVsComposition> {
     _inheritanceController = _Controller();
     _compositionController = _Controller();
     _stateController = PageStepper<_Step>(
-      controller: widget.controller!,
+      controller: widget.controller,
       steps: _Step.values,
     )
       ..add(
         fromStep: _Step.init,
         toStep: _Step.inheritance,
-        forward: _inheritanceController!.forward,
-        reverse: _inheritanceController!.reverse,
+        forward: _inheritanceController.forward,
+        reverse: _inheritanceController.reverse,
       )
       ..add(
         fromStep: _Step.inheritance,
         toStep: _Step.composition,
-        forward: _compositionController!.forward,
-        reverse: _compositionController!.reverse,
+        forward: _compositionController.forward,
+        reverse: _compositionController.reverse,
       )
       ..add(
         fromStep: _Step.composition,
         toStep: _Step.next,
-        forward: widget.controller!.nextSlide,
+        forward: widget.controller.nextSlide,
       )
       ..build();
   }
@@ -62,7 +62,7 @@ class _InheritanceVsCompositionState extends State<InheritanceVsComposition> {
   @override
   void dispose() {
     _stateController.dispose();
-    _compositionController!.dispose();
+    _compositionController.dispose();
     super.dispose();
   }
 
@@ -103,8 +103,8 @@ class _InheritanceVsCompositionState extends State<InheritanceVsComposition> {
 }
 
 class _Inheritance extends StatefulWidget {
-  const _Inheritance({Key? key, this.controller}) : super(key: key);
-  final _Controller? controller;
+  const _Inheritance({Key? key, required this.controller}) : super(key: key);
+  final _Controller controller;
 
   @override
   _InheritanceState createState() => _InheritanceState();
@@ -121,7 +121,7 @@ class _InheritanceState extends State<_Inheritance>
       vsync: this,
       duration: const Duration(seconds: 2),
     );
-    widget.controller!.addListeners(
+    widget.controller.addListeners(
       () => _controller.forward(),
       () => _controller.reverse(),
     );
@@ -212,8 +212,8 @@ class _AnimatedInheritance extends StatelessWidget {
 }
 
 class _Composition extends StatefulWidget {
-  const _Composition({Key? key, this.controller}) : super(key: key);
-  final _Controller? controller;
+  const _Composition({Key? key, required this.controller}) : super(key: key);
+  final _Controller controller;
 
   @override
   _CompositionState createState() => _CompositionState();
@@ -230,7 +230,7 @@ class _CompositionState extends State<_Composition>
       vsync: this,
       duration: const Duration(seconds: 2),
     );
-    widget.controller!.addListeners(
+    widget.controller.addListeners(
       () => _controller.forward(),
       () => _controller.reverse(),
     );
@@ -329,20 +329,20 @@ class _CompositionState extends State<_Composition>
 }
 
 class _AnimatedPosition extends StatelessWidget {
-  const _AnimatedPosition({Key? key, this.animation, this.child})
+  const _AnimatedPosition({Key? key, required this.animation, this.child})
       : super(key: key);
-  final Animation<double>? animation;
+  final Animation<double> animation;
   final Widget? child;
 
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: animation!,
+      animation: animation,
       builder: (BuildContext context, Widget? child) {
         return FadeTransition(
-          opacity: animation!,
+          opacity: animation,
           child: Transform.translate(
-            offset: Offset(0, animation!.value * 500),
+            offset: Offset(0, animation.value * 500),
             child: child,
           ),
         );

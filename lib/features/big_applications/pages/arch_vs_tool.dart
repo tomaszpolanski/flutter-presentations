@@ -7,7 +7,7 @@ class Tools extends StatelessWidget {
     this.controller, {
     Key? key,
   }) : super(key: key);
-  final PresentationController? controller;
+  final PresentationController controller;
 
   @override
   Widget build(BuildContext context) {

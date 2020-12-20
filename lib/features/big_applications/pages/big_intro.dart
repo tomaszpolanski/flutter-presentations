@@ -122,7 +122,8 @@ class __FlutterProjectsState extends State<_FlutterProjects>
     );
   }
 
-  _Circle _generateCircle(math.Random random, {required double min, required double max}) {
+  _Circle _generateCircle(math.Random random,
+      {required double min, required double max}) {
     return _Circle(
       size: random.nextDouble() * (max - min) + min,
       x: random.nextDouble(),
@@ -197,8 +198,7 @@ class LoopTransition extends AnimatedWidget {
     this.radius = 40,
     required this.seed,
     this.child,
-  })  : assert(scale != null),
-        super(key: key, listenable: scale);
+  }) : super(key: key, listenable: scale);
 
   Animation<double> get scale => listenable as Animation<double>;
 

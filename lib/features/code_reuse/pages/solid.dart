@@ -8,7 +8,7 @@ class Solid extends StatefulWidget {
     this.controller, {
     Key? key,
   }) : super(key: key);
-  final PresentationController? controller;
+  final PresentationController controller;
 
   @override
   _SolidState createState() => _SolidState();
@@ -31,7 +31,7 @@ enum _Step {
 
 class _SolidState extends State<Solid> with TickerProviderStateMixin {
   late PageStepper<_Step> _stateController;
-  AnimationController? _controller;
+  late AnimationController _controller;
   bool _showOnlyOpenClosed = false;
 
   @override
@@ -43,14 +43,14 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
     );
 
     _stateController = PageStepper<_Step>(
-      controller: widget.controller!,
+      controller: widget.controller,
       steps: _Step.values,
     )
       ..add(
         fromStep: _Step.init,
         toStep: _Step.solid,
-        forward: _controller!.forward,
-        reverse: _controller!.reverse,
+        forward: _controller.forward,
+        reverse: _controller.reverse,
       )
       ..add(
           fromStep: _Step.solid,
@@ -60,7 +60,7 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
       ..add(
         fromStep: _Step.openClosed,
         toStep: _Step.next,
-        forward: widget.controller!.nextSlide,
+        forward: widget.controller.nextSlide,
       )
       ..addListener(() => setState(() {}))
       ..build();
@@ -68,7 +68,7 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    _controller!.dispose();
+    _controller.dispose();
     _stateController.dispose();
     super.dispose();
   }
@@ -77,7 +77,7 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     const offset = 130.0;
     final translateAnimation = CurvedAnimation(
-      parent: _controller!,
+      parent: _controller,
       curve: const Interval(0, 0.3, curve: Curves.ease),
     );
     final bigTheme = Theme.of(context).textTheme.headline4;
@@ -126,8 +126,11 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                       animation: translateAnimation,
                       builder: (_, child) {
                         return Transform.translate(
-                          offset: Offset(0,
-                              translateAnimation.value * bigTheme!.fontSize! * 2),
+                          offset: Offset(
+                              0,
+                              translateAnimation.value *
+                                  bigTheme!.fontSize! *
+                                  2),
                           child: child,
                         );
                       },
@@ -147,8 +150,11 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                       animation: translateAnimation,
                       builder: (_, child) {
                         return Transform.translate(
-                          offset: Offset(0,
-                              translateAnimation.value * bigTheme!.fontSize! * 3),
+                          offset: Offset(
+                              0,
+                              translateAnimation.value *
+                                  bigTheme!.fontSize! *
+                                  3),
                           child: child,
                         );
                       },
@@ -168,8 +174,11 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                       animation: translateAnimation,
                       builder: (_, child) {
                         return Transform.translate(
-                          offset: Offset(0,
-                              translateAnimation.value * bigTheme!.fontSize! * 4),
+                          offset: Offset(
+                              0,
+                              translateAnimation.value *
+                                  bigTheme!.fontSize! *
+                                  4),
                           child: child,
                         );
                       },
@@ -222,10 +231,10 @@ class _Letter extends StatelessWidget {
   const _Letter(
     this.text, {
     Key? key,
-    this.animation,
+    required this.animation,
   }) : super(key: key);
   final String text;
-  final Animation<double>? animation;
+  final Animation<double> animation;
 
   @override
   Widget build(BuildContext context) {
@@ -236,7 +245,7 @@ class _Letter extends StatelessWidget {
       children: <Widget>[
         Text(text[0]),
         AnimatedBuilder(
-          animation: animation!,
+          animation: animation,
           builder: (_, child) {
             return Container(
               foregroundDecoration: BoxDecoration(
@@ -247,7 +256,7 @@ class _Letter extends StatelessWidget {
                     Colors.white,
                     Colors.white,
                   ],
-                  stops: [0.0, animation!.value, animation!.value, 1.0],
+                  stops: [0.0, animation.value, animation.value, 1.0],
                 ),
               ),
               child: child,

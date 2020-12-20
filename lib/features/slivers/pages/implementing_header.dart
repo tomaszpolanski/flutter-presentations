@@ -7,45 +7,45 @@ class ImplementingHeader extends StatefulWidget {
   const ImplementingHeader({Key? key, required this.controller})
       : super(key: key);
 
-  final PresentationController? controller;
+  final PresentationController controller;
 
   @override
   ImplementingHeaderState createState() => ImplementingHeaderState();
 }
 
 class ImplementingHeaderState extends State<ImplementingHeader> {
-  ScrollController? _controller;
+  late ScrollController _controller;
   @override
   void initState() {
     super.initState();
     _controller = ScrollController();
-    widget.controller!.addListener(_handlePageAction);
+    widget.controller.addListener(_handlePageAction);
   }
 
   @override
   void dispose() {
-    widget.controller!.removeListener(_handlePageAction);
-    _controller!.dispose();
+    widget.controller.removeListener(_handlePageAction);
+    _controller.dispose();
     super.dispose();
   }
 
   void _handlePageAction(PageAction action) {
     if (action == PageAction.next) {
-      if (_controller!.position.maxScrollExtent == _controller!.offset) {
-        widget.controller!.nextSlide();
+      if (_controller.position.maxScrollExtent == _controller.offset) {
+        widget.controller.nextSlide();
       } else {
-        _controller!.animateTo(
-          _controller!.offset + context.size!.height,
+        _controller.animateTo(
+          _controller.offset + context.size!.height,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
       }
     } else {
-      if (0.0 == _controller!.offset) {
-        widget.controller!.previousSlide();
+      if (0.0 == _controller.offset) {
+        widget.controller.previousSlide();
       } else {
-        _controller!.animateTo(
-          _controller!.offset - context.size!.height,
+        _controller.animateTo(
+          _controller.offset - context.size!.height,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );

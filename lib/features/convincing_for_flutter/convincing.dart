@@ -20,8 +20,8 @@ class Convincing extends StatefulWidget {
 
 class ConvincingState extends State<Convincing> {
   late PageController controller;
-  PresentationController? presentationController;
-  List<ValueGetter<Widget>>? pageCreator;
+  late PresentationController presentationController;
+  late List<ValueGetter<Widget>> pageCreator;
 
   @override
   void initState() {
@@ -33,7 +33,7 @@ class ConvincingState extends State<Convincing> {
 
   @override
   void dispose() {
-    presentationController!.dispose();
+    presentationController.dispose();
     controller.dispose();
     super.dispose();
   }
@@ -46,7 +46,7 @@ class ConvincingState extends State<Convincing> {
         color: Colors.white,
         child: Presentation(
           controller: controller,
-          presentationController: presentationController!,
+          presentationController: presentationController,
           children: [
             const TitlePage(),
             const PopularityPage(),

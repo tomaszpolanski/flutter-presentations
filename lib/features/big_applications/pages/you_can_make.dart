@@ -29,9 +29,10 @@ class _YouCanMakeState extends State<YouCanMake>
   @override
   void initState() {
     super.initState();
-    if (widget.controller != null) {
+    final controller = widget.controller;
+    if (controller != null) {
       _stateController = PageStepper<_Step>(
-        controller: widget.controller!,
+        controller: controller,
         steps: _Step.values,
       )
         ..add(
@@ -47,7 +48,7 @@ class _YouCanMakeState extends State<YouCanMake>
         ..add(
           fromStep: _Step.flutter,
           toStep: _Step.next,
-          forward: widget.controller!.nextSlide,
+          forward: controller.nextSlide,
         )
         ..build();
     }

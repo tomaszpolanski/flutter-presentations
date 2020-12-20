@@ -7,7 +7,7 @@ class Inception extends StatefulWidget {
     this.controller, {
     Key? key,
   }) : super(key: key);
-  final PresentationController? controller;
+  final PresentationController controller;
 
   @override
   _InceptionState createState() => _InceptionState();
@@ -22,7 +22,7 @@ class _InceptionState extends State<Inception> {
     super.initState();
     final steps = List.generate(10, (i) => i + 1);
     _stateController = PageStepper<int>(
-      controller: widget.controller!,
+      controller: widget.controller,
       steps: steps,
     );
     for (final step in steps) {
@@ -38,7 +38,7 @@ class _InceptionState extends State<Inception> {
       ..add(
         fromStep: steps.length - 2,
         toStep: steps.length - 2,
-        forward: widget.controller!.nextSlide,
+        forward: widget.controller.nextSlide,
       )
       ..addListener(() => setState(() {}))
       ..build();

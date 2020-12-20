@@ -9,7 +9,7 @@ class TutorialGoal extends StatefulWidget {
     this.controller, {
     Key? key,
   }) : super(key: key);
-  final PresentationController? controller;
+  final PresentationController controller;
 
   @override
   _TutorialGoalState createState() => _TutorialGoalState();
@@ -36,7 +36,7 @@ class _TutorialGoalState extends State<TutorialGoal>
       duration: const Duration(milliseconds: 500),
     );
     _stateController = PageStepper<_TutorialStep>(
-      controller: widget.controller!,
+      controller: widget.controller,
       steps: _TutorialStep.values,
     )
       ..add(
@@ -54,7 +54,7 @@ class _TutorialGoalState extends State<TutorialGoal>
       ..add(
         fromStep: _TutorialStep.tutorial,
         toStep: _TutorialStep.next,
-        forward: widget.controller!.nextSlide,
+        forward: widget.controller.nextSlide,
       )
       ..build();
   }
@@ -94,7 +94,7 @@ class _TutorialGoalState extends State<TutorialGoal>
             )),
             builder: (_, animation, child) {
               return ClipRect(
-                clipper: ClipperRect(animation.value),
+                clipper: ClipperRect(animation.value!),
                 child: child,
               );
             },
@@ -111,7 +111,7 @@ class TutorialResult extends StatefulWidget {
     this.controller, {
     Key? key,
   }) : super(key: key);
-  final PresentationController? controller;
+  final PresentationController controller;
 
   @override
   _TutorialResultState createState() => _TutorialResultState();
@@ -139,7 +139,7 @@ class _TutorialResultState extends State<TutorialResult>
       duration: const Duration(milliseconds: 500),
     );
     _stateController = PageStepper<_Step>(
-      controller: widget.controller!,
+      controller: widget.controller,
       steps: _Step.values,
     )
       ..add(
@@ -157,7 +157,7 @@ class _TutorialResultState extends State<TutorialResult>
       ..add(
         fromStep: _Step.graph,
         toStep: _Step.next,
-        forward: () => widget.controller!.nextSlide(),
+        forward: () => widget.controller.nextSlide(),
       )
       ..build();
   }

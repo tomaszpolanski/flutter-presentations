@@ -31,7 +31,7 @@ class BigApplications extends StatefulWidget {
 
 class _BigApplicationsState extends State<BigApplications> {
   late PageController controller;
-  PresentationController? presentationController;
+  late PresentationController presentationController;
 
   @override
   void initState() {
@@ -45,7 +45,7 @@ class _BigApplicationsState extends State<BigApplications> {
 
   @override
   void dispose() {
-    presentationController!.dispose();
+    presentationController.dispose();
     controller.dispose();
     super.dispose();
   }
@@ -163,7 +163,7 @@ class _BigApplicationsState extends State<BigApplications> {
               children: [
                 Presentation(
                   controller: controller,
-                  presentationController: presentationController!,
+                  presentationController: presentationController,
                   children: children,
                 ),
                 Positioned(

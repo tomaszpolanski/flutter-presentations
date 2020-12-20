@@ -10,7 +10,7 @@ class EverythingsWidget extends StatefulWidget {
     this.controller, {
     Key? key,
   }) : super(key: key);
-  final PresentationController? controller;
+  final PresentationController controller;
 
   @override
   _EverythingsWidgetState createState() => _EverythingsWidgetState();
@@ -41,7 +41,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
       duration: const Duration(milliseconds: 500),
     );
     _stateController = PageStepper<_Step>(
-      controller: widget.controller!,
+      controller: widget.controller,
       steps: _Step.values,
     )
       ..add(
@@ -71,7 +71,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
       ..add(
         fromStep: _Step.showCode,
         toStep: _Step.next,
-        forward: widget.controller!.nextSlide,
+        forward: widget.controller.nextSlide,
       )
       ..build();
   }

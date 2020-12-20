@@ -8,7 +8,7 @@ class Tests extends StatefulWidget {
     this.controller, {
     Key? key,
   }) : super(key: key);
-  final PresentationController? controller;
+  final PresentationController controller;
 
   @override
   _TestsState createState() => _TestsState();
@@ -29,7 +29,7 @@ class _TestsState extends State<Tests> {
   void initState() {
     super.initState();
     _stateController = PageStepper<_Step>(
-      controller: widget.controller!,
+      controller: widget.controller,
       steps: _Step.values,
     )
       ..add(
@@ -51,7 +51,7 @@ class _TestsState extends State<Tests> {
       ..add(
         fromStep: _Step.color_changed,
         toStep: _Step.next,
-        forward: widget.controller!.nextSlide,
+        forward: widget.controller.nextSlide,
       )
       ..addListener(() => setState(() {}))
       ..build();

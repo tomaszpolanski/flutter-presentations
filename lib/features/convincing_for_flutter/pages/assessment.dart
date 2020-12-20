@@ -33,7 +33,7 @@ class CriteriaPage extends StatefulWidget {
     this.people = Colors.white,
   }) : super(key: key);
 
-  final PresentationController? controller;
+  final PresentationController controller;
   final Color background;
   final Color business;
   final Color technology;
@@ -93,7 +93,7 @@ class CriteriaPageState extends State<CriteriaPage>
         } else if (_peopleController.status == AnimationStatus.dismissed) {
           _peopleController.forward();
         } else {
-          widget.controller!.nextSlide();
+          widget.controller.nextSlide();
         }
       },
       child: Container(
@@ -198,11 +198,15 @@ class CriteriaPageState extends State<CriteriaPage>
 }
 
 class ArrowPainter extends CustomPainter {
-  const ArrowPainter({this.color, this.opacity, this.rotation});
+  const ArrowPainter({
+    required this.color,
+    required this.opacity,
+    required this.rotation,
+  });
 
-  final Color? color;
-  final double? opacity;
-  final double? rotation;
+  final Color color;
+  final double opacity;
+  final double rotation;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -222,12 +226,12 @@ class ArrowPainter extends CustomPainter {
       ..close();
 
     final Paint line = Paint()
-      ..color = color!.withOpacity(opacity!)
+      ..color = color.withOpacity(opacity)
       ..style = PaintingStyle.fill;
 
     canvas
       ..translate(size.width / 2, size.height / 2)
-      ..rotate(rotation! + pi)
+      ..rotate(rotation + pi)
       ..drawPath(p, line);
   }
 

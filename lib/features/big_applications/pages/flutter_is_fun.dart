@@ -9,7 +9,7 @@ class FlutterIsFun extends StatefulWidget {
     this.controller, {
     Key? key,
   }) : super(key: key);
-  final PresentationController? controller;
+  final PresentationController controller;
 
   @override
   _FlutterIsFunState createState() => _FlutterIsFunState();
@@ -30,7 +30,7 @@ class _FlutterIsFunState extends State<FlutterIsFun>
   void initState() {
     super.initState();
     _stateController = PageStepper<_Step>(
-      controller: widget.controller!,
+      controller: widget.controller,
       steps: _Step.values,
     )
       ..add(
@@ -46,7 +46,7 @@ class _FlutterIsFunState extends State<FlutterIsFun>
       ..add(
         fromStep: _Step.flutter,
         toStep: _Step.next,
-        forward: widget.controller!.nextSlide,
+        forward: widget.controller.nextSlide,
       )
       ..build();
   }

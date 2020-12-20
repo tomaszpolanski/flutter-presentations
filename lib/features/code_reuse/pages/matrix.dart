@@ -9,7 +9,7 @@ class Matrix extends StatefulWidget {
     this.controller, {
     Key? key,
   }) : super(key: key);
-  final PresentationController? controller;
+  final PresentationController controller;
 
   @override
   _MatrixState createState() => _MatrixState();
@@ -43,7 +43,7 @@ class _MatrixState extends State<Matrix> with SingleTickerProviderStateMixin {
         });
       });
     _stateController = PageStepper<_Step>(
-      controller: widget.controller!,
+      controller: widget.controller,
       steps: _Step.values,
     )
       ..add(
@@ -61,7 +61,7 @@ class _MatrixState extends State<Matrix> with SingleTickerProviderStateMixin {
       ..add(
         fromStep: _Step.stop,
         toStep: _Step.next,
-        forward: widget.controller!.nextSlide,
+        forward: widget.controller.nextSlide,
       )
       ..addListener(() => setState(() {}))
       ..build();

@@ -7,7 +7,7 @@ class IncludeFlutter extends StatefulWidget {
     this.controller, {
     Key? key,
   }) : super(key: key);
-  final PresentationController? controller;
+  final PresentationController controller;
 
   @override
   _IncludeFlutterState createState() => _IncludeFlutterState();
@@ -25,7 +25,7 @@ class _IncludeFlutterState extends State<IncludeFlutter>
   @override
   void initState() {
     _stateController = PageStepper<_Step>(
-      controller: widget.controller!,
+      controller: widget.controller,
       steps: _Step.values,
     )
       ..add(
@@ -49,7 +49,7 @@ class _IncludeFlutterState extends State<IncludeFlutter>
       ..add(
         fromStep: _Step.build,
         toStep: _Step.next,
-        forward: widget.controller!.nextSlide,
+        forward: widget.controller.nextSlide,
       )
       ..build();
     super.initState();

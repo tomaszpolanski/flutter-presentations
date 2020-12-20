@@ -7,7 +7,7 @@ class StackedPage extends StatefulWidget {
     required this.controller,
     required this.children,
   }) : super(key: key);
-  final PresentationController? controller;
+  final PresentationController controller;
   final List<Widget> children;
 
   @override
@@ -28,7 +28,7 @@ class _StackedPageState extends State<StackedPage>
       duration: const Duration(milliseconds: 500),
     );
     _stateController = PageStepper<int>(
-      controller: widget.controller!,
+      controller: widget.controller,
       steps: List.generate(widget.children.length + 2, (index) => index),
     );
     for (int step = 0; step < widget.children.length; step++) {
@@ -43,7 +43,7 @@ class _StackedPageState extends State<StackedPage>
       ..add(
         fromStep: widget.children.length,
         toStep: widget.children.length + 1,
-        forward: widget.controller!.nextSlide,
+        forward: widget.controller.nextSlide,
       )
       ..build();
   }

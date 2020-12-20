@@ -15,8 +15,8 @@ class Testing extends StatefulWidget {
 
 class _TestingState extends State<Testing> {
   late PageController controller;
-  PresentationController? presentationController;
-  List<ValueGetter<Widget>>? pageCreator;
+  late PresentationController presentationController;
+  late List<ValueGetter<Widget>> pageCreator;
 
   @override
   void initState() {
@@ -27,7 +27,7 @@ class _TestingState extends State<Testing> {
 
   @override
   void dispose() {
-    presentationController!.dispose();
+    presentationController.dispose();
     controller.dispose();
     super.dispose();
   }
@@ -47,7 +47,7 @@ class _TestingState extends State<Testing> {
             ),
             Presentation(
               controller: controller,
-              presentationController: presentationController!,
+              presentationController: presentationController,
               children: [
                 SpeedComparison(
                   presentationController,
