@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/big_applications/pages/big_intro.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/big_widget.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
+import 'package:flutter_presentations/features/refactoring/pages/bad_slivers.dart';
 import 'package:flutter_presentations/features/refactoring/pages/container.dart';
 import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
@@ -40,13 +41,14 @@ class _RefactoringState extends State<Refactoring> {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: blueDark(),
+      data: blueLight(),
       child: Scaffold(
-        backgroundColor: Colors.white,
         body: Builder(
           builder: (_) {
             final children = [
               const BigIntro(),
+              // Refactoring tools:
+              // - change name to body to child and then you can remove
               ...[
                 // Size
                 const SectionPage('Size Matters'),
@@ -67,6 +69,7 @@ class _RefactoringState extends State<Refactoring> {
                   title: 'What about',
                   subtitle: 'Slivers?',
                 ),
+                const BadSlivers(),
                 // slivers can be a stateless widgets
               ],
               ...[

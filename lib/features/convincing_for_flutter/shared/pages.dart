@@ -9,8 +9,7 @@ class SectionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Theme.of(context).accentColor,
+    return Padding(
       padding: const EdgeInsets.all(30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -113,46 +112,48 @@ class SummaryWidgetPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: background ?? Theme.of(context).accentColor,
-      padding: const EdgeInsets.all(30),
-      child: Stack(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Expanded(
-                flex: 2,
-                child: ParallaxWidget(
-                  translationFactor: 150,
-                  child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Container(
-                      color: Theme.of(context).textTheme.headline6!.color,
-                      height: 8,
-                      width: 100,
+    return Scaffold(
+      backgroundColor: background ?? Theme.of(context).scaffoldBackgroundColor,
+      body: Padding(
+        padding: const EdgeInsets.all(30),
+        child: Stack(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Expanded(
+                  flex: 2,
+                  child: ParallaxWidget(
+                    translationFactor: 150,
+                    child: Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Container(
+                        color: Theme.of(context).textTheme.headline6!.color,
+                        height: 8,
+                        width: 100,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 7,
-                child: DefaultTextStyle.merge(
-                  style: Theme.of(context).textTheme.headline6,
-                  child: title,
+                Expanded(
+                  flex: 7,
+                  child: DefaultTextStyle.merge(
+                    style: Theme.of(context).textTheme.headline6,
+                    child: title,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: DefaultTextStyle.merge(
-              style: Theme.of(context).textTheme.headline6,
-              textAlign: TextAlign.end,
-              child: subtitle,
+              ],
             ),
-          )
-        ],
+            Align(
+              alignment: Alignment.bottomRight,
+              child: DefaultTextStyle.merge(
+                style: Theme.of(context).textTheme.headline6,
+                textAlign: TextAlign.end,
+                child: subtitle,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

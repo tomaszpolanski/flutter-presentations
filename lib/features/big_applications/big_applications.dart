@@ -53,9 +53,8 @@ class _BigApplicationsState extends State<BigApplications> {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: blueDark(),
+      data: blueLight(),
       child: Scaffold(
-        backgroundColor: Colors.white,
         body: Builder(
           builder: (_) {
             final children = [
