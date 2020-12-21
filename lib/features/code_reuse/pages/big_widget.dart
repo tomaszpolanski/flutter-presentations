@@ -22,7 +22,6 @@ enum _Step {
 class _BigWidgetState extends State<BigWidget> {
   late PageStepper<_Step> _stateController;
   late ScrollController _controller;
-  static const maxScroll = 550000.0;
 
   @override
   void initState() {
@@ -36,7 +35,7 @@ class _BigWidgetState extends State<BigWidget> {
         fromStep: _Step.init,
         toStep: _Step.bottom,
         forward: () => _controller.animateTo(
-          maxScroll,
+          1000000,
           duration: const Duration(seconds: 10),
           curve: Curves.ease,
         ),
@@ -98,10 +97,13 @@ class _BigWidgetState extends State<BigWidget> {
           child: AnimatedBuilder(
             animation: _controller,
             builder: (_, child) {
+              final maxExtent = _controller.position.hasContentDimensions
+                  ? _controller.position.maxScrollExtent
+                  : 10000;
               return AnimatedOpacity(
                 duration: const Duration(milliseconds: 400),
-                opacity: _controller.offset > 0.5 * maxScroll &&
-                        _controller.offset < 0.9 * maxScroll
+                opacity: _controller.offset > 0.5 * maxExtent &&
+                        _controller.offset < 0.9 * maxExtent
                     ? 1
                     : 0,
                 child: child,

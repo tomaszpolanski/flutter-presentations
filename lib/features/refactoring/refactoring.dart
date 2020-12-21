@@ -44,69 +44,63 @@ class _RefactoringState extends State<Refactoring> {
     return Theme(
       data: blueLight(),
       child: Scaffold(
-        body: Builder(
-          builder: (_) {
-            final children = [
-              const BigIntro(),
-              // Refactoring tools:
-              // - change name to body to child and then you can remove
-              ...[
-                // Size
-                const RefactoringWidget(),
-                const SectionPage('Size Matters'),
-                BigWidget(presentationController),
-                const SummaryPage(
-                  title: 'Widgets',
-                  subtitle: 'As small As possible',
-                ),
-                const RefactoringWidget(),
-                // do not do
-                //  final child = ...
-                //   final header = ...
-                //   return Column(...)
+        body: Presentation(
+          controller: controller,
+          presentationController: presentationController,
+          children: [
+            const BigIntro(),
+            const RefactoringWidget(),
 
-                // StefanText vs buildThemedText - widgets vs methods
-                // widgets are transparent
+            ...[
+              // Size
+              const SectionPage('📏 Size'),
+              BigWidget(presentationController),
+              const RefactoringWidget(),
+            ],
 
-                const SummaryPage(
-                  title: 'What about',
-                  subtitle: 'Slivers?',
-                ),
-                const BadSlivers(),
-                // slivers can be a stateless widgets
-              ],
-              ...[
-                const SummaryPage(
-                  title: 'Context',
-                  subtitle: 'a.k.a Element',
-                ),
-                // explain context
-                //
-                // as close as possible
-              ],
-              ...[
-                const SummaryPage(
-                  title: 'Container',
-                  subtitle: "Don't user for everything",
-                ),
-                FlutterContainer(presentationController),
-                // explain context
-                //
-                // as close as possible
-              ],
-              ...[
-                const SummaryPage(
-                  title: "Don't always use Function",
-                  subtitle: 'basic_types.dart',
-                ),
-              ],
-            ];
-            return Presentation(
-              controller: controller,
-              presentationController: presentationController,
-              children: children,
-            );
-          },
+            ...[
+              // Container
+
+              const SummaryPage(
+                title: '📦 Container',
+                subtitle: "Don't user for everything",
+              ),
+              FlutterContainer(presentationController),
+              const RefactoringWidget(),
+            ],
+            ...[
+              // Widgets vs methods
+
+              const SummaryPage(
+                title: 'Widgets',
+                subtitle: 'vs Methods',
+              ),
+              const RefactoringWidget(),
+              // StefanText vs buildThemedText - widgets vs methods
+              // widgets are transparent, they InheritedWidgets only rebuild them
+              const SummaryPage(
+                title: 'Context',
+                subtitle: 'a.k.a Element',
+              ),
+              const RefactoringWidget(),
+            ],
+            ...[
+              const SummaryPage(
+                title: 'What about',
+                subtitle: 'Slivers?',
+              ),
+              const BadSlivers(),
+            ],
+
+            // slivers can be a stateless widgets
+
+            ...[
+              const SummaryPage(
+                title: "Don't always use Function",
+                subtitle: 'basic_types.dart',
+              ),
+            ],
+          ],
         ),
       ),
     );
