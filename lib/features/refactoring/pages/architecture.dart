@@ -8,9 +8,17 @@ class Architecture extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => CounterCubit(),
-      child: const CounterView(),
+      child: const BlockCounterView(),
     );
   }
+}
+
+class CounterCubit extends Cubit<int> {
+  CounterCubit() : super(0);
+
+  void increment() => emit(state + 1);
+
+  void decrement() => emit(state - 1);
 }
 
 class CounterView extends StatelessWidget {
@@ -23,7 +31,6 @@ class CounterView extends StatelessWidget {
       body: Center(
         child: BlocBuilder<CounterCubit, int>(
           builder: (context, state) {
-            print('QQQ ${state}');
             return Text('$state');
           },
         ),
@@ -33,12 +40,16 @@ class CounterView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
           FloatingActionButton(
-            onPressed: () => context.read<CounterCubit>().increment(),
+            onPressed: () {
+              BlocProvider.of<CounterCubit>(context).increment();
+            },
             child: const Icon(Icons.add),
           ),
           const SizedBox(height: 8),
           FloatingActionButton(
-            onPressed: () => context.read<CounterCubit>().decrement(),
+            onPressed: () {
+              BlocProvider.of<CounterCubit>(context).decrement();
+            },
             child: const Icon(Icons.remove),
           ),
         ],
@@ -47,13 +58,57 @@ class CounterView extends StatelessWidget {
   }
 }
 
-class CounterCubit extends Cubit<int> {
-  /// {@macro counter_cubit}
-  CounterCubit() : super(0);
+class BlockCounterView extends StatelessWidget {
+  const BlockCounterView({Key? key}) : super(key: key);
 
-  /// Add 1 to the current state.
-  void increment() => emit(state + 1);
+  @override
+  Widget build(BuildContext context) {
+    return SimpleCounterView(
+      onIncrement: () => BlocProvider.of<CounterCubit>(context).increment(),
+      onDecrement: () => BlocProvider.of<CounterCubit>(context).decrement(),
+      child: BlocBuilder<CounterCubit, int>(
+        builder: (context, state) {
+          return Text('$state');
+        },
+      ),
+    );
+  }
+}
 
-  /// Subtract 1 from the current state.
-  void decrement() => emit(state - 1);
+class SimpleCounterView extends StatelessWidget {
+  const SimpleCounterView({
+    Key? key,
+    required this.child,
+    required this.onIncrement,
+    required this.onDecrement,
+  }) : super(key: key);
+
+  final Widget child;
+  final VoidCallback onIncrement;
+  final VoidCallback onDecrement;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Counter')),
+      body: Center(
+        child: child,
+      ),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          FloatingActionButton(
+            onPressed: onIncrement,
+            child: const Icon(Icons.add),
+          ),
+          const SizedBox(height: 8),
+          FloatingActionButton(
+            onPressed: onDecrement,
+            child: const Icon(Icons.remove),
+          ),
+        ],
+      ),
+    );
+  }
 }
