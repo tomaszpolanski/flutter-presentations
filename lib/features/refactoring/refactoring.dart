@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/big_applications/pages/big_intro.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/big_widget.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
+import 'package:flutter_presentations/features/refactoring/pages/architecture.dart';
 import 'package:flutter_presentations/features/refactoring/pages/bad_slivers.dart';
 import 'package:flutter_presentations/features/refactoring/pages/container.dart';
 import 'package:flutter_presentations/features/refactoring/pages/refactoring_widget.dart';
@@ -94,7 +95,10 @@ class _RefactoringState extends State<Refactoring> {
 
             // slivers can be a stateless widgets
             // ctrl + h To show class hierarchy
-
+            ...[
+              const SectionPage('Reusable Architecture 🏗️'),
+              const Architecture(),
+            ],
             ...[
               const SummaryPage(
                 title: "Don't always use Function",
