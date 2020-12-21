@@ -5,6 +5,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/shared/pag
 import 'package:flutter_presentations/features/refactoring/pages/architecture.dart';
 import 'package:flutter_presentations/features/refactoring/pages/bad_slivers.dart';
 import 'package:flutter_presentations/features/refactoring/pages/container.dart';
+import 'package:flutter_presentations/features/refactoring/pages/context.dart';
 import 'package:flutter_presentations/features/refactoring/pages/refactoring_widget.dart';
 import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
@@ -50,6 +51,7 @@ class _RefactoringState extends State<Refactoring> {
           presentationController: presentationController,
           children: [
             const BigIntro(),
+            const Context(),
             const RefactoringWidget(),
 
             ...[
