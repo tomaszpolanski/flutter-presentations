@@ -93,6 +93,7 @@ class _RefactoringState extends State<Refactoring> {
             ],
 
             // slivers can be a stateless widgets
+            // ctrl + h To show class hierarchy
 
             ...[
               const SummaryPage(
