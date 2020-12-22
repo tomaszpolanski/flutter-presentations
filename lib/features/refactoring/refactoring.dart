@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/big_applications/pages/big_intro.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/big_widget.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
@@ -8,6 +7,7 @@ import 'package:flutter_presentations/features/refactoring/pages/bad_slivers.dar
 import 'package:flutter_presentations/features/refactoring/pages/container.dart';
 import 'package:flutter_presentations/features/refactoring/pages/context.dart';
 import 'package:flutter_presentations/features/refactoring/pages/null_safety.dart';
+import 'package:flutter_presentations/features/refactoring/pages/refactoring_title.dart';
 import 'package:flutter_presentations/features/refactoring/pages/refactoring_widget.dart';
 import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
@@ -52,7 +52,7 @@ class _RefactoringState extends State<Refactoring> {
           controller: controller,
           presentationController: presentationController,
           children: [
-            const BigIntro(),
+            const RefactoringTitle(),
             const RefactoringWidget(),
             ...[
               // Size
