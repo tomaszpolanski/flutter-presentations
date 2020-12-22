@@ -6,6 +6,7 @@ import 'package:flutter_presentations/features/refactoring/pages/architecture.da
 import 'package:flutter_presentations/features/refactoring/pages/bad_slivers.dart';
 import 'package:flutter_presentations/features/refactoring/pages/container.dart';
 import 'package:flutter_presentations/features/refactoring/pages/context.dart';
+import 'package:flutter_presentations/features/refactoring/pages/null_safety.dart';
 import 'package:flutter_presentations/features/refactoring/pages/refactoring_widget.dart';
 import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
@@ -51,19 +52,15 @@ class _RefactoringState extends State<Refactoring> {
           presentationController: presentationController,
           children: [
             const BigIntro(),
-            const Context(),
             const RefactoringWidget(),
-
             ...[
               // Size
               const SectionPage('📏 Size'),
               BigWidget(presentationController),
               const RefactoringWidget(),
             ],
-
             ...[
               // Container
-
               const SummaryPage(
                 title: '📦 Container',
                 subtitle: "Don't user for everything",
@@ -73,7 +70,6 @@ class _RefactoringState extends State<Refactoring> {
             ],
             ...[
               // Widgets vs methods
-
               const SummaryPage(
                 title: 'Widgets',
                 subtitle: 'vs Methods',
@@ -81,31 +77,29 @@ class _RefactoringState extends State<Refactoring> {
               const RefactoringWidget(),
               // StefanText vs buildThemedText - widgets vs methods
               // widgets are transparent, they InheritedWidgets only rebuild them
+            ],
+            ...[
               const SummaryPage(
                 title: 'Context',
                 subtitle: 'a.k.a Element',
               ),
-              const RefactoringWidget(),
+              const Context(),
             ],
             ...[
+              // slivers can be a stateless widgets
+              // ctrl + h To show class hierarchy
               const SummaryPage(
                 title: 'What about',
                 subtitle: 'Slivers?',
               ),
               const BadSlivers(),
             ],
-
-            // slivers can be a stateless widgets
-            // ctrl + h To show class hierarchy
             ...[
               const SectionPage('Reusable Architecture 🏗️'),
               const Architecture(),
             ],
             ...[
-              const SummaryPage(
-                title: "Don't always use Function",
-                subtitle: 'basic_types.dart',
-              ),
+              const NullSafety(),
             ],
           ],
         ),

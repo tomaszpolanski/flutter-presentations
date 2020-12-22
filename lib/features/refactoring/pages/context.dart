@@ -35,18 +35,44 @@ class _ContextState extends State<Context> {
   }
 }
 
+class _TextBad extends StatelessWidget {
+  const _TextBad({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    print('Rebuilding Whole');
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text('Hi!'),
+        Builder(
+          builder: (context) {
+            print('Rebuilding Really Expensive Widget!');
+            return InteractiveViewer(
+              child: const SizedBox(),
+            );
+          },
+        ),
+      ],
+    );
+  }
+}
+
 class _Text extends StatelessWidget {
   const _Text({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    //  MediaQuery.of(context);
-    print('Rebuilding Text');
+    print('Rebuilding Whole');
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Builder(
-            builder: (c) => Text('Hii! ${MediaQuery.of(c).textScaleFactor}')),
+          builder: (context) {
+            print('Rebuilding Text Only');
+            return Text('Hii! ${MediaQuery.of(context).textScaleFactor}');
+          },
+        ),
         Builder(
           builder: (context) {
             print('Rebuilding Really Expensive Widget!');
