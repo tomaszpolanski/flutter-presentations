@@ -7,7 +7,7 @@ class NullSafety extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const _Content(
-      subtitle: 'avoid !',
+      subtitle: '🚧avoid !🚧',
     );
   }
 }
