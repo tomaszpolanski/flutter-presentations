@@ -112,7 +112,7 @@ class _RefactoringTitleState extends State<RefactoringTitle>
         second: 't',
         animation: CurvedAnimation(
           parent: _controllers[1],
-          curve: Curves.linear,
+          curve: Curves.bounceOut,
         ),
       );
     } else if (_controllers[2].isAnimating) {
@@ -124,7 +124,7 @@ class _RefactoringTitleState extends State<RefactoringTitle>
         second: 'r',
         animation: CurvedAnimation(
           parent: _controllers[2],
-          curve: Curves.linear,
+          curve: Curves.fastLinearToSlowEaseIn,
         ),
       );
     } else if (_controllers[3].isAnimating) {
@@ -135,7 +135,7 @@ class _RefactoringTitleState extends State<RefactoringTitle>
         second: 'r',
         animation: CurvedAnimation(
           parent: _controllers[3],
-          curve: Curves.linear,
+          curve: Curves.easeOut,
         ),
       );
     } else if (_controllers[4].isAnimating) {
@@ -144,7 +144,7 @@ class _RefactoringTitleState extends State<RefactoringTitle>
         text3,
         animation: CurvedAnimation(
           parent: _controllers[4],
-          curve: Curves.linear,
+          curve: Curves.easeIn,
         ),
       );
     } else {
