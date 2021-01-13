@@ -9,11 +9,6 @@ class RefactoringTitle extends StatefulWidget {
   _RefactoringTitleState createState() => _RefactoringTitleState();
 }
 
-const text = 'Refactoring';
-const text1 = 'Reftcaoring';
-const text2 = 'Reftraocing';
-const text3 = 'reftRaocing';
-
 const letterWidth = 110.0;
 const lineHeight = 210.0;
 
@@ -34,11 +29,11 @@ class _RefactoringTitleState extends State<RefactoringTitle>
   @override
   void initState() {
     _controllers = [
+      AnimationController(vsync: this, duration: const Duration(seconds: 2)),
       AnimationController(vsync: this, duration: const Duration(seconds: 1)),
       AnimationController(vsync: this, duration: const Duration(seconds: 1)),
       AnimationController(vsync: this, duration: const Duration(seconds: 1)),
-      AnimationController(vsync: this, duration: const Duration(seconds: 1)),
-      AnimationController(vsync: this, duration: const Duration(seconds: 1)),
+      AnimationController(vsync: this, duration: const Duration(seconds: 2)),
     ];
     _setupCyclicControllers(_controllers);
     _controllers.first.forward();
@@ -103,6 +98,8 @@ class _RefactoringTitleState extends State<RefactoringTitle>
 
   @override
   Widget build(BuildContext context) {
+    const text = 'Refactoring';
+
     if (_controllers[0].isAnimating) {
       return Anim1(
         text,
@@ -122,6 +119,8 @@ class _RefactoringTitleState extends State<RefactoringTitle>
         ),
       );
     } else if (_controllers[2].isAnimating) {
+      const text1 = 'Reftcaoring';
+
       return Anim2(
         text1,
         first: 'c',
@@ -132,6 +131,7 @@ class _RefactoringTitleState extends State<RefactoringTitle>
         ),
       );
     } else if (_controllers[3].isAnimating) {
+      const text2 = 'Reftraocing';
       return Anim2(
         text2,
         first: 'R',
@@ -142,6 +142,7 @@ class _RefactoringTitleState extends State<RefactoringTitle>
         ),
       );
     } else if (_controllers[4].isAnimating) {
+      const text3 = 'reftRaocing';
       return Anim3(
         text3,
         animation: CurvedAnimation(
@@ -174,7 +175,7 @@ class Anim1 extends StatelessWidget {
         ...letters.map((l) {
           return Positioned(
             left: l.horizontal +
-                ((text.length * animation.value) * letterWidth)
+                ((data.length * animation.value) * letterWidth)
                     .clamp(0.0, l.index * letterWidth),
             top: 300 + l.vertical,
             child: SingleLetter(l.letter),
