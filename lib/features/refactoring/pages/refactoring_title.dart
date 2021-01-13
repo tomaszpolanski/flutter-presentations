@@ -38,17 +38,25 @@ class _RefactoringTitleState extends State<RefactoringTitle>
     )
       ..addListener(() {
         setState(() {});
-        if (_controllerV1.value >= 0.7 &&
-            _controllerV2.status == AnimationStatus.dismissed) {
-          //  _controllerV2.repeat(reverse: true);
+        if (_controllerV1.status == AnimationStatus.completed) {
+          _controllerV2.forward();
+        }
+        if (_controllerV1.status == AnimationStatus.dismissed) {
+          _controllerV1.forward();
         }
       })
-      ..repeat(reverse: true);
+      ..forward();
     _controllerV2 = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
     )..addListener(() {
         setState(() {});
+        if (_controllerV2.status == AnimationStatus.dismissed) {
+          _controllerV1.reverse();
+        }
+        if (_controllerV2.status == AnimationStatus.completed) {
+          _controllerV2.reverse();
+        }
       });
     super.initState();
   }
@@ -60,32 +68,19 @@ class _RefactoringTitleState extends State<RefactoringTitle>
     super.dispose();
   }
 
-  double _horizontalOffset(int index) {
-    const e = 5;
-    final x = index - text.length / 2;
-    return (x < 0 ? -1 : 1) * e * x * x;
-  }
-
-  double _verticalOffset(_Letter letter) {
-    if (letter.letter == 'i') {
-      return -lineHeight;
-    } else if (letter.letter == 't') {
-      return lineHeight;
-    }
-    return 0;
-  }
-
   @override
   Widget build(BuildContext context) {
     final animation1 = CurvedAnimation(
       parent: _controllerV1,
       curve: Curves.easeIn,
     );
-    // final animation2 = CurvedAnimation(
-    //   parent: _controllerV2,
-    //   curve: Curves.easeIn,
-    // );
-    return Anim2(text, animation: animation1);
+    final animation2 = CurvedAnimation(
+      parent: _controllerV2,
+      curve: Curves.linear,
+    );
+    return _controllerV2.isAnimating
+        ? Anim2(text, animation: animation2)
+        : Anim1(text, animation: animation1);
   }
 }
 
