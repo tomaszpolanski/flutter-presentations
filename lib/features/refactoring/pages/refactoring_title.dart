@@ -12,6 +12,7 @@ class RefactoringTitle extends StatefulWidget {
 const text = 'Refactoring';
 const text1 = 'Reftcaoring';
 const text2 = 'Reftraocing';
+const text3 = 'reftRaocing';
 
 const letterWidth = 110.0;
 const lineHeight = 210.0;
@@ -33,17 +34,18 @@ class _RefactoringTitleState extends State<RefactoringTitle>
   @override
   void initState() {
     _controllers = [
-      AnimationController(vsync: this, duration: const Duration(seconds: 2)),
       AnimationController(vsync: this, duration: const Duration(seconds: 1)),
-      AnimationController(vsync: this, duration: const Duration(seconds: 2)),
-      AnimationController(vsync: this, duration: const Duration(seconds: 2)),
+      AnimationController(vsync: this, duration: const Duration(seconds: 1)),
+      AnimationController(vsync: this, duration: const Duration(seconds: 1)),
+      AnimationController(vsync: this, duration: const Duration(seconds: 1)),
+      AnimationController(vsync: this, duration: const Duration(seconds: 1)),
     ];
-    _setupControllers(_controllers);
+    _setupCyclicControllers(_controllers);
     _controllers.first.forward();
     super.initState();
   }
 
-  void _setupControllers(List<AnimationController> controllers) {
+  void _setupReversedControllers(List<AnimationController> controllers) {
     for (var i = 0; i < controllers.length; i++) {
       final current = controllers[i];
       final AnimationController? next =
@@ -67,6 +69,24 @@ class _RefactoringTitleState extends State<RefactoringTitle>
         } else {
           if (current.status == AnimationStatus.dismissed) {
             current.forward();
+          }
+        }
+      });
+    }
+  }
+
+  void _setupCyclicControllers(List<AnimationController> controllers) {
+    for (var i = 0; i < controllers.length; i++) {
+      final current = controllers[i];
+      final AnimationController? next =
+          i + 1 < controllers.length ? controllers[i + 1] : null;
+      current.addListener(() {
+        setState(() {});
+        if (current.status == AnimationStatus.completed) {
+          if (next != null) {
+            next.forward(from: 0);
+          } else {
+            controllers.first.forward(from: 0);
           }
         }
       });
@@ -118,6 +138,14 @@ class _RefactoringTitleState extends State<RefactoringTitle>
         second: 'r',
         animation: CurvedAnimation(
           parent: _controllers[3],
+          curve: Curves.linear,
+        ),
+      );
+    } else if (_controllers[4].isAnimating) {
+      return Anim3(
+        text3,
+        animation: CurvedAnimation(
+          parent: _controllers[4],
           curve: Curves.linear,
         ),
       );
@@ -190,6 +218,71 @@ class Anim2 extends StatelessWidget {
           return Positioned(
             left: l.horizontal + l.index * letterWidth + horizontal,
             top: 300 + l.vertical + vertical,
+            child: SingleLetter(l.letter),
+          );
+        }),
+      ],
+    );
+  }
+}
+
+class Anim3 extends StatelessWidget {
+  const Anim3(
+    this.data, {
+    required this.animation,
+    Key? key,
+  }) : super(key: key);
+  final String data;
+  final Animation<double> animation;
+
+  @override
+  Widget build(BuildContext context) {
+    final letters = arrange(data);
+    return Stack(
+      children: [
+        ...letters.map((l) {
+          Animation<double>? horizontal;
+          Animation<double>? vertical1;
+          Animation<double>? vertical2;
+          if (l.index > 0) {
+            vertical1 = Tween<double>(
+              begin: 0,
+              end: (l.index.isEven ? -1 : 1) * 250.0,
+            ).animate(
+              CurvedAnimation(
+                parent: animation,
+                curve: const Interval(0, 0.3, curve: Curves.ease),
+              ),
+            );
+
+            horizontal = Tween<double>(
+              begin: 0,
+              end: -l.index * letterWidth,
+            ).animate(
+              CurvedAnimation(
+                parent: animation,
+                curve: const Interval(0.3, 0.6, curve: Curves.ease),
+              ),
+            );
+            vertical2 = Tween<double>(
+              begin: 0,
+              end: (l.index.isEven ? 1 : -1) * 250.0,
+            ).animate(
+              CurvedAnimation(
+                parent: animation,
+                curve: const Interval(0.6, 1, curve: Curves.ease),
+              ),
+            );
+          }
+
+          return Positioned(
+            left: (horizontal?.value ?? 0.0) +
+                l.horizontal +
+                l.index * letterWidth,
+            top: (vertical1?.value ?? 0.0) +
+                (vertical2?.value ?? 0.0) +
+                300 +
+                l.vertical,
             child: SingleLetter(l.letter),
           );
         }),
