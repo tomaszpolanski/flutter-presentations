@@ -10,7 +10,8 @@ class RefactoringTitle extends StatefulWidget {
 }
 
 const text = 'Refactoring';
-const text1 = 'Refaciortng';
+const text1 = 'Reftcaoring';
+const text2 = 'Reftraocing';
 
 const letterWidth = 110.0;
 const lineHeight = 210.0;
@@ -27,60 +28,108 @@ Iterable<_Letter> arrange(String text) {
 
 class _RefactoringTitleState extends State<RefactoringTitle>
     with TickerProviderStateMixin {
-  late AnimationController _controllerV1;
-  late AnimationController _controllerV2;
+  late List<AnimationController> _controllers;
 
   @override
   void initState() {
-    _controllerV1 = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    )
-      ..addListener(() {
+    _controllers = [
+      AnimationController(vsync: this, duration: const Duration(seconds: 2)),
+      AnimationController(vsync: this, duration: const Duration(seconds: 1)),
+      AnimationController(vsync: this, duration: const Duration(seconds: 2)),
+      AnimationController(vsync: this, duration: const Duration(seconds: 2)),
+    ];
+    _setupControllers(_controllers);
+    _controllers.first.forward();
+    super.initState();
+  }
+
+  void _setupControllers(List<AnimationController> controllers) {
+    for (var i = 0; i < controllers.length; i++) {
+      final current = controllers[i];
+      final AnimationController? next =
+          i + 1 < controllers.length ? controllers[i + 1] : null;
+      final AnimationController? prev = i - 1 >= 0 ? controllers[i - 1] : null;
+      current.addListener(() {
         setState(() {});
-        if (_controllerV1.status == AnimationStatus.completed) {
-          _controllerV2.forward();
+        if (next != null) {
+          if (current.status == AnimationStatus.completed) {
+            next.forward();
+          }
+        } else {
+          if (current.status == AnimationStatus.completed) {
+            current.reverse();
+          }
         }
-        if (_controllerV1.status == AnimationStatus.dismissed) {
-          _controllerV1.forward();
-        }
-      })
-      ..forward();
-    _controllerV2 = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    )..addListener(() {
-        setState(() {});
-        if (_controllerV2.status == AnimationStatus.dismissed) {
-          _controllerV1.reverse();
-        }
-        if (_controllerV2.status == AnimationStatus.completed) {
-          _controllerV2.reverse();
+        if (prev != null) {
+          if (current.status == AnimationStatus.dismissed) {
+            prev.reverse();
+          }
+        } else {
+          if (current.status == AnimationStatus.dismissed) {
+            current.forward();
+          }
         }
       });
-    super.initState();
+    }
   }
 
   @override
   void dispose() {
-    _controllerV1.dispose();
-    _controllerV2.dispose();
+    for (final controller in _controllers) {
+      controller.dispose();
+    }
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final animation1 = CurvedAnimation(
-      parent: _controllerV1,
-      curve: Curves.easeIn,
-    );
-    final animation2 = CurvedAnimation(
-      parent: _controllerV2,
-      curve: Curves.linear,
-    );
-    return _controllerV2.isAnimating
-        ? Anim2(text, animation: animation2)
-        : Anim1(text, animation: animation1);
+    if (_controllers[0].isAnimating) {
+      return Anim1(
+        text,
+        animation: CurvedAnimation(
+          parent: _controllers[0],
+          curve: Curves.easeIn,
+        ),
+      );
+    } else if (_controllers[1].isAnimating) {
+      return Anim2(
+        text,
+        first: 'a',
+        second: 't',
+        animation: CurvedAnimation(
+          parent: _controllers[1],
+          curve: Curves.linear,
+        ),
+      );
+    } else if (_controllers[2].isAnimating) {
+      return Anim2(
+        text1,
+        first: 'c',
+        second: 'r',
+        animation: CurvedAnimation(
+          parent: _controllers[2],
+          curve: Curves.linear,
+        ),
+      );
+    } else if (_controllers[3].isAnimating) {
+      return Anim2(
+        text2,
+        first: 'R',
+        second: 'r',
+        animation: CurvedAnimation(
+          parent: _controllers[3],
+          curve: Curves.linear,
+        ),
+      );
+    } else {
+      return Anim1(
+        text,
+        animation: CurvedAnimation(
+          parent: _controllers[0],
+          curve: Curves.easeIn,
+        ),
+      );
+    }
   }
 }
 
@@ -109,15 +158,21 @@ class Anim1 extends StatelessWidget {
 }
 
 class Anim2 extends StatelessWidget {
-  const Anim2(this.data, {required this.animation, Key? key}) : super(key: key);
+  const Anim2(
+    this.data, {
+    required this.animation,
+    required this.first,
+    required this.second,
+    Key? key,
+  }) : super(key: key);
   final String data;
+  final String first;
+  final String second;
   final Animation<double> animation;
 
   @override
   Widget build(BuildContext context) {
     final letters = arrange(data);
-    const first = 'f';
-    const second = 'g';
     return Stack(
       children: [
         ...letters.map((l) {
