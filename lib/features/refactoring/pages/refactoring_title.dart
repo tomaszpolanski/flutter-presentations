@@ -81,32 +81,22 @@ class _RefactoringTitleState extends State<RefactoringTitle>
       parent: _controllerV1,
       curve: Curves.easeIn,
     );
-    final animation2 = CurvedAnimation(
-      parent: _controllerV2,
-      curve: Curves.easeIn,
-    );
-    return Anim1(animation1);
-    return Stack(
-      children: [
-        ...arrange(text).map((l) {
-          return Animation1(
-            l,
-            horizontalOffset: _horizontalOffset(l.index) * animation1.value,
-            verticalOffset: _verticalOffset(l) * animation2.value,
-          );
-        }),
-      ],
-    );
+    // final animation2 = CurvedAnimation(
+    //   parent: _controllerV2,
+    //   curve: Curves.easeIn,
+    // );
+    return Anim2(text, animation: animation1);
   }
 }
 
 class Anim1 extends StatelessWidget {
-  const Anim1(this.animation, {Key? key}) : super(key: key);
+  const Anim1(this.data, {required this.animation, Key? key}) : super(key: key);
+  final String data;
   final Animation<double> animation;
 
   @override
   Widget build(BuildContext context) {
-    final letters = arrange(text);
+    final letters = arrange(data);
     return Stack(
       children: [
         ...letters.map((l) {
@@ -115,6 +105,41 @@ class Anim1 extends StatelessWidget {
                 ((text.length * animation.value) * letterWidth)
                     .clamp(0.0, l.index * letterWidth),
             top: 300 + l.vertical,
+            child: SingleLetter(l.letter),
+          );
+        }),
+      ],
+    );
+  }
+}
+
+class Anim2 extends StatelessWidget {
+  const Anim2(this.data, {required this.animation, Key? key}) : super(key: key);
+  final String data;
+  final Animation<double> animation;
+
+  @override
+  Widget build(BuildContext context) {
+    final letters = arrange(data);
+    const first = 'f';
+    const second = 'g';
+    return Stack(
+      children: [
+        ...letters.map((l) {
+          var horizontal = 0.0;
+          var vertical = 0.0;
+          if (l.letter == first || l.letter == second) {
+            final x = animation.value * 15;
+            final distance = l.letter == first
+                ? data.indexOf(second) - data.indexOf(first)
+                : data.indexOf(first) - data.indexOf(second);
+            vertical = distance * 10 * (0.1 * (x * x) - 1.5 * x);
+            horizontal = animation.value * distance * letterWidth;
+          }
+
+          return Positioned(
+            left: l.horizontal + l.index * letterWidth + horizontal,
+            top: 300 + l.vertical + vertical,
             child: SingleLetter(l.letter),
           );
         }),
