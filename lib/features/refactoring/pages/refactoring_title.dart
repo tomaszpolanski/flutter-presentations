@@ -15,9 +15,6 @@ const lineHeight = 210.0;
 Iterable<_Letter> arrange(String text) {
   return text.split('').mapIndexed((index, element) => _Letter(
         element,
-        horizontal: 400,
-        vertical: 0,
-        width: 110,
         index: index,
       ));
 }
@@ -170,14 +167,15 @@ class Anim1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final letters = arrange(data);
-    return Stack(
-      children: [
+    return CenteredStack(
+      builder: (_, middle) => [
         ...letters.map((l) {
-          return Positioned(
-            left: l.horizontal +
-                ((data.length * animation.value) * letterWidth)
-                    .clamp(0.0, l.index * letterWidth),
-            top: 300 + l.vertical,
+          return PositionedSingleLetter(
+            left: ((data.length * animation.value) * letterWidth)
+                .clamp(0.0, l.index * letterWidth),
+            top: 0,
+            middle: middle,
+            size: Size(data.length * letterWidth, lineHeight),
             child: SingleLetter(l.letter),
           );
         }),
@@ -202,8 +200,8 @@ class Anim2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final letters = arrange(data);
-    return Stack(
-      children: [
+    return CenteredStack(
+      builder: (_, middle) => [
         ...letters.map((l) {
           var horizontal = 0.0;
           var vertical = 0.0;
@@ -216,9 +214,11 @@ class Anim2 extends StatelessWidget {
             horizontal = animation.value * distance * letterWidth;
           }
 
-          return Positioned(
-            left: l.horizontal + l.index * letterWidth + horizontal,
-            top: 300 + l.vertical + vertical,
+          return PositionedSingleLetter(
+            left: l.index * letterWidth + horizontal,
+            top: vertical,
+            middle: middle,
+            size: Size(data.length * letterWidth, lineHeight),
             child: SingleLetter(l.letter),
           );
         }),
@@ -239,8 +239,8 @@ class Anim3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final letters = arrange(data);
-    return Stack(
-      children: [
+    return CenteredStack(
+      builder: (_, middle) => [
         ...letters.map((l) {
           Animation<double>? horizontal;
           Animation<double>? vertical1;
@@ -276,18 +276,64 @@ class Anim3 extends StatelessWidget {
             );
           }
 
-          return Positioned(
-            left: (horizontal?.value ?? 0.0) +
-                l.horizontal +
-                l.index * letterWidth,
-            top: (vertical1?.value ?? 0.0) +
-                (vertical2?.value ?? 0.0) +
-                300 +
-                l.vertical,
+          return PositionedSingleLetter(
+            left: (horizontal?.value ?? 0.0) + l.index * letterWidth,
+            top: (vertical1?.value ?? 0.0) + (vertical2?.value ?? 0.0),
+            middle: middle,
+            size: Size(data.length * letterWidth, lineHeight),
             child: SingleLetter(l.letter),
           );
         }),
       ],
+    );
+  }
+}
+
+class PositionedSingleLetter extends StatelessWidget {
+  const PositionedSingleLetter({
+    Key? key,
+    required this.top,
+    required this.left,
+    required this.middle,
+    required this.size,
+    required this.child,
+  }) : super(key: key);
+
+  final double top;
+  final double left;
+  final Size middle;
+  final Size size;
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      left: (middle.width - size.width / 2) + left,
+      top: top + middle.height - size.height,
+      child: child,
+    );
+  }
+}
+
+class CenteredStack extends StatelessWidget {
+  const CenteredStack({
+    required this.builder,
+    Key? key,
+  }) : super(key: key);
+  final List<Widget> Function(BuildContext context, Size middle) builder;
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (_, c) {
+        return Stack(
+          children: builder(
+            context,
+            Size(c.biggest.width / 2, c.biggest.height / 2),
+          ),
+        );
+      },
     );
   }
 }
@@ -312,66 +358,14 @@ class SingleLetter extends StatelessWidget {
   }
 }
 
-class Animation1 extends StatelessWidget {
-  const Animation1(
-    this.l, {
-    required this.horizontalOffset,
-    required this.verticalOffset,
-    Key? key,
-  }) : super(key: key);
-  final _Letter l;
-
-  final double horizontalOffset;
-  final double verticalOffset;
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      left: l.horizontal + horizontalOffset,
-      top: 300 + l.vertical + verticalOffset,
-      child: Text(
-        l.letter,
-        style: GoogleFonts.robotoMono(
-          textStyle: const TextStyle(
-            color: GTheme.flutter1,
-            fontWeight: FontWeight.bold,
-            fontSize: 200,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 class _Letter {
   const _Letter(
     this.letter, {
-    required this.horizontal,
-    required this.vertical,
-    required this.width,
     required this.index,
   });
 
   final String letter;
-  final double horizontal;
-  final double vertical;
-  final double width;
   final int index;
-
-  _Letter copyWith({
-    double? horizontal,
-    double? vertical,
-    double? width,
-    int? index,
-  }) {
-    return _Letter(
-      letter,
-      horizontal: horizontal ?? this.horizontal,
-      vertical: vertical ?? this.vertical,
-      width: width ?? this.width,
-      index: index ?? this.index,
-    );
-  }
 }
 
 extension IterableEx<T> on Iterable<T> {
