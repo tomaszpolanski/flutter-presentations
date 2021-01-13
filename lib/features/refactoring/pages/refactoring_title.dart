@@ -1,12 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/features/big_applications/pages/big_intro.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class RefactoringTitle extends StatefulWidget {
+class RefactoringTitle extends StatelessWidget {
   const RefactoringTitle({Key? key}) : super(key: key);
 
   @override
-  _RefactoringTitleState createState() => _RefactoringTitleState();
+  Widget build(BuildContext context) {
+    return Stack(
+      children: const [
+        Positioned(
+          right: 0,
+          child: ClipPath(
+            clipper: ClipPathClass(),
+            child: SizedBox(
+              width: 1500,
+              height: 300,
+              child: FlutterProjects(),
+            ),
+          ),
+        ),
+        _Content(),
+      ],
+    );
+  }
+}
+
+class ClipPathClass extends CustomClipper<Path> {
+  const ClipPathClass();
+
+  @override
+  Path getClip(Size size) {
+    return Path()
+      ..lineTo(size.width, size.height)
+      ..lineTo(size.width, 0)
+      ..lineTo(0, 0)
+      ..close();
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}
+
+class _Content extends StatefulWidget {
+  const _Content({Key? key}) : super(key: key);
+
+  @override
+  _ContentState createState() => _ContentState();
 }
 
 const letterWidth = 110.0;
@@ -19,8 +60,7 @@ Iterable<_Letter> arrange(String text) {
       ));
 }
 
-class _RefactoringTitleState extends State<RefactoringTitle>
-    with TickerProviderStateMixin {
+class _ContentState extends State<_Content> with TickerProviderStateMixin {
   late List<AnimationController> _controllers;
 
   @override
