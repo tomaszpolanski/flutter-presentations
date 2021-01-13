@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class RefactoringTitle extends StatefulWidget {
   const RefactoringTitle({Key? key}) : super(key: key);
@@ -7,39 +9,20 @@ class RefactoringTitle extends StatefulWidget {
   _RefactoringTitleState createState() => _RefactoringTitleState();
 }
 
-const text1 = 'Refactoring';
-const text = 'Refaciortng';
+const text = 'Refactoring';
+const text1 = 'Refaciortng';
+
+const letterWidth = 110.0;
+const lineHeight = 210.0;
 
 Iterable<_Letter> arrange(String text) {
-  return text.split('').fold<List<_Letter>>(
-    [],
-    (previousValue, element) {
-      final letters = <_Letter>[];
-      if (previousValue.isEmpty) {
-        const index = 0;
-        letters.add(_Letter(
-          element,
-          horizontal: 400,
-          vertical: 0,
-          width: element.letter,
-          index: index,
-        ));
-      } else {
-        final prev = previousValue.last;
-        final index = prev.index + 1;
-        letters
-          ..addAll(previousValue)
-          ..add(_Letter(
-            element,
-            horizontal: prev.horizontal + prev.width,
-            vertical: 0,
-            width: element.letter,
-            index: index,
-          ));
-      }
-      return letters;
-    },
-  );
+  return text.split('').mapIndexed((index, element) => _Letter(
+        element,
+        horizontal: 400,
+        vertical: 0,
+        width: 110,
+        index: index,
+      ));
 }
 
 class _RefactoringTitleState extends State<RefactoringTitle>
@@ -57,7 +40,7 @@ class _RefactoringTitleState extends State<RefactoringTitle>
         setState(() {});
         if (_controllerV1.value >= 0.7 &&
             _controllerV2.status == AnimationStatus.dismissed) {
-          _controllerV2.repeat(reverse: true);
+          //  _controllerV2.repeat(reverse: true);
         }
       })
       ..repeat(reverse: true);
@@ -85,9 +68,9 @@ class _RefactoringTitleState extends State<RefactoringTitle>
 
   double _verticalOffset(_Letter letter) {
     if (letter.letter == 'i') {
-      return -140;
+      return -lineHeight;
     } else if (letter.letter == 't') {
-      return 140;
+      return lineHeight;
     }
     return 0;
   }
@@ -102,6 +85,7 @@ class _RefactoringTitleState extends State<RefactoringTitle>
       parent: _controllerV2,
       curve: Curves.easeIn,
     );
+    return Anim1(animation1);
     return Stack(
       children: [
         ...arrange(text).map((l) {
@@ -112,6 +96,49 @@ class _RefactoringTitleState extends State<RefactoringTitle>
           );
         }),
       ],
+    );
+  }
+}
+
+class Anim1 extends StatelessWidget {
+  const Anim1(this.animation, {Key? key}) : super(key: key);
+  final Animation<double> animation;
+
+  @override
+  Widget build(BuildContext context) {
+    final letters = arrange(text);
+    return Stack(
+      children: [
+        ...letters.map((l) {
+          return Positioned(
+            left: l.horizontal +
+                ((text.length * animation.value) * letterWidth)
+                    .clamp(0.0, l.index * letterWidth),
+            top: 300 + l.vertical,
+            child: SingleLetter(l.letter),
+          );
+        }),
+      ],
+    );
+  }
+}
+
+class SingleLetter extends StatelessWidget {
+  const SingleLetter(this.letter, {Key? key}) : super(key: key);
+
+  final String letter;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      letter,
+      style: GoogleFonts.robotoMono(
+        textStyle: const TextStyle(
+          color: GTheme.flutter1,
+          fontWeight: FontWeight.bold,
+          fontSize: 200,
+        ),
+      ),
     );
   }
 }
@@ -135,7 +162,13 @@ class Animation1 extends StatelessWidget {
       top: 300 + l.vertical + verticalOffset,
       child: Text(
         l.letter,
-        style: Theme.of(context).textTheme.headline4,
+        style: GoogleFonts.robotoMono(
+          textStyle: const TextStyle(
+            color: GTheme.flutter1,
+            fontWeight: FontWeight.bold,
+            fontSize: 200,
+          ),
+        ),
       ),
     );
   }
@@ -172,35 +205,11 @@ class _Letter {
   }
 }
 
-extension on String {
-  double get letter {
-    switch (this) {
-      case 'R':
-        return 95;
-      case 'e':
-        return 85;
-      case 'f':
-        return 55;
-      case 'a':
-        return 80;
-      case 'c':
-        return 85;
-      case 't':
-        return 55;
-      case 'o':
-        return 85;
-      case 'r':
-        return 55;
-      case 'i':
-        return 33;
-      case 'n':
-        return 90;
-      case 'g':
-        return 90;
-      default:
-        return 0;
+extension IterableEx<T> on Iterable<T> {
+  Iterable<R> mapIndexed<R>(R Function(int index, T) mapper) sync* {
+    int i = 0;
+    for (final value in this) {
+      yield mapper(i++, value);
     }
   }
 }
-
-// 955SY
