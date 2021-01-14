@@ -13,9 +13,21 @@ class RefactoringTitle extends StatelessWidget {
         Positioned(
           right: 0,
           child: ClipPath(
-            clipper: ClipPathClass(),
+            clipper: UpperClipper(),
             child: SizedBox(
-              width: 1500,
+              width: 2000,
+              height: 300,
+              child: FlutterProjects(),
+            ),
+          ),
+        ),
+        Positioned(
+          left: 0,
+          bottom: 0,
+          child: ClipPath(
+            clipper: LowerClipper(),
+            child: SizedBox(
+              width: 2000,
               height: 300,
               child: FlutterProjects(),
             ),
@@ -27,8 +39,8 @@ class RefactoringTitle extends StatelessWidget {
   }
 }
 
-class ClipPathClass extends CustomClipper<Path> {
-  const ClipPathClass();
+class UpperClipper extends CustomClipper<Path> {
+  const UpperClipper();
 
   @override
   Path getClip(Size size) {
@@ -39,13 +51,41 @@ class ClipPathClass extends CustomClipper<Path> {
     path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
         firstPoint.dx, firstPoint.dy);
 
-    final secondControlPoint = Offset(0.8 * size.width, size.height / 2);
+    final secondControlPoint = Offset(0.8 * size.width, 0.2 * size.height);
     final secondPoint = Offset(size.width, size.height);
 
     path
       ..quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
           secondPoint.dx, secondPoint.dy)
       ..lineTo(size.width, 0)
+      ..lineTo(0, 0)
+      ..close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}
+
+class LowerClipper extends CustomClipper<Path> {
+  const LowerClipper();
+
+  @override
+  Path getClip(Size size) {
+    final path = Path();
+
+    final firstControlPoint = Offset(0.25 * size.width, 0.9 * size.height);
+    final firstPoint = Offset(size.width / 2, size.height / 2);
+    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
+        firstPoint.dx, firstPoint.dy);
+
+    final secondControlPoint = Offset(0.8 * size.width, size.height / 2);
+    final secondPoint = Offset(size.width, size.height);
+
+    path
+      ..quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
+          secondPoint.dx, secondPoint.dy)
+      ..lineTo(0, size.height)
       ..lineTo(0, 0)
       ..close();
     return path;
