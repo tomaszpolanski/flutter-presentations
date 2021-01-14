@@ -32,11 +32,23 @@ class ClipPathClass extends CustomClipper<Path> {
 
   @override
   Path getClip(Size size) {
-    return Path()
-      ..lineTo(size.width, size.height)
+    final path = Path();
+
+    final firstControlPoint = Offset(0.25 * size.width, size.height / 2);
+    final firstPoint = Offset(size.width / 2, size.height / 2);
+    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
+        firstPoint.dx, firstPoint.dy);
+
+    final secondControlPoint = Offset(0.8 * size.width, size.height / 2);
+    final secondPoint = Offset(size.width, size.height);
+
+    path
+      ..quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
+          secondPoint.dx, secondPoint.dy)
       ..lineTo(size.width, 0)
       ..lineTo(0, 0)
       ..close();
+    return path;
   }
 
   @override
