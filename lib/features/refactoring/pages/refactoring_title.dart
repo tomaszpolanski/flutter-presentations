@@ -150,7 +150,7 @@ class _ContentState extends State<_Content> with TickerProviderStateMixin {
     const text = 'Refactoring';
 
     if (_controllers[0].isAnimating) {
-      return Anim1(
+      return _ExpandAnimation(
         text,
         animation: CurvedAnimation(
           parent: _controllers[0],
@@ -158,7 +158,7 @@ class _ContentState extends State<_Content> with TickerProviderStateMixin {
         ),
       );
     } else if (_controllers[1].isAnimating) {
-      return Anim2(
+      return _SwapAnimation(
         text,
         first: 'a',
         second: 't',
@@ -170,7 +170,7 @@ class _ContentState extends State<_Content> with TickerProviderStateMixin {
     } else if (_controllers[2].isAnimating) {
       const text1 = 'Reftcaoring';
 
-      return Anim2(
+      return _SwapAnimation(
         text1,
         first: 'c',
         second: 'r',
@@ -181,7 +181,7 @@ class _ContentState extends State<_Content> with TickerProviderStateMixin {
       );
     } else if (_controllers[3].isAnimating) {
       const text2 = 'Reftraocing';
-      return Anim2(
+      return _SwapAnimation(
         text2,
         first: 'R',
         second: 'r',
@@ -192,7 +192,7 @@ class _ContentState extends State<_Content> with TickerProviderStateMixin {
       );
     } else if (_controllers[4].isAnimating) {
       const text3 = 'reftRaocing';
-      return Anim3(
+      return _CollapseAnimation(
         text3,
         animation: CurvedAnimation(
           parent: _controllers[4],
@@ -200,7 +200,7 @@ class _ContentState extends State<_Content> with TickerProviderStateMixin {
         ),
       );
     } else {
-      return Anim1(
+      return _ExpandAnimation(
         text,
         animation: CurvedAnimation(
           parent: _controllers[0],
@@ -211,8 +211,9 @@ class _ContentState extends State<_Content> with TickerProviderStateMixin {
   }
 }
 
-class Anim1 extends StatelessWidget {
-  const Anim1(this.data, {required this.animation, Key? key}) : super(key: key);
+class _ExpandAnimation extends StatelessWidget {
+  const _ExpandAnimation(this.data, {required this.animation, Key? key})
+      : super(key: key);
   final String data;
   final Animation<double> animation;
 
@@ -236,8 +237,8 @@ class Anim1 extends StatelessWidget {
   }
 }
 
-class Anim2 extends StatelessWidget {
-  const Anim2(
+class _SwapAnimation extends StatelessWidget {
+  const _SwapAnimation(
     this.data, {
     required this.animation,
     required this.first,
@@ -279,8 +280,8 @@ class Anim2 extends StatelessWidget {
   }
 }
 
-class Anim3 extends StatelessWidget {
-  const Anim3(
+class _CollapseAnimation extends StatelessWidget {
+  const _CollapseAnimation(
     this.data, {
     required this.animation,
     Key? key,
