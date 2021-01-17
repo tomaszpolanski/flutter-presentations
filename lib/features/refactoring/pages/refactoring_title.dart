@@ -352,6 +352,9 @@ class _ColorAnimation extends StatelessWidget {
     return CenteredStack(
       builder: (_, middle) => [
         ...letters.map((l) {
+          const text3 = 'reftRaocing';
+          //061728394 5
+          final step = 1 / letters.length;
           final color = ColorTween(
             begin: from,
             end: to,
@@ -359,8 +362,15 @@ class _ColorAnimation extends StatelessWidget {
             CurvedAnimation(
               parent: animation,
               curve: Interval(
-                1 / letters.length * l.index,
-                1 / letters.length * l.index + 1 / letters.length,
+                step *
+                    (l.index.isEven
+                        ? l.index / 2
+                        : letters.length / 2 + l.index / 2),
+                step *
+                        (l.index.isEven
+                            ? l.index / 2
+                            : letters.length / 2 + l.index / 2) +
+                    step,
               ),
             ),
           );
