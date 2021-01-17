@@ -123,6 +123,7 @@ class _ContentState extends State<_Content> with TickerProviderStateMixin {
       AnimationController(vsync: this, duration: const Duration(seconds: 1)),
       AnimationController(vsync: this, duration: const Duration(seconds: 1)),
       AnimationController(vsync: this, duration: const Duration(seconds: 2)),
+      AnimationController(vsync: this, duration: const Duration(seconds: 2)),
     ];
     _setupCyclicControllers(_controllers);
     _controllers.first.forward();
@@ -232,10 +233,21 @@ class _ContentState extends State<_Content> with TickerProviderStateMixin {
       );
     } else if (_controllers[4].isAnimating) {
       const text3 = 'reftRaocing';
+      return _ColorAnimation(
+        text3,
+        from: GTheme.flutter1,
+        to: GTheme.flutter3,
+        animation: CurvedAnimation(
+          parent: _controllers[4],
+          curve: Curves.linear,
+        ),
+      );
+    } else if (_controllers[5].isAnimating) {
+      const text3 = 'reftRaocing';
       return _CollapseAnimation(
         text3,
         animation: CurvedAnimation(
-          parent: _controllers[4],
+          parent: _controllers[5],
           curve: Curves.easeIn,
         ),
       );
@@ -320,6 +332,52 @@ class _SwapAnimation extends StatelessWidget {
   }
 }
 
+class _ColorAnimation extends StatelessWidget {
+  const _ColorAnimation(
+    this.data, {
+    required this.animation,
+    required this.from,
+    required this.to,
+    Key? key,
+  }) : super(key: key);
+  final String data;
+  final Color from;
+  final Color to;
+  final Animation<double> animation;
+
+  @override
+  Widget build(BuildContext context) {
+    final letters = arrange(data);
+
+    return CenteredStack(
+      builder: (_, middle) => [
+        ...letters.map((l) {
+          final color = ColorTween(
+            begin: from,
+            end: to,
+          ).animate(
+            CurvedAnimation(
+              parent: animation,
+              curve: Interval(
+                1 / letters.length * l.index,
+                1 / letters.length * l.index + 1 / letters.length,
+              ),
+            ),
+          );
+
+          return PositionedSingleLetter(
+            left: l.index * letterWidth,
+            top: 0,
+            middle: middle,
+            size: Size(data.length * letterWidth, lineHeight),
+            child: SingleLetter(l.letter, color: color.value!),
+          );
+        }),
+      ],
+    );
+  }
+}
+
 class _CollapseAnimation extends StatelessWidget {
   const _CollapseAnimation(
     this.data, {
@@ -374,7 +432,7 @@ class _CollapseAnimation extends StatelessWidget {
             top: (vertical1?.value ?? 0.0) + (vertical2?.value ?? 0.0),
             middle: middle,
             size: Size(data.length * letterWidth, lineHeight),
-            child: SingleLetter(l.letter),
+            child: SingleLetter(l.letter, color: GTheme.flutter3),
           );
         }),
       ],
@@ -432,17 +490,22 @@ class CenteredStack extends StatelessWidget {
 }
 
 class SingleLetter extends StatelessWidget {
-  const SingleLetter(this.letter, {Key? key}) : super(key: key);
+  const SingleLetter(
+    this.letter, {
+    this.color = GTheme.flutter1,
+    Key? key,
+  }) : super(key: key);
 
   final String letter;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       letter,
       style: GoogleFonts.robotoMono(
-        textStyle: const TextStyle(
-          color: GTheme.flutter1,
+        textStyle: TextStyle(
+          color: color,
           fontWeight: FontWeight.bold,
           fontSize: 200,
         ),
