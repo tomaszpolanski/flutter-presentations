@@ -8,7 +8,7 @@ class Architecture extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => CounterCubit(),
-      child: const BlockCounterView(),
+      child: const AfterCounterView(),
     );
   }
 }
@@ -21,8 +21,8 @@ class CounterCubit extends Cubit<int> {
   void decrement() => emit(state - 1);
 }
 
-class CounterView extends StatelessWidget {
-  const CounterView({Key? key}) : super(key: key);
+class BeforeCounterView extends StatelessWidget {
+  const BeforeCounterView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,8 +58,8 @@ class CounterView extends StatelessWidget {
   }
 }
 
-class BlockCounterView extends StatelessWidget {
-  const BlockCounterView({Key? key}) : super(key: key);
+class AfterCounterView extends StatelessWidget {
+  const AfterCounterView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

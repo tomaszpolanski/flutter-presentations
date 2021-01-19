@@ -6,14 +6,14 @@ class NullSafety extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const _Content(
-      subtitle: '🚧avoid !🚧',
+    return const _BeforeContent(
+      subtitle: '🚧 avoid ❗ 🚧',
     );
   }
 }
 
-class _Content extends StatelessWidget {
-  const _Content({this.subtitle, Key? key}) : super(key: key);
+class _BeforeContent extends StatelessWidget {
+  const _BeforeContent({this.subtitle, Key? key}) : super(key: key);
 
   final String? subtitle;
 
@@ -23,6 +23,25 @@ class _Content extends StatelessWidget {
       return SummaryPage(
         title: 'Null Safety',
         subtitle: subtitle!,
+      );
+    } else {
+      return const SectionPage('Null Safety');
+    }
+  }
+}
+
+class _AfterContent extends StatelessWidget {
+  const _AfterContent({this.subtitle, Key? key}) : super(key: key);
+
+  final String? subtitle;
+
+  @override
+  Widget build(BuildContext context) {
+    final s = subtitle;
+    if (s != null) {
+      return SummaryPage(
+        title: 'Null Safety',
+        subtitle: s,
       );
     } else {
       return const SectionPage('Null Safety');

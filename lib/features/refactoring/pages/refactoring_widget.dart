@@ -10,15 +10,15 @@ class RefactoringWidget extends StatelessWidget {
       child: const Align(
         child: SizedBox(
           width: 600,
-          child: MyApp(),
+          child: BeforeMyApp(),
         ),
       ),
     );
   }
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class BeforeMyApp extends StatelessWidget {
+  const BeforeMyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -125,8 +125,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyRefactoredApp extends StatelessWidget {
-  const MyRefactoredApp({Key? key}) : super(key: key);
+class AfterMyApp extends StatelessWidget {
+  const AfterMyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

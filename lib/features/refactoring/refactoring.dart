@@ -56,7 +56,7 @@ class _RefactoringState extends State<Refactoring> {
             const RefactoringWidget(),
             ...[
               // Size
-              const SectionPage('📏 Size'),
+              const SectionPage('📏 Size Matters'),
               BigWidget(presentationController),
               const RefactoringWidget(),
             ],
@@ -93,7 +93,7 @@ class _RefactoringState extends State<Refactoring> {
                 title: 'What about',
                 subtitle: 'Slivers?',
               ),
-              const BadSlivers(),
+              const BeforeSlivers(),
             ],
             ...[
               const SectionPage('Reusable Architecture 🏗️'),

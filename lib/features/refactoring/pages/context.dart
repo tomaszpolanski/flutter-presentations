@@ -16,7 +16,7 @@ class _ContextState extends State<Context> {
       data: MediaQuery.of(context).copyWith(textScaleFactor: _scaleFactor),
       child: Stack(
         children: [
-          const _Text(),
+          const _AfterText(),
           Positioned(
             bottom: 0,
             right: 0,
@@ -35,8 +35,8 @@ class _ContextState extends State<Context> {
   }
 }
 
-class _TextBad extends StatelessWidget {
-  const _TextBad({Key? key}) : super(key: key);
+class _BeforeText extends StatelessWidget {
+  const _BeforeText({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,8 +58,8 @@ class _TextBad extends StatelessWidget {
   }
 }
 
-class _Text extends StatelessWidget {
-  const _Text({Key? key}) : super(key: key);
+class _AfterText extends StatelessWidget {
+  const _AfterText({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
