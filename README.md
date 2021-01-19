@@ -49,7 +49,7 @@ docker exec -d <containerId> sh -c "Xvfb :0 -screen 0 1920x1920x24"
 5) Execute Flutter tests with screenshots (in case you don't believe that actual application is being run ;))
 
 ```
-docker exec <containerId> sh -c "cd /home/user/flutter-presentations/ && fastdriver --dart-args "--no-sound-null-safety" --flutter-args "--no-sound-null-safety" -r 1600x1200 -s"
+docker exec <containerId> sh -c "cd /home/user/flutter-presentations/ && fastdriver --dart-args --no-sound-null-safety --flutter-args --no-sound-null-safety -r 1600x1200 -s"
 ```
 6) Copy screenshots to local `screenshots` folder so you can preview them
 ```
