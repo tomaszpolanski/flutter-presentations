@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:args/args.dart';
-import 'package:meta/meta.dart';
 import 'package:process_run/shell.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -121,8 +120,6 @@ Future<void> test({
   required String testFile,
   required bool makeScreenshot,
 }) async {
-  assert(testFile != null);
-
   final completer = Completer<String>();
 
   final StreamController<List<int>> output = StreamController();
