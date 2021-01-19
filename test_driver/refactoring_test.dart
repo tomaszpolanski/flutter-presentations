@@ -8,7 +8,7 @@ import 'generic/test_configuration.dart';
 import 'screenshots.dart';
 
 void main(List<String> args) {
-  group('Big App', () {
+  group('Refactoring', () {
     late FlutterDriver driver;
     late Screenshot screenshot;
     final properties = TestProperties(args);
@@ -17,7 +17,7 @@ void main(List<String> args) {
       driver = await FlutterDriver.connect(dartVmServiceUrl: properties.vmUrl);
       screenshot = await Screenshot.create(
         driver,
-        'big_app',
+        'refactoring',
         enabled: properties.arguments['screenshots'],
       );
     });
@@ -38,11 +38,11 @@ void main(List<String> args) {
 
     test('main page', () async {
       await screenshot.takeScreenshot('setup');
-      await driver.tap(find.text('Big Applications'));
+      await driver.tap(find.text('Refactoring'));
     });
 
     // ignore: avoid_function_literals_in_foreach_calls
-    List.generate(63, (step) => step).forEach((step) {
+    List.generate(30, (step) => step).forEach((step) {
       test('make screenshots for step $step', () async {
         await screenshot.takeScreenshot(step.toString());
         final page = find.byValueKey('presentation');
