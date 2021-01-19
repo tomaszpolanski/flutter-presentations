@@ -9,7 +9,7 @@ This application should be run on high resolution device or a desktop - currentl
 
 # Building
 Last tested version of Flutter that works with this repo is `1.25.0-8.1.pre`:
-  * **Important**: Use `version` otherwise desktop won't be picked up: `1.25.0-8.1.pre`
+  * **Important**: Here is [the guide](https://tomek-polanski.medium.com/running-flutter-desktop-on-stable-channel-c2ee38157e7b) on how to checkout a specific Flutter version 
 
 ## Building for Web
 Upgrade flutter to minimum `1.25.0-8.1.pre`, enable web compilation and run:
