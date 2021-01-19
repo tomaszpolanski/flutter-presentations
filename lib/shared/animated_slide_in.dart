@@ -18,11 +18,11 @@ class AnimatedSlideIn extends ImplicitlyAnimatedWidget {
 
 class _AnimatedSlideInState
     extends ImplicitlyAnimatedWidgetState<AnimatedSlideIn> {
-  Tween<Offset?>? _offset = Tween<Offset>(
+  Tween<Offset> _offset = Tween<Offset>(
     begin: const Offset(0, 0),
     end: const Offset(0, 0),
   );
-  late Animation<Offset?> _animation;
+  late Animation<Offset> _animation;
 
   @override
   void forEachTween(TweenVisitor<dynamic> visitor) {
@@ -33,18 +33,19 @@ class _AnimatedSlideInState
         begin: value,
         end: const Offset(0, 0),
       ),
-    ) as Tween<Offset?>?;
+    // ignore: avoid_as
+    ) as Tween<Offset>;
   }
 
   @override
   void didUpdateTweens() {
-    _animation = animation!.drive(_offset!);
+    _animation = animation!.drive(_offset);
   }
 
   @override
   Widget build(BuildContext context) {
     return SlideTransition(
-      position: _animation as Animation<Offset>,
+      position: _animation,
       child: widget.child,
     );
   }

@@ -249,7 +249,6 @@ class _CompositionState extends State<_Composition>
         width: size * 5,
         height: size * 4,
         child: Stack(
-          overflow: Overflow.visible,
           children: [
             Positioned(
               child: _AnimatedPosition(

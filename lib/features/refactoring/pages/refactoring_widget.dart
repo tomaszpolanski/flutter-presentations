@@ -59,6 +59,7 @@ class BeforeMyApp extends StatelessWidget {
 
     final Color color = Theme.of(context).primaryColor;
 
+    // ignore: avoid_unnecessary_containers
     final Widget buttonSection = Container(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

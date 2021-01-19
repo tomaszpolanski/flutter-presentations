@@ -138,6 +138,7 @@ class _ContentState extends State<_Content> with TickerProviderStateMixin {
     }
   }
 
+  // ignore: unused_element
   void _setupReversedControllers(List<AnimationController> controllers) {
     for (var i = 0; i < controllers.length; i++) {
       final current = controllers[i];

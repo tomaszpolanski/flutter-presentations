@@ -30,6 +30,7 @@ class _BeforeContent extends StatelessWidget {
   }
 }
 
+// ignore: unused_element
 class _AfterContent extends StatelessWidget {
   const _AfterContent({this.subtitle, Key? key}) : super(key: key);
 

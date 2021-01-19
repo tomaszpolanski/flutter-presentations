@@ -35,11 +35,13 @@ class _ContextState extends State<Context> {
   }
 }
 
+// ignore: unused_element
 class _BeforeText extends StatelessWidget {
   const _BeforeText({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // ignore: avoid_print
     print('Rebuilding Whole');
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -47,6 +49,7 @@ class _BeforeText extends StatelessWidget {
         const Text('Hi!'),
         Builder(
           builder: (context) {
+            // ignore: avoid_print
             print('Rebuilding Really Expensive Widget!');
             return InteractiveViewer(
               child: const SizedBox(),
@@ -63,18 +66,21 @@ class _AfterText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: avoid_print
     print('Rebuilding Whole');
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Builder(
           builder: (context) {
+            // ignore: avoid_print
             print('Rebuilding Text Only');
             return Text('Hii! ${MediaQuery.of(context).textScaleFactor}');
           },
         ),
         Builder(
           builder: (context) {
+            // ignore: avoid_print
             print('Rebuilding Really Expensive Widget!');
             return InteractiveViewer(
               child: const SizedBox(),

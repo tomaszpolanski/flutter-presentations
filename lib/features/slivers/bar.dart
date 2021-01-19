@@ -13,10 +13,7 @@ class Bar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final BarSettings settings = context.dependOnInheritedWidgetOfExactType() as BarSettings;
-    assert(settings != null,
-        'A Bar must be wrapped in the widget returned by Bar.createSettings().');
-
+    final BarSettings settings = context.dependOnInheritedWidgetOfExactType()!;
     final double deltaExtent = settings.maxExtent! - settings.minExtent!;
 
     // 0.0 -> Expanded
