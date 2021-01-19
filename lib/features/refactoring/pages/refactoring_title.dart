@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/big_applications/pages/big_intro.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:presentation/presentation.dart';
 
 class RefactoringTitle extends StatelessWidget {
   const RefactoringTitle({Key? key}) : super(key: key);
@@ -126,8 +127,15 @@ class _ContentState extends State<_Content> with TickerProviderStateMixin {
       AnimationController(vsync: this, duration: const Duration(seconds: 2)),
     ];
     _setupCyclicControllers(_controllers);
-    _controllers.first.forward();
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (AnimationMode.of(context)) {
+      _controllers.first.forward();
+    }
   }
 
   void _setupReversedControllers(List<AnimationController> controllers) {

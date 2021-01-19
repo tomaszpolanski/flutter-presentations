@@ -1,6 +1,6 @@
+import 'dart:convert';
 import 'dart:io';
 
-import 'package:fake_async/fake_async.dart';
 import 'package:flutter_driver/flutter_driver.dart';
 
 const _dirPath = 'screenshots';
@@ -46,10 +46,6 @@ class Screenshot {
 
 Future<List<int>> screenshot(FlutterDriver driver) async {
   await Future<void>.delayed(const Duration(milliseconds: 200));
-
-  return FakeAsync().run((async) {
-    final result = driver.screenshot();
-    async.elapse(const Duration(minutes: 1));
-    return result;
-  });
+  final result = await driver.serviceClient.callMethod('_flutter.screenshot');
+  return const Base64Codec().decode(result.json['screenshot']);
 }
