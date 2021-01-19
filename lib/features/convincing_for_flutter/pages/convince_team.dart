@@ -3,7 +3,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/shared/pag
 import 'package:presentation/effects.dart';
 
 class DesignersPage extends StatelessWidget {
-  const DesignersPage({Key key}) : super(key: key);
+  const DesignersPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class DesignersPage extends StatelessWidget {
 }
 
 class UmphPage extends StatelessWidget {
-  const UmphPage({Key key}) : super(key: key);
+  const UmphPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class UmphPage extends StatelessWidget {
 }
 
 class LessTestingPage extends StatelessWidget {
-  const LessTestingPage({Key key}) : super(key: key);
+  const LessTestingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +60,7 @@ class LessTestingPage extends StatelessWidget {
 }
 
 class DevelopersPage extends StatelessWidget {
-  const DevelopersPage({Key key}) : super(key: key);
+  const DevelopersPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +76,7 @@ class DevelopersPage extends StatelessWidget {
 }
 
 class WorkshopPage extends StatelessWidget {
-  const WorkshopPage({Key key}) : super(key: key);
+  const WorkshopPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +103,7 @@ class WorkshopPage extends StatelessWidget {
 }
 
 class ManagersPage extends StatelessWidget {
-  const ManagersPage({Key key}) : super(key: key);
+  const ManagersPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +119,7 @@ class ManagersPage extends StatelessWidget {
 }
 
 class MergingPage extends StatelessWidget {
-  const MergingPage({Key key}) : super(key: key);
+  const MergingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

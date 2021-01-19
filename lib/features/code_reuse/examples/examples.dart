@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/code_reuse/examples/pages/sliver_fill_remaining.dart';
 
 class Examples extends StatelessWidget {
-  const Examples({Key key}) : super(key: key);
+  const Examples({Key? key}) : super(key: key);
 
   static const String title = 'Widget examples';
   static const String subtitle = 'Samples for Layout Cheat Sheet';
@@ -31,8 +31,8 @@ class Examples extends StatelessWidget {
 
 class _DoubleTapBack extends StatelessWidget {
   const _DoubleTapBack({
-    Key key,
-    @required this.child,
+    Key? key,
+    required this.child,
   }) : super(key: key);
 
   final Widget child;

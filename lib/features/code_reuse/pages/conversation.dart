@@ -4,7 +4,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/shared/gro
 import 'package:presentation/presentation.dart';
 
 class Conversation extends StatefulWidget {
-  const Conversation({Key key, this.controller}) : super(key: key);
+  const Conversation({Key? key, required this.controller}) : super(key: key);
   final PresentationController controller;
 
   @override
@@ -22,8 +22,8 @@ enum _Step {
 
 class _ConversationState extends State<Conversation>
     with SingleTickerProviderStateMixin {
-  PageStepper<_Step> _stateController;
-  AnimationController _controller;
+  late PageStepper<_Step> _stateController;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -150,13 +150,13 @@ class _ConversationState extends State<Conversation>
 
 class _SlideIn extends StatelessWidget {
   const _SlideIn({
-    Key key,
-    @required this.animation,
-    @required this.curve,
-    @required this.slideInDirection,
-    @required this.child,
+    Key? key,
+    required this.animation,
+    required this.curve,
+    required this.slideInDirection,
+    required this.child,
   }) : super(key: key);
-  final Animation<double> animation;
+  final Animation<double>? animation;
   final Curve curve;
   final TextDirection slideInDirection;
   final Widget child;
@@ -165,7 +165,7 @@ class _SlideIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return WrappedAnimatedBuilder<double>(
       animation: CurvedAnimation(
-        parent: animation,
+        parent: animation!,
         curve: curve,
       ),
       builder: (_, animation, child) {
@@ -188,10 +188,10 @@ class _SlideIn extends StatelessWidget {
 
 class _Message extends StatelessWidget {
   const _Message({
-    Key key,
-    @required this.avatar,
-    @required this.user,
-    @required this.child,
+    Key? key,
+    required this.avatar,
+    required this.user,
+    required this.child,
   }) : super(key: key);
 
   final String avatar;

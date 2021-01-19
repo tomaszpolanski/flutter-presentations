@@ -3,6 +3,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/shared/gro
 
 ThemeData blueLight() {
   return ThemeData.light().copyWith(
+    scaffoldBackgroundColor: Colors.white,
     textTheme: TextTheme(
       headline4: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 140),
       headline5: GTheme.big.copyWith(color: GTheme.flutter2, fontSize: 90),

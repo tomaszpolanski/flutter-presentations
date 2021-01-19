@@ -118,8 +118,8 @@ ArgParser createParser() {
 const _main = 'lib/main.dart';
 
 Future<void> test({
-  @required String testFile,
-  @required bool makeScreenshot,
+  required String testFile,
+  required bool makeScreenshot,
 }) async {
   assert(testFile != null);
 

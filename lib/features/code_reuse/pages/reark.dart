@@ -3,7 +3,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/shared/gro
 import 'package:presentation/presentation.dart';
 
 class Reark extends StatefulWidget {
-  const Reark({Key key, this.controller}) : super(key: key);
+  const Reark({Key? key, required this.controller}) : super(key: key);
   final PresentationController controller;
 
   @override
@@ -17,8 +17,8 @@ enum _Step {
 }
 
 class _RearkState extends State<Reark> with SingleTickerProviderStateMixin {
-  PageStepper<_Step> _stateController;
-  AnimationController _controller;
+  late PageStepper<_Step> _stateController;
+  late AnimationController _controller;
 
   @override
   void initState() {

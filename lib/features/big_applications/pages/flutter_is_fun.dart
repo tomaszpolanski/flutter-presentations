@@ -7,7 +7,7 @@ import 'package:presentation/presentation.dart';
 class FlutterIsFun extends StatefulWidget {
   const FlutterIsFun(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
   final PresentationController controller;
 
@@ -23,7 +23,7 @@ enum _Step {
 
 class _FlutterIsFunState extends State<FlutterIsFun>
     with SingleTickerProviderStateMixin {
-  PageStepper<_Step> _stateController;
+  late PageStepper<_Step> _stateController;
   RevolvingState _revolvingState = RevolvingState.showFirst;
 
   @override

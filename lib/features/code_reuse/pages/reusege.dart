@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:presentation/presentation.dart';
 
 class BigWidget extends StatefulWidget {
-  const BigWidget({Key key, this.controller}) : super(key: key);
+  const BigWidget({Key? key, required this.controller}) : super(key: key);
   final PresentationController controller;
 
   @override
@@ -17,8 +17,8 @@ enum _Step {
 }
 
 class _BigWidgetState extends State<BigWidget> {
-  PageStepper<_Step> _stateController;
-  ScrollController _controller;
+  late PageStepper<_Step> _stateController;
+  late ScrollController _controller;
 
   @override
   void initState() {

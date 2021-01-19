@@ -3,14 +3,13 @@ import 'package:flutter/widgets.dart';
 import 'package:presentation/effects.dart';
 
 class SectionPage extends StatelessWidget {
-  const SectionPage(this.text, {Key key}) : super(key: key);
+  const SectionPage(this.text, {Key? key}) : super(key: key);
 
   final String text;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Theme.of(context).accentColor,
+    return Padding(
       padding: const EdgeInsets.all(30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,7 +21,7 @@ class SectionPage extends StatelessWidget {
               child: ParallaxWidget(
                 translationFactor: 150,
                 child: Container(
-                  color: Theme.of(context).textTheme.headline6.color,
+                  color: Theme.of(context).textTheme.headline6!.color,
                   height: 8,
                   width: 100,
                 ),
@@ -45,14 +44,14 @@ class SectionPage extends StatelessWidget {
 class ImagePage extends StatelessWidget {
   const ImagePage(
     this.asset, {
-    Key key,
+    Key? key,
     this.child,
     this.alignment = AlignmentDirectional.topCenter,
   }) : super(key: key);
 
   final String asset;
   final AlignmentGeometry alignment;
-  final Widget child;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +66,7 @@ class ImagePage extends StatelessWidget {
               child: Align(
                 alignment: alignment,
                 child: ParallaxWidget(
-                  child: child,
+                  child: child!,
                 ),
               ),
             ),
@@ -79,15 +78,15 @@ class ImagePage extends StatelessWidget {
 
 class SummaryPage extends StatelessWidget {
   const SummaryPage({
-    Key key,
-    @required this.title,
-    @required this.subtitle,
+    Key? key,
+    required this.title,
+    required this.subtitle,
     this.background,
   }) : super(key: key);
 
   final String title;
   final String subtitle;
-  final Color background;
+  final Color? background;
 
   @override
   Widget build(BuildContext context) {
@@ -101,58 +100,60 @@ class SummaryPage extends StatelessWidget {
 
 class SummaryWidgetPage extends StatelessWidget {
   const SummaryWidgetPage({
-    Key key,
-    @required this.title,
-    @required this.subtitle,
+    Key? key,
+    required this.title,
+    required this.subtitle,
     this.background,
   }) : super(key: key);
 
   final Widget title;
   final Widget subtitle;
-  final Color background;
+  final Color? background;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: background ?? Theme.of(context).accentColor,
-      padding: const EdgeInsets.all(30),
-      child: Stack(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Expanded(
-                flex: 2,
-                child: ParallaxWidget(
-                  translationFactor: 150,
-                  child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Container(
-                      color: Theme.of(context).textTheme.headline6.color,
-                      height: 8,
-                      width: 100,
+    return Scaffold(
+      backgroundColor: background ?? Theme.of(context).scaffoldBackgroundColor,
+      body: Padding(
+        padding: const EdgeInsets.all(30),
+        child: Stack(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Expanded(
+                  flex: 2,
+                  child: ParallaxWidget(
+                    translationFactor: 150,
+                    child: Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Container(
+                        color: Theme.of(context).textTheme.headline6!.color,
+                        height: 8,
+                        width: 100,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 7,
-                child: DefaultTextStyle.merge(
-                  style: Theme.of(context).textTheme.headline6,
-                  child: title,
+                Expanded(
+                  flex: 7,
+                  child: DefaultTextStyle.merge(
+                    style: Theme.of(context).textTheme.headline6,
+                    child: title,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: DefaultTextStyle.merge(
-              style: Theme.of(context).textTheme.headline6,
-              textAlign: TextAlign.end,
-              child: subtitle,
+              ],
             ),
-          )
-        ],
+            Align(
+              alignment: Alignment.bottomRight,
+              child: DefaultTextStyle.merge(
+                style: Theme.of(context).textTheme.headline6,
+                textAlign: TextAlign.end,
+                child: subtitle,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

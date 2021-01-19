@@ -13,7 +13,7 @@ import 'package:flutter_presentations/features/slivers/pages/what_is_sliver.dart
 import 'package:presentation/presentation.dart';
 
 class Slivers extends StatefulWidget {
-  const Slivers({Key key}) : super(key: key);
+  const Slivers({Key? key}) : super(key: key);
 
   static const String title = 'Slivers!';
   static const String subtitle = '(not Silvers)';
@@ -25,8 +25,8 @@ class Slivers extends StatefulWidget {
 }
 
 class SliversState extends State<Slivers> {
-  PageController controller;
-  PresentationController presentationController;
+  late PageController controller;
+  late PresentationController presentationController;
 
   @override
   void initState() {

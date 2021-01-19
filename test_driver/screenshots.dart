@@ -14,26 +14,26 @@ class Screenshot {
 
   final String dir;
   final FlutterDriver driver;
-  final bool enabled;
+  final bool? enabled;
 
   static Future<Screenshot> create(
     FlutterDriver driver,
     String group, {
-    bool enabled,
+    bool? enabled,
   }) async {
     final ss = Screenshot._(
       '$_dirPath/$group',
       driver,
       enabled: enabled,
     );
-    if (ss.enabled) {
+    if (ss.enabled!) {
       await ss._setupScreenshots();
     }
     return ss;
   }
 
   Future<void> takeScreenshot(String name) async {
-    if (enabled) {
+    if (enabled!) {
       final List<int> pixels = await screenshot(driver);
       final File file = File('$dir/$name.png');
       await file.writeAsBytes(pixels);

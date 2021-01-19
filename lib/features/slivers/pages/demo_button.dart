@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DemoTime extends StatelessWidget {
-  const DemoTime({Key key}) : super(key: key);
+  const DemoTime({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class DemoTime extends StatelessWidget {
         child: Center(
           child: Text(
             'Demo Time!',
-            style: Theme.of(context).textTheme.headline3.copyWith(
+            style: Theme.of(context).textTheme.headline3!.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),

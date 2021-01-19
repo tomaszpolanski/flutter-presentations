@@ -5,7 +5,7 @@ import 'package:presentation/presentation.dart';
 class Inception extends StatefulWidget {
   const Inception(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
   final PresentationController controller;
 
@@ -14,7 +14,7 @@ class Inception extends StatefulWidget {
 }
 
 class _InceptionState extends State<Inception> {
-  PageStepper<int> _stateController;
+  late PageStepper<int> _stateController;
   int _current = 1;
 
   @override
@@ -63,9 +63,9 @@ class _InceptionState extends State<Inception> {
 }
 
 class _Inception extends StatelessWidget {
-  const _Inception({Key key, this.child}) : super(key: key);
+  const _Inception({Key? key, this.child}) : super(key: key);
 
-  final Widget child;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {

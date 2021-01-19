@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class DeclarativeUi extends StatelessWidget {
-  const DeclarativeUi({Key key}) : super(key: key);
+  const DeclarativeUi({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle.merge(
       style:
-          Theme.of(context).textTheme.headline6.copyWith(color: Colors.black),
+          Theme.of(context).textTheme.headline6!.copyWith(color: Colors.black),
       child: Center(
         child: Table(
           defaultVerticalAlignment: TableCellVerticalAlignment.middle,

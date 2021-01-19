@@ -9,9 +9,9 @@ import 'package:process_run/shell.dart';
 class SpeedComparison extends StatefulWidget {
   const SpeedComparison(
     this.controller, {
-    @required this.driverTest,
-    @required this.unitTest,
-    Key key,
+    required this.driverTest,
+    required this.unitTest,
+    Key? key,
   }) : super(key: key);
   final PresentationController controller;
   final String driverTest;
@@ -31,12 +31,12 @@ enum _Step {
 
 class _SpeedComparisonState extends State<SpeedComparison>
     with TickerProviderStateMixin {
-  PageStepper<_Step> _stateController;
-  AnimationController _controller;
-  TextEditingController _driverController;
-  TextEditingController _widgetController;
-  String _driverTime;
-  String _widgetTime;
+  late PageStepper<_Step> _stateController;
+  late AnimationController _controller;
+  late TextEditingController _driverController;
+  late TextEditingController _widgetController;
+  String? _driverTime;
+  String? _widgetTime;
 
   bool _showCountdown = false;
   bool _showTimer = false;
@@ -125,7 +125,7 @@ class _SpeedComparisonState extends State<SpeedComparison>
 
   Future<Duration> _runTestCommand(
     String command, {
-    @required TextEditingController controller,
+    required TextEditingController controller,
   }) async {
     final StreamController<List<int>> output = StreamController();
     output.stream.transform(utf8.decoder).listen((data) {
@@ -229,11 +229,11 @@ class _CountDownWidget extends StatefulWidget {
   const _CountDownWidget(
     this.duration, {
     this.onDone,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final Duration duration;
-  final VoidCallback onDone;
+  final VoidCallback? onDone;
 
   @override
   _CountDownWidgetState createState() => _CountDownWidgetState();
@@ -241,7 +241,7 @@ class _CountDownWidget extends StatefulWidget {
 
 class _CountDownWidgetState extends State<_CountDownWidget>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -251,7 +251,7 @@ class _CountDownWidgetState extends State<_CountDownWidget>
     )
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed && widget.onDone != null) {
-          widget.onDone();
+          widget.onDone!();
         }
       })
       ..forward();
@@ -272,10 +272,10 @@ class _CountDownWidgetState extends State<_CountDownWidget>
         curve: Curves.easeOut,
       ),
       builder: (context, animation, _) {
-        final time = _controller.duration.inSeconds -
-            (_controller.value * _controller.duration.inSeconds).floor();
-        final scale = (_controller.value * _controller.duration.inSeconds) -
-            (_controller.value * _controller.duration.inSeconds).floor();
+        final time = _controller.duration!.inSeconds -
+            (_controller.value * _controller.duration!.inSeconds).floor();
+        final scale = (_controller.value * _controller.duration!.inSeconds) -
+            (_controller.value * _controller.duration!.inSeconds).floor();
         return Transform.scale(
           scale: scale,
           child: Text(
@@ -290,8 +290,8 @@ class _CountDownWidgetState extends State<_CountDownWidget>
 
 class _Timer extends StatefulWidget {
   const _Timer({
-    Key key,
-    @required this.running,
+    Key? key,
+    required this.running,
   }) : super(key: key);
 
   final bool running;
@@ -301,7 +301,7 @@ class _Timer extends StatefulWidget {
 }
 
 class _TimerState extends State<_Timer> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -338,7 +338,7 @@ class _TimerState extends State<_Timer> with SingleTickerProviderStateMixin {
     return AnimatedBuilder(
       animation: _controller,
       builder: (context, _) {
-        final seconds = _controller.duration.inSeconds * _controller.value;
+        final seconds = _controller.duration!.inSeconds * _controller.value;
         final kindaMilliseconds =
             ((seconds - seconds.floor()) * 100).clamp(0, 99).floor();
 

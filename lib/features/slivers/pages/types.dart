@@ -3,7 +3,7 @@ import 'package:flutter_presentations/shared/slivers_page.dart';
 import 'package:presentation/presentation.dart';
 
 class SliverTypesPage extends StatefulWidget {
-  const SliverTypesPage({Key key, @required this.controller}) : super(key: key);
+  const SliverTypesPage({Key? key, required this.controller}) : super(key: key);
 
   final PresentationController controller;
 
@@ -44,7 +44,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
     'RenderSliverFillRemaining',
     'RenderSliverToBoxAdapter',
   ];
-  ScrollController _controller;
+  late ScrollController _controller;
 
   @override
   void initState() {
@@ -66,7 +66,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
         widget.controller.nextSlide();
       } else {
         _controller.animateTo(
-          _controller.offset + context.size.height,
+          _controller.offset + context.size!.height,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
@@ -76,7 +76,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
         widget.controller.previousSlide();
       } else {
         _controller.animateTo(
-          _controller.offset - context.size.height,
+          _controller.offset - context.size!.height,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
@@ -99,7 +99,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
               textAlign: TextAlign.center,
               style: Theme.of(context)
                   .textTheme
-                  .headline6
+                  .headline6!
                   .copyWith(color: Colors.black),
             ),
           ),
@@ -123,7 +123,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
               'Most Used',
               style: Theme.of(context)
                   .textTheme
-                  .headline5
+                  .headline5!
                   .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
             ),
           ),
@@ -150,7 +150,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
               'And the Rest',
               style: Theme.of(context)
                   .textTheme
-                  .headline5
+                  .headline5!
                   .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
             ),
           ),

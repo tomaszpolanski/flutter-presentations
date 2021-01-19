@@ -4,7 +4,7 @@ import 'package:flutter_presentations/features/slivers/custom_appbar_delegate.da
 import 'package:presentation/presentation.dart';
 
 class ImplementingHeader extends StatefulWidget {
-  const ImplementingHeader({Key key, @required this.controller})
+  const ImplementingHeader({Key? key, required this.controller})
       : super(key: key);
 
   final PresentationController controller;
@@ -14,7 +14,7 @@ class ImplementingHeader extends StatefulWidget {
 }
 
 class ImplementingHeaderState extends State<ImplementingHeader> {
-  ScrollController _controller;
+  late ScrollController _controller;
   @override
   void initState() {
     super.initState();
@@ -35,7 +35,7 @@ class ImplementingHeaderState extends State<ImplementingHeader> {
         widget.controller.nextSlide();
       } else {
         _controller.animateTo(
-          _controller.offset + context.size.height,
+          _controller.offset + context.size!.height,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
@@ -45,7 +45,7 @@ class ImplementingHeaderState extends State<ImplementingHeader> {
         widget.controller.previousSlide();
       } else {
         _controller.animateTo(
-          _controller.offset - context.size.height,
+          _controller.offset - context.size!.height,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );

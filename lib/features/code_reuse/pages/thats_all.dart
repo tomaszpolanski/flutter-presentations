@@ -6,11 +6,11 @@ import 'package:presentation/presentation.dart';
 
 class GradientContainer extends StatelessWidget {
   const GradientContainer({
-    Key key,
+    Key? key,
     this.fraction,
     this.beat = 0,
   }) : super(key: key);
-  final double fraction;
+  final double? fraction;
   final double beat;
 
   @override
@@ -18,8 +18,8 @@ class GradientContainer extends StatelessWidget {
     final size = MediaQuery.of(context).size.shortestSide;
     return Center(
       child: Container(
-        height: size * fraction + 10 * beat,
-        width: size * fraction + 10 * beat,
+        height: size * fraction! + 10 * beat,
+        width: size * fraction! + 10 * beat,
         decoration: const BoxDecoration(
           shape: BoxShape.circle,
           gradient: RadialGradient(
@@ -40,8 +40,8 @@ class GradientContainer extends StatelessWidget {
 
 class ThatsAll extends StatefulWidget {
   const ThatsAll({
-    Key key,
-    @required this.thanks,
+    Key? key,
+    required this.thanks,
   }) : super(key: key);
 
   final String thanks;
@@ -51,8 +51,8 @@ class ThatsAll extends StatefulWidget {
 }
 
 class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
-  AnimationController _controller;
-  AnimationController _fadeInController;
+  late AnimationController _controller;
+  late AnimationController _fadeInController;
   bool _showQuestions = false;
 
   @override

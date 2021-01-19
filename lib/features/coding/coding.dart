@@ -5,7 +5,7 @@ import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
 
 class Coding extends StatefulWidget {
-  const Coding({Key key}) : super(key: key);
+  const Coding({Key? key}) : super(key: key);
 
   static const String title = 'Coding in Flutter';
   static const String subtitle = 'WIP';
@@ -15,9 +15,9 @@ class Coding extends StatefulWidget {
 }
 
 class _CodingState extends State<Coding> {
-  PageController controller;
-  PresentationController presentationController;
-  List<ValueGetter<Widget>> pageCreator;
+  late PageController controller;
+  late PresentationController presentationController;
+  List<ValueGetter<Widget>>? pageCreator;
 
   @override
   void initState() {
@@ -70,13 +70,13 @@ class _CodingState extends State<Coding> {
 
 class AnimatedColor extends StatefulWidget {
   const AnimatedColor({
-    Key key,
+    Key? key,
     this.child,
-    @required this.begin,
-    @required this.end,
+    required this.begin,
+    required this.end,
   }) : super(key: key);
 
-  final Widget child;
+  final Widget? child;
   final Color begin;
   final Color end;
 
@@ -86,7 +86,7 @@ class AnimatedColor extends StatefulWidget {
 
 class _AnimatedColorState extends State<AnimatedColor>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -105,12 +105,12 @@ class _AnimatedColorState extends State<AnimatedColor>
 
   @override
   Widget build(BuildContext context) {
-    return WrappedAnimatedBuilder(
+    return WrappedAnimatedBuilder<Color?>(
       animation: _controller.drive(ColorTween(
         begin: widget.begin,
         end: widget.end,
       )),
-      builder: (_, animation, child) => Container(
+      builder: (_, Animation<Color?> animation, child) => Container(
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: animation.value,

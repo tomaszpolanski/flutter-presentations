@@ -29,7 +29,7 @@ class Flutter {
     return 'flutter attach -d $_device --debug-uri $debugUri';
   }
 
-  String dart(String file, [List<String> arguments]) {
+  String dart(String file, [List<String>? arguments]) {
     return 'dart $file ${arguments != null ? arguments.join(' ') : ''}';
   }
 

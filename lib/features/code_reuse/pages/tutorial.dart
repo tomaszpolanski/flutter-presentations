@@ -7,7 +7,7 @@ import 'package:presentation/presentation.dart';
 class TutorialGoal extends StatefulWidget {
   const TutorialGoal(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
   final PresentationController controller;
 
@@ -24,8 +24,8 @@ enum _TutorialStep {
 
 class _TutorialGoalState extends State<TutorialGoal>
     with SingleTickerProviderStateMixin {
-  PageStepper<_TutorialStep> _stateController;
-  AnimationController _controller;
+  late PageStepper<_TutorialStep> _stateController;
+  late AnimationController _controller;
   bool _showTutorial = false;
 
   @override
@@ -84,7 +84,7 @@ class _TutorialGoalState extends State<TutorialGoal>
           ),
         ),
         Expanded(
-          child: WrappedAnimatedBuilder<Rect>(
+          child: WrappedAnimatedBuilder<Rect?>(
             animation: RectTween(
               begin: const Rect.fromLTRB(0, 0, 1, 1),
               end: const Rect.fromLTRB(0, 0.31, 1, 0.61),
@@ -94,7 +94,7 @@ class _TutorialGoalState extends State<TutorialGoal>
             )),
             builder: (_, animation, child) {
               return ClipRect(
-                clipper: ClipperRect(animation.value),
+                clipper: ClipperRect(animation.value!),
                 child: child,
               );
             },
@@ -109,7 +109,7 @@ class _TutorialGoalState extends State<TutorialGoal>
 class TutorialResult extends StatefulWidget {
   const TutorialResult(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
   final PresentationController controller;
 
@@ -126,8 +126,8 @@ enum _Step {
 
 class _TutorialResultState extends State<TutorialResult>
     with SingleTickerProviderStateMixin {
-  PageStepper<_Step> _stateController;
-  AnimationController _controller;
+  late PageStepper<_Step> _stateController;
+  late AnimationController _controller;
   bool _showImage = false;
   bool _showGraph = false;
 

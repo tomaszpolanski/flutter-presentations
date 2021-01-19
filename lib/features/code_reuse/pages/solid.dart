@@ -6,7 +6,7 @@ import 'package:presentation/presentation.dart';
 class Solid extends StatefulWidget {
   const Solid(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
   final PresentationController controller;
 
@@ -30,8 +30,8 @@ enum _Step {
 }
 
 class _SolidState extends State<Solid> with TickerProviderStateMixin {
-  PageStepper<_Step> _stateController;
-  AnimationController _controller;
+  late PageStepper<_Step> _stateController;
+  late AnimationController _controller;
   bool _showOnlyOpenClosed = false;
 
   @override
@@ -107,7 +107,7 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                     builder: (_, child) {
                       return Transform.translate(
                         offset: Offset(0,
-                            translateAnimation.value * bigTheme.fontSize * 1),
+                            translateAnimation.value * bigTheme!.fontSize! * 1),
                         child: child,
                       );
                     },
@@ -126,8 +126,11 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                       animation: translateAnimation,
                       builder: (_, child) {
                         return Transform.translate(
-                          offset: Offset(0,
-                              translateAnimation.value * bigTheme.fontSize * 2),
+                          offset: Offset(
+                              0,
+                              translateAnimation.value *
+                                  bigTheme!.fontSize! *
+                                  2),
                           child: child,
                         );
                       },
@@ -147,8 +150,11 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                       animation: translateAnimation,
                       builder: (_, child) {
                         return Transform.translate(
-                          offset: Offset(0,
-                              translateAnimation.value * bigTheme.fontSize * 3),
+                          offset: Offset(
+                              0,
+                              translateAnimation.value *
+                                  bigTheme!.fontSize! *
+                                  3),
                           child: child,
                         );
                       },
@@ -168,8 +174,11 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                       animation: translateAnimation,
                       builder: (_, child) {
                         return Transform.translate(
-                          offset: Offset(0,
-                              translateAnimation.value * bigTheme.fontSize * 4),
+                          offset: Offset(
+                              0,
+                              translateAnimation.value *
+                                  bigTheme!.fontSize! *
+                                  4),
                           child: child,
                         );
                       },
@@ -191,13 +200,13 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
 
 class _AnimatedLine extends StatelessWidget {
   const _AnimatedLine({
-    Key key,
-    @required this.animation,
-    @required this.index,
+    Key? key,
+    required this.animation,
+    required this.index,
   }) : super(key: key);
 
   final int index;
-  final Animation<double> animation;
+  final Animation<double>? animation;
 
   @override
   Widget build(BuildContext context) {
@@ -207,7 +216,7 @@ class _AnimatedLine extends StatelessWidget {
     return _Letter(
       _principles[index],
       animation: CurvedAnimation(
-        parent: animation,
+        parent: animation!,
         curve: Interval(
           start,
           start + step,
@@ -221,8 +230,8 @@ class _AnimatedLine extends StatelessWidget {
 class _Letter extends StatelessWidget {
   const _Letter(
     this.text, {
-    Key key,
-    this.animation,
+    Key? key,
+    required this.animation,
   }) : super(key: key);
   final String text;
   final Animation<double> animation;

@@ -10,7 +10,7 @@ import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
 
 class Convincing extends StatefulWidget {
-  const Convincing({Key key}) : super(key: key);
+  const Convincing({Key? key}) : super(key: key);
   static const String title = 'Convincing your company to Flutter';
   static const String subtitle = '(Groupon)';
 
@@ -19,9 +19,9 @@ class Convincing extends StatefulWidget {
 }
 
 class ConvincingState extends State<Convincing> {
-  PageController controller;
-  PresentationController presentationController;
-  List<ValueGetter<Widget>> pageCreator;
+  late PageController controller;
+  late PresentationController presentationController;
+  late List<ValueGetter<Widget>> pageCreator;
 
   @override
   void initState() {

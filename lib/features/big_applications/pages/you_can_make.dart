@@ -7,9 +7,9 @@ import 'package:presentation/presentation.dart';
 class YouCanMake extends StatefulWidget {
   const YouCanMake({
     this.controller,
-    Key key,
+    Key? key,
   }) : super(key: key);
-  final PresentationController controller;
+  final PresentationController? controller;
 
   @override
   _YouCanMakeState createState() => _YouCanMakeState();
@@ -23,15 +23,16 @@ enum _Step {
 
 class _YouCanMakeState extends State<YouCanMake>
     with SingleTickerProviderStateMixin {
-  PageStepper<_Step> _stateController;
+  PageStepper<_Step>? _stateController;
   RevolvingState _revolvingState = RevolvingState.showFirst;
 
   @override
   void initState() {
     super.initState();
-    if (widget.controller != null) {
+    final controller = widget.controller;
+    if (controller != null) {
       _stateController = PageStepper<_Step>(
-        controller: widget.controller,
+        controller: controller,
         steps: _Step.values,
       )
         ..add(
@@ -47,7 +48,7 @@ class _YouCanMakeState extends State<YouCanMake>
         ..add(
           fromStep: _Step.flutter,
           toStep: _Step.next,
-          forward: widget.controller.nextSlide,
+          forward: controller.nextSlide,
         )
         ..build();
     }

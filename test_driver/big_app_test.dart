@@ -9,8 +9,8 @@ import 'screenshots.dart';
 
 void main(List<String> args) {
   group('Big App', () {
-    FlutterDriver driver;
-    Screenshot screenshot;
+    late FlutterDriver driver;
+    late Screenshot screenshot;
     final properties = TestProperties(args);
 
     setUpAll(() async {
@@ -23,7 +23,7 @@ void main(List<String> args) {
     });
 
     tearDownAll(() async {
-      await driver?.close();
+      await driver.close();
     });
 
     setUpAll(() async {

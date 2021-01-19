@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
-import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 
 class Intro extends StatelessWidget {
-  const Intro({Key key}) : super(key: key);
+  const Intro({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -66,18 +65,16 @@ class Intro extends StatelessWidget {
               ),
               DefaultTextStyle.merge(
                 style: Theme.of(context).textTheme.caption,
-                child: ParallaxWidget(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        'Tomek Polański',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                      Text('@tpolansk'),
-                    ],
-                  ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'Tomek Polański',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    Text('@tpolansk'),
+                  ],
                 ),
               )
             ],
@@ -95,7 +92,7 @@ class _LineDecoration extends StatefulWidget {
 
 class __LineDecorationState extends State<_LineDecoration>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {

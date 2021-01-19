@@ -7,7 +7,7 @@ import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 
 class SurveyPage extends StatelessWidget {
-  const SurveyPage({Key key}) : super(key: key);
+  const SurveyPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +25,8 @@ class SurveyPage extends StatelessWidget {
 class CriteriaPage extends StatefulWidget {
   const CriteriaPage(
     this.controller, {
-    @required this.title,
-    Key key,
+    required this.title,
+    Key? key,
     this.background = GTheme.green,
     this.business = Colors.white,
     this.technology = Colors.white,
@@ -46,9 +46,9 @@ class CriteriaPage extends StatefulWidget {
 
 class CriteriaPageState extends State<CriteriaPage>
     with TickerProviderStateMixin {
-  AnimationController _businessController;
-  AnimationController _techController;
-  AnimationController _peopleController;
+  late AnimationController _businessController;
+  late AnimationController _techController;
+  late AnimationController _peopleController;
 
   @override
   void initState() {
@@ -198,7 +198,11 @@ class CriteriaPageState extends State<CriteriaPage>
 }
 
 class ArrowPainter extends CustomPainter {
-  const ArrowPainter({this.color, this.opacity, this.rotation});
+  const ArrowPainter({
+    required this.color,
+    required this.opacity,
+    required this.rotation,
+  });
 
   final Color color;
   final double opacity;
@@ -242,27 +246,27 @@ class MyPainter extends CustomPainter {
     this.completePercent,
     this.width,
   });
-  final Color lineColor;
-  final Color completeColor;
-  final double completePercent;
-  final double width;
+  final Color? lineColor;
+  final Color? completeColor;
+  final double? completePercent;
+  final double? width;
 
   @override
   void paint(Canvas canvas, Size size) {
     final Paint line = Paint()
-      ..color = lineColor
+      ..color = lineColor!
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke
-      ..strokeWidth = width;
+      ..strokeWidth = width!;
     final Paint complete = Paint()
-      ..color = completeColor
+      ..color = completeColor!
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke
-      ..strokeWidth = width;
+      ..strokeWidth = width!;
     final Offset center = Offset(size.width / 2, size.height / 2);
     final double radius = min(size.width / 2, size.height / 2);
     canvas.drawCircle(center, radius, line);
-    final double arcAngle = 2 * pi * (completePercent / 100);
+    final double arcAngle = 2 * pi * (completePercent! / 100);
     canvas.drawArc(Rect.fromCircle(center: center, radius: radius), -pi / 2,
         arcAngle, false, complete);
   }
@@ -272,7 +276,7 @@ class MyPainter extends CustomPainter {
 }
 
 class DevDesignPage extends StatelessWidget {
-  const DevDesignPage({Key key}) : super(key: key);
+  const DevDesignPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -299,7 +303,7 @@ class DevDesignPage extends StatelessWidget {
 }
 
 class GrouponPlus extends StatelessWidget {
-  const GrouponPlus({Key key}) : super(key: key);
+  const GrouponPlus({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -335,7 +339,7 @@ class GrouponPlus extends StatelessWidget {
 }
 
 class AppiumPage extends StatelessWidget {
-  const AppiumPage({Key key}) : super(key: key);
+  const AppiumPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ParallaxWidget(child: Image.asset('assets/image37.png'));
@@ -343,7 +347,7 @@ class AppiumPage extends StatelessWidget {
 }
 
 class IntegrationTestPage extends StatelessWidget {
-  const IntegrationTestPage({Key key}) : super(key: key);
+  const IntegrationTestPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -380,7 +384,7 @@ class IntegrationTestPage extends StatelessWidget {
 }
 
 class WidgetTestPage extends StatelessWidget {
-  const WidgetTestPage({Key key}) : super(key: key);
+  const WidgetTestPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -396,7 +400,7 @@ class WidgetTestPage extends StatelessWidget {
 }
 
 class LearningPage extends StatelessWidget {
-  const LearningPage({Key key}) : super(key: key);
+  const LearningPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -412,7 +416,7 @@ class LearningPage extends StatelessWidget {
 }
 
 class FlutterDartPage extends StatelessWidget {
-  const FlutterDartPage({Key key}) : super(key: key);
+  const FlutterDartPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -448,7 +452,7 @@ class FlutterDartPage extends StatelessWidget {
 }
 
 class TeachingPage extends StatelessWidget {
-  const TeachingPage({Key key}) : super(key: key);
+  const TeachingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -464,7 +468,7 @@ class TeachingPage extends StatelessWidget {
 }
 
 class LaunchPage extends StatelessWidget {
-  const LaunchPage({Key key}) : super(key: key);
+  const LaunchPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -496,7 +500,7 @@ class LaunchPage extends StatelessWidget {
 }
 
 class ApplePage extends StatelessWidget {
-  const ApplePage({Key key}) : super(key: key);
+  const ApplePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -533,7 +537,7 @@ class ApplePage extends StatelessWidget {
 }
 
 class AndroidPage extends StatefulWidget {
-  const AndroidPage({Key key}) : super(key: key);
+  const AndroidPage({Key? key}) : super(key: key);
 
   @override
   AndroidPageState createState() => AndroidPageState();
@@ -541,9 +545,9 @@ class AndroidPage extends StatefulWidget {
 
 class AndroidPageState extends State<AndroidPage>
     with TickerProviderStateMixin {
-  AnimationController controller;
-  Animation<double> first;
-  Animation<double> second;
+  late AnimationController controller;
+  late Animation<double> first;
+  late Animation<double> second;
 
   @override
   void initState() {

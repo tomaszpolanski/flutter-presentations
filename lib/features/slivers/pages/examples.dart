@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
 
 class SimpleDemo extends StatefulWidget {
-  const SimpleDemo({Key key, @required this.controller}) : super(key: key);
+  const SimpleDemo({Key? key, required this.controller}) : super(key: key);
   final PresentationController controller;
 
   @override
@@ -10,7 +10,7 @@ class SimpleDemo extends StatefulWidget {
 }
 
 class SimpleDemoState extends State<SimpleDemo> {
-  ScrollController _controller;
+  late ScrollController _controller;
 
   @override
   void initState() {
@@ -32,7 +32,7 @@ class SimpleDemoState extends State<SimpleDemo> {
         widget.controller.nextSlide();
       } else {
         _controller.animateTo(
-          _controller.offset + context.size.height,
+          _controller.offset + context.size!.height,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
@@ -42,7 +42,7 @@ class SimpleDemoState extends State<SimpleDemo> {
         widget.controller.previousSlide();
       } else {
         _controller.animateTo(
-          _controller.offset - context.size.height,
+          _controller.offset - context.size!.height,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
         );
@@ -62,7 +62,7 @@ class SimpleDemoState extends State<SimpleDemo> {
           centerTitle: true,
           title: Text(
             'Sliver Examples',
-            style: Theme.of(context).textTheme.headline4.copyWith(
+            style: Theme.of(context).textTheme.headline4!.copyWith(
                   color: const Color(0xFF6AA84F),
                   fontWeight: FontWeight.bold,
                 ),

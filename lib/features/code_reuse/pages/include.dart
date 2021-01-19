@@ -5,7 +5,7 @@ import 'package:presentation/presentation.dart';
 class IncludeFlutter extends StatefulWidget {
   const IncludeFlutter(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
   final PresentationController controller;
 
@@ -17,7 +17,7 @@ enum _Step { init, main, yaml, build, next }
 
 class _IncludeFlutterState extends State<IncludeFlutter>
     with SingleTickerProviderStateMixin {
-  PageStepper<_Step> _stateController;
+  late PageStepper<_Step> _stateController;
   bool _main = false;
   bool _yaml = false;
   bool _build = false;
@@ -90,9 +90,9 @@ class _IncludeFlutterState extends State<IncludeFlutter>
 
 class _OpacitySlideIn extends StatelessWidget {
   const _OpacitySlideIn({
-    Key key,
+    Key? key,
     this.visible = false,
-    @required this.child,
+    required this.child,
   }) : super(key: key);
 
   final bool visible;

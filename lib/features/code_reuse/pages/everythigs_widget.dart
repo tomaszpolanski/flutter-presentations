@@ -8,7 +8,7 @@ import 'package:presentation/presentation.dart';
 class EverythingsWidget extends StatefulWidget {
   const EverythingsWidget(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
   final PresentationController controller;
 
@@ -27,8 +27,8 @@ enum _Step {
 
 class _EverythingsWidgetState extends State<EverythingsWidget>
     with SingleTickerProviderStateMixin {
-  PageStepper<_Step> _stateController;
-  AnimationController _controller;
+  late PageStepper<_Step> _stateController;
+  late AnimationController _controller;
   bool _showExample = false;
   bool _showTextTitle = true;
   bool _showCode = false;

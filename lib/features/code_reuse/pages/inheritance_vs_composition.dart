@@ -8,7 +8,7 @@ const size = 100.0;
 class InheritanceVsComposition extends StatefulWidget {
   const InheritanceVsComposition(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   final PresentationController controller;
@@ -26,9 +26,9 @@ enum _Step {
 }
 
 class _InheritanceVsCompositionState extends State<InheritanceVsComposition> {
-  PageStepper<_Step> _stateController;
-  _Controller _inheritanceController;
-  _Controller _compositionController;
+  late PageStepper<_Step> _stateController;
+  late _Controller _inheritanceController;
+  late _Controller _compositionController;
 
   @override
   void initState() {
@@ -103,7 +103,7 @@ class _InheritanceVsCompositionState extends State<InheritanceVsComposition> {
 }
 
 class _Inheritance extends StatefulWidget {
-  const _Inheritance({Key key, this.controller}) : super(key: key);
+  const _Inheritance({Key? key, required this.controller}) : super(key: key);
   final _Controller controller;
 
   @override
@@ -112,7 +112,7 @@ class _Inheritance extends StatefulWidget {
 
 class _InheritanceState extends State<_Inheritance>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -191,18 +191,18 @@ class _InheritanceState extends State<_Inheritance>
 }
 
 class _AnimatedInheritance extends StatelessWidget {
-  const _AnimatedInheritance({Key key, this.animation, this.child})
+  const _AnimatedInheritance({Key? key, this.animation, this.child})
       : super(key: key);
-  final Animation<double> animation;
-  final Widget child;
+  final Animation<double>? animation;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: animation,
+      animation: animation!,
       builder: (_, child) {
         return FadeTransition(
-          opacity: animation,
+          opacity: animation!,
           child: child,
         );
       },
@@ -212,7 +212,7 @@ class _AnimatedInheritance extends StatelessWidget {
 }
 
 class _Composition extends StatefulWidget {
-  const _Composition({Key key, this.controller}) : super(key: key);
+  const _Composition({Key? key, required this.controller}) : super(key: key);
   final _Controller controller;
 
   @override
@@ -221,7 +221,7 @@ class _Composition extends StatefulWidget {
 
 class _CompositionState extends State<_Composition>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -329,16 +329,16 @@ class _CompositionState extends State<_Composition>
 }
 
 class _AnimatedPosition extends StatelessWidget {
-  const _AnimatedPosition({Key key, this.animation, this.child})
+  const _AnimatedPosition({Key? key, required this.animation, this.child})
       : super(key: key);
   final Animation<double> animation;
-  final Widget child;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: animation,
-      builder: (BuildContext context, Widget child) {
+      builder: (BuildContext context, Widget? child) {
         return FadeTransition(
           opacity: animation,
           child: Transform.translate(
@@ -357,15 +357,15 @@ class _AnimatedPosition extends StatelessWidget {
 
 class _CompositionItem extends StatelessWidget {
   const _CompositionItem({
-    Key key,
+    Key? key,
     this.width,
     this.height,
     this.color,
   }) : super(key: key);
 
-  final double width;
-  final double height;
-  final Color color;
+  final double? width;
+  final double? height;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -381,8 +381,8 @@ class _CompositionItem extends StatelessWidget {
 }
 
 class _Controller {
-  VoidCallback _forward;
-  VoidCallback _reverse;
+  VoidCallback? _forward;
+  VoidCallback? _reverse;
 
   void addListeners(VoidCallback forward, VoidCallback reverse) {
     _forward = forward;
@@ -394,7 +394,7 @@ class _Controller {
     _reverse = null;
   }
 
-  void forward() => _forward();
+  void forward() => _forward!();
 
-  void reverse() => _reverse();
+  void reverse() => _reverse!();
 }

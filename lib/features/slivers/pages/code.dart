@@ -7,8 +7,8 @@ enum _Step {
 }
 
 class LoadsOfCode extends StatefulWidget {
-  const LoadsOfCode({Key key, @required this.controller}) : super(key: key);
-  final PresentationController controller;
+  const LoadsOfCode({Key? key, required this.controller}) : super(key: key);
+  final PresentationController? controller;
 
   @override
   _LoadsOfCodeState createState() => _LoadsOfCodeState();
@@ -16,10 +16,10 @@ class LoadsOfCode extends StatefulWidget {
 
 class _LoadsOfCodeState extends State<LoadsOfCode>
     with TickerProviderStateMixin {
-  AnimationController _controller;
-  Animation<Offset> animation;
-  Animation<double> opacity;
-  PageStepper<_Step> pageStepper;
+  late AnimationController _controller;
+  late Animation<Offset> animation;
+  late Animation<double> opacity;
+  late PageStepper<_Step> pageStepper;
 
   @override
   void initState() {
@@ -47,7 +47,7 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
       ..addListener(() => setState(() {}));
 
     pageStepper = PageStepper<_Step>(
-      controller: widget.controller,
+      controller: widget.controller!,
       steps: _Step.values,
     )
       ..addStep(
@@ -85,7 +85,7 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
           child: DefaultTextStyle(
             style: Theme.of(context)
                 .textTheme
-                .headline3
+                .headline3!
                 .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

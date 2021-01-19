@@ -3,9 +3,9 @@ import 'package:presentation/presentation.dart';
 
 class StackedPage extends StatefulWidget {
   const StackedPage({
-    Key key,
-    @required this.controller,
-    @required this.children,
+    Key? key,
+    required this.controller,
+    required this.children,
   }) : super(key: key);
   final PresentationController controller;
   final List<Widget> children;
@@ -16,8 +16,8 @@ class StackedPage extends StatefulWidget {
 
 class _StackedPageState extends State<StackedPage>
     with SingleTickerProviderStateMixin {
-  PageStepper<int> _stateController;
-  AnimationController _controller;
+  late PageStepper<int> _stateController;
+  late AnimationController _controller;
   int _visibleChildren = 0;
 
   @override

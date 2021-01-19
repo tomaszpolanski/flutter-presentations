@@ -5,7 +5,7 @@ import 'package:presentation/presentation.dart';
 class TheApp extends StatelessWidget {
   const TheApp(
     this.controller, {
-    Key key,
+    Key? key,
   }) : super(key: key);
   final PresentationController controller;
 
