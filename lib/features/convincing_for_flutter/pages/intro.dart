@@ -99,7 +99,7 @@ enum _Step {
 class PlatformsPage extends StatefulWidget {
   const PlatformsPage(this.controller, {Key? key}) : super(key: key);
 
-  final PresentationController? controller;
+  final PresentationController controller;
 
   @override
   _PlatformsPageState createState() => _PlatformsPageState();
@@ -122,7 +122,7 @@ class _PlatformsPageState extends State<PlatformsPage>
   void initState() {
     super.initState();
     stateController = PageStepper<_Step>(
-      controller: widget.controller!,
+      controller: widget.controller,
       steps: _Step.values,
     )
       ..add(
@@ -206,7 +206,7 @@ class _PlatformsPageState extends State<PlatformsPage>
       ..add(
         fromStep: _Step.fuchsia,
         toStep: _Step.next,
-        forward: () => widget.controller!.nextSlide(),
+        forward: () => widget.controller.nextSlide(),
       )
       ..addListener(() => setState(() {}))
       ..build();

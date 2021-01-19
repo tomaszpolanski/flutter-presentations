@@ -13,11 +13,11 @@ class Screenshot {
   });
 
   final String dir;
-  final FlutterDriver? driver;
+  final FlutterDriver driver;
   final bool? enabled;
 
   static Future<Screenshot> create(
-    FlutterDriver? driver,
+    FlutterDriver driver,
     String group, {
     bool? enabled,
   }) async {
@@ -44,11 +44,11 @@ class Screenshot {
       Directory(dir).create(recursive: true);
 }
 
-Future<List<int>> screenshot(FlutterDriver? driver) async {
+Future<List<int>> screenshot(FlutterDriver driver) async {
   await Future<void>.delayed(const Duration(milliseconds: 200));
 
   return FakeAsync().run((async) {
-    final result = driver!.screenshot();
+    final result = driver.screenshot();
     async.elapse(const Duration(minutes: 1));
     return result;
   });

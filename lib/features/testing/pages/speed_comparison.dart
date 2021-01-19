@@ -13,7 +13,7 @@ class SpeedComparison extends StatefulWidget {
     required this.unitTest,
     Key? key,
   }) : super(key: key);
-  final PresentationController? controller;
+  final PresentationController controller;
   final String driverTest;
   final String unitTest;
 
@@ -33,8 +33,8 @@ class _SpeedComparisonState extends State<SpeedComparison>
     with TickerProviderStateMixin {
   late PageStepper<_Step> _stateController;
   late AnimationController _controller;
-  TextEditingController? _driverController;
-  TextEditingController? _widgetController;
+  late TextEditingController _driverController;
+  late TextEditingController _widgetController;
   String? _driverTime;
   String? _widgetTime;
 
@@ -48,7 +48,7 @@ class _SpeedComparisonState extends State<SpeedComparison>
     _widgetController = TextEditingController();
     _controller = AnimationController(vsync: this);
     _stateController = PageStepper<_Step>(
-      controller: widget.controller!,
+      controller: widget.controller,
       steps: _Step.values,
     )
       ..add(
@@ -80,7 +80,7 @@ class _SpeedComparisonState extends State<SpeedComparison>
       ..add(
         fromStep: _Step.done,
         toStep: _Step.next,
-        forward: widget.controller!.nextSlide,
+        forward: widget.controller.nextSlide,
       )
       ..addListener(() => setState(() {}))
       ..build();
@@ -91,8 +91,8 @@ class _SpeedComparisonState extends State<SpeedComparison>
   void dispose() {
     _controller.dispose();
     _stateController.dispose();
-    _driverController!.dispose();
-    _widgetController!.dispose();
+    _driverController.dispose();
+    _widgetController.dispose();
     super.dispose();
   }
 
@@ -125,16 +125,16 @@ class _SpeedComparisonState extends State<SpeedComparison>
 
   Future<Duration> _runTestCommand(
     String command, {
-    required TextEditingController? controller,
+    required TextEditingController controller,
   }) async {
     final StreamController<List<int>> output = StreamController();
     output.stream.transform(utf8.decoder).listen((data) {
       setState(() {
-        controller!.text = '${controller.text}\n$data';
+        controller.text = '${controller.text}\n$data';
       });
     }, onError: (dynamic error) {
       setState(() {
-        controller!.text = '${controller.text}\n$error';
+        controller.text = '${controller.text}\n$error';
       });
     });
     final start = DateTime.now();

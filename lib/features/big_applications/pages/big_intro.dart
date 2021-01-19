@@ -17,7 +17,7 @@ class BigIntro extends StatelessWidget {
             child: _Title(),
           ),
         ),
-        Expanded(child: _FlutterProjects()),
+        Expanded(child: FlutterProjects()),
       ],
     );
   }
@@ -46,17 +46,17 @@ class _Title extends StatelessWidget {
   }
 }
 
-class _FlutterProjects extends StatefulWidget {
-  const _FlutterProjects({Key? key}) : super(key: key);
+class FlutterProjects extends StatefulWidget {
+  const FlutterProjects({Key? key}) : super(key: key);
 
   @override
-  __FlutterProjectsState createState() => __FlutterProjectsState();
+  _FlutterProjectsState createState() => _FlutterProjectsState();
 }
 
 const minSize = 10.0;
 const maxSize = 290.0;
 
-class __FlutterProjectsState extends State<_FlutterProjects>
+class _FlutterProjectsState extends State<FlutterProjects>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late List<_Circle> _circles;
@@ -122,7 +122,8 @@ class __FlutterProjectsState extends State<_FlutterProjects>
     );
   }
 
-  _Circle _generateCircle(math.Random random, {required double min, required double max}) {
+  _Circle _generateCircle(math.Random random,
+      {required double min, required double max}) {
     return _Circle(
       size: random.nextDouble() * (max - min) + min,
       x: random.nextDouble(),
@@ -197,8 +198,7 @@ class LoopTransition extends AnimatedWidget {
     this.radius = 40,
     required this.seed,
     this.child,
-  })  : assert(scale != null),
-        super(key: key, listenable: scale);
+  }) : super(key: key, listenable: scale);
 
   Animation<double> get scale => listenable as Animation<double>;
 

@@ -8,7 +8,7 @@ class PlatformStack extends StatefulWidget {
     this.controller, {
     Key? key,
   }) : super(key: key);
-  final PresentationController? controller;
+  final PresentationController controller;
 
   @override
   _PlatformStackState createState() => _PlatformStackState();
@@ -33,7 +33,7 @@ class _PlatformStackState extends State<PlatformStack>
       duration: const Duration(milliseconds: 500),
     );
     _stateController = PageStepper<_Step>(
-      controller: widget.controller!,
+      controller: widget.controller,
       steps: _Step.values,
     )
       ..add(
@@ -45,7 +45,7 @@ class _PlatformStackState extends State<PlatformStack>
       ..add(
         fromStep: _Step.web,
         toStep: _Step.next,
-        forward: widget.controller!.nextSlide,
+        forward: widget.controller.nextSlide,
       )
       ..addListener(() => setState(() {}))
       ..build();

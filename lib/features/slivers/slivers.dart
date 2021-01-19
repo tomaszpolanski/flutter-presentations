@@ -25,20 +25,20 @@ class Slivers extends StatefulWidget {
 }
 
 class SliversState extends State<Slivers> {
-  PageController? controller;
-  PresentationController? presentationController;
+  late PageController controller;
+  late PresentationController presentationController;
 
   @override
   void initState() {
     super.initState();
     controller = PageController();
-    presentationController = PresentationController(controller: controller!);
+    presentationController = PresentationController(controller: controller);
   }
 
   @override
   void dispose() {
-    presentationController!.dispose();
-    controller!.dispose();
+    presentationController.dispose();
+    controller.dispose();
     super.dispose();
   }
 

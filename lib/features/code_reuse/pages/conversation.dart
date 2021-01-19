@@ -4,8 +4,8 @@ import 'package:flutter_presentations/features/convincing_for_flutter/shared/gro
 import 'package:presentation/presentation.dart';
 
 class Conversation extends StatefulWidget {
-  const Conversation({Key? key, this.controller}) : super(key: key);
-  final PresentationController? controller;
+  const Conversation({Key? key, required this.controller}) : super(key: key);
+  final PresentationController controller;
 
   @override
   _ConversationState createState() => _ConversationState();
@@ -23,7 +23,7 @@ enum _Step {
 class _ConversationState extends State<Conversation>
     with SingleTickerProviderStateMixin {
   late PageStepper<_Step> _stateController;
-  AnimationController? _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -33,44 +33,44 @@ class _ConversationState extends State<Conversation>
       duration: const Duration(seconds: 3),
     );
     _stateController = PageStepper<_Step>(
-      controller: widget.controller!,
+      controller: widget.controller,
       steps: _Step.values,
     )
       ..add(
         fromStep: _Step.init,
         toStep: _Step.norbert,
-        forward: () => _controller!.animateTo(0.25),
-        reverse: () => _controller!.animateBack(0),
+        forward: () => _controller.animateTo(0.25),
+        reverse: () => _controller.animateBack(0),
       )
       ..add(
         fromStep: _Step.norbert,
         toStep: _Step.salih,
-        forward: () => _controller!.animateTo(0.5),
-        reverse: () => _controller!.animateBack(0.25),
+        forward: () => _controller.animateTo(0.5),
+        reverse: () => _controller.animateBack(0.25),
       )
       ..add(
         fromStep: _Step.salih,
         toStep: _Step.rafal,
-        forward: () => _controller!.animateTo(0.75),
-        reverse: () => _controller!.animateBack(0.5),
+        forward: () => _controller.animateTo(0.75),
+        reverse: () => _controller.animateBack(0.5),
       )
       ..add(
         fromStep: _Step.rafal,
         toStep: _Step.haha,
-        forward: () => _controller!.animateTo(1),
-        reverse: () => _controller!.animateBack(0.75),
+        forward: () => _controller.animateTo(1),
+        reverse: () => _controller.animateBack(0.75),
       )
       ..add(
         fromStep: _Step.haha,
         toStep: _Step.next,
-        forward: widget.controller!.nextSlide,
+        forward: widget.controller.nextSlide,
       )
       ..build();
   }
 
   @override
   void dispose() {
-    _controller!.dispose();
+    _controller.dispose();
     _stateController.dispose();
     super.dispose();
   }
