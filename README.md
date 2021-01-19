@@ -14,7 +14,6 @@ Last tested version of Flutter that works with this repo is `1.25.0-8.1.pre`:
 ## Building for Web
 Upgrade flutter to minimum `1.25.0-8.1.pre`, enable web compilation and run:
 ```
-flutter version 1.25.0-8.1.pre
 flutter config --enable-web
 flutter run -d chrome -v
 ```
