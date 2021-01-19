@@ -200,6 +200,7 @@ class LoopTransition extends AnimatedWidget {
     this.child,
   }) : super(key: key, listenable: scale);
 
+  // ignore: avoid_as
   Animation<double> get scale => listenable as Animation<double>;
 
   final Widget? child;
