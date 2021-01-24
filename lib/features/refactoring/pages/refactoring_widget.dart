@@ -90,8 +90,8 @@ class BeforeMyApp extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Image.network(
-            'https://unsplash.com/photos/mhqoyciC5I0/download?force=true',
+          Image.asset(
+            'assets/allison-louise-YI3fRBut9PM-unsplash-bernie.jpg',
             width: 600,
             height: 240,
             fit: BoxFit.cover,
@@ -137,8 +137,8 @@ class AfterMyApp extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Image.network(
-            'https://unsplash.com/photos/mhqoyciC5I0/download?force=true',
+          Image.asset(
+            'assets/allison-louise-YI3fRBut9PM-unsplash-bernie.jpg',
             width: 600,
             height: 240,
             fit: BoxFit.cover,
