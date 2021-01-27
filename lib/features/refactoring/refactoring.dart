@@ -56,7 +56,7 @@ class _RefactoringState extends State<Refactoring> {
             const RefactoringWidget(),
             ...[
               // Size
-              const SectionPage('📏 Size Matters'),
+              const SectionPage("📏 Widget's Size, Matters"),
               BigWidget(presentationController),
               const RefactoringWidget(),
             ],
@@ -81,8 +81,8 @@ class _RefactoringState extends State<Refactoring> {
             ],
             ...[
               const SummaryPage(
-                title: 'Context',
-                subtitle: 'a.k.a Element',
+                title: 'Context, Elements',
+                subtitle: 'and InheritedWidgets',
               ),
               const Context(),
             ],

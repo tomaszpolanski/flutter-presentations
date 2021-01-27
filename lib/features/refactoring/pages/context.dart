@@ -16,7 +16,7 @@ class _ContextState extends State<Context> {
       data: MediaQuery.of(context).copyWith(textScaleFactor: _scaleFactor),
       child: Stack(
         children: [
-          const _AfterText(),
+          const _BeforeText(),
           Positioned(
             bottom: 0,
             right: 0,
@@ -46,7 +46,7 @@ class _BeforeText extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text('Hi!'),
+        Text('Hi! ${MediaQuery.of(context).textScaleFactor}'),
         Builder(
           builder: (context) {
             // ignore: avoid_print
@@ -75,7 +75,7 @@ class _AfterText extends StatelessWidget {
           builder: (context) {
             // ignore: avoid_print
             print('Rebuilding Text Only');
-            return Text('Hii! ${MediaQuery.of(context).textScaleFactor}');
+            return Text('Hi! ${MediaQuery.of(context).textScaleFactor}');
           },
         ),
         Builder(
