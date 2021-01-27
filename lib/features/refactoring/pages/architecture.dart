@@ -26,11 +26,13 @@ class BeforeCounterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('Rebuilding whole');
     return Scaffold(
       appBar: AppBar(title: const Text('Counter')),
       body: Center(
         child: BlocBuilder<CounterCubit, int>(
           builder: (context, state) {
+            print('Rebuilding text $state');
             return Text('$state');
           },
         ),
@@ -63,11 +65,14 @@ class AfterCounterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('AfterCounterView Rebuilding whole top');
     return SimpleCounterView(
       onIncrement: () => BlocProvider.of<CounterCubit>(context).increment(),
       onDecrement: () => BlocProvider.of<CounterCubit>(context).decrement(),
       child: BlocBuilder<CounterCubit, int>(
         builder: (context, state) {
+          print(context.toString());
+          print('AfterCounterView Rebuilding text $state');
           return Text('$state');
         },
       ),
@@ -89,6 +94,7 @@ class SimpleCounterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('SimpleCounterView Rebuilding whole inner');
     return Scaffold(
       appBar: AppBar(title: const Text('Counter')),
       body: Center(
