@@ -8,7 +8,7 @@ class Architecture extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => CounterCubit(),
-      child: const AfterCounterView(),
+      child: const BeforeCounterView(),
     );
   }
 }

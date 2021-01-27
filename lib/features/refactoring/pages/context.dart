@@ -16,7 +16,7 @@ class _ContextState extends State<Context> {
       data: MediaQuery.of(context).copyWith(textScaleFactor: _scaleFactor),
       child: Stack(
         children: [
-          const _BeforeText(),
+          const _RebuildDemo(),
           Positioned(
             bottom: 0,
             right: 0,
@@ -36,8 +36,8 @@ class _ContextState extends State<Context> {
 }
 
 // ignore: unused_element
-class _BeforeText extends StatelessWidget {
-  const _BeforeText({Key? key}) : super(key: key);
+class _RebuildDemo extends StatelessWidget {
+  const _RebuildDemo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,10 @@ class _BeforeText extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('Hi! ${MediaQuery.of(context).textScaleFactor}'),
+        Builder(builder: (context) {
+          print('Rebuilding Hi!');
+          return Text('Hi! ${MediaQuery.of(context).textScaleFactor}');
+        }),
         Builder(
           builder: (context) {
             // ignore: avoid_print
