@@ -6,14 +6,14 @@ class NullSafety extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const _BeforeContent(
+    return const _Content(
       subtitle: '🚧 avoid ❗ 🚧',
     );
   }
 }
 
-class _BeforeContent extends StatelessWidget {
-  const _BeforeContent({this.subtitle, Key? key}) : super(key: key);
+class _Content extends StatelessWidget {
+  const _Content({this.subtitle, Key? key}) : super(key: key);
 
   final String? subtitle;
 
@@ -31,8 +31,8 @@ class _BeforeContent extends StatelessWidget {
 }
 
 // ignore: unused_element
-class _AfterContent extends StatelessWidget {
-  const _AfterContent({this.subtitle, Key? key}) : super(key: key);
+class _ContentRefactored extends StatelessWidget {
+  const _ContentRefactored({this.subtitle, Key? key}) : super(key: key);
 
   final String? subtitle;
 

@@ -8,7 +8,7 @@ class Architecture extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => CounterCubit(),
-      child: const BeforeCounterView(),
+      child: const CounterView(),
     );
   }
 }
@@ -21,17 +21,19 @@ class CounterCubit extends Cubit<int> {
   void decrement() => emit(state - 1);
 }
 
-class BeforeCounterView extends StatelessWidget {
-  const BeforeCounterView({Key? key}) : super(key: key);
+class CounterView extends StatelessWidget {
+  const CounterView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // ignore: avoid_print
     print('Rebuilding whole');
     return Scaffold(
       appBar: AppBar(title: const Text('Counter')),
       body: Center(
         child: BlocBuilder<CounterCubit, int>(
           builder: (context, state) {
+            // ignore: avoid_print
             print('Rebuilding text $state');
             return Text('$state');
           },
@@ -60,18 +62,19 @@ class BeforeCounterView extends StatelessWidget {
   }
 }
 
-class AfterCounterView extends StatelessWidget {
-  const AfterCounterView({Key? key}) : super(key: key);
+class CounterViewRefactored extends StatelessWidget {
+  const CounterViewRefactored({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    // ignore: avoid_print
     print('AfterCounterView Rebuilding whole top');
     return SimpleCounterView(
       onIncrement: () => BlocProvider.of<CounterCubit>(context).increment(),
       onDecrement: () => BlocProvider.of<CounterCubit>(context).decrement(),
       child: BlocBuilder<CounterCubit, int>(
         builder: (context, state) {
-          print(context.toString());
+          // ignore: avoid_print
           print('AfterCounterView Rebuilding text $state');
           return Text('$state');
         },
@@ -94,6 +97,7 @@ class SimpleCounterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: avoid_print
     print('SimpleCounterView Rebuilding whole inner');
     return Scaffold(
       appBar: AppBar(title: const Text('Counter')),

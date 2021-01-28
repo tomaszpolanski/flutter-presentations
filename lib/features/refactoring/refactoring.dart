@@ -88,7 +88,7 @@ class _RefactoringState extends State<Refactoring> {
                 title: 'What about',
                 subtitle: 'Slivers?',
               ),
-              const BeforeSlivers(),
+              const SliverRefactoring(),
             ],
             ...[
               const SectionPage('Reusable Architecture 🏗️'),

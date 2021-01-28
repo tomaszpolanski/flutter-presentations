@@ -47,6 +47,7 @@ class _RebuildDemo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Builder(builder: (context) {
+          // ignore: avoid_print
           print('Rebuilding Hi!');
           return Text('Hi! ${MediaQuery.of(context).textScaleFactor}');
         }),
@@ -64,8 +65,9 @@ class _RebuildDemo extends StatelessWidget {
   }
 }
 
-class _AfterText extends StatelessWidget {
-  const _AfterText({Key? key}) : super(key: key);
+// ignore: unused_element
+class _RebuildDemoRefactored extends StatelessWidget {
+  const _RebuildDemoRefactored({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
