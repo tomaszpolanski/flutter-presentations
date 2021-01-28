@@ -70,30 +70,25 @@ class _RefactoringState extends State<Refactoring> {
               const RefactoringWidget(),
             ],
             ...[
-              // Widgets vs methods
               const SummaryPage(
                 title: 'Widgets',
                 subtitle: 'vs Methods',
               ),
               const RefactoringWidget(),
-              // StefanText vs buildThemedText - widgets vs methods
-              // widgets are transparent, they InheritedWidgets only rebuild them
             ],
             ...[
               const SummaryPage(
-                title: 'Context, Elements',
+                title: 'Context, Widgets, Elements',
                 subtitle: 'and InheritedWidgets',
               ),
               const Context(),
             ],
             ...[
-              // slivers can be a stateless widgets
-              // ctrl + h To show class hierarchy
               const SummaryPage(
                 title: 'What about',
                 subtitle: 'Slivers?',
               ),
-              const BeforeSlivers(),
+              const SliverRefactoring(),
             ],
             ...[
               const SectionPage('Reusable Architecture 🏗️'),

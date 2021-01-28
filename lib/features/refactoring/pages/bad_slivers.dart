@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
 
-class BeforeSlivers extends StatelessWidget {
-  const BeforeSlivers({
+class SliverRefactoring extends StatelessWidget {
+  const SliverRefactoring({
     Key? key,
   }) : super(key: key);
 
@@ -38,8 +38,8 @@ class BeforeSlivers extends StatelessWidget {
   }
 }
 
-class AfterSliverList extends StatelessWidget {
-  const AfterSliverList(this.items, {Key? key}) : super(key: key);
+class RefactoredSliverList extends StatelessWidget {
+  const RefactoredSliverList(this.items, {Key? key}) : super(key: key);
 
   final List<String> items;
 
