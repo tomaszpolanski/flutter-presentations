@@ -555,26 +555,26 @@ packages:
     dependency: transitive
     description:
       name: qr
-      sha256: "2bfff54e8dd2d035a68bb4d9c8b1f46ff8203dc56e979dfec379a8549b468a49"
+      sha256: "5c4208b4dc0d55c3184d10d83ee0ded6212dc2b5e2ba17c5a0c0aab279128d21"
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0"
+    version: "2.1.0"
   qr_flutter:
     dependency: "direct main"
     description:
       name: qr_flutter
-      sha256: f07b3be0964329d431a779b8eded05fe0fc42eca9b8ed9aca4d777f25eaa370a
+      sha256: c5c121c54cb6dd837b9b9d57eb7bc7ec6df4aee741032060c8833a678c80b87e
       url: "https://pub.dev"
     source: hosted
-    version: "3.2.0"
+    version: "4.0.0"
   rxdart:
     dependency: "direct main"
     description:
       name: rxdart
-      sha256: "0beed4211050b09650da49fedc3a18dedf8601ba8ce041d7ce06db73cb2aa97e"
+      sha256: "0c7c0cedd93788d996e33041ffecda924cc54389199cde4e6a34b440f50044cb"
       url: "https://pub.dev"
     source: hosted
-    version: "0.24.1"
+    version: "0.27.7"
   shelf:
     dependency: transitive
     description:

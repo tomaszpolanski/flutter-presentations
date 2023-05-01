@@ -106,11 +106,13 @@ class _AnimatedColorState extends State<AnimatedColor>
   @override
   Widget build(BuildContext context) {
     return WrappedAnimatedBuilder<Color?>(
-      animation: _controller.drive(ColorTween(
-        begin: widget.begin,
-        end: widget.end,
-      ),),
-      builder: (_, Animation<Color?> animation, child) => Container(
+      animation: _controller.drive(
+        ColorTween(
+          begin: widget.begin,
+          end: widget.end,
+        ),
+      ),
+      builder: (_, Animation<Color?> animation, child) => DecoratedBox(
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: animation.value,

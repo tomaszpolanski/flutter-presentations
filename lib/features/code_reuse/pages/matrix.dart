@@ -117,7 +117,7 @@ class _GlowingLetter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return letter[0] != ' '
-        ? Container(
+        ? DecoratedBox(
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(

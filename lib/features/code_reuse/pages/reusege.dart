@@ -59,7 +59,7 @@ class _BigWidgetState extends State<BigWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: const Color(0xFF2B2B2B),
       child: ListView.builder(
         controller: _controller,

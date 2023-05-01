@@ -30,9 +30,9 @@ class _GrouponAppState extends State<GrouponApp> {
               child: _showSplash
                   ? GestureDetector(
                       onTap: () => setState(() => _showSplash = false),
-                      child: Container(
+                      child: const ColoredBox(
                         color: Colors.transparent,
-                        child: const Center(
+                        child: Center(
                           child: Image(
                             image: AssetImage('assets/image7.png'),
                             height: 100,

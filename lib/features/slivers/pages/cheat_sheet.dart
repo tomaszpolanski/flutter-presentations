@@ -65,10 +65,12 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
     return Tween<Offset>(
       begin: const Offset(1, 0),
       end: Offset.zero,
-    ).animate(CurvedAnimation(
-      parent: controller,
-      curve: const ElasticOutCurve(),
-    ),);
+    ).animate(
+      CurvedAnimation(
+        parent: controller,
+        curve: const ElasticOutCurve(),
+      ),
+    );
   }
 
   @override
@@ -78,7 +80,7 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
       child: GestureDetector(
         onTap: stateController.next,
         child: ClipRect(
-          child: Container(
+          child: ColoredBox(
             color: Colors.transparent,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,

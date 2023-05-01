@@ -96,7 +96,7 @@ class CriteriaPageState extends State<CriteriaPage>
           widget.controller.nextSlide();
         }
       },
-      child: Container(
+      child: ColoredBox(
         color: widget.background,
         child: Stack(
           children: [
@@ -120,9 +120,10 @@ class CriteriaPageState extends State<CriteriaPage>
                                 AnimationStatus.completed
                             ? 1.0
                             : 0.0,
-                        child: Text('Business',
-                            style:
-                                GTheme.small.copyWith(color: widget.business),),
+                        child: Text(
+                          'Business',
+                          style: GTheme.small.copyWith(color: widget.business),
+                        ),
                       ),
                     ),
                   ),
@@ -145,10 +146,12 @@ class CriteriaPageState extends State<CriteriaPage>
                             _techController.status == AnimationStatus.completed
                                 ? 1.0
                                 : 0.0,
-                        child: Text('Technology',
-                            textAlign: TextAlign.right,
-                            style: GTheme.small
-                                .copyWith(color: widget.technology),),
+                        child: Text(
+                          'Technology',
+                          textAlign: TextAlign.right,
+                          style:
+                              GTheme.small.copyWith(color: widget.technology),
+                        ),
                       ),
                     ),
                   ),
@@ -171,9 +174,11 @@ class CriteriaPageState extends State<CriteriaPage>
                                 AnimationStatus.completed
                             ? 1.0
                             : 0.0,
-                        child: Text('People',
-                            textAlign: TextAlign.right,
-                            style: GTheme.small.copyWith(color: widget.people),),
+                        child: Text(
+                          'People',
+                          textAlign: TextAlign.right,
+                          style: GTheme.small.copyWith(color: widget.people),
+                        ),
                       ),
                     ),
                   ),
@@ -267,8 +272,13 @@ class MyPainter extends CustomPainter {
     final double radius = min(size.width / 2, size.height / 2);
     canvas.drawCircle(center, radius, line);
     final arcAngle = 2 * pi * (completePercent! / 100);
-    canvas.drawArc(Rect.fromCircle(center: center, radius: radius), -pi / 2,
-        arcAngle, false, complete,);
+    canvas.drawArc(
+      Rect.fromCircle(center: center, radius: radius),
+      -pi / 2,
+      arcAngle,
+      false,
+      complete,
+    );
   }
 
   @override
@@ -307,7 +317,7 @@ class GrouponPlus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: GTheme.teal,
       child: Row(
         children: <Widget>[
@@ -472,7 +482,7 @@ class LaunchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: Colors.black,
       child: Row(
         children: <Widget>[
@@ -510,26 +520,27 @@ class ApplePage extends StatelessWidget {
         children: <Widget>[
           Expanded(child: Image.asset('assets/apple.png')),
           Expanded(
-              child: ParallaxWidget(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  color: GTheme.flutter1,
-                  width: 30,
-                  height: 120,
-                ),
-                const SizedBox(
-                  width: 30,
-                ),
-                Container(
-                  color: GTheme.flutter2,
-                  width: 30,
-                  height: 120,
-                )
-              ],
+            child: ParallaxWidget(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    color: GTheme.flutter1,
+                    width: 30,
+                    height: 120,
+                  ),
+                  const SizedBox(
+                    width: 30,
+                  ),
+                  Container(
+                    color: GTheme.flutter2,
+                    width: 30,
+                    height: 120,
+                  )
+                ],
+              ),
             ),
-          ),),
+          ),
         ],
       ),
     );
@@ -577,36 +588,37 @@ class AndroidPageState extends State<AndroidPage>
             child: Image.asset('assets/image9.png'),
           ),
           Expanded(
-              flex: 6,
-              child: ParallaxWidget(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    ScaleTransition(
-                      scale: first,
-                      child: ClipPath(
-                        clipper: TriangleClipper(),
-                        child: Container(
-                          color: GTheme.flutter1,
-                          width: 120,
-                          height: 120,
-                        ),
+            flex: 6,
+            child: ParallaxWidget(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  ScaleTransition(
+                    scale: first,
+                    child: ClipPath(
+                      clipper: TriangleClipper(),
+                      child: Container(
+                        color: GTheme.flutter1,
+                        width: 120,
+                        height: 120,
                       ),
                     ),
-                    ScaleTransition(
-                      scale: second,
-                      child: ClipPath(
-                        clipper: TriangleClipper(),
-                        child: Container(
-                          color: GTheme.flutter2,
-                          width: 120,
-                          height: 120,
-                        ),
+                  ),
+                  ScaleTransition(
+                    scale: second,
+                    child: ClipPath(
+                      clipper: TriangleClipper(),
+                      child: Container(
+                        color: GTheme.flutter2,
+                        width: 120,
+                        height: 120,
                       ),
                     ),
-                  ],
-                ),
-              ),),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );

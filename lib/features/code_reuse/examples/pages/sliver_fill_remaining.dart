@@ -22,7 +22,7 @@ class SliverFillRemainingPage extends StatelessWidget {
           ),
           SliverFillRemaining(
             hasScrollBody: false,
-            child: Container(
+            child: ColoredBox(
               color: Colors.yellowAccent,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

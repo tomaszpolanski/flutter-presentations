@@ -63,7 +63,7 @@ class _BigWidgetState extends State<BigWidget> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        Container(
+        ColoredBox(
           color: const Color(0xFF2B2B2B),
           child: Scrollbar(
             child: ListView.builder(
