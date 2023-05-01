@@ -7,7 +7,7 @@ enum _Step {
 }
 
 class LoadsOfCode extends StatefulWidget {
-  const LoadsOfCode({Key? key, required this.controller}) : super(key: key);
+  const LoadsOfCode({super.key, required this.controller});
   final PresentationController? controller;
 
   @override
@@ -35,7 +35,7 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
     ).animate(CurvedAnimation(
       parent: _controller,
       curve: Curves.elasticOut,
-    ));
+    ),);
 
     opacity = Tween<double>(
       begin: 0,
@@ -43,7 +43,7 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
     ).animate(CurvedAnimation(
       parent: _controller,
       curve: const Interval(0, .1),
-    ))
+    ),)
       ..addListener(() => setState(() {}));
 
     pageStepper = PageStepper<_Step>(
@@ -85,7 +85,7 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
           child: DefaultTextStyle(
             style: Theme.of(context)
                 .textTheme
-                .headline3!
+                .displaySmall!
                 .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

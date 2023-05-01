@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
 import 'package:process_run/shell.dart';
@@ -11,8 +10,8 @@ class SpeedComparison extends StatefulWidget {
     this.controller, {
     required this.driverTest,
     required this.unitTest,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final PresentationController controller;
   final String driverTest;
   final String unitTest;
@@ -127,16 +126,16 @@ class _SpeedComparisonState extends State<SpeedComparison>
     String command, {
     required TextEditingController controller,
   }) async {
-    final StreamController<List<int>> output = StreamController();
+    final output = StreamController<List<int>>();
     output.stream.transform(utf8.decoder).listen((data) {
       setState(() {
         controller.text = '${controller.text}\n$data';
       });
-    }, onError: (dynamic error) {
+    }, onError: (error) {
       setState(() {
         controller.text = '${controller.text}\n$error';
       });
-    });
+    },);
     final start = DateTime.now();
     await Shell(stdout: output).run(command);
     final duration = DateTime.now().difference(start);
@@ -165,7 +164,7 @@ class _SpeedComparisonState extends State<SpeedComparison>
                               enabled: false,
                               controller: _driverController,
                               maxLines: null,
-                              style: Theme.of(context).textTheme.caption,
+                              style: Theme.of(context).textTheme.bodySmall,
                             ),
                           ),
                         ),
@@ -188,7 +187,7 @@ class _SpeedComparisonState extends State<SpeedComparison>
                               enabled: false,
                               controller: _widgetController,
                               maxLines: null,
-                              style: Theme.of(context).textTheme.caption,
+                              style: Theme.of(context).textTheme.bodySmall,
                             ),
                           ),
                         ),
@@ -229,8 +228,8 @@ class _CountDownWidget extends StatefulWidget {
   const _CountDownWidget(
     this.duration, {
     this.onDone,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Duration duration;
   final VoidCallback? onDone;
@@ -280,7 +279,7 @@ class _CountDownWidgetState extends State<_CountDownWidget>
           scale: scale,
           child: Text(
             time.toString(),
-            style: Theme.of(context).textTheme.headline4,
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
         );
       },
@@ -290,9 +289,9 @@ class _CountDownWidgetState extends State<_CountDownWidget>
 
 class _Timer extends StatefulWidget {
   const _Timer({
-    Key? key,
+    super.key,
     required this.running,
-  }) : super(key: key);
+  });
 
   final bool running;
 
@@ -350,7 +349,7 @@ class _TimerState extends State<_Timer> with SingleTickerProviderStateMixin {
             Expanded(
               child: Text(
                 seconds.floor().toString(),
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headlineMedium,
                 textAlign: TextAlign.end,
               ),
             ),

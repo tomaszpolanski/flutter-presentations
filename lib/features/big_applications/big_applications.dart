@@ -20,7 +20,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:presentation/presentation.dart';
 
 class BigApplications extends StatefulWidget {
-  const BigApplications({Key? key}) : super(key: key);
+  const BigApplications({super.key});
 
   static const String title = 'Big Applications';
   static const String subtitle = 'with Flutter';
@@ -183,7 +183,7 @@ class _BigApplicationsState extends State<BigApplications> {
                               style: GoogleFonts.poppins(
                                 textStyle: Theme.of(context)
                                     .textTheme
-                                    .headline4!
+                                    .headlineMedium!
                                     .copyWith(
                                       color:
                                           (page.round() == children.length - 1

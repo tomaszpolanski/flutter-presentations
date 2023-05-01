@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
 
 class DartIssues extends StatefulWidget {
-  const DartIssues({Key? key}) : super(key: key);
+  const DartIssues({super.key});
 
   @override
   _DartIssuesState createState() => _DartIssuesState();

@@ -1,14 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:presentation/presentation.dart';
 
 class Matrix extends StatefulWidget {
   const Matrix(
     this.controller, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final PresentationController controller;
 
   @override
@@ -96,7 +94,7 @@ class _MatrixState extends State<Matrix> with SingleTickerProviderStateMixin {
                 ..._text
                     .substring(0, (_text.length * animation.value).toInt())
                     .split('')
-                    .map((letter) => _GlowingLetter(letter)),
+                    .map(_GlowingLetter.new),
                 if (child != null) child,
               ],
             );
@@ -111,8 +109,8 @@ class _MatrixState extends State<Matrix> with SingleTickerProviderStateMixin {
 class _GlowingLetter extends StatelessWidget {
   const _GlowingLetter(
     this.letter, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String letter;
 
@@ -136,7 +134,7 @@ class _GlowingLetter extends StatelessWidget {
 }
 
 class Cursor extends StatefulWidget {
-  const Cursor({Key? key, this.isBlinking}) : super(key: key);
+  const Cursor({super.key, this.isBlinking});
 
   final bool? isBlinking;
 

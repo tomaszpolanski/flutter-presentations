@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class Logo extends StatefulWidget {
   const Logo({
-    Key? key,
+    super.key,
     required this.child,
     this.visible = true,
-  }) : super(key: key);
+  });
 
   final Widget child;
   final bool visible;

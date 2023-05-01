@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
 
@@ -9,7 +8,7 @@ enum _Step {
 }
 
 class CheatSheet extends StatefulWidget {
-  const CheatSheet({Key? key, required this.controller}) : super(key: key);
+  const CheatSheet({super.key, required this.controller});
   final PresentationController? controller;
 
   @override
@@ -69,7 +68,7 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
     ).animate(CurvedAnimation(
       parent: controller,
       curve: const ElasticOutCurve(),
-    ));
+    ),);
   }
 
   @override
@@ -109,8 +108,8 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
 class CardElement extends StatelessWidget {
   const CardElement(
     this.text, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final String text;
 
   @override

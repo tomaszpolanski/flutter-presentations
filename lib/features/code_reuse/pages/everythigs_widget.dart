@@ -1,15 +1,14 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:presentation/presentation.dart';
 
 class EverythingsWidget extends StatefulWidget {
   const EverythingsWidget(
     this.controller, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final PresentationController controller;
 
   @override
@@ -92,7 +91,7 @@ class _EverythingsWidgetState extends State<EverythingsWidget>
           children: <Widget>[
             Expanded(
               child: DefaultTextStyle.merge(
-                style: Theme.of(context).textTheme.bodyText2,
+                style: Theme.of(context).textTheme.bodyMedium,
                 child: Center(
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,

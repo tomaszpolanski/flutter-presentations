@@ -7,8 +7,8 @@ import 'package:presentation/presentation.dart';
 class FlutterIsFun extends StatefulWidget {
   const FlutterIsFun(
     this.controller, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final PresentationController controller;
 
   @override

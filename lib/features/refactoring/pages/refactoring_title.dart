@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:presentation/presentation.dart';
 
 class RefactoringTitle extends StatelessWidget {
-  const RefactoringTitle({Key? key}) : super(key: key);
+  const RefactoringTitle({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,14 +50,14 @@ class UpperClipper extends CustomClipper<Path> {
     final firstControlPoint = Offset(0.25 * size.width, size.height / 2);
     final firstPoint = Offset(size.width / 2, size.height / 2);
     path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
-        firstPoint.dx, firstPoint.dy);
+        firstPoint.dx, firstPoint.dy,);
 
     final secondControlPoint = Offset(0.8 * size.width, 0.2 * size.height);
     final secondPoint = Offset(size.width, size.height);
 
     path
       ..quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
-          secondPoint.dx, secondPoint.dy)
+          secondPoint.dx, secondPoint.dy,)
       ..lineTo(size.width, 0)
       ..lineTo(0, 0)
       ..close();
@@ -78,14 +78,14 @@ class LowerClipper extends CustomClipper<Path> {
     final firstControlPoint = Offset(0.25 * size.width, 0.9 * size.height);
     final firstPoint = Offset(size.width / 2, size.height / 2);
     path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
-        firstPoint.dx, firstPoint.dy);
+        firstPoint.dx, firstPoint.dy,);
 
     final secondControlPoint = Offset(0.8 * size.width, size.height / 2);
     final secondPoint = Offset(size.width, size.height);
 
     path
       ..quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
-          secondPoint.dx, secondPoint.dy)
+          secondPoint.dx, secondPoint.dy,)
       ..lineTo(0, size.height)
       ..lineTo(0, 0)
       ..close();
@@ -97,7 +97,7 @@ class LowerClipper extends CustomClipper<Path> {
 }
 
 class _Content extends StatefulWidget {
-  const _Content({Key? key}) : super(key: key);
+  const _Content({super.key});
 
   @override
   _ContentState createState() => _ContentState();
@@ -110,7 +110,7 @@ Iterable<_Letter> arrange(String text) {
   return text.split('').mapIndexed((index, element) => _Letter(
         element,
         index: index,
-      ));
+      ),);
 }
 
 class _ContentState extends State<_Content> with TickerProviderStateMixin {
@@ -142,9 +142,9 @@ class _ContentState extends State<_Content> with TickerProviderStateMixin {
   void _setupReversedControllers(List<AnimationController> controllers) {
     for (var i = 0; i < controllers.length; i++) {
       final current = controllers[i];
-      final AnimationController? next =
+      final next =
           i + 1 < controllers.length ? controllers[i + 1] : null;
-      final AnimationController? prev = i - 1 >= 0 ? controllers[i - 1] : null;
+      final prev = i - 1 >= 0 ? controllers[i - 1] : null;
       current.addListener(() {
         setState(() {});
         if (next != null) {
@@ -172,7 +172,7 @@ class _ContentState extends State<_Content> with TickerProviderStateMixin {
   void _setupCyclicControllers(List<AnimationController> controllers) {
     for (var i = 0; i < controllers.length; i++) {
       final current = controllers[i];
-      final AnimationController? next =
+      final next =
           i + 1 < controllers.length ? controllers[i + 1] : null;
       current.addListener(() {
         setState(() {});
@@ -273,8 +273,7 @@ class _ContentState extends State<_Content> with TickerProviderStateMixin {
 }
 
 class _ExpandAnimation extends StatelessWidget {
-  const _ExpandAnimation(this.data, {required this.animation, Key? key})
-      : super(key: key);
+  const _ExpandAnimation(this.data, {required this.animation, super.key});
   final String data;
   final Animation<double> animation;
 
@@ -304,8 +303,8 @@ class _SwapAnimation extends StatelessWidget {
     required this.animation,
     required this.first,
     required this.second,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final String data;
   final String first;
   final String second;
@@ -347,8 +346,8 @@ class _ColorAnimation extends StatelessWidget {
     required this.animation,
     required this.from,
     required this.to,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final String data;
   final Color from;
   final Color to;
@@ -394,8 +393,8 @@ class _CollapseAnimation extends StatelessWidget {
   const _CollapseAnimation(
     this.data, {
     required this.animation,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final String data;
   final Animation<double> animation;
 
@@ -464,13 +463,13 @@ class _CollapseAnimation extends StatelessWidget {
 
 class PositionedSingleLetter extends StatelessWidget {
   const PositionedSingleLetter({
-    Key? key,
+    super.key,
     required this.top,
     required this.left,
     required this.middle,
     required this.size,
     required this.child,
-  }) : super(key: key);
+  });
 
   final double top;
   final double left;
@@ -492,8 +491,8 @@ class PositionedSingleLetter extends StatelessWidget {
 class CenteredStack extends StatelessWidget {
   const CenteredStack({
     required this.builder,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final List<Widget> Function(BuildContext context, Size middle) builder;
 
   @override
@@ -515,8 +514,8 @@ class SingleLetter extends StatelessWidget {
   const SingleLetter(
     this.letter, {
     this.color = GTheme.flutter1,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String letter;
   final Color color;
@@ -548,7 +547,7 @@ class _Letter {
 
 extension IterableEx<T> on Iterable<T> {
   Iterable<R> mapIndexed<R>(R Function(int index, T) mapper) sync* {
-    int i = 0;
+    var i = 0;
     for (final value in this) {
       yield mapper(i++, value);
     }

@@ -5,7 +5,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/shared/gro
 import 'package:presentation/presentation.dart';
 
 class BigIntro extends StatelessWidget {
-  const BigIntro({Key? key}) : super(key: key);
+  const BigIntro({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +24,13 @@ class BigIntro extends StatelessWidget {
 }
 
 class _Title extends StatelessWidget {
-  const _Title({Key? key}) : super(key: key);
+  const _Title({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Text.rich(
       TextSpan(
-        style: Theme.of(context).textTheme.headline5,
+        style: Theme.of(context).textTheme.headlineSmall,
         children: <InlineSpan>[
           const TextSpan(text: 'Large '),
           WidgetSpan(
@@ -47,7 +47,7 @@ class _Title extends StatelessWidget {
 }
 
 class FlutterProjects extends StatefulWidget {
-  const FlutterProjects({Key? key}) : super(key: key);
+  const FlutterProjects({super.key});
 
   @override
   _FlutterProjectsState createState() => _FlutterProjectsState();
@@ -114,7 +114,7 @@ class _FlutterProjectsState extends State<FlutterProjects>
                           ),
                         ),
                       ),
-                    ))
+                    ),)
                 .toList(),
           );
         },
@@ -123,7 +123,7 @@ class _FlutterProjectsState extends State<FlutterProjects>
   }
 
   _Circle _generateCircle(math.Random random,
-      {required double min, required double max}) {
+      {required double min, required double max,}) {
     return _Circle(
       size: random.nextDouble() * (max - min) + min,
       x: random.nextDouble(),
@@ -132,13 +132,13 @@ class _FlutterProjectsState extends State<FlutterProjects>
   }
 
   Iterable<_Circle> _createCircles(math.Random random) sync* {
-    for (int i = 0; i < 2; i++) {
+    for (var i = 0; i < 2; i++) {
       yield _createLargeCircle(random);
     }
-    for (int i = 0; i < 10; i++) {
+    for (var i = 0; i < 10; i++) {
       yield _createMediumCircle(random);
     }
-    for (int i = 0; i < 200; i++) {
+    for (var i = 0; i < 200; i++) {
       yield _createSmallCircle(random);
     }
   }
@@ -170,10 +170,10 @@ class _Circle {
 
 class _Bubble extends StatelessWidget {
   const _Bubble({
-    Key? key,
+    super.key,
     this.size = 30,
     this.color = Colors.orange,
-  }) : super(key: key);
+  });
 
   final double size;
   final Color? color;
@@ -193,12 +193,12 @@ class _Bubble extends StatelessWidget {
 
 class LoopTransition extends AnimatedWidget {
   const LoopTransition({
-    Key? key,
+    super.key,
     required Animation<double> scale,
     this.radius = 40,
     required this.seed,
     this.child,
-  }) : super(key: key, listenable: scale);
+  }) : super(listenable: scale);
 
   // ignore: avoid_as
   Animation<double> get scale => listenable as Animation<double>;

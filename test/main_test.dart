@@ -16,7 +16,7 @@ void main() {
       await tester.pumpWidget(const TickerMode(
         enabled: false,
         child: FlutterPresentations(),
-      ));
+      ),);
 
       await tester.pumpAndSettle();
       await tester.tap(find.text('True Effort Reuse'));
@@ -36,7 +36,7 @@ void main() {
       await tester.pumpWidget(const TickerMode(
         enabled: false,
         child: FlutterPresentations(),
-      ));
+      ),);
 
       await tester.pumpAndSettle();
       await tester.tap(find.text('Big Applications'));

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:presentation/presentation.dart';
 
 class Inception extends StatefulWidget {
   const Inception(
     this.controller, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final PresentationController controller;
 
   @override
@@ -63,7 +62,7 @@ class _InceptionState extends State<Inception> {
 }
 
 class _Inception extends StatelessWidget {
-  const _Inception({Key? key, this.child}) : super(key: key);
+  const _Inception({super.key, this.child});
 
   final Widget? child;
 

@@ -21,7 +21,7 @@ import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
 
 class CodeReuse extends StatefulWidget {
-  const CodeReuse({Key? key}) : super(key: key);
+  const CodeReuse({super.key});
 
   static const String title = 'True Effort Reuse';
   static const String subtitle = 'with Flutter';

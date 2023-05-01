@@ -3,7 +3,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/shared/gro
 import 'package:presentation/presentation.dart';
 
 class Reark extends StatefulWidget {
-  const Reark({Key? key, required this.controller}) : super(key: key);
+  const Reark({super.key, required this.controller});
   final PresentationController controller;
 
   @override

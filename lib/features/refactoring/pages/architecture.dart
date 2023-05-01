@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Architecture extends StatelessWidget {
-  const Architecture({Key? key}) : super(key: key);
+  const Architecture({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class CounterCubit extends Cubit<int> {
 }
 
 class CounterView extends StatelessWidget {
-  const CounterView({Key? key}) : super(key: key);
+  const CounterView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +63,7 @@ class CounterView extends StatelessWidget {
 }
 
 class CounterViewRefactored extends StatelessWidget {
-  const CounterViewRefactored({Key? key}) : super(key: key);
+  const CounterViewRefactored({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -85,11 +85,11 @@ class CounterViewRefactored extends StatelessWidget {
 
 class SimpleCounterView extends StatelessWidget {
   const SimpleCounterView({
-    Key? key,
+    super.key,
     required this.child,
     required this.onIncrement,
     required this.onDecrement,
-  }) : super(key: key);
+  });
 
   final Widget child;
   final VoidCallback onIncrement;

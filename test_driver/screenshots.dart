@@ -34,8 +34,8 @@ class Screenshot {
 
   Future<void> takeScreenshot(String name) async {
     if (enabled!) {
-      final List<int> pixels = await screenshot(driver);
-      final File file = File('$dir/$name.png');
+      final pixels = await screenshot(driver);
+      final file = File('$dir/$name.png');
       await file.writeAsBytes(pixels);
     }
   }

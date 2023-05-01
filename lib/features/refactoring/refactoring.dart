@@ -13,7 +13,7 @@ import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
 
 class Refactoring extends StatefulWidget {
-  const Refactoring({Key? key}) : super(key: key);
+  const Refactoring({super.key});
 
   static const String title = 'Refactoring';
   static const String subtitle = 'legacy Code';

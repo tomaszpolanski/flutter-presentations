@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:presentation/presentation.dart';
 
 class Conversation extends StatefulWidget {
-  const Conversation({Key? key, required this.controller}) : super(key: key);
+  const Conversation({super.key, required this.controller});
   final PresentationController controller;
 
   @override
@@ -123,7 +122,7 @@ class _ConversationState extends State<Conversation>
                       Text(
                         '“don’t necessarily need state management besides stateful widgets”',
                         style: TextStyle(
-                            fontStyle: FontStyle.italic, color: Colors.grey),
+                            fontStyle: FontStyle.italic, color: Colors.grey,),
                       ),
                       Text('heresy! (joke)'),
                     ],
@@ -150,12 +149,12 @@ class _ConversationState extends State<Conversation>
 
 class _SlideIn extends StatelessWidget {
   const _SlideIn({
-    Key? key,
+    super.key,
     required this.animation,
     required this.curve,
     required this.slideInDirection,
     required this.child,
-  }) : super(key: key);
+  });
   final Animation<double>? animation;
   final Curve curve;
   final TextDirection slideInDirection;
@@ -176,7 +175,7 @@ class _SlideIn extends StatelessWidget {
                 (slideInDirection == TextDirection.ltr ? -1 : 1) *
                     40 *
                     (1 - animation.value),
-                0),
+                0,),
             child: child,
           ),
         );
@@ -188,11 +187,11 @@ class _SlideIn extends StatelessWidget {
 
 class _Message extends StatelessWidget {
   const _Message({
-    Key? key,
+    super.key,
     required this.avatar,
     required this.user,
     required this.child,
-  }) : super(key: key);
+  });
 
   final String avatar;
   final Widget user;

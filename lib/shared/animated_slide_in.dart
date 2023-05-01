@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class AnimatedSlideIn extends ImplicitlyAnimatedWidget {
   const AnimatedSlideIn({
-    Key? key,
+    super.key,
     this.child,
     required this.position,
-    Curve curve = Curves.linear,
-    required Duration duration,
-  }) : super(key: key, curve: curve, duration: duration);
+    super.curve,
+    required super.duration,
+  });
 
   final Offset position;
   final Widget? child;
@@ -29,7 +29,7 @@ class _AnimatedSlideInState
     _offset = visitor(
       _offset,
       widget.position,
-      (dynamic value) => Tween<Offset>(
+      (value) => Tween<Offset>(
         begin: value,
         end: const Offset(0, 0),
       ),

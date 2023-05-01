@@ -5,11 +5,11 @@ ThemeData blueLight() {
   return ThemeData.light().copyWith(
     scaffoldBackgroundColor: Colors.white,
     textTheme: TextTheme(
-      headline4: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 140),
-      headline5: GTheme.big.copyWith(color: GTheme.flutter2, fontSize: 90),
-      headline6: GTheme.big.copyWith(color: GTheme.flutter2, fontSize: 80),
-      bodyText2: GTheme.big.copyWith(color: GTheme.flutter2),
-      caption: GTheme.smaller.copyWith(color: GTheme.flutter1),
+      headlineSmall: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 140),
+      headlineSmall: GTheme.big.copyWith(color: GTheme.flutter2, fontSize: 90),
+      titleLarge: GTheme.big.copyWith(color: GTheme.flutter2, fontSize: 80),
+      bodyMedium: GTheme.big.copyWith(color: GTheme.flutter2),
+      bodySmall: GTheme.smaller.copyWith(color: GTheme.flutter1),
     ),
   );
 }
@@ -17,16 +17,15 @@ ThemeData blueLight() {
 ThemeData blueDark() {
   return ThemeData.dark().copyWith(
     primaryColor: Colors.white,
-    accentColor: Colors.white,
     appBarTheme: const AppBarTheme(
       color: Colors.black,
     ),
     textTheme: TextTheme(
-      headline4: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 140),
-      headline5: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 90),
-      headline6: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 80),
-      bodyText2: GTheme.big.copyWith(color: GTheme.flutter2),
-      caption: GTheme.smaller.copyWith(color: GTheme.flutter3),
+      headlineSmall: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 140),
+      headlineSmall: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 90),
+      titleLarge: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 80),
+      bodyMedium: GTheme.big.copyWith(color: GTheme.flutter2),
+      bodySmall: GTheme.smaller.copyWith(color: GTheme.flutter3),
     ),
   );
 }
@@ -34,11 +33,11 @@ ThemeData blueDark() {
 ThemeData greenLight() {
   return ThemeData.light().copyWith(
     textTheme: TextTheme(
-      headline4: GTheme.big.copyWith(color: GTheme.green, fontSize: 140),
-      headline5: GTheme.big.copyWith(color: GTheme.green, fontSize: 90),
-      headline6: GTheme.big.copyWith(color: GTheme.green, fontSize: 80),
-      bodyText2: GTheme.big.copyWith(color: GTheme.green),
-      caption: GTheme.smaller.copyWith(color: GTheme.green),
+      headlineMedium: GTheme.big.copyWith(color: GTheme.green, fontSize: 140),
+      headlineSmall: GTheme.big.copyWith(color: GTheme.green, fontSize: 90),
+      titleLarge: GTheme.big.copyWith(color: GTheme.green, fontSize: 80),
+      bodyMedium: GTheme.big.copyWith(color: GTheme.green),
+      bodySmall: GTheme.smaller.copyWith(color: GTheme.green),
     ),
   );
 }

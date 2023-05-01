@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:presentation/effects.dart';
 
 class SectionPage extends StatelessWidget {
-  const SectionPage(this.text, {Key? key}) : super(key: key);
+  const SectionPage(this.text, {super.key});
 
   final String text;
 
@@ -21,7 +20,7 @@ class SectionPage extends StatelessWidget {
               child: ParallaxWidget(
                 translationFactor: 150,
                 child: Container(
-                  color: Theme.of(context).textTheme.headline6!.color,
+                  color: Theme.of(context).textTheme.titleLarge!.color,
                   height: 8,
                   width: 100,
                 ),
@@ -32,7 +31,7 @@ class SectionPage extends StatelessWidget {
             flex: 7,
             child: Text(
               text,
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
         ],
@@ -44,10 +43,10 @@ class SectionPage extends StatelessWidget {
 class ImagePage extends StatelessWidget {
   const ImagePage(
     this.asset, {
-    Key? key,
+    super.key,
     this.child,
     this.alignment = AlignmentDirectional.topCenter,
-  }) : super(key: key);
+  });
 
   final String asset;
   final AlignmentGeometry alignment;
@@ -78,11 +77,11 @@ class ImagePage extends StatelessWidget {
 
 class SummaryPage extends StatelessWidget {
   const SummaryPage({
-    Key? key,
+    super.key,
     required this.title,
     required this.subtitle,
     this.background,
-  }) : super(key: key);
+  });
 
   final String title;
   final String subtitle;
@@ -100,11 +99,11 @@ class SummaryPage extends StatelessWidget {
 
 class SummaryWidgetPage extends StatelessWidget {
   const SummaryWidgetPage({
-    Key? key,
+    super.key,
     required this.title,
     required this.subtitle,
     this.background,
-  }) : super(key: key);
+  });
 
   final Widget title;
   final Widget subtitle;
@@ -128,7 +127,7 @@ class SummaryWidgetPage extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.bottomLeft,
                       child: Container(
-                        color: Theme.of(context).textTheme.headline6!.color,
+                        color: Theme.of(context).textTheme.titleLarge!.color,
                         height: 8,
                         width: 100,
                       ),
@@ -138,7 +137,7 @@ class SummaryWidgetPage extends StatelessWidget {
                 Expanded(
                   flex: 7,
                   child: DefaultTextStyle.merge(
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.titleLarge,
                     child: title,
                   ),
                 ),
@@ -147,7 +146,7 @@ class SummaryWidgetPage extends StatelessWidget {
             Align(
               alignment: Alignment.bottomRight,
               child: DefaultTextStyle.merge(
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
                 textAlign: TextAlign.end,
                 child: subtitle,
               ),

@@ -4,7 +4,7 @@ import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 
 class TitlePage extends StatelessWidget {
-  const TitlePage({Key? key}) : super(key: key);
+  const TitlePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +67,7 @@ class TitlePage extends StatelessWidget {
 }
 
 class PopularityPage extends StatelessWidget {
-  const PopularityPage({Key? key}) : super(key: key);
+  const PopularityPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +97,7 @@ enum _Step {
 }
 
 class PlatformsPage extends StatefulWidget {
-  const PlatformsPage(this.controller, {Key? key}) : super(key: key);
+  const PlatformsPage(this.controller, {super.key});
 
   final PresentationController controller;
 
@@ -241,7 +241,7 @@ class _PlatformsPageState extends State<PlatformsPage>
                   AnimatedOpacity(
                       duration: const Duration(milliseconds: 200),
                       opacity: _symbian,
-                      child: const Image(image: AssetImage('assets/S60.png'))),
+                      child: const Image(image: AssetImage('assets/S60.png')),),
                   AnimatedOpacity(
                     duration: const Duration(milliseconds: 200),
                     opacity: _blackberry,
@@ -253,7 +253,7 @@ class _PlatformsPageState extends State<PlatformsPage>
                   AnimatedOpacity(
                       duration: const Duration(milliseconds: 200),
                       opacity: _qt,
-                      child: const Image(image: AssetImage('assets/qt.png'))),
+                      child: const Image(image: AssetImage('assets/qt.png')),),
                 ],
               ),
             ),
@@ -267,28 +267,28 @@ class _PlatformsPageState extends State<PlatformsPage>
                       child: const Image(
                         image: AssetImage('assets/windows.png'),
                         height: 140,
-                      )),
+                      ),),
                   AnimatedOpacity(
                       duration: const Duration(milliseconds: 200),
                       opacity: _apple,
                       child: const Image(
                         image: AssetImage('assets/apple.png'),
                         height: 140,
-                      )),
+                      ),),
                   AnimatedOpacity(
                       duration: const Duration(milliseconds: 200),
                       opacity: _android,
                       child: const Image(
                         image: AssetImage('assets/image9.png'),
                         height: 140,
-                      )),
+                      ),),
                   AnimatedOpacity(
                       duration: const Duration(milliseconds: 200),
                       opacity: _fuchsia,
                       child: const Image(
                         color: Colors.grey,
                         image: AssetImage('assets/fusia.png'),
-                      )),
+                      ),),
                 ],
               ),
             ),

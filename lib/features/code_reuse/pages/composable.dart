@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/shared/revolving_widget.dart';
 import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
@@ -7,8 +6,8 @@ import 'package:presentation/presentation.dart';
 class Composable extends StatefulWidget {
   const Composable(
     this.controller, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final PresentationController controller;
 
   @override
@@ -60,7 +59,7 @@ class _ComposableState extends State<Composable>
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle.merge(
-      style: Theme.of(context).textTheme.bodyText2,
+      style: Theme.of(context).textTheme.bodyMedium,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

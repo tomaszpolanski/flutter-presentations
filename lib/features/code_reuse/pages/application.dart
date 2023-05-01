@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class GrouponApp extends StatefulWidget {
-  const GrouponApp({Key? key}) : super(key: key);
+  const GrouponApp({super.key});
   @override
   _GrouponAppState createState() => _GrouponAppState();
 }

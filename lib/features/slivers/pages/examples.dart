@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
 
 class SimpleDemo extends StatefulWidget {
-  const SimpleDemo({Key? key, required this.controller}) : super(key: key);
+  const SimpleDemo({super.key, required this.controller});
   final PresentationController controller;
 
   @override
@@ -62,7 +62,7 @@ class SimpleDemoState extends State<SimpleDemo> {
           centerTitle: true,
           title: Text(
             'Sliver Examples',
-            style: Theme.of(context).textTheme.headline4!.copyWith(
+            style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                   color: const Color(0xFF6AA84F),
                   fontWeight: FontWeight.bold,
                 ),
@@ -82,7 +82,7 @@ class SimpleDemoState extends State<SimpleDemo> {
                 color: Colors.teal[100 * (index % 9)],
                 child: Text(
                   'grid item $index',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               );
             },
@@ -98,7 +98,7 @@ class SimpleDemoState extends State<SimpleDemo> {
                 color: Colors.lightBlue[100 * (index % 9)],
                 child: Text(
                   'list item $index',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               );
             },
@@ -116,10 +116,10 @@ class SimpleDemoState extends State<SimpleDemo> {
                 color: Colors.lightBlue[100 * (index % 9)],
                 child: Text(
                   'list item $index',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               );
-            }, childCount: 10),
+            }, childCount: 10,),
           ),
         ),
         SliverToBoxAdapter(
@@ -129,7 +129,7 @@ class SimpleDemoState extends State<SimpleDemo> {
               color: Colors.yellowAccent,
               child: Text(
                 'SliverToBoxAdapter',
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
           ),
@@ -142,7 +142,7 @@ class SimpleDemoState extends State<SimpleDemo> {
                 child: Center(
                   child: Text(
                     'Fill Viewport $index',
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
               );

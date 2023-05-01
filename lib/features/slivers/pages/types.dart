@@ -3,7 +3,7 @@ import 'package:flutter_presentations/shared/slivers_page.dart';
 import 'package:presentation/presentation.dart';
 
 class SliverTypesPage extends StatefulWidget {
-  const SliverTypesPage({Key? key, required this.controller}) : super(key: key);
+  const SliverTypesPage({super.key, required this.controller});
 
   final PresentationController controller;
 
@@ -99,7 +99,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
               textAlign: TextAlign.center,
               style: Theme.of(context)
                   .textTheme
-                  .headline6!
+                  .titleLarge!
                   .copyWith(color: Colors.black),
             ),
           ),
@@ -123,7 +123,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
               'Most Used',
               style: Theme.of(context)
                   .textTheme
-                  .headline5!
+                  .headlineSmall!
                   .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
             ),
           ),
@@ -150,7 +150,7 @@ class SliverTypesPageState extends State<SliverTypesPage> {
               'And the Rest',
               style: Theme.of(context)
                   .textTheme
-                  .headline5!
+                  .headlineSmall!
                   .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
             ),
           ),

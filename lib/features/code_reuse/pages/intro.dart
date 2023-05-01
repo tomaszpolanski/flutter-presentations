@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:presentation/presentation.dart';
 
 class Intro extends StatelessWidget {
-  const Intro({Key? key}) : super(key: key);
+  const Intro({super.key});
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -33,14 +32,14 @@ class Intro extends StatelessWidget {
             children: [
               Expanded(
                 child: DefaultTextStyle.merge(
-                  style: Theme.of(context).textTheme.headline5,
+                  style: Theme.of(context).textTheme.headlineSmall,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       RichText(
                         text: TextSpan(
-                          style: Theme.of(context).textTheme.headline5,
+                          style: Theme.of(context).textTheme.headlineSmall,
                           text: 'True ',
                           children: [
                             TextSpan(
@@ -64,7 +63,7 @@ class Intro extends StatelessWidget {
                 ),
               ),
               DefaultTextStyle.merge(
-                style: Theme.of(context).textTheme.caption,
+                style: Theme.of(context).textTheme.bodySmall,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,

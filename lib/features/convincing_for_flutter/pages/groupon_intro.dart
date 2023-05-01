@@ -4,7 +4,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/shared/gro
 import 'package:presentation/effects.dart';
 
 class PuppyPage extends StatelessWidget {
-  const PuppyPage({Key? key}) : super(key: key);
+  const PuppyPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class PuppyPage extends StatelessWidget {
 }
 
 class CustomerPage extends StatelessWidget {
-  const CustomerPage({Key? key}) : super(key: key);
+  const CustomerPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class CustomerPage extends StatelessWidget {
             child: Image(
           image: AssetImage('assets/image13.png'),
           height: 250,
-        )),
+        ),),
         Expanded(
           child: ParallaxWidget(
             child: Text('Customer', style: GTheme.big),
@@ -58,7 +58,7 @@ class CustomerPage extends StatelessWidget {
 }
 
 class MerchantPage extends StatelessWidget {
-  const MerchantPage({Key? key}) : super(key: key);
+  const MerchantPage({super.key});
 
   @override
   Widget build(BuildContext context) {

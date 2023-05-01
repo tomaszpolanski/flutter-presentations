@@ -10,11 +10,11 @@ enum RevolvingState {
 
 class RevolvingWidget extends StatefulWidget {
   const RevolvingWidget({
-    Key? key,
+    super.key,
     required this.firstChild,
     required this.secondChild,
     required this.state,
-  }) : super(key: key);
+  });
 
   final Widget firstChild;
   final Widget secondChild;

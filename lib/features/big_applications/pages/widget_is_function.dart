@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/shared/revolving_widget.dart';
 import 'package:presentation/presentation.dart';
@@ -7,8 +6,8 @@ import 'package:presentation/presentation.dart';
 class WidgetIsFunction extends StatefulWidget {
   const WidgetIsFunction(
     this.controller, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final PresentationController controller;
 
   @override
@@ -63,7 +62,7 @@ class _WidgetIsFunctionState extends State<WidgetIsFunction>
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Center(
         child: DefaultTextStyle.merge(
-          style: Theme.of(context).textTheme.bodyText2,
+          style: Theme.of(context).textTheme.bodyMedium,
           child: Text.rich(
             TextSpan(
               children: <InlineSpan>[
@@ -82,7 +81,7 @@ class _WidgetIsFunctionState extends State<WidgetIsFunction>
                 ),
                 const TextSpan(
                     text: ' should do one thing, \nit should do it well,'
-                        '\nand it should do it only.'),
+                        '\nand it should do it only.',),
               ],
             ),
           ),

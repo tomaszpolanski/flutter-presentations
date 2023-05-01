@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Crashes extends StatelessWidget {
-  const Crashes({Key? key}) : super(key: key);
+  const Crashes({super.key});
 
   @override
   Widget build(BuildContext context) {
