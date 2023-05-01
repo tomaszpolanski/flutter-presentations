@@ -12,7 +12,7 @@ class Bar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final settings = context.dependOnInheritedWidgetOfExactType()!;
+    final settings = context.dependOnInheritedWidgetOfExactType<BarSettings>()!;
     final deltaExtent = settings.maxExtent! - settings.minExtent!;
 
     // 0.0 -> Expanded

@@ -6,7 +6,6 @@ ThemeData blueLight() {
     scaffoldBackgroundColor: Colors.white,
     textTheme: TextTheme(
       headlineSmall: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 140),
-      headlineSmall: GTheme.big.copyWith(color: GTheme.flutter2, fontSize: 90),
       titleLarge: GTheme.big.copyWith(color: GTheme.flutter2, fontSize: 80),
       bodyMedium: GTheme.big.copyWith(color: GTheme.flutter2),
       bodySmall: GTheme.smaller.copyWith(color: GTheme.flutter1),
@@ -22,7 +21,6 @@ ThemeData blueDark() {
     ),
     textTheme: TextTheme(
       headlineSmall: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 140),
-      headlineSmall: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 90),
       titleLarge: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 80),
       bodyMedium: GTheme.big.copyWith(color: GTheme.flutter2),
       bodySmall: GTheme.smaller.copyWith(color: GTheme.flutter3),
