@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TitlePage extends StatelessWidget {
-  const TitlePage({Key? key}) : super(key: key);
+  const TitlePage({super.key});
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -16,9 +16,9 @@ class TitlePage extends StatelessWidget {
               children: <Widget>[
                 Text(
                   'Slivers!',
-                  style: Theme.of(context).textTheme.headline2!.copyWith(
+                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
                       color: const Color(0xFF6AA84F),
-                      fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.bold,),
                 ),
                 Row(
                   textBaseline: TextBaseline.alphabetic,
@@ -28,17 +28,17 @@ class TitlePage extends StatelessWidget {
                       children: [
                         Text(
                           '🥄',
-                          style: Theme.of(context).textTheme.headline4,
+                          style: Theme.of(context).textTheme.headlineMedium,
                         ),
                         Text(
                           '🚫',
-                          style: Theme.of(context).textTheme.headline4,
+                          style: Theme.of(context).textTheme.headlineMedium,
                         ),
                       ],
                     ),
                     Text(
                       '(not Silvers...)',
-                      style: Theme.of(context).textTheme.bodyText2,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ],
                 ),
@@ -53,7 +53,7 @@ class TitlePage extends StatelessWidget {
             child: DefaultTextStyle(
               style: Theme.of(context)
                   .textTheme
-                  .headline6!
+                  .titleLarge!
                   .copyWith(fontWeight: FontWeight.bold),
               child: Column(
                 mainAxisSize: MainAxisSize.min,

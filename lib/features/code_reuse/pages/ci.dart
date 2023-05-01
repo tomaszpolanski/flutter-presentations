@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class CI extends StatelessWidget {
   const CI({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

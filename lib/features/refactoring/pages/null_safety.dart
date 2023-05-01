@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
 
 class NullSafety extends StatelessWidget {
-  const NullSafety({Key? key}) : super(key: key);
+  const NullSafety({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class NullSafety extends StatelessWidget {
 }
 
 class _Content extends StatelessWidget {
-  const _Content({this.subtitle, Key? key}) : super(key: key);
+  const _Content({this.subtitle, super.key});
 
   final String? subtitle;
 
@@ -32,7 +32,7 @@ class _Content extends StatelessWidget {
 
 // ignore: unused_element
 class _ContentRefactored extends StatelessWidget {
-  const _ContentRefactored({this.subtitle, Key? key}) : super(key: key);
+  const _ContentRefactored({this.subtitle, super.key});
 
   final String? subtitle;
 

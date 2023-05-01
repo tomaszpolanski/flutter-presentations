@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
 
 class WhatIsSliver extends StatelessWidget {
-  const WhatIsSliver({Key? key}) : super(key: key);
+  const WhatIsSliver({super.key});
   @override
   Widget build(BuildContext context) {
     return PresentationPage(
@@ -52,10 +52,10 @@ class WhatIsSliver extends StatelessWidget {
 
 class SingleList extends StatelessWidget {
   const SingleList({
-    Key? key,
+    super.key,
     this.sizeFactor = 1.0,
     this.count = 3,
-  }) : super(key: key);
+  });
   final double sizeFactor;
   final int count;
 

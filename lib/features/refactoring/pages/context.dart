@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Context extends StatefulWidget {
-  const Context({Key? key}) : super(key: key);
+  const Context({super.key});
 
   @override
   _ContextState createState() => _ContextState();
@@ -37,7 +37,7 @@ class _ContextState extends State<Context> {
 
 // ignore: unused_element
 class _RebuildDemo extends StatelessWidget {
-  const _RebuildDemo({Key? key}) : super(key: key);
+  const _RebuildDemo({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,7 @@ class _RebuildDemo extends StatelessWidget {
           // ignore: avoid_print
           print('Rebuilding Hi!');
           return Text('Hi! ${MediaQuery.of(context).textScaleFactor}');
-        }),
+        },),
         Builder(
           builder: (context) {
             // ignore: avoid_print
@@ -67,7 +67,7 @@ class _RebuildDemo extends StatelessWidget {
 
 // ignore: unused_element
 class _RebuildDemoRefactored extends StatelessWidget {
-  const _RebuildDemoRefactored({Key? key}) : super(key: key);
+  const _RebuildDemoRefactored({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -99,10 +99,10 @@ class _RebuildDemoRefactored extends StatelessWidget {
 
 class _Buttons extends StatelessWidget {
   const _Buttons({
-    Key? key,
+    super.key,
     required this.onIncrement,
     required this.onDecrement,
-  }) : super(key: key);
+  });
 
   final VoidCallback onIncrement;
   final VoidCallback onDecrement;

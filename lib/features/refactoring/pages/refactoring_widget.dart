@@ -2,7 +2,7 @@ import 'package:flutter/material.dart' hide Image;
 import 'package:flutter_presentations/features/refactoring/src/special_image.dart';
 
 class RefactoringWidget extends StatelessWidget {
-  const RefactoringWidget({Key? key}) : super(key: key);
+  const RefactoringWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class RefactoringWidget extends StatelessWidget {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
       ),
     );
 
-    final Color color = Theme.of(context).primaryColor;
+    final color = Theme.of(context).primaryColor;
 
     // ignore: avoid_unnecessary_containers
     final Widget buttonSection = Container(
@@ -128,7 +128,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyAppRefactored extends StatelessWidget {
-  const MyAppRefactored({Key? key}) : super(key: key);
+  const MyAppRefactored({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -158,7 +158,7 @@ class MyAppRefactored extends StatelessWidget {
 //           textSection,
 
 class _TitleSection1 extends StatelessWidget {
-  const _TitleSection1({Key? key}) : super(key: key);
+  const _TitleSection1({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -203,8 +203,8 @@ class _TitleSection1 extends StatelessWidget {
 class _ButtonSection1 extends StatelessWidget {
   const _ButtonSection1({
     required this.color,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Color color;
 
@@ -223,11 +223,11 @@ class _ButtonSection1 extends StatelessWidget {
 
 class _SingleButton extends StatelessWidget {
   const _SingleButton({
-    Key? key,
+    super.key,
     required this.color,
     required this.icon,
     required this.label,
-  }) : super(key: key);
+  });
 
   final Color color;
   final IconData icon;
@@ -257,7 +257,7 @@ class _SingleButton extends StatelessWidget {
 }
 
 class _TextSection extends StatelessWidget {
-  const _TextSection({Key? key}) : super(key: key);
+  const _TextSection({super.key});
 
   @override
   Widget build(BuildContext context) {

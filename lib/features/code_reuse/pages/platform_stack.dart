@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/shared/utils.dart';
 import 'package:presentation/presentation.dart';
@@ -6,8 +5,8 @@ import 'package:presentation/presentation.dart';
 class PlatformStack extends StatefulWidget {
   const PlatformStack(
     this.controller, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final PresentationController controller;
 
   @override
@@ -61,7 +60,7 @@ class _PlatformStackState extends State<PlatformStack>
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle.merge(
-      style: Theme.of(context).textTheme.bodyText2!.copyWith(
+      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
             fontWeight: FontWeight.normal,
             color: Colors.black,
           ),
@@ -168,11 +167,11 @@ class _PlatformStackState extends State<PlatformStack>
 
 class _PlatformComponent extends StatelessWidget {
   const _PlatformComponent({
-    Key? key,
+    super.key,
     required this.title,
     required this.children,
     required this.color,
-  }) : super(key: key);
+  });
 
   final Widget title;
   final List<Widget> children;
@@ -192,7 +191,7 @@ class _PlatformComponent extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 ...join(
-                    separator: const SizedBox(height: 20), children: children)
+                    separator: const SizedBox(height: 20), children: children,)
               ],
             ),
           )
@@ -203,7 +202,7 @@ class _PlatformComponent extends StatelessWidget {
 }
 
 class _Layer extends StatelessWidget {
-  const _Layer({Key? key, required this.children}) : super(key: key);
+  const _Layer({super.key, required this.children});
   final List<Widget> children;
 
   @override
@@ -218,10 +217,10 @@ class _Layer extends StatelessWidget {
 
 class _TextCell extends StatelessWidget {
   const _TextCell({
-    Key? key,
+    super.key,
     this.background = const Color(0xFF0F9D58),
     this.child,
-  }) : super(key: key);
+  });
   final Widget? child;
   final Color background;
 

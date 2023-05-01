@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
 
 class SliverFillRemainingPage extends StatelessWidget {
-  const SliverFillRemainingPage({Key? key}) : super(key: key);
+  const SliverFillRemainingPage({super.key});
 
   static const title = 'SliverFillRemaining';
 
@@ -22,7 +22,7 @@ class SliverFillRemainingPage extends StatelessWidget {
           ),
           SliverFillRemaining(
             hasScrollBody: false,
-            child: Container(
+            child: ColoredBox(
               color: Colors.yellowAccent,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -1,15 +1,14 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:presentation/presentation.dart';
 
 class GradientContainer extends StatelessWidget {
   const GradientContainer({
-    Key? key,
+    super.key,
     this.fraction,
     this.beat = 0,
-  }) : super(key: key);
+  });
   final double? fraction;
   final double beat;
 
@@ -40,9 +39,9 @@ class GradientContainer extends StatelessWidget {
 
 class ThatsAll extends StatefulWidget {
   const ThatsAll({
-    Key? key,
+    super.key,
     required this.thanks,
-  }) : super(key: key);
+  });
 
   final String thanks;
 
@@ -174,7 +173,7 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
   }
 
   Iterable<Widget> _format(String text) sync* {
-    int i = 0;
+    var i = 0;
     for (final letter in text.split('')) {
       yield Transform.translate(
         offset: Offset(0, 1 / 8 * pow(2 * i - text.length, 2)),

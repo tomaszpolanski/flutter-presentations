@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class GrouponApp extends StatefulWidget {
-  const GrouponApp({Key? key}) : super(key: key);
+  const GrouponApp({super.key});
   @override
   _GrouponAppState createState() => _GrouponAppState();
 }
@@ -31,9 +30,9 @@ class _GrouponAppState extends State<GrouponApp> {
               child: _showSplash
                   ? GestureDetector(
                       onTap: () => setState(() => _showSplash = false),
-                      child: Container(
+                      child: const ColoredBox(
                         color: Colors.transparent,
-                        child: const Center(
+                        child: Center(
                           child: Image(
                             image: AssetImage('assets/image7.png'),
                             height: 100,

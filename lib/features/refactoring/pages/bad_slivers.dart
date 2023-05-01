@@ -3,8 +3,8 @@ import 'package:presentation/presentation.dart';
 
 class SliverRefactoring extends StatelessWidget {
   const SliverRefactoring({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class SliverRefactoring extends StatelessWidget {
 }
 
 class RefactoredSliverList extends StatelessWidget {
-  const RefactoredSliverList(this.items, {Key? key}) : super(key: key);
+  const RefactoredSliverList(this.items, {super.key});
 
   final List<String> items;
 

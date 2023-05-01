@@ -7,7 +7,7 @@ enum _Step {
 }
 
 class LoadsOfCode extends StatefulWidget {
-  const LoadsOfCode({Key? key, required this.controller}) : super(key: key);
+  const LoadsOfCode({super.key, required this.controller});
   final PresentationController? controller;
 
   @override
@@ -32,19 +32,22 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
     animation = Tween<Offset>(
       begin: const Offset(0, -4),
       end: Offset.zero,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.elasticOut,
-    ));
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.elasticOut,
+      ),
+    );
 
     opacity = Tween<double>(
       begin: 0,
       end: 1,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: const Interval(0, .1),
-    ))
-      ..addListener(() => setState(() {}));
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: const Interval(0, .1),
+      ),
+    )..addListener(() => setState(() {}));
 
     pageStepper = PageStepper<_Step>(
       controller: widget.controller!,
@@ -74,7 +77,7 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: pageStepper.next,
-      child: Container(
+      child: DecoratedBox(
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/code.png'),
@@ -85,7 +88,7 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
           child: DefaultTextStyle(
             style: Theme.of(context)
                 .textTheme
-                .headline3!
+                .displaySmall!
                 .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:presentation/presentation.dart';
 
 class BigWidget extends StatefulWidget {
   const BigWidget(
     this.controller, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final PresentationController controller;
 
   @override
@@ -64,7 +63,7 @@ class _BigWidgetState extends State<BigWidget> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        Container(
+        ColoredBox(
           color: const Color(0xFF2B2B2B),
           child: Scrollbar(
             child: ListView.builder(
@@ -111,7 +110,7 @@ class _BigWidgetState extends State<BigWidget> {
             },
             child: Text(
               'Yeah, I know...',
-              style: Theme.of(context).textTheme.bodyText2,
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
         )

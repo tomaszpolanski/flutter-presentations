@@ -1,13 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:presentation/presentation.dart';
 
 class Tests extends StatefulWidget {
   const Tests(
     this.controller, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final PresentationController controller;
 
   @override
@@ -36,9 +34,9 @@ class _TestsState extends State<Tests> {
         fromStep: _Step.init,
         toStep: _Step.highlighted,
         forward: () => setState(
-            () => _style = _style.copyWith(fontWeight: FontWeight.bold)),
+            () => _style = _style.copyWith(fontWeight: FontWeight.bold),),
         reverse: () => setState(
-            () => _style = _style.copyWith(fontWeight: FontWeight.normal)),
+            () => _style = _style.copyWith(fontWeight: FontWeight.normal),),
       )
       ..add(
         fromStep: _Step.highlighted,
@@ -66,7 +64,7 @@ class _TestsState extends State<Tests> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _style = Theme.of(context).textTheme.bodyText2!.copyWith(
+    _style = Theme.of(context).textTheme.bodyMedium!.copyWith(
           fontWeight: FontWeight.normal,
           color: Colors.red,
         );
@@ -74,7 +72,7 @@ class _TestsState extends State<Tests> {
 
   @override
   Widget build(BuildContext context) {
-    final description = Theme.of(context).textTheme.bodyText2!.copyWith(
+    final description = Theme.of(context).textTheme.bodyMedium!.copyWith(
           fontWeight: FontWeight.bold,
           color: Colors.black,
         );
@@ -104,7 +102,7 @@ class _TestsState extends State<Tests> {
                 .map((widget) => Padding(
                       padding: const EdgeInsets.symmetric(vertical: 30),
                       child: widget,
-                    ))
+                    ),)
                 .toList(),
           ),
           TableRow(
@@ -121,7 +119,7 @@ class _TestsState extends State<Tests> {
                 .map((widget) => Padding(
                       padding: const EdgeInsets.symmetric(vertical: 30),
                       child: widget,
-                    ))
+                    ),)
                 .toList(),
           ),
           TableRow(
@@ -135,7 +133,7 @@ class _TestsState extends State<Tests> {
                 .map((widget) => Padding(
                       padding: const EdgeInsets.symmetric(vertical: 30),
                       child: widget,
-                    ))
+                    ),)
                 .toList(),
           ),
           TableRow(
@@ -150,12 +148,12 @@ class _TestsState extends State<Tests> {
               AnimatedDefaultTextStyle(
                   style: _style,
                   duration: const Duration(milliseconds: 400),
-                  child: const Text('Slowest')),
+                  child: const Text('Slowest'),),
             ]
                 .map((widget) => Padding(
                       padding: const EdgeInsets.symmetric(vertical: 30),
                       child: widget,
-                    ))
+                    ),)
                 .toList(),
           ),
         ],

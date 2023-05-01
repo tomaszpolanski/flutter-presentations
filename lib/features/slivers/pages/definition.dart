@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Definition extends StatelessWidget {
-  const Definition({Key? key}) : super(key: key);
+  const Definition({super.key});
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -16,7 +16,7 @@ class Definition extends StatelessWidget {
               'something cut or split off a larger piece”',
               style: Theme.of(context)
                   .textTheme
-                  .headline4!
+                  .headlineMedium!
                   .copyWith(fontStyle: FontStyle.italic),
             ),
             Padding(

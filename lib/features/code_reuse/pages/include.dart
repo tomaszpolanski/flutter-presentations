@@ -5,8 +5,8 @@ import 'package:presentation/presentation.dart';
 class IncludeFlutter extends StatefulWidget {
   const IncludeFlutter(
     this.controller, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final PresentationController controller;
 
   @override
@@ -90,10 +90,10 @@ class _IncludeFlutterState extends State<IncludeFlutter>
 
 class _OpacitySlideIn extends StatelessWidget {
   const _OpacitySlideIn({
-    Key? key,
+    super.key,
     this.visible = false,
     required this.child,
-  }) : super(key: key);
+  });
 
   final bool visible;
   final Widget child;

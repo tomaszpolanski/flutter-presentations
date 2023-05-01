@@ -6,11 +6,11 @@ class Image extends StatelessWidget {
   // ignore: prefer_const_constructors_in_immutables
   Image.asset(
     this.name, {
-    Key? key,
+    super.key,
     this.width,
     this.height,
     this.fit,
-  }) : super(key: key);
+  });
 
   final String name;
   final double? width;

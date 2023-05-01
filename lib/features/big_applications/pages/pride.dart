@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 
 class Pride extends StatelessWidget {
-  const Pride({Key? key}) : super(key: key);
+  const Pride({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class Pride extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 100),
       child: Center(
         child: DefaultTextStyle.merge(
-          style: Theme.of(context).textTheme.bodyText2,
+          style: Theme.of(context).textTheme.bodyMedium,
           child: const Tooltip(
             message: 'Uncle Bob',
             child: Text.rich(

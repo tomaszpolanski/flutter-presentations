@@ -5,14 +5,14 @@ import 'package:presentation/presentation.dart';
 class TheApp extends StatelessWidget {
   const TheApp(
     this.controller, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final PresentationController controller;
 
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle.merge(
-      style: Theme.of(context).textTheme.headline5,
+      style: Theme.of(context).textTheme.headlineSmall,
       child: StackedPage(
         controller: controller,
         children: const [

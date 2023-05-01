@@ -3,11 +3,10 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:args/args.dart';
+import 'package:flutter_presentations/test_driver/src/commands.dart';
+import 'package:flutter_presentations/test_driver/src/file_system.dart';
 import 'package:process_run/shell.dart';
 import 'package:rxdart/rxdart.dart';
-
-import 'src/commands.dart';
-import 'src/file_system.dart';
 
 const file = 'file';
 const directory = 'directory';
@@ -122,8 +121,8 @@ Future<void> test({
 }) async {
   final completer = Completer<String>();
 
-  final StreamController<List<int>> output = StreamController();
-  final PublishSubject<String> input = PublishSubject();
+  final output = StreamController<List<int>>();
+  final input = PublishSubject<String>();
   output.stream.transform(utf8.decoder).listen((data) async {
     final match = RegExp('is available at: (http://.*/)').firstMatch(data);
     if (match != null) {
@@ -146,11 +145,13 @@ Future<void> test({
 
   final url = await completer.future;
 
-  await Shell().run(Commands().flutter.dart(testFile, [
-    '-u',
-    url,
-    if (makeScreenshot) '-s',
-  ]));
+  await Shell().run(
+    Commands().flutter.dart(testFile, [
+      '-u',
+      url,
+      if (makeScreenshot) '-s',
+    ]),
+  );
 
   input.add('q');
 }

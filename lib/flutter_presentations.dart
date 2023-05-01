@@ -9,7 +9,7 @@ import 'package:flutter_presentations/features/slivers/slivers.dart';
 import 'package:flutter_presentations/features/testing/testing.dart';
 
 class FlutterPresentations extends StatelessWidget {
-  const FlutterPresentations({Key? key}) : super(key: key);
+  const FlutterPresentations({super.key});
 
   static final GlobalKey<NavigatorState> gKey = GlobalKey<NavigatorState>();
 
@@ -25,7 +25,7 @@ class FlutterPresentations extends StatelessWidget {
 }
 
 class _PresentationList extends StatelessWidget {
-  const _PresentationList({Key? key}) : super(key: key);
+  const _PresentationList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class _PresentationList extends StatelessWidget {
             title: const Text(BigApplications.title),
             subtitle: const Text(BigApplications.subtitle),
             onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(
-                builder: (_) => const BigApplications())),
+                builder: (_) => const BigApplications(),),),
           ),
           ListTile(
             title: const Text(Slivers.title),
@@ -60,13 +60,13 @@ class _PresentationList extends StatelessWidget {
             title: const Text(Convincing.title),
             subtitle: const Text(Convincing.subtitle),
             onTap: () => Navigator.of(context).push(
-                MaterialPageRoute<void>(builder: (_) => const Convincing())),
+                MaterialPageRoute<void>(builder: (_) => const Convincing()),),
           ),
           ListTile(
             title: const Text(CodeReuse.title),
             subtitle: const Text(CodeReuse.subtitle),
             onTap: () => Navigator.of(context).push(
-                MaterialPageRoute<void>(builder: (_) => const CodeReuse())),
+                MaterialPageRoute<void>(builder: (_) => const CodeReuse()),),
           ),
           ListTile(
             title: const Text(Testing.title),
@@ -84,7 +84,7 @@ class _PresentationList extends StatelessWidget {
             title: const Text(Examples.title),
             subtitle: const Text(Examples.subtitle),
             onTap: () => Navigator.of(context).push(
-                MaterialPageRoute<void>(builder: (_) => const Examples())),
+                MaterialPageRoute<void>(builder: (_) => const Examples()),),
           ),
         ],
       ),

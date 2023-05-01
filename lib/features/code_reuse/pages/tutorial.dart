@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/shared/clippers.dart';
 import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
@@ -7,8 +6,8 @@ import 'package:presentation/presentation.dart';
 class TutorialGoal extends StatefulWidget {
   const TutorialGoal(
     this.controller, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final PresentationController controller;
 
   @override
@@ -78,7 +77,7 @@ class _TutorialGoalState extends State<TutorialGoal>
                   : Text(
                       'Feature Reveal',
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
             ),
           ),
@@ -91,7 +90,7 @@ class _TutorialGoalState extends State<TutorialGoal>
             ).animate(CurvedAnimation(
               parent: _controller,
               curve: Curves.easeOut,
-            )),
+            ),),
             builder: (_, animation, child) {
               return ClipRect(
                 clipper: ClipperRect(animation.value!),
@@ -109,8 +108,8 @@ class _TutorialGoalState extends State<TutorialGoal>
 class TutorialResult extends StatefulWidget {
   const TutorialResult(
     this.controller, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final PresentationController controller;
 
   @override
@@ -212,7 +211,7 @@ class _TutorialResultState extends State<TutorialResult>
                   duration: const Duration(milliseconds: 100),
                   child: Text(
                     'Image',
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.titleLarge,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -223,7 +222,7 @@ class _TutorialResultState extends State<TutorialResult>
                   duration: const Duration(milliseconds: 100),
                   child: Text(
                     'Widget',
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.titleLarge,
                     textAlign: TextAlign.center,
                   ),
                 ),

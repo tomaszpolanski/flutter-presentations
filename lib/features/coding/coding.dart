@@ -5,7 +5,7 @@ import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
 
 class Coding extends StatefulWidget {
-  const Coding({Key? key}) : super(key: key);
+  const Coding({super.key});
 
   static const String title = 'Coding in Flutter';
   static const String subtitle = 'WIP';
@@ -70,11 +70,11 @@ class _CodingState extends State<Coding> {
 
 class AnimatedColor extends StatefulWidget {
   const AnimatedColor({
-    Key? key,
+    super.key,
     this.child,
     required this.begin,
     required this.end,
-  }) : super(key: key);
+  });
 
   final Widget? child;
   final Color begin;
@@ -106,11 +106,13 @@ class _AnimatedColorState extends State<AnimatedColor>
   @override
   Widget build(BuildContext context) {
     return WrappedAnimatedBuilder<Color?>(
-      animation: _controller.drive(ColorTween(
-        begin: widget.begin,
-        end: widget.end,
-      )),
-      builder: (_, Animation<Color?> animation, child) => Container(
+      animation: _controller.drive(
+        ColorTween(
+          begin: widget.begin,
+          end: widget.end,
+        ),
+      ),
+      builder: (_, Animation<Color?> animation, child) => DecoratedBox(
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: animation.value,

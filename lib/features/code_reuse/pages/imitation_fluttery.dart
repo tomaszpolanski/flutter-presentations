@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:presentation/effects.dart';
 
 class Imitation extends StatelessWidget {
-  const Imitation({Key? key}) : super(key: key);
+  const Imitation({super.key});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -31,7 +30,7 @@ class Imitation extends StatelessWidget {
                   text: TextSpan(
                     style: Theme.of(context)
                         .textTheme
-                        .headline6!
+                        .titleLarge!
                         .copyWith(color: Colors.black),
                     children: const [
                       TextSpan(

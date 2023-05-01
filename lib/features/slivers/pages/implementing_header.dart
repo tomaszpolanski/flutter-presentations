@@ -4,8 +4,7 @@ import 'package:flutter_presentations/features/slivers/custom_appbar_delegate.da
 import 'package:presentation/presentation.dart';
 
 class ImplementingHeader extends StatefulWidget {
-  const ImplementingHeader({Key? key, required this.controller})
-      : super(key: key);
+  const ImplementingHeader({super.key, required this.controller});
 
   final PresentationController controller;
 
@@ -78,7 +77,7 @@ class ImplementingHeaderState extends State<ImplementingHeader> {
                   color: Colors.lightBlue[100 * (index % 9)],
                   child: Text(
                     'list item $index',
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                 );
               },

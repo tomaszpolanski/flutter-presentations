@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 
 class Solid extends StatefulWidget {
   const Solid(
     this.controller, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final PresentationController controller;
 
   @override
@@ -56,7 +55,7 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
           fromStep: _Step.solid,
           toStep: _Step.openClosed,
           forward: () => setState(() => _showOnlyOpenClosed = true),
-          reverse: () => setState(() => _showOnlyOpenClosed = false))
+          reverse: () => setState(() => _showOnlyOpenClosed = false),)
       ..add(
         fromStep: _Step.openClosed,
         toStep: _Step.next,
@@ -80,7 +79,7 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
       parent: _controller,
       curve: const Interval(0, 0.3, curve: Curves.ease),
     );
-    final bigTheme = Theme.of(context).textTheme.headline4;
+    final bigTheme = Theme.of(context).textTheme.headlineMedium;
     return RevealEffect(
       offset: const Offset(0.9, 0.1),
       child: Align(
@@ -107,7 +106,7 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                     builder: (_, child) {
                       return Transform.translate(
                         offset: Offset(0,
-                            translateAnimation.value * bigTheme!.fontSize! * 1),
+                            translateAnimation.value * bigTheme!.fontSize! * 1,),
                         child: child,
                       );
                     },
@@ -130,7 +129,7 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                               0,
                               translateAnimation.value *
                                   bigTheme!.fontSize! *
-                                  2),
+                                  2,),
                           child: child,
                         );
                       },
@@ -154,7 +153,7 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                               0,
                               translateAnimation.value *
                                   bigTheme!.fontSize! *
-                                  3),
+                                  3,),
                           child: child,
                         );
                       },
@@ -178,7 +177,7 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                               0,
                               translateAnimation.value *
                                   bigTheme!.fontSize! *
-                                  4),
+                                  4,),
                           child: child,
                         );
                       },
@@ -200,10 +199,10 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
 
 class _AnimatedLine extends StatelessWidget {
   const _AnimatedLine({
-    Key? key,
+    super.key,
     required this.animation,
     required this.index,
-  }) : super(key: key);
+  });
 
   final int index;
   final Animation<double>? animation;
@@ -230,9 +229,9 @@ class _AnimatedLine extends StatelessWidget {
 class _Letter extends StatelessWidget {
   const _Letter(
     this.text, {
-    Key? key,
+    super.key,
     required this.animation,
-  }) : super(key: key);
+  });
   final String text;
   final Animation<double> animation;
 
@@ -264,7 +263,7 @@ class _Letter extends StatelessWidget {
           },
           child: Text(
             text.substring(1, text.length),
-            style: Theme.of(context).textTheme.headline6,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
       ],

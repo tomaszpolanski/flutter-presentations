@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/shared/revolving_widget.dart';
 import 'package:presentation/presentation.dart';
@@ -7,8 +6,8 @@ import 'package:presentation/presentation.dart';
 class YouCanMake extends StatefulWidget {
   const YouCanMake({
     this.controller,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final PresentationController? controller;
 
   @override
@@ -66,7 +65,7 @@ class _YouCanMakeState extends State<YouCanMake>
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Center(
         child: DefaultTextStyle.merge(
-          style: Theme.of(context).textTheme.bodyText2,
+          style: Theme.of(context).textTheme.bodyMedium,
           child: Text.rich(
             TextSpan(
               children: <InlineSpan>[

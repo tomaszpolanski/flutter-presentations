@@ -34,8 +34,8 @@ class Screenshot {
 
   Future<void> takeScreenshot(String name) async {
     if (enabled!) {
-      final List<int> pixels = await screenshot(driver);
-      final File file = File('$dir/$name.png');
+      final pixels = await screenshot(driver);
+      final file = File('$dir/$name.png');
       await file.writeAsBytes(pixels);
     }
   }
@@ -47,5 +47,5 @@ class Screenshot {
 Future<List<int>> screenshot(FlutterDriver driver) async {
   await Future<void>.delayed(const Duration(milliseconds: 200));
   final result = await driver.serviceClient.callMethod('_flutter.screenshot');
-  return const Base64Codec().decode(result.json['screenshot']);
+  return const Base64Codec().decode(result.json?['screenshot']);
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 
@@ -8,8 +7,8 @@ const size = 100.0;
 class InheritanceVsComposition extends StatefulWidget {
   const InheritanceVsComposition(
     this.controller, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final PresentationController controller;
 
@@ -77,7 +76,7 @@ class _InheritanceVsCompositionState extends State<InheritanceVsComposition> {
             child: ParallaxWidget(
               child: Text(
                 'Inheritance vs Composition',
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -103,7 +102,7 @@ class _InheritanceVsCompositionState extends State<InheritanceVsComposition> {
 }
 
 class _Inheritance extends StatefulWidget {
-  const _Inheritance({Key? key, required this.controller}) : super(key: key);
+  const _Inheritance({super.key, required this.controller});
   final _Controller controller;
 
   @override
@@ -191,8 +190,7 @@ class _InheritanceState extends State<_Inheritance>
 }
 
 class _AnimatedInheritance extends StatelessWidget {
-  const _AnimatedInheritance({Key? key, this.animation, this.child})
-      : super(key: key);
+  const _AnimatedInheritance({super.key, this.animation, this.child});
   final Animation<double>? animation;
   final Widget? child;
 
@@ -212,7 +210,7 @@ class _AnimatedInheritance extends StatelessWidget {
 }
 
 class _Composition extends StatefulWidget {
-  const _Composition({Key? key, required this.controller}) : super(key: key);
+  const _Composition({super.key, required this.controller});
   final _Controller controller;
 
   @override
@@ -328,8 +326,7 @@ class _CompositionState extends State<_Composition>
 }
 
 class _AnimatedPosition extends StatelessWidget {
-  const _AnimatedPosition({Key? key, required this.animation, this.child})
-      : super(key: key);
+  const _AnimatedPosition({super.key, required this.animation, this.child});
   final Animation<double> animation;
   final Widget? child;
 
@@ -356,11 +353,11 @@ class _AnimatedPosition extends StatelessWidget {
 
 class _CompositionItem extends StatelessWidget {
   const _CompositionItem({
-    Key? key,
+    super.key,
     this.width,
     this.height,
     this.color,
-  }) : super(key: key);
+  });
 
   final double? width;
   final double? height;

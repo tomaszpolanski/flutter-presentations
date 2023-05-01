@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class DemoTime extends StatelessWidget {
-  const DemoTime({Key? key}) : super(key: key);
+  const DemoTime({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: Container(
+      child: DecoratedBox(
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/demo.png'),
@@ -16,7 +16,7 @@ class DemoTime extends StatelessWidget {
         child: Center(
           child: Text(
             'Demo Time!',
-            style: Theme.of(context).textTheme.headline3!.copyWith(
+            style: Theme.of(context).textTheme.displaySmall!.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),

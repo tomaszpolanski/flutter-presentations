@@ -7,7 +7,7 @@ import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 
 class SurveyPage extends StatelessWidget {
-  const SurveyPage({Key? key}) : super(key: key);
+  const SurveyPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +26,12 @@ class CriteriaPage extends StatefulWidget {
   const CriteriaPage(
     this.controller, {
     required this.title,
-    Key? key,
+    super.key,
     this.background = GTheme.green,
     this.business = Colors.white,
     this.technology = Colors.white,
     this.people = Colors.white,
-  }) : super(key: key);
+  });
 
   final PresentationController controller;
   final Color background;
@@ -96,7 +96,7 @@ class CriteriaPageState extends State<CriteriaPage>
           widget.controller.nextSlide();
         }
       },
-      child: Container(
+      child: ColoredBox(
         color: widget.background,
         child: Stack(
           children: [
@@ -120,9 +120,10 @@ class CriteriaPageState extends State<CriteriaPage>
                                 AnimationStatus.completed
                             ? 1.0
                             : 0.0,
-                        child: Text('Business',
-                            style:
-                                GTheme.small.copyWith(color: widget.business)),
+                        child: Text(
+                          'Business',
+                          style: GTheme.small.copyWith(color: widget.business),
+                        ),
                       ),
                     ),
                   ),
@@ -145,10 +146,12 @@ class CriteriaPageState extends State<CriteriaPage>
                             _techController.status == AnimationStatus.completed
                                 ? 1.0
                                 : 0.0,
-                        child: Text('Technology',
-                            textAlign: TextAlign.right,
-                            style: GTheme.small
-                                .copyWith(color: widget.technology)),
+                        child: Text(
+                          'Technology',
+                          textAlign: TextAlign.right,
+                          style:
+                              GTheme.small.copyWith(color: widget.technology),
+                        ),
                       ),
                     ),
                   ),
@@ -171,9 +174,11 @@ class CriteriaPageState extends State<CriteriaPage>
                                 AnimationStatus.completed
                             ? 1.0
                             : 0.0,
-                        child: Text('People',
-                            textAlign: TextAlign.right,
-                            style: GTheme.small.copyWith(color: widget.people)),
+                        child: Text(
+                          'People',
+                          textAlign: TextAlign.right,
+                          style: GTheme.small.copyWith(color: widget.people),
+                        ),
                       ),
                     ),
                   ),
@@ -215,7 +220,7 @@ class ArrowPainter extends CustomPainter {
     final edgeWidth = size.width;
     const lineWidth = 3.0;
 
-    final Path p = Path()
+    final p = Path()
       ..lineTo(lineWidth / 2, 0)
       ..lineTo(lineWidth / 2, height - edgeHeight)
       ..lineTo(edgeWidth / 2, height - edgeHeight)
@@ -225,7 +230,7 @@ class ArrowPainter extends CustomPainter {
       ..lineTo(-lineWidth / 2, 0)
       ..close();
 
-    final Paint line = Paint()
+    final line = Paint()
       ..color = color.withOpacity(opacity)
       ..style = PaintingStyle.fill;
 
@@ -253,22 +258,27 @@ class MyPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final Paint line = Paint()
+    final line = Paint()
       ..color = lineColor!
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke
       ..strokeWidth = width!;
-    final Paint complete = Paint()
+    final complete = Paint()
       ..color = completeColor!
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke
       ..strokeWidth = width!;
-    final Offset center = Offset(size.width / 2, size.height / 2);
+    final center = Offset(size.width / 2, size.height / 2);
     final double radius = min(size.width / 2, size.height / 2);
     canvas.drawCircle(center, radius, line);
-    final double arcAngle = 2 * pi * (completePercent! / 100);
-    canvas.drawArc(Rect.fromCircle(center: center, radius: radius), -pi / 2,
-        arcAngle, false, complete);
+    final arcAngle = 2 * pi * (completePercent! / 100);
+    canvas.drawArc(
+      Rect.fromCircle(center: center, radius: radius),
+      -pi / 2,
+      arcAngle,
+      false,
+      complete,
+    );
   }
 
   @override
@@ -276,7 +286,7 @@ class MyPainter extends CustomPainter {
 }
 
 class DevDesignPage extends StatelessWidget {
-  const DevDesignPage({Key? key}) : super(key: key);
+  const DevDesignPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -303,11 +313,11 @@ class DevDesignPage extends StatelessWidget {
 }
 
 class GrouponPlus extends StatelessWidget {
-  const GrouponPlus({Key? key}) : super(key: key);
+  const GrouponPlus({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: GTheme.teal,
       child: Row(
         children: <Widget>[
@@ -339,7 +349,7 @@ class GrouponPlus extends StatelessWidget {
 }
 
 class AppiumPage extends StatelessWidget {
-  const AppiumPage({Key? key}) : super(key: key);
+  const AppiumPage({super.key});
   @override
   Widget build(BuildContext context) {
     return ParallaxWidget(child: Image.asset('assets/image37.png'));
@@ -347,7 +357,7 @@ class AppiumPage extends StatelessWidget {
 }
 
 class IntegrationTestPage extends StatelessWidget {
-  const IntegrationTestPage({Key? key}) : super(key: key);
+  const IntegrationTestPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -367,7 +377,7 @@ class IntegrationTestPage extends StatelessWidget {
           ),
         ),
         Center(
-          child: Container(
+          child: SizedBox(
             height: 200,
             child: Row(
               children: [
@@ -384,7 +394,7 @@ class IntegrationTestPage extends StatelessWidget {
 }
 
 class WidgetTestPage extends StatelessWidget {
-  const WidgetTestPage({Key? key}) : super(key: key);
+  const WidgetTestPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -400,7 +410,7 @@ class WidgetTestPage extends StatelessWidget {
 }
 
 class LearningPage extends StatelessWidget {
-  const LearningPage({Key? key}) : super(key: key);
+  const LearningPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -416,7 +426,7 @@ class LearningPage extends StatelessWidget {
 }
 
 class FlutterDartPage extends StatelessWidget {
-  const FlutterDartPage({Key? key}) : super(key: key);
+  const FlutterDartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -436,7 +446,7 @@ class FlutterDartPage extends StatelessWidget {
           ),
         ),
         Center(
-          child: Container(
+          child: SizedBox(
             height: 200,
             child: Row(
               children: [
@@ -452,7 +462,7 @@ class FlutterDartPage extends StatelessWidget {
 }
 
 class TeachingPage extends StatelessWidget {
-  const TeachingPage({Key? key}) : super(key: key);
+  const TeachingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -468,11 +478,11 @@ class TeachingPage extends StatelessWidget {
 }
 
 class LaunchPage extends StatelessWidget {
-  const LaunchPage({Key? key}) : super(key: key);
+  const LaunchPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: Colors.black,
       child: Row(
         children: <Widget>[
@@ -500,7 +510,7 @@ class LaunchPage extends StatelessWidget {
 }
 
 class ApplePage extends StatelessWidget {
-  const ApplePage({Key? key}) : super(key: key);
+  const ApplePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -510,26 +520,27 @@ class ApplePage extends StatelessWidget {
         children: <Widget>[
           Expanded(child: Image.asset('assets/apple.png')),
           Expanded(
-              child: ParallaxWidget(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  color: GTheme.flutter1,
-                  width: 30,
-                  height: 120,
-                ),
-                const SizedBox(
-                  width: 30,
-                ),
-                Container(
-                  color: GTheme.flutter2,
-                  width: 30,
-                  height: 120,
-                )
-              ],
+            child: ParallaxWidget(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    color: GTheme.flutter1,
+                    width: 30,
+                    height: 120,
+                  ),
+                  const SizedBox(
+                    width: 30,
+                  ),
+                  Container(
+                    color: GTheme.flutter2,
+                    width: 30,
+                    height: 120,
+                  )
+                ],
+              ),
             ),
-          )),
+          ),
         ],
       ),
     );
@@ -537,7 +548,7 @@ class ApplePage extends StatelessWidget {
 }
 
 class AndroidPage extends StatefulWidget {
-  const AndroidPage({Key? key}) : super(key: key);
+  const AndroidPage({super.key});
 
   @override
   AndroidPageState createState() => AndroidPageState();
@@ -577,36 +588,37 @@ class AndroidPageState extends State<AndroidPage>
             child: Image.asset('assets/image9.png'),
           ),
           Expanded(
-              flex: 6,
-              child: ParallaxWidget(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    ScaleTransition(
-                      scale: first,
-                      child: ClipPath(
-                        clipper: TriangleClipper(),
-                        child: Container(
-                          color: GTheme.flutter1,
-                          width: 120,
-                          height: 120,
-                        ),
+            flex: 6,
+            child: ParallaxWidget(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  ScaleTransition(
+                    scale: first,
+                    child: ClipPath(
+                      clipper: TriangleClipper(),
+                      child: Container(
+                        color: GTheme.flutter1,
+                        width: 120,
+                        height: 120,
                       ),
                     ),
-                    ScaleTransition(
-                      scale: second,
-                      child: ClipPath(
-                        clipper: TriangleClipper(),
-                        child: Container(
-                          color: GTheme.flutter2,
-                          width: 120,
-                          height: 120,
-                        ),
+                  ),
+                  ScaleTransition(
+                    scale: second,
+                    child: ClipPath(
+                      clipper: TriangleClipper(),
+                      child: Container(
+                        color: GTheme.flutter2,
+                        width: 120,
+                        height: 120,
                       ),
                     ),
-                  ],
-                ),
-              )),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );

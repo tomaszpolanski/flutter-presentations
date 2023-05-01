@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:presentation/presentation.dart';
 
 class BigWidget extends StatefulWidget {
-  const BigWidget({Key? key, required this.controller}) : super(key: key);
+  const BigWidget({super.key, required this.controller});
   final PresentationController controller;
 
   @override
@@ -59,7 +59,7 @@ class _BigWidgetState extends State<BigWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: const Color(0xFF2B2B2B),
       child: ListView.builder(
         controller: _controller,

@@ -4,7 +4,7 @@ import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
 
 class Testing extends StatefulWidget {
-  const Testing({Key? key}) : super(key: key);
+  const Testing({super.key});
 
   static const String title = 'Flutter testing';
   static const String subtitle = 'is awesome';

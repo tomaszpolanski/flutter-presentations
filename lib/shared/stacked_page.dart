@@ -3,10 +3,10 @@ import 'package:presentation/presentation.dart';
 
 class StackedPage extends StatefulWidget {
   const StackedPage({
-    Key? key,
+    super.key,
     required this.controller,
     required this.children,
-  }) : super(key: key);
+  });
   final PresentationController controller;
   final List<Widget> children;
 
@@ -31,7 +31,7 @@ class _StackedPageState extends State<StackedPage>
       controller: widget.controller,
       steps: List.generate(widget.children.length + 2, (index) => index),
     );
-    for (int step = 0; step < widget.children.length; step++) {
+    for (var step = 0; step < widget.children.length; step++) {
       _stateController.add(
         fromStep: step,
         toStep: step + 1,
@@ -58,7 +58,7 @@ class _StackedPageState extends State<StackedPage>
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle.merge(
-      style: Theme.of(context).textTheme.headline5,
+      style: Theme.of(context).textTheme.headlineSmall,
       child: Wrap(
         runAlignment: WrapAlignment.center,
         alignment: WrapAlignment.center,
@@ -79,7 +79,7 @@ class _StackedPageState extends State<StackedPage>
 
 extension IterableEx<T> on Iterable<T> {
   Iterable<R> mapIndexed<R>(R Function(int index, T item) mapper) sync* {
-    int i = 0;
+    var i = 0;
     for (final value in this) {
       yield mapper(i++, value);
     }
