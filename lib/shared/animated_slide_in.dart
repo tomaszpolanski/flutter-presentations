@@ -33,13 +33,13 @@ class _AnimatedSlideInState
         begin: value,
         end: const Offset(0, 0),
       ),
-    // ignore: avoid_as
+      // ignore: avoid_as
     ) as Tween<Offset>;
   }
 
   @override
   void didUpdateTweens() {
-    _animation = animation!.drive(_offset);
+    _animation = animation.drive(_offset);
   }
 
   @override
