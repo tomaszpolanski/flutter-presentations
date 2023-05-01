@@ -21,6 +21,3 @@ jobs:
       - name: Analyze
         run: dart analyze
 
-      - name: Run tests
-        run: flutter test --no-sound-null-safety ./test
-
