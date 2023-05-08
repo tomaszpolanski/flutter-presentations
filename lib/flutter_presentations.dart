@@ -7,6 +7,7 @@ import 'package:flutter_presentations/features/convincing_for_flutter/convincing
 import 'package:flutter_presentations/features/refactoring/refactoring.dart';
 import 'package:flutter_presentations/features/slivers/slivers.dart';
 import 'package:flutter_presentations/features/testing/testing.dart';
+import 'package:flutter_presentations/shared/shortcuts.dart';
 
 class FlutterPresentations extends StatelessWidget {
   const FlutterPresentations({super.key});
@@ -19,6 +20,10 @@ class FlutterPresentations extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       navigatorKey: gKey,
       theme: ThemeData(fontFamily: 'Montserrat'),
+      builder: (context, child) => PresentationShortcuts(
+        navigator: gKey.currentState,
+        child: child!,
+      ),
       home: const _PresentationList(),
     );
   }
@@ -47,8 +52,11 @@ class _PresentationList extends StatelessWidget {
           ListTile(
             title: const Text(BigApplications.title),
             subtitle: const Text(BigApplications.subtitle),
-            onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(
-                builder: (_) => const BigApplications(),),),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (_) => const BigApplications(),
+              ),
+            ),
           ),
           ListTile(
             title: const Text(Slivers.title),
@@ -60,13 +68,15 @@ class _PresentationList extends StatelessWidget {
             title: const Text(Convincing.title),
             subtitle: const Text(Convincing.subtitle),
             onTap: () => Navigator.of(context).push(
-                MaterialPageRoute<void>(builder: (_) => const Convincing()),),
+              MaterialPageRoute<void>(builder: (_) => const Convincing()),
+            ),
           ),
           ListTile(
             title: const Text(CodeReuse.title),
             subtitle: const Text(CodeReuse.subtitle),
             onTap: () => Navigator.of(context).push(
-                MaterialPageRoute<void>(builder: (_) => const CodeReuse()),),
+              MaterialPageRoute<void>(builder: (_) => const CodeReuse()),
+            ),
           ),
           ListTile(
             title: const Text(Testing.title),
@@ -84,7 +94,8 @@ class _PresentationList extends StatelessWidget {
             title: const Text(Examples.title),
             subtitle: const Text(Examples.subtitle),
             onTap: () => Navigator.of(context).push(
-                MaterialPageRoute<void>(builder: (_) => const Examples()),),
+              MaterialPageRoute<void>(builder: (_) => const Examples()),
+            ),
           ),
         ],
       ),

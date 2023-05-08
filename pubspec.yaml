@@ -23,6 +23,7 @@ dependencies:
   url_launcher: ^6.1.10
   fake_async: ^1.3.0
   flutter_bloc: ^7.0.0
+  window_manager: ^0.3.2
 
 
 dev_dependencies:
