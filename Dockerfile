@@ -82,7 +82,7 @@ ENV DISPLAY :0
 CMD ["Xvfb", ":0", "-screen", "0", "1920x1920x24"]
 
 
-#./build_docker.sh 3.7.10 ./
+#./build_docker.sh 3.10.0 ./
 #docker run -d tomek/flutter:latest
 #docker exec -d 798f91f95392573bb183b7813cb2c73a92a70647327aea187eeaf530befa1f30 sh -c "Xvfb :0 -screen 0 1920x1920x24"
 #docker exec 798f91f95392573bb183b7813cb2c73a92a70647327aea187eeaf530befa1f30 sh -c "cd /home/user/flutter-presentations/ && fastdriver --dart-args "--no-sound-null-safety" --flutter-args "--no-sound-null-safety""
