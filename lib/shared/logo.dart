@@ -1,5 +1,30 @@
 import 'package:flutter/material.dart';
 
+class PresentationLogo extends StatelessWidget {
+  const PresentationLogo({
+    super.key,
+    required this.controller,
+    required this.child,
+  });
+
+  final PageController controller;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: controller,
+      builder: (_, __) {
+        final page = controller.page ?? 0.0;
+        return Logo(
+          visible: (page * 1000).floor() % 1000 == 0,
+          child: child,
+        );
+      },
+    );
+  }
+}
+
 class Logo extends StatefulWidget {
   const Logo({
     super.key,
