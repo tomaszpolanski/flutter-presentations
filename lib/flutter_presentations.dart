@@ -22,7 +22,7 @@ class FlutterPresentations extends StatelessWidget {
       navigatorKey: gKey,
       theme: ThemeData(fontFamily: 'Montserrat'),
       builder: (context, child) => PresentationShortcuts(
-        navigator: gKey.currentState,
+        navigator: () => gKey.currentState,
         child: child!,
       ),
       home: const _PresentationList(),
