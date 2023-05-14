@@ -24,9 +24,9 @@ class Thanks extends StatelessWidget {
                     .textTheme
                     .headlineSmall!
                     .copyWith(fontWeight: FontWeight.bold),
-                child: Row(
+                child: const Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: const [
+                  children: [
                     Text('...questions'),
                     Shake(
                       duration: Duration(milliseconds: 1000),

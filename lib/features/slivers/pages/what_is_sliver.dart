@@ -9,11 +9,11 @@ class WhatIsSliver extends StatelessWidget {
       title: const Text('What is a Sliver?'),
       child: Row(
         children: <Widget>[
-          Flexible(
+          const Flexible(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               child: Column(
-                children: const [
+                children: [
                   SingleList(),
                   Text('List'),
                 ],
@@ -31,8 +31,8 @@ class WhatIsSliver extends StatelessWidget {
                       color: Colors.purple,
                       border: Border.all(),
                     ),
-                    child: Column(
-                      children: const [
+                    child: const Column(
+                      children: [
                         SingleList(sizeFactor: 0.5),
                         SingleList(sizeFactor: 0.5),
                         SingleList(sizeFactor: 0.5, count: 2),

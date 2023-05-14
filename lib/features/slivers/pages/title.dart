@@ -55,10 +55,10 @@ class TitlePage extends StatelessWidget {
                   .textTheme
                   .titleLarge!
                   .copyWith(fontWeight: FontWeight.bold),
-              child: Column(
+              child: const Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.end,
-                children: const [
+                children: [
                   Text(
                     'Tomek Polański',
                     style: TextStyle(color: Colors.black),

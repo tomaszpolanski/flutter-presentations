@@ -113,12 +113,12 @@ class _ConversationState extends State<Conversation>
                 animation: _controller,
                 curve: const Interval(0.5, 0.75, curve: Curves.ease),
                 slideInDirection: TextDirection.ltr,
-                child: _Message(
+                child: const _Message(
                   avatar: 'assets/rafal.jpg',
-                  user: const Text('Rafal'),
+                  user: Text('Rafal'),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const <Widget>[
+                    children: <Widget>[
                       Text(
                         '“don’t necessarily need state management besides stateful widgets”',
                         style: TextStyle(

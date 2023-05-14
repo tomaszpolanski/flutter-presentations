@@ -8,15 +8,15 @@ class PuppyPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return const Stack(
       fit: StackFit.expand,
       children: <Widget>[
-        const ParallaxImage('assets/image34.jpg'),
+        ParallaxImage('assets/image34.jpg'),
         Padding(
-          padding: const EdgeInsets.all(18),
+          padding: EdgeInsets.all(18),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               Expanded(child: SizedBox()),
               Expanded(
                 child: ParallaxWidget(
@@ -40,8 +40,8 @@ class CustomerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: const [
+    return const Row(
+      children: [
         Expanded(
             child: Image(
           image: AssetImage('assets/image13.png'),
@@ -62,8 +62,8 @@ class MerchantPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: const [
+    return const Row(
+      children: [
         Expanded(
           child: Image(
             image: AssetImage('assets/image7.png'),
