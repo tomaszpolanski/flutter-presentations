@@ -10,7 +10,7 @@ class PresentationShortcuts extends StatelessWidget {
   });
 
   final Widget child;
-  final NavigatorState? navigator;
+  final ValueGetter<NavigatorState?> navigator;
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +33,13 @@ class PresentationShortcuts extends StatelessWidget {
               ),
               GoBackIntent: CallbackAction(
                 onInvoke: (a) async {
+                  final _navigator = navigator();
                   final isFullScreen =
                       await WindowManager.instance.isFullScreen();
                   if (isFullScreen) {
                     await WindowManager.instance.setFullScreen(false);
-                  } else if (navigator?.canPop() ?? false) {
-                    navigator?.pop();
+                  } else if (_navigator?.canPop() ?? false) {
+                    _navigator?.pop();
                   }
 
                   return null;
