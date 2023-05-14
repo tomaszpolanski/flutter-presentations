@@ -58,26 +58,16 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
                 Positioned(
                   bottom: 50,
                   left: 50,
-                  child: AnimatedBuilder(
-                    animation: controller,
-                    builder: (_, __) {
-                      final page = controller.page ?? 0.0;
-                      return Logo(
-                        visible: (page * 1000).floor() % 1000 == 0,
-                        child: Row(
-                          children: [
-                            SvgPicture.asset(
-                              'assets/fluttercon.svg',
-                              height: 25,
-                              colorFilter: const ColorFilter.mode(
-                                Colors.blue,
-                                BlendMode.srcIn,
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
+                  child: PresentationLogo(
+                    controller: controller,
+                    child: SvgPicture.asset(
+                      'assets/fluttercon.svg',
+                      height: 25,
+                      colorFilter: const ColorFilter.mode(
+                        Colors.blue,
+                        BlendMode.srcIn,
+                      ),
+                    ),
                   ),
                 )
               ],
