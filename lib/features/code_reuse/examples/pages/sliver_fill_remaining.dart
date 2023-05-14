@@ -20,13 +20,13 @@ class SliverFillRemainingPage extends StatelessWidget {
               ListTile(title: Text('Fourth item')),
             ]),
           ),
-          SliverFillRemaining(
+          const SliverFillRemaining(
             hasScrollBody: false,
             child: ColoredBox(
               color: Colors.yellowAccent,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   FlutterLogo(size: 200),
                   Text(
                     'This is some longest text that should be centered '

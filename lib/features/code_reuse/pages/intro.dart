@@ -64,10 +64,10 @@ class Intro extends StatelessWidget {
               ),
               DefaultTextStyle.merge(
                 style: Theme.of(context).textTheme.bodySmall,
-                child: Column(
+                child: const Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
                       'Tomek Polański',
                       style: TextStyle(color: Colors.black),

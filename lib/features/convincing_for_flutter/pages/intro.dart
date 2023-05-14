@@ -10,19 +10,19 @@ class TitlePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        DefaultTextStyle(
+        const DefaultTextStyle(
           style: GTheme.big,
           child: Align(
             alignment: Alignment.centerLeft,
             child: Padding(
-              padding: const EdgeInsets.only(left: 80),
+              padding: EdgeInsets.only(left: 80),
               child: Wrap(
                 children: [
-                  const Text('Convincing your '),
-                  const Text('company to '),
+                  Text('Convincing your '),
+                  Text('company to '),
                   ParallaxWidget(
                     child: Row(
-                      children: const [
+                      children: [
                         Image(
                           image: AssetImage('assets/image4.png'),
                           height: 60,
@@ -43,10 +43,10 @@ class TitlePage extends StatelessWidget {
               padding: const EdgeInsets.only(right: 18, bottom: 18),
               child: DefaultTextStyle.merge(
                 style: GTheme.smaller.copyWith(color: Colors.white),
-                child: Column(
+                child: const Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.end,
-                  children: const [
+                  children: [
                     Text(
                       'Tomek Polański',
                       style: TextStyle(color: Colors.black),

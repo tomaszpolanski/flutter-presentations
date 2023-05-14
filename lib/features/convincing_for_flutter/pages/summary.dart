@@ -28,10 +28,10 @@ class ThankYouPage extends StatelessWidget {
             alignment: Alignment.bottomRight,
             child: DefaultTextStyle(
               style: GTheme.smaller.copyWith(color: Colors.white),
-              child: Column(
+              child: const Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.end,
-                children: const [
+                children: [
                   Text('Tomek Polański'),
                   SizedBox(height: 5),
                   Text('@tpolansk'),

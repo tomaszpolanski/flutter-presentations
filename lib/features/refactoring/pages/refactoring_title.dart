@@ -9,8 +9,8 @@ class RefactoringTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: const [
+    return const Stack(
+      children: [
         Positioned(
           right: 0,
           child: ClipPath(

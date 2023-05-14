@@ -7,9 +7,9 @@ class DesignersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return const Stack(
       fit: StackFit.expand,
-      children: const [
+      children: [
         ParallaxImage('assets/image35.jpg'),
         Center(
           child: ParallaxWidget(
@@ -41,9 +41,9 @@ class LessTestingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return const Stack(
       fit: StackFit.expand,
-      children: const [
+      children: [
         ParallaxImage('assets/image31.jpg'),
         Align(
           alignment: Alignment.topCenter,
@@ -123,12 +123,12 @@ class MergingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return const Stack(
       fit: StackFit.expand,
       children: <Widget>[
-        const ParallaxImage('assets/image18.jpg'),
+        ParallaxImage('assets/image18.jpg'),
         Row(
-          children: const [
+          children: [
             Expanded(
               flex: 6,
               child: SizedBox(),

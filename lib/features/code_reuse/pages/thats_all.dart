@@ -153,12 +153,12 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
               opacity: _showQuestions ? 1 : 0,
               child: DefaultTextStyle.merge(
                 style: const TextStyle(fontSize: 30),
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
+                child: const Padding(
+                  padding: EdgeInsets.all(8),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.end,
-                    children: const [
+                    children: [
                       Text('Tomek Polanski'),
                       Text('@tpolansk'),
                     ],
