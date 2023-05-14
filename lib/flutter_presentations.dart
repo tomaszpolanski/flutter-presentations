@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/big_applications/big_applications.dart';
+import 'package:flutter_presentations/features/but_does_it_scale/but_does_it_scale.dart';
 import 'package:flutter_presentations/features/code_reuse/examples/examples.dart';
 import 'package:flutter_presentations/features/code_reuse/true_code_reuse.dart';
 import 'package:flutter_presentations/features/coding/coding.dart';
@@ -40,6 +41,15 @@ class _PresentationList extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          ListTile(
+            title: const Text(ButDoesItScale.title),
+            subtitle: const Text(ButDoesItScale.subtitle),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (_) => const ButDoesItScale(),
+              ),
+            ),
+          ),
           ListTile(
             title: const Text(Refactoring.title),
             subtitle: const Text(Refactoring.subtitle),
