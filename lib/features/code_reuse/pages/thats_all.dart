@@ -99,7 +99,7 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
       child: Stack(
         children: [
           Transform.scale(
-            scale: 2.5,
+            scale: 3.5,
             child: Stack(
               children: [
                 const GradientContainer(fraction: 1),
@@ -113,6 +113,10 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
                 ),
                 GradientContainer(
                   fraction: 0.7 * 0.7 * 0.7,
+                  beat: _controller.value,
+                ),
+                GradientContainer(
+                  fraction: 0.7 * 0.7 * 0.7 * 0.7,
                   beat: _controller.value,
                 ),
               ],
