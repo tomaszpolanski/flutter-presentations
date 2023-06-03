@@ -4,6 +4,7 @@ import 'package:presentation/presentation.dart';
 import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_theme/shared_theme.dart';
 import 'package:shared_ui/shared_ui.dart';
+import 'package:talk_but_does_it_scale/src/images.dart';
 
 class ButDoesItScale extends StatefulWidget {
   const ButDoesItScale({super.key});
@@ -63,7 +64,8 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
                     child: PresentationLogo(
                       controller: controller,
                       child: SvgPicture.asset(
-                        'assets/fluttercon.svg',
+                        Images.flutterCon,
+                        package: Images.package,
                         height: 25,
                         colorFilter: const ColorFilter.mode(
                           Colors.blue,
