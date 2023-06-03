@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/application.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/big_widget.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/ci.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/composable.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/declerative_ui.dart';

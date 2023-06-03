@@ -3,12 +3,12 @@ import 'package:flutter_presentations/features/code_reuse/examples/examples.dart
 import 'package:flutter_presentations/features/code_reuse/true_code_reuse.dart';
 import 'package:flutter_presentations/features/coding/coding.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/convincing.dart';
-import 'package:flutter_presentations/features/refactoring/refactoring.dart';
 import 'package:flutter_presentations/features/slivers/slivers.dart';
 import 'package:flutter_presentations/features/testing/testing.dart';
 import 'package:flutter_presentations/shared/shortcuts.dart';
 import 'package:talk_big_applications/talk_big_applications.dart';
 import 'package:talk_but_does_it_scale/talk_but_does_it_scale.dart';
+import 'package:talk_refactoring/talk_refactoring.dart';
 
 class FlutterPresentations extends StatelessWidget {
   const FlutterPresentations({super.key});

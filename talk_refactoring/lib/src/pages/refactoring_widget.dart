@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart' hide Image;
-import 'package:flutter_presentations/features/refactoring/src/special_image.dart';
+import 'package:flutter/material.dart';
 
 class RefactoringWidget extends StatelessWidget {
   const RefactoringWidget({super.key});
