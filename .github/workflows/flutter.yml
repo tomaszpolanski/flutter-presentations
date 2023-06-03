@@ -22,4 +22,5 @@ jobs:
         run: melos run pub_get:all
 
       - name: Analyze
-        run: melos run analyze:all
+        run: melos run pr_check:all
+
