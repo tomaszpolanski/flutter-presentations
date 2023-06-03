@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_theme/src/groupon_theme.dart';
 
-
 ThemeData blueLight() {
   return ThemeData.light().copyWith(
     scaffoldBackgroundColor: Colors.white,
