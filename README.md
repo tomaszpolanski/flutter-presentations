@@ -50,7 +50,7 @@ It will show the list of available scripts with the ability to select desired th
 You can also run favorite scripts directly by their names:
 
 ```bash
-melos run pr_prepare_and_check:changed
+melos run pr_check:all
 ```
 
 ### Mason
@@ -69,7 +69,7 @@ dart pub global activate mason_cli
 
 mason upgrade
 
-mason make screen_plus_cubit
+mason make talk_module
 ```
 
 Listing all registered bricks:
