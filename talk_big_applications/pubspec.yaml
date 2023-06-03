@@ -1,0 +1,41 @@
+name: talk_big_applications
+description: "With flutter"
+version: 0.0.1
+publish_to: "none"
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.10.2"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_svg: ^2.0.5
+  presentation: ^2.0.1
+  google_fonts: ^4.0.4
+
+  shared_theme:
+    path: ../shared_theme
+
+  shared_pages:
+    path: ../shared_pages
+
+  shared_ui:
+    path: ../shared_ui
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  shared_lints:
+    path: ../shared_lints
+
+dependency_overrides:
+  win32: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/

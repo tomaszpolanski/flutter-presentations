@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/shared/stacked_page.dart';
+
 import 'package:presentation/presentation.dart';
+import 'package:shared_pages/shared_pages.dart';
 
 class TheApp extends StatelessWidget {
   const TheApp(
     this.controller, {
     super.key,
   });
+
   final PresentationController controller;
 
   @override

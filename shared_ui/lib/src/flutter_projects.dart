@@ -1,50 +1,7 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
 import 'package:shared_theme/shared_theme.dart';
-
-class BigIntro extends StatelessWidget {
-  const BigIntro({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Row(
-      children: [
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.only(left: 30),
-            child: _Title(),
-          ),
-        ),
-        Expanded(child: FlutterProjects()),
-      ],
-    );
-  }
-}
-
-class _Title extends StatelessWidget {
-  const _Title({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Text.rich(
-      TextSpan(
-        style: Theme.of(context).textTheme.headlineSmall,
-        children: <InlineSpan>[
-          const TextSpan(text: 'Large '),
-          WidgetSpan(
-            child: Image.asset(
-              'assets/image4.png',
-              height: 130,
-            ),
-          ),
-          const TextSpan(text: 'Applications'),
-        ],
-      ),
-    );
-  }
-}
+import 'dart:math' as math;
 
 class FlutterProjects extends StatefulWidget {
   const FlutterProjects({super.key});
@@ -175,6 +132,7 @@ class _Circle {
 
 class _Bubble extends StatelessWidget {
   const _Bubble({
+    // ignore: unused_element
     super.key,
     this.size = 30,
     this.color = Colors.orange,
@@ -195,6 +153,7 @@ class _Bubble extends StatelessWidget {
     );
   }
 }
+
 
 class LoopTransition extends AnimatedWidget {
   const LoopTransition({

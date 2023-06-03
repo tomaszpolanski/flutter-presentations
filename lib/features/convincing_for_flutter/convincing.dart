@@ -4,8 +4,9 @@ import 'package:flutter_presentations/features/convincing_for_flutter/pages/conv
 import 'package:flutter_presentations/features/convincing_for_flutter/pages/groupon_intro.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/pages/intro.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/pages/summary.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
+
 import 'package:presentation/presentation.dart';
+import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_theme/shared_theme.dart';
 
 class Convincing extends StatefulWidget {

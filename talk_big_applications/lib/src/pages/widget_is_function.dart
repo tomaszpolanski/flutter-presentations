@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/shared/revolving_widget.dart';
 import 'package:presentation/presentation.dart';
 import 'package:shared_theme/shared_theme.dart';
+import 'package:shared_ui/shared_ui.dart';
 
 class WidgetIsFunction extends StatefulWidget {
   const WidgetIsFunction(
