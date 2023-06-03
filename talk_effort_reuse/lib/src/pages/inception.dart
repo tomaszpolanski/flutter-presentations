@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
+import 'package:talk_effort_reuse/src/images.dart';
 
 class Inception extends StatefulWidget {
   const Inception(
@@ -85,7 +86,8 @@ class _Inception extends StatelessWidget {
               ),
             ),
             Image.asset(
-              'assets/inception.png',
+              Images.inception,
+              package: Images.package,
               fit: BoxFit.fitWidth,
             ),
           ],

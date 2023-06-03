@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
 import 'package:shared_theme/shared_theme.dart';
+import 'package:talk_effort_reuse/src/images.dart';
 
 class Conversation extends StatefulWidget {
   const Conversation({super.key, required this.controller});
+
   final PresentationController controller;
 
   @override
@@ -87,7 +89,7 @@ class _ConversationState extends State<Conversation>
                 curve: const Interval(0, 0.25, curve: Curves.ease),
                 slideInDirection: TextDirection.ltr,
                 child: const _Message(
-                  avatar: 'assets/norbert.jpg',
+                  avatar: Images.norbert,
                   user: Text('Norbert'),
                   child: Text(
                     "In the end, state management is all the same, whether it's mobx/bloc or redux.\n"
@@ -101,7 +103,7 @@ class _ConversationState extends State<Conversation>
                 curve: const Interval(0.25, 0.5, curve: Curves.ease),
                 slideInDirection: TextDirection.rtl,
                 child: const _Message(
-                  avatar: 'assets/salih.jpg',
+                  avatar: Images.salih,
                   user: Text('salih'),
                   child: Text(
                     'For me, the important point of view is actually why people prefer that.\n'
@@ -114,7 +116,7 @@ class _ConversationState extends State<Conversation>
                 curve: const Interval(0.5, 0.75, curve: Curves.ease),
                 slideInDirection: TextDirection.ltr,
                 child: const _Message(
-                  avatar: 'assets/rafal.jpg',
+                  avatar: Images.rafal,
                   user: Text('Rafal'),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -136,7 +138,7 @@ class _ConversationState extends State<Conversation>
                 curve: const Interval(0.75, 1, curve: Curves.ease),
                 slideInDirection: TextDirection.rtl,
                 child: const _Message(
-                  avatar: 'assets/norbert.jpg',
+                  avatar: Images.norbert,
                   user: Text('Norbert'),
                   child: Text('haha 😂'),
                 ),
@@ -157,6 +159,7 @@ class _SlideIn extends StatelessWidget {
     required this.slideInDirection,
     required this.child,
   });
+
   final Animation<double>? animation;
   final Curve curve;
   final TextDirection slideInDirection;
@@ -212,7 +215,7 @@ class _Message extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(10)),
             image: DecorationImage(
-              image: AssetImage(avatar),
+              image: AssetImage(avatar, package: Images.package),
             ),
           ),
         ),

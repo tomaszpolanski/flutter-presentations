@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:talk_effort_reuse/src/images.dart';
 
 class DeclarativeUi extends StatelessWidget {
   const DeclarativeUi({super.key});
@@ -14,7 +15,8 @@ class DeclarativeUi extends StatelessWidget {
             TableRow(
               children: [
                 Image.asset(
-                  'assets/jetpack.png',
+                  Images.jetpack,
+                  package: Images.package,
                   height: 300,
                 ),
                 const Text('Compose'),
@@ -25,7 +27,8 @@ class DeclarativeUi extends StatelessWidget {
                 Transform.translate(
                   offset: const Offset(-22, 0),
                   child: Image.asset(
-                    'assets/swiftui.png',
+                    Images.swiftui,
+                    package: Images.package,
                     height: 300,
                   ),
                 ),

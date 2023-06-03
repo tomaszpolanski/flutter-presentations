@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:presentation/presentation.dart';
 import 'package:shared_ui/shared_ui.dart';
+import 'package:talk_effort_reuse/src/images.dart';
 
 class IncludeFlutter extends StatefulWidget {
   const IncludeFlutter(
     this.controller, {
     super.key,
   });
+
   final PresentationController controller;
 
   @override
@@ -73,15 +75,24 @@ class _IncludeFlutterState extends State<IncludeFlutter>
         children: [
           _OpacitySlideIn(
             visible: _main,
-            child: Image.asset('assets/main.png'),
+            child: Image.asset(
+              Images.main,
+              package: Images.package,
+            ),
           ),
           _OpacitySlideIn(
             visible: _yaml,
-            child: Image.asset('assets/yaml.png'),
+            child: Image.asset(
+              Images.yaml,
+              package: Images.package,
+            ),
           ),
           _OpacitySlideIn(
             visible: _build,
-            child: Image.asset('assets/build.png'),
+            child: Image.asset(
+              Images.build,
+              package: Images.package,
+            ),
           ),
         ],
       ),
