@@ -1,7 +1,8 @@
 class Images {
   const Images._();
 
-  static const package = 'big_applications';
+  static const package = 'talk_big_applications';
 
-  // static const logo = 'assets/logo.svg';
+   static const gdg = 'assets/gdg.png';
+   static const flutter = 'assets/image4.png';
 }

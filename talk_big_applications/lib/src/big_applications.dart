@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:talk_big_applications/src/images.dart';
 import 'package:talk_big_applications/src/pages/arch_vs_tool.dart';
 import 'package:talk_big_applications/src/pages/architectures.dart';
 import 'package:talk_big_applications/src/pages/big_intro.dart';
@@ -173,7 +174,11 @@ class _BigApplicationsState extends State<BigApplications> {
                         visible: (page * 1000).floor() % 1000 == 0,
                         child: Row(
                           children: [
-                            Image.asset('assets/gdg.png', height: 110),
+                            Image.asset(
+                              Images.gdg,
+                              package: Images.package,
+                              height: 110,
+                            ),
                             Text(
                               'GDG Jeddah',
                               style: GoogleFonts.poppins(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_ui/shared_ui.dart';
+import 'package:talk_big_applications/src/images.dart';
 
 class BigIntro extends StatelessWidget {
   const BigIntro({super.key});
@@ -32,7 +33,8 @@ class _Title extends StatelessWidget {
           const TextSpan(text: 'Large '),
           WidgetSpan(
             child: Image.asset(
-              'assets/image4.png',
+              Images.flutter,
+              package: Images.package,
               height: 130,
             ),
           ),
