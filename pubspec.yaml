@@ -32,6 +32,9 @@ dependencies:
   shared_pages:
     path: ./shared_pages
 
+  shared_ui:
+    path: ./shared_ui
+
 
 dev_dependencies:
   flutter_driver:

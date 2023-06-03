@@ -12,12 +12,13 @@ import 'package:flutter_presentations/features/big_applications/pages/you_can_ma
 import 'package:flutter_presentations/features/code_reuse/pages/everythigs_widget.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/tests.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
-import 'package:flutter_presentations/shared/logo.dart';
 import 'package:flutter_presentations/shared/stacked_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:presentation/presentation.dart';
 import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_theme/shared_theme.dart';
+
+import '../../../shared_ui/lib/src/logo.dart';
 
 class BigApplications extends StatefulWidget {
   const BigApplications({super.key});
