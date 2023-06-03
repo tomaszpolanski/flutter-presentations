@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:talk_convincing_to_flutter/pages/assessment.dart';
 import 'package:talk_convincing_to_flutter/pages/convince_team.dart';
 import 'package:talk_convincing_to_flutter/pages/groupon_intro.dart';
+import 'package:talk_convincing_to_flutter/pages/images.dart';
 import 'package:talk_convincing_to_flutter/pages/intro.dart';
 import 'package:talk_convincing_to_flutter/pages/summary.dart';
 
@@ -56,13 +57,20 @@ class ConvincingState extends State<Convincing> {
             const CustomerPage(),
             const MerchantPage(),
             const PuppyPage(),
-            const ImagePage('assets/image20.jpg'),
+            const ImagePage(
+              'assets/image20.jpg',
+              package: Images.package,
+            ),
             const SectionPage('Getting Everybody On Board'),
             const DesignersPage(),
             const UmphPage(),
-            const ImagePage('assets/image38.jpg'),
+            const ImagePage(
+              'assets/image38.jpg',
+              package: Images.package,
+            ),
             const ImagePage(
               'assets/image31.jpg',
+              package: Images.package,
               child: Text('Less Testing'),
             ),
             const DevelopersPage(),
@@ -82,7 +90,10 @@ class ConvincingState extends State<Convincing> {
             const DesignersPage(),
             const DevDesignPage(),
             const GrouponPlus(),
-            const ImagePage('assets/image38.jpg'),
+            const ImagePage(
+              'assets/image38.jpg',
+              package: Images.package,
+            ),
             const AppiumPage(),
             const IntegrationTestPage(),
             const WidgetTestPage(),

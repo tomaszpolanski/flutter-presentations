@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:presentation/effects.dart';
 import 'package:shared_theme/shared_theme.dart';
+import 'package:talk_convincing_to_flutter/pages/images.dart';
 
 class PuppyPage extends StatelessWidget {
   const PuppyPage({super.key});
@@ -11,7 +12,10 @@ class PuppyPage extends StatelessWidget {
     return const Stack(
       fit: StackFit.expand,
       children: <Widget>[
-        ParallaxImage('assets/image34.jpg'),
+        ParallaxImage(
+          'assets/image34.jpg',
+          package: Images.package,
+        ),
         Padding(
           padding: EdgeInsets.all(18),
           child: Row(

@@ -23,9 +23,8 @@ class TitlePage extends StatelessWidget {
                   ParallaxWidget(
                     child: Row(
                       children: [
-                        Image(
-                          image: AssetImage('assets/image4.png'),
-                          height: 60,
+                        FlutterLogo(
+                          size: 60,
                         ),
                         Text('lutter'),
                       ],
@@ -73,6 +72,7 @@ class PopularityPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       'assets/popularity.png',
+      package: Images.package,
       fit: BoxFit.fitWidth,
     );
   }

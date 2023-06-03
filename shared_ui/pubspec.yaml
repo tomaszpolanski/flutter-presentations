@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  presentation: ^2.1.0
+  presentation: ^2.2.0
 
   shared_theme:
     path: ../shared_theme
