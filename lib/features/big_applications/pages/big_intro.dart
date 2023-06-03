@@ -10,7 +10,7 @@ class BigIntro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Row(
-      children:  [
+      children: [
         Expanded(
           child: Padding(
             padding: EdgeInsets.only(left: 30),
@@ -98,23 +98,25 @@ class _FlutterProjectsState extends State<FlutterProjects>
           return Stack(
             fit: StackFit.expand,
             children: _circles
-                .map((i) => Positioned(
-                      left: c.maxWidth * i.x,
-                      top: c.maxHeight * i.y,
-                      child: LoopTransition(
-                        seed: math.Random().nextDouble(),
-                        scale: _controller,
-                        radius: 400 / i.size,
-                        child: _Bubble(
-                          size: i.size,
-                          color: Color.lerp(
-                            Colors.lightBlueAccent,
-                            GTheme.flutter3,
-                            i.size / maxSize,
-                          ),
+                .map(
+                  (i) => Positioned(
+                    left: c.maxWidth * i.x,
+                    top: c.maxHeight * i.y,
+                    child: LoopTransition(
+                      seed: math.Random().nextDouble(),
+                      scale: _controller,
+                      radius: 400 / i.size,
+                      child: _Bubble(
+                        size: i.size,
+                        color: Color.lerp(
+                          Colors.lightBlueAccent,
+                          GTheme.flutter3,
+                          i.size / maxSize,
                         ),
                       ),
-                    ),)
+                    ),
+                  ),
+                )
                 .toList(),
           );
         },
@@ -122,8 +124,11 @@ class _FlutterProjectsState extends State<FlutterProjects>
     );
   }
 
-  _Circle _generateCircle(math.Random random,
-      {required double min, required double max,}) {
+  _Circle _generateCircle(
+    math.Random random, {
+    required double min,
+    required double max,
+  }) {
     return _Circle(
       size: random.nextDouble() * (max - min) + min,
       x: random.nextDouble(),

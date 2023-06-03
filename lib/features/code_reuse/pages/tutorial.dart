@@ -87,10 +87,12 @@ class _TutorialGoalState extends State<TutorialGoal>
             animation: RectTween(
               begin: const Rect.fromLTRB(0, 0, 1, 1),
               end: const Rect.fromLTRB(0, 0.31, 1, 0.61),
-            ).animate(CurvedAnimation(
-              parent: _controller,
-              curve: Curves.easeOut,
-            ),),
+            ).animate(
+              CurvedAnimation(
+                parent: _controller,
+                curve: Curves.easeOut,
+              ),
+            ),
             builder: (_, animation, child) {
               return ClipRect(
                 clipper: ClipperRect(animation.value!),

@@ -191,7 +191,9 @@ class _PlatformComponent extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 ...join(
-                    separator: const SizedBox(height: 20), children: children,)
+                  separator: const SizedBox(height: 20),
+                  children: children,
+                )
               ],
             ),
           )

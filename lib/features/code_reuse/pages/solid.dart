@@ -52,10 +52,11 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
         reverse: _controller.reverse,
       )
       ..add(
-          fromStep: _Step.solid,
-          toStep: _Step.openClosed,
-          forward: () => setState(() => _showOnlyOpenClosed = true),
-          reverse: () => setState(() => _showOnlyOpenClosed = false),)
+        fromStep: _Step.solid,
+        toStep: _Step.openClosed,
+        forward: () => setState(() => _showOnlyOpenClosed = true),
+        reverse: () => setState(() => _showOnlyOpenClosed = false),
+      )
       ..add(
         fromStep: _Step.openClosed,
         toStep: _Step.next,
@@ -105,8 +106,10 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                     animation: translateAnimation,
                     builder: (_, child) {
                       return Transform.translate(
-                        offset: Offset(0,
-                            translateAnimation.value * bigTheme!.fontSize! * 1,),
+                        offset: Offset(
+                          0,
+                          translateAnimation.value * bigTheme!.fontSize! * 1,
+                        ),
                         child: child,
                       );
                     },
@@ -126,10 +129,9 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                       builder: (_, child) {
                         return Transform.translate(
                           offset: Offset(
-                              0,
-                              translateAnimation.value *
-                                  bigTheme!.fontSize! *
-                                  2,),
+                            0,
+                            translateAnimation.value * bigTheme!.fontSize! * 2,
+                          ),
                           child: child,
                         );
                       },
@@ -150,10 +152,9 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                       builder: (_, child) {
                         return Transform.translate(
                           offset: Offset(
-                              0,
-                              translateAnimation.value *
-                                  bigTheme!.fontSize! *
-                                  3,),
+                            0,
+                            translateAnimation.value * bigTheme!.fontSize! * 3,
+                          ),
                           child: child,
                         );
                       },
@@ -174,10 +175,9 @@ class _SolidState extends State<Solid> with TickerProviderStateMixin {
                       builder: (_, child) {
                         return Transform.translate(
                           offset: Offset(
-                              0,
-                              translateAnimation.value *
-                                  bigTheme!.fontSize! *
-                                  4,),
+                            0,
+                            translateAnimation.value * bigTheme!.fontSize! * 4,
+                          ),
                           child: child,
                         );
                       },

@@ -43,10 +43,11 @@ class CustomerPage extends StatelessWidget {
     return const Row(
       children: [
         Expanded(
-            child: Image(
-          image: AssetImage('assets/image13.png'),
-          height: 250,
-        ),),
+          child: Image(
+            image: AssetImage('assets/image13.png'),
+            height: 250,
+          ),
+        ),
         Expanded(
           child: ParallaxWidget(
             child: Text('Customer', style: GTheme.big),

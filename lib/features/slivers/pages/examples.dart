@@ -108,18 +108,20 @@ class SimpleDemoState extends State<SimpleDemo> {
         SliverPadding(
           padding: const EdgeInsets.all(20),
           sliver: SliverList(
-            delegate:
-                SliverChildBuilderDelegate((BuildContext context, int index) {
-              return Container(
-                padding: EdgeInsets.symmetric(vertical: index.toDouble() * 2),
-                alignment: Alignment.center,
-                color: Colors.lightBlue[100 * (index % 9)],
-                child: Text(
-                  'list item $index',
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-              );
-            }, childCount: 10,),
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return Container(
+                  padding: EdgeInsets.symmetric(vertical: index.toDouble() * 2),
+                  alignment: Alignment.center,
+                  color: Colors.lightBlue[100 * (index % 9)],
+                  child: Text(
+                    'list item $index',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                );
+              },
+              childCount: 10,
+            ),
           ),
         ),
         SliverToBoxAdapter(

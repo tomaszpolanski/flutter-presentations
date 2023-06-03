@@ -80,8 +80,9 @@ class _WidgetIsFunctionState extends State<WidgetIsFunction>
                   ),
                 ),
                 const TextSpan(
-                    text: ' should do one thing, \nit should do it well,'
-                        '\nand it should do it only.',),
+                  text: ' should do one thing, \nit should do it well,'
+                      '\nand it should do it only.',
+                ),
               ],
             ),
           ),
