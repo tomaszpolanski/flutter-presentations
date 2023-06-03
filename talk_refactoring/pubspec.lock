@@ -271,10 +271,10 @@ packages:
     dependency: "direct main"
     description:
       name: presentation
-      sha256: ec7dfbcee8f1b377f0077fcf10aa1d3903908021c530c57f16e326560f2112a8
+      sha256: "0b7f666597aaa4b429b10ede57694376b31689313b450b6bf7f1e06e831d114a"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.1"
+    version: "2.1.0"
   process:
     dependency: transitive
     description:
