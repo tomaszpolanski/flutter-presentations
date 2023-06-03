@@ -35,6 +35,6 @@ dependency_overrides:
 
 flutter:
   uses-material-design: true
-# Uncomment if the feature contains assets
-#   assets:
-#     - assets/
+
+  assets:
+    - assets/
