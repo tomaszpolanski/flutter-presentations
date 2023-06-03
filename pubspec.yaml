@@ -43,6 +43,9 @@ dependencies:
   talk_refactoring:
     path: ./talk_refactoring
 
+  talk_slivers:
+    path: ./talk_slivers
+
 dev_dependencies:
   flutter_driver:
     sdk: flutter

@@ -757,6 +757,13 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  talk_slivers:
+    dependency: "direct main"
+    description:
+      path: talk_slivers
+      relative: true
+    source: path
+    version: "0.0.1"
   term_glyph:
     dependency: transitive
     description:

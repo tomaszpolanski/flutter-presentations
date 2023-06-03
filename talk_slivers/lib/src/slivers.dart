@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/slivers/pages/cheat_sheet.dart';
-import 'package:flutter_presentations/features/slivers/pages/code.dart';
-import 'package:flutter_presentations/features/slivers/pages/custom_multi_child_layout.dart';
-import 'package:flutter_presentations/features/slivers/pages/definition.dart';
-import 'package:flutter_presentations/features/slivers/pages/demo_button.dart';
-import 'package:flutter_presentations/features/slivers/pages/examples.dart';
-import 'package:flutter_presentations/features/slivers/pages/implementing_header.dart';
-import 'package:flutter_presentations/features/slivers/pages/thanks.dart';
-import 'package:flutter_presentations/features/slivers/pages/title.dart';
-import 'package:flutter_presentations/features/slivers/pages/types.dart';
-import 'package:flutter_presentations/features/slivers/pages/what_is_sliver.dart';
+import 'package:talk_slivers/src/pages/cheat_sheet.dart';
+import 'package:talk_slivers/src/pages/code.dart';
+import 'package:talk_slivers/src/pages/custom_multi_child_layout.dart';
+import 'package:talk_slivers/src/pages/definition.dart';
+import 'package:talk_slivers/src/pages/demo_button.dart';
+import 'package:talk_slivers/src/pages/examples.dart';
+import 'package:talk_slivers/src/pages/implementing_header.dart';
+import 'package:talk_slivers/src/pages/thanks.dart';
+import 'package:talk_slivers/src/pages/title.dart';
+import 'package:talk_slivers/src/pages/types.dart';
+import 'package:talk_slivers/src/pages/what_is_sliver.dart';
 import 'package:presentation/presentation.dart';
 
 class Slivers extends StatefulWidget {
