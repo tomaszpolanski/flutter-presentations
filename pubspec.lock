@@ -750,6 +750,13 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  talk_convincing_to_flutter:
+    dependency: "direct main"
+    description:
+      path: talk_convincing_to_flutter
+      relative: true
+    source: path
+    version: "0.0.1"
   talk_effort_reuse:
     dependency: "direct main"
     description:

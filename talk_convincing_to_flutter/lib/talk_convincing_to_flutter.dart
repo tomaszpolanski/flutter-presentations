@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/pages/assessment.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/pages/convince_team.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/pages/groupon_intro.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/pages/intro.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/pages/summary.dart';
+import 'package:talk_convincing_to_flutter/pages/assessment.dart';
+import 'package:talk_convincing_to_flutter/pages/convince_team.dart';
+import 'package:talk_convincing_to_flutter/pages/groupon_intro.dart';
+import 'package:talk_convincing_to_flutter/pages/intro.dart';
+import 'package:talk_convincing_to_flutter/pages/summary.dart';
 
 import 'package:presentation/presentation.dart';
 import 'package:shared_pages/shared_pages.dart';

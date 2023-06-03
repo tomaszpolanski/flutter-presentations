@@ -49,6 +49,9 @@ dependencies:
   talk_effort_reuse:
     path: ./talk_effort_reuse
 
+  talk_convincing_to_flutter:
+    path: ./talk_convincing_to_flutter
+
 dev_dependencies:
   flutter_driver:
     sdk: flutter

@@ -1,0 +1,39 @@
+name: talk_convincing_to_flutter
+description: "( groupon)"
+version: 0.0.1
+publish_to: "none"
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.10.2"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_svg: ^2.0.5
+  presentation: ^2.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  shared_lints:
+    path: ../shared_lints
+
+  shared_theme:
+    path: ../shared_theme
+
+  shared_pages:
+    path: ../shared_pages
+
+  shared_ui:
+    path: ../shared_ui
+
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
