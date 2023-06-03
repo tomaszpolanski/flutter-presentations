@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 import 'package:shared_theme/shared_theme.dart';
+import 'package:talk_convincing_to_flutter/pages/images.dart';
 
 class TitlePage extends StatelessWidget {
   const TitlePage({super.key});

@@ -105,10 +105,11 @@ class WorkshopPage extends StatelessWidget {
         Expanded(
           flex: 4,
           child: ParallaxWidget(
-              child: Image.asset(
-            'assets/image44.jpg',
-            package: Images.package,
-          )),
+            child: Image.asset(
+              'assets/image44.jpg',
+              package: Images.package,
+            ),
+          ),
         ),
       ],
     );
