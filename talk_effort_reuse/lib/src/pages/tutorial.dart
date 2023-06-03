@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/shared/clippers.dart';
 import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_ui/shared_ui.dart';
 
 class TutorialGoal extends StatefulWidget {
   const TutorialGoal(

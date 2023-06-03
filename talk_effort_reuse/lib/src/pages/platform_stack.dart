@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/shared/utils.dart';
 import 'package:presentation/presentation.dart';
 
 class PlatformStack extends StatefulWidget {
@@ -7,6 +6,7 @@ class PlatformStack extends StatefulWidget {
     this.controller, {
     super.key,
   });
+
   final PresentationController controller;
 
   @override
@@ -190,9 +190,8 @@ class _PlatformComponent extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                ...join(
+                ...children.joinEx(
                   separator: const SizedBox(height: 20),
-                  children: children,
                 )
               ],
             ),
@@ -205,6 +204,7 @@ class _PlatformComponent extends StatelessWidget {
 
 class _Layer extends StatelessWidget {
   const _Layer({super.key, required this.children});
+
   final List<Widget> children;
 
   @override
@@ -223,6 +223,7 @@ class _TextCell extends StatelessWidget {
     this.background = const Color(0xFF0F9D58),
     this.child,
   });
+
   final Widget? child;
   final Color background;
 
@@ -236,5 +237,18 @@ class _TextCell extends StatelessWidget {
         child: child!,
       ),
     );
+  }
+}
+
+extension _Iterable<T> on Iterable<T> {
+  Iterable<T> joinEx({required T separator}) sync* {
+    final iterator = this.iterator;
+    if (iterator.moveNext()) {
+      yield iterator.current;
+      while (iterator.moveNext()) {
+        yield separator;
+        yield iterator.current;
+      }
+    }
   }
 }

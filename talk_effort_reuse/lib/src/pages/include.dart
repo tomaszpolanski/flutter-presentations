@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/shared/animated_slide_in.dart';
+
 import 'package:presentation/presentation.dart';
+import 'package:shared_ui/shared_ui.dart';
 
 class IncludeFlutter extends StatefulWidget {
   const IncludeFlutter(
