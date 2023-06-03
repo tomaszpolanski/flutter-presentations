@@ -154,7 +154,6 @@ class _Bubble extends StatelessWidget {
   }
 }
 
-
 class LoopTransition extends AnimatedWidget {
   const LoopTransition({
     super.key,
