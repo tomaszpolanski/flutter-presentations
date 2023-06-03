@@ -9,7 +9,7 @@ enum _Step {
 
 class CheatSheet extends StatefulWidget {
   const CheatSheet({super.key, required this.controller});
-  final PresentationController? controller;
+  final PresentationController controller;
 
   @override
   CheatSheetState createState() => CheatSheetState();
@@ -35,7 +35,7 @@ class CheatSheetState extends State<CheatSheet> with TickerProviderStateMixin {
     );
 
     stateController = PageStepper<_Step>(
-      controller: widget.controller!,
+      controller: widget.controller,
       steps: _Step.values,
     )
       ..addStep(_Step.init, _Step.pageView, () {

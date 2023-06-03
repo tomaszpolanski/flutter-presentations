@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/slivers/bar.dart';
-import 'package:flutter_presentations/features/slivers/custom_appbar_delegate.dart';
 import 'package:presentation/presentation.dart';
+import 'package:talk_slivers/src/bar.dart';
+import 'package:talk_slivers/src/custom_appbar_delegate.dart';
 
 class ImplementingHeader extends StatefulWidget {
   const ImplementingHeader({super.key, required this.controller});

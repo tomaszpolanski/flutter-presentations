@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:talk_slivers/src/images.dart';
 
 class Definition extends StatelessWidget {
   const Definition({super.key});
@@ -24,7 +25,8 @@ class Definition extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerRight,
                 child: Image.asset(
-                  'assets/google.png',
+                  Images.google,
+                  package: Images.package,
                   height: 40,
                 ),
               ),

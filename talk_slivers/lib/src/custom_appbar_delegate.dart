@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/slivers/bar.dart';
+import 'package:talk_slivers/src/bar.dart';
 
 class CustomAppBarDelegate extends SliverPersistentHeaderDelegate {
   CustomAppBarDelegate({

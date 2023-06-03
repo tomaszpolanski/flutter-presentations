@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
+import 'package:talk_slivers/src/images.dart';
 
 enum _Step {
   init,
@@ -8,6 +9,7 @@ enum _Step {
 
 class LoadsOfCode extends StatefulWidget {
   const LoadsOfCode({super.key, required this.controller});
+
   final PresentationController? controller;
 
   @override
@@ -80,7 +82,10 @@ class _LoadsOfCodeState extends State<LoadsOfCode>
       child: DecoratedBox(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/code.png'),
+            image: AssetImage(
+              Images.code,
+              package: Images.package,
+            ),
             fit: BoxFit.cover,
           ),
         ),

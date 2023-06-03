@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:talk_slivers/src/images.dart';
 
 class DemoTime extends StatelessWidget {
   const DemoTime({super.key});
@@ -9,7 +10,10 @@ class DemoTime extends StatelessWidget {
       child: DecoratedBox(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/demo.png'),
+            image: AssetImage(
+              Images.demo,
+              package: Images.package,
+            ),
             fit: BoxFit.cover,
           ),
         ),
