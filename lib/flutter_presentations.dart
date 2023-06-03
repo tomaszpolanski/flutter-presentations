@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/code_reuse/examples/examples.dart';
 import 'package:flutter_presentations/features/code_reuse/true_code_reuse.dart';
-import 'package:flutter_presentations/features/coding/coding.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/convincing.dart';
-import 'package:flutter_presentations/features/testing/testing.dart';
 import 'package:flutter_presentations/shared/shortcuts.dart';
 import 'package:talk_big_applications/talk_big_applications.dart';
 import 'package:talk_but_does_it_scale/talk_but_does_it_scale.dart';
@@ -87,18 +85,6 @@ class _PresentationList extends StatelessWidget {
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute<void>(builder: (_) => const CodeReuse()),
             ),
-          ),
-          ListTile(
-            title: const Text(Testing.title),
-            subtitle: const Text(CodeReuse.subtitle),
-            onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute<void>(builder: (_) => const Testing())),
-          ),
-          ListTile(
-            title: const Text(Coding.title),
-            subtitle: const Text(Coding.subtitle),
-            onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute<void>(builder: (_) => const Coding())),
           ),
           ListTile(
             title: const Text(Examples.title),
