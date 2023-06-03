@@ -16,7 +16,7 @@ dependencies:
     sdk: flutter
   google_fonts: ^4.0.4
   http: ^0.13.0
-  presentation: ^2.1.0
+  presentation: ^2.2.0
   process_run: ^0.12.0
   qr_flutter: ^4.0.0
   rxdart: ^0.27.7
@@ -49,6 +49,9 @@ dependencies:
   talk_effort_reuse:
     path: ./talk_effort_reuse
 
+  talk_convincing_to_flutter:
+    path: ./talk_convincing_to_flutter
+
 dev_dependencies:
   flutter_driver:
     sdk: flutter
@@ -64,8 +67,6 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
-  assets:
-    - assets/
 
   fonts:
     - family: Montserrat

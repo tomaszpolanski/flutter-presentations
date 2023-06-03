@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/convincing.dart';
 import 'package:flutter_presentations/shared/shortcuts.dart';
 import 'package:talk_big_applications/talk_big_applications.dart';
 import 'package:talk_but_does_it_scale/talk_but_does_it_scale.dart';
+import 'package:talk_convincing_to_flutter/talk_convincing_to_flutter.dart';
 import 'package:talk_effort_reuse/talk_effort_reuse.dart';
 import 'package:talk_refactoring/talk_refactoring.dart';
 import 'package:talk_slivers/talk_slivers.dart';

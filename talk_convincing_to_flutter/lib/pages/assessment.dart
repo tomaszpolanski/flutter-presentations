@@ -5,6 +5,7 @@ import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_theme/shared_theme.dart';
+import 'package:talk_convincing_to_flutter/pages/images.dart';
 
 class SurveyPage extends StatelessWidget {
   const SurveyPage({super.key});
@@ -13,6 +14,7 @@ class SurveyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ImagePage(
       'assets/image19.png',
+      package: Images.package,
       alignment: AlignmentDirectional.bottomStart,
       child: Text(
         'Survey',
@@ -305,7 +307,11 @@ class DevDesignPage extends StatelessWidget {
         Expanded(
           flex: 6,
           child: ParallaxWidget(
-            child: Image.asset('assets/image17.png', fit: BoxFit.fitWidth),
+            child: Image.asset(
+              'assets/image17.png',
+              package: Images.package,
+              fit: BoxFit.fitWidth,
+            ),
           ),
         ),
       ],
@@ -334,14 +340,24 @@ class GrouponPlus extends StatelessWidget {
           ),
           Expanded(
             flex: 4,
-            child: ParallaxWidget(child: Image.asset('assets/image21.png')),
+            child: ParallaxWidget(
+              child: Image.asset(
+                'assets/image21.png',
+                package: Images.package,
+              ),
+            ),
           ),
           const Expanded(
             child: SizedBox(),
           ),
           Expanded(
             flex: 4,
-            child: ParallaxWidget(child: Image.asset('assets/image16.png')),
+            child: ParallaxWidget(
+              child: Image.asset(
+                'assets/image16.png',
+                package: Images.package,
+              ),
+            ),
           ),
         ],
       ),
@@ -354,7 +370,12 @@ class AppiumPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ParallaxWidget(child: Image.asset('assets/image37.png'));
+    return ParallaxWidget(
+      child: Image.asset(
+        'assets/image37.png',
+        package: Images.package,
+      ),
+    );
   }
 }
 
@@ -383,9 +404,24 @@ class IntegrationTestPage extends StatelessWidget {
             height: 200,
             child: Row(
               children: [
-                Expanded(child: Image.asset('assets/image28.png')),
-                Expanded(child: Image.asset('assets/image26.png')),
-                Expanded(child: Image.asset('assets/image29.png')),
+                Expanded(
+                  child: Image.asset(
+                    'assets/image28.png',
+                    package: Images.package,
+                  ),
+                ),
+                Expanded(
+                  child: Image.asset(
+                    'assets/image26.png',
+                    package: Images.package,
+                  ),
+                ),
+                Expanded(
+                  child: Image.asset(
+                    'assets/image29.png',
+                    package: Images.package,
+                  ),
+                ),
               ],
             ),
           ),
@@ -402,6 +438,7 @@ class WidgetTestPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ImagePage(
       'assets/image23.png',
+      package: Images.package,
       alignment: AlignmentDirectional.topStart,
       child: Text(
         'Widget tests to the rescue!',
@@ -418,6 +455,7 @@ class LearningPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ImagePage(
       'assets/image43.jpg',
+      package: Images.package,
       alignment: AlignmentDirectional.bottomEnd,
       child: Text(
         'Learning',
@@ -453,7 +491,12 @@ class FlutterDartPage extends StatelessWidget {
             child: Row(
               children: [
                 const Expanded(child: FlutterLogo()),
-                Expanded(child: Image.asset('assets/image25.png')),
+                Expanded(
+                  child: Image.asset(
+                    'assets/image25.png',
+                    package: Images.package,
+                  ),
+                ),
               ],
             ),
           ),
@@ -470,6 +513,7 @@ class TeachingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ImagePage(
       'assets/image45.jpg',
+      package: Images.package,
       alignment: AlignmentDirectional.topEnd,
       child: Text(
         'Teaching',
@@ -503,7 +547,12 @@ class LaunchPage extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: ParallaxWidget(child: Image.asset('assets/image42.jpg')),
+            child: ParallaxWidget(
+              child: Image.asset(
+                'assets/image42.jpg',
+                package: Images.package,
+              ),
+            ),
           ),
         ],
       ),
@@ -520,7 +569,12 @@ class ApplePage extends StatelessWidget {
       padding: const EdgeInsets.all(48),
       child: Row(
         children: <Widget>[
-          Expanded(child: Image.asset('assets/apple.png')),
+          Expanded(
+            child: Image.asset(
+              'assets/apple.png',
+              package: Images.package,
+            ),
+          ),
           Expanded(
             child: ParallaxWidget(
               child: Row(
@@ -587,7 +641,10 @@ class AndroidPageState extends State<AndroidPage>
         children: <Widget>[
           Expanded(
             flex: 4,
-            child: Image.asset('assets/image9.png'),
+            child: Image.asset(
+              'assets/image9.png',
+              package: Images.package,
+            ),
           ),
           Expanded(
             flex: 6,

@@ -44,11 +44,13 @@ class ImagePage extends StatelessWidget {
   const ImagePage(
     this.asset, {
     super.key,
+    required this.package,
     this.child,
     this.alignment = AlignmentDirectional.topCenter,
   });
 
   final String asset;
+  final String package;
   final AlignmentGeometry alignment;
   final Widget? child;
 
@@ -57,7 +59,10 @@ class ImagePage extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: [
-        ParallaxImage(asset),
+        ParallaxImage(
+          asset,
+          package: package,
+        ),
         if (child != null)
           SafeArea(
             child: Padding(

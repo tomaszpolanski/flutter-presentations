@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:presentation/effects.dart';
 import 'package:shared_pages/shared_pages.dart';
+import 'package:talk_convincing_to_flutter/pages/images.dart';
 
 class DesignersPage extends StatelessWidget {
   const DesignersPage({super.key});
@@ -10,7 +11,10 @@ class DesignersPage extends StatelessWidget {
     return const Stack(
       fit: StackFit.expand,
       children: [
-        ParallaxImage('assets/image35.jpg'),
+        ParallaxImage(
+          'assets/image35.jpg',
+          package: Images.package,
+        ),
         Center(
           child: ParallaxWidget(
             child: Text('Designers'),
@@ -27,6 +31,7 @@ class UmphPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const ImagePage(
+      package: Images.package,
       'assets/image39.jpg',
       child: Text(
         'Umph',
@@ -44,7 +49,10 @@ class LessTestingPage extends StatelessWidget {
     return const Stack(
       fit: StackFit.expand,
       children: [
-        ParallaxImage('assets/image31.jpg'),
+        ParallaxImage(
+          'assets/image31.jpg',
+          package: Images.package,
+        ),
         Align(
           alignment: Alignment.topCenter,
           child: ParallaxWidget(
@@ -66,6 +74,7 @@ class DevelopersPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ImagePage(
       'assets/image41.jpg',
+      package: Images.package,
       alignment: AlignmentDirectional.centerStart,
       child: Text(
         'Developers',
@@ -95,7 +104,12 @@ class WorkshopPage extends StatelessWidget {
         ),
         Expanded(
           flex: 4,
-          child: ParallaxWidget(child: Image.asset('assets/image44.jpg')),
+          child: ParallaxWidget(
+            child: Image.asset(
+              'assets/image44.jpg',
+              package: Images.package,
+            ),
+          ),
         ),
       ],
     );
@@ -109,6 +123,7 @@ class ManagersPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ImagePage(
       'assets/image40.jpg',
+      package: Images.package,
       alignment: AlignmentDirectional.topEnd,
       child: Text(
         'Managers',
@@ -126,7 +141,10 @@ class MergingPage extends StatelessWidget {
     return const Stack(
       fit: StackFit.expand,
       children: <Widget>[
-        ParallaxImage('assets/image18.jpg'),
+        ParallaxImage(
+          'assets/image18.jpg',
+          package: Images.package,
+        ),
         Row(
           children: [
             Expanded(
