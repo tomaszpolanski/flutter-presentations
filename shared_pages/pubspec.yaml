@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  presentation: ^2.0.1
+  presentation: ^2.1.0
 
   shared_theme:
     path: ../shared_theme
