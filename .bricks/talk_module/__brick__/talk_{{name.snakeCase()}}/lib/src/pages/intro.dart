@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class Intro extends StatelessWidget {
   const Intro({super.key});
 

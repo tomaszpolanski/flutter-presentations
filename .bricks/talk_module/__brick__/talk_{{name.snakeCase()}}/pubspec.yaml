@@ -24,10 +24,10 @@ dev_dependencies:
     path: ../shared_theme
 
   shared_pages:
-    path: ./shared_pages
+    path: ../shared_pages
 
   shared_ui:
-    path: ./shared_ui
+    path: ../shared_ui
 
 dependency_overrides:
   win32: ^5.0.0
