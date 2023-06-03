@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
 import 'package:flutter_presentations/shared/logo.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_theme/shared_theme.dart';
 
 class ButDoesItScale extends StatefulWidget {

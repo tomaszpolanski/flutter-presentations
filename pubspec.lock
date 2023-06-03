@@ -606,6 +606,13 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  shared_pages:
+    dependency: "direct main"
+    description:
+      path: shared_pages
+      relative: true
+    source: path
+    version: "1.0.0"
   shared_theme:
     dependency: "direct main"
     description:

@@ -3,6 +3,7 @@ import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
 import 'package:flutter_presentations/shared/logo.dart';
 import 'package:shared_theme/shared_theme.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_pages/shared_pages.dart';
 
 class {{name.pascalCase()}} extends StatefulWidget {
   const {{name.pascalCase()}}({super.key});
