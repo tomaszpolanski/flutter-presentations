@@ -15,3 +15,7 @@ dependencies:
 
   shared_theme:
     path: ../shared_theme
+
+flutter:
+  assets:
+    - assets/

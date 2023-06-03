@@ -16,9 +16,6 @@ class Images {
   static const yaml = 'assets/yaml.png';
   static const build = 'assets/build.png';
   static const reark = 'assets/reark.png';
-  static const start = 'assets/start.png';
-  static const end = 'assets/end.png';
-  static const mid = 'assets/mid.png';
   static const newImage = 'assets/new.png';
   static const dashboard = 'assets/dashboard.png';
   static const performance = 'assets/performance.png';
