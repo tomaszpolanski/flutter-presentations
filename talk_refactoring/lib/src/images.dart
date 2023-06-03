@@ -3,5 +3,5 @@ class Images {
 
   static const package = 'talk_refactoring';
 
-   static const background = 'assets/allison-louise-YI3fRBut9PM-unsplash.jpg';
+  static const background = 'assets/allison-louise-YI3fRBut9PM-unsplash.jpg';
 }
