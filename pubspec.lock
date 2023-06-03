@@ -750,6 +750,13 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  talk_effort_reuse:
+    dependency: "direct main"
+    description:
+      path: talk_effort_reuse
+      relative: true
+    source: path
+    version: "0.0.1"
   talk_refactoring:
     dependency: "direct main"
     description:

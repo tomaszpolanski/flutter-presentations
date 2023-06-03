@@ -46,6 +46,9 @@ dependencies:
   talk_slivers:
     path: ./talk_slivers
 
+  talk_effort_reuse:
+    path: ./talk_effort_reuse
+
 dev_dependencies:
   flutter_driver:
     sdk: flutter

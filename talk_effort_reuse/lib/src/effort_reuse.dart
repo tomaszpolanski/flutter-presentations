@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/application.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/ci.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/composable.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/declerative_ui.dart';
+import 'package:talk_effort_reuse/src/pages/application.dart';
+import 'package:talk_effort_reuse/src/pages/ci.dart';
+import 'package:talk_effort_reuse/src/pages/composable.dart';
+import 'package:talk_effort_reuse/src/pages/declerative_ui.dart';
 
-import 'package:flutter_presentations/features/code_reuse/pages/flutter_animations.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/imitation_fluttery.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/inception.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/include.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/inheritance_vs_composition.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/intro.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/matrix.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/platform_stack.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/solid.dart';
+import 'package:talk_effort_reuse/src/pages/flutter_animations.dart';
+import 'package:talk_effort_reuse/src/pages/imitation_fluttery.dart';
+import 'package:talk_effort_reuse/src/pages/inception.dart';
+import 'package:talk_effort_reuse/src/pages/include.dart';
+import 'package:talk_effort_reuse/src/pages/inheritance_vs_composition.dart';
+import 'package:talk_effort_reuse/src/pages/intro.dart';
+import 'package:talk_effort_reuse/src/pages/matrix.dart';
+import 'package:talk_effort_reuse/src/pages/platform_stack.dart';
+import 'package:talk_effort_reuse/src/pages/solid.dart';
 
-import 'package:flutter_presentations/features/code_reuse/pages/tutorial.dart';
+import 'package:talk_effort_reuse/src/pages/tutorial.dart';
 import 'package:presentation/presentation.dart';
 import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_theme/shared_theme.dart';
@@ -22,7 +22,7 @@ import 'package:shared_theme/shared_theme.dart';
 class CodeReuse extends StatefulWidget {
   const CodeReuse({super.key});
 
-  static const String title = 'True Effort Reuse';
+  static const String title = 'Effort Reuse';
   static const String subtitle = 'with Flutter';
 
   @override
