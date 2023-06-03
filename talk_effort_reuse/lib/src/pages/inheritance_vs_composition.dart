@@ -193,7 +193,7 @@ class _InheritanceState extends State<_Inheritance>
 class _AnimatedInheritance extends StatelessWidget {
   const _AnimatedInheritance({
     super.key,
-   required this.animation,
+    required this.animation,
     this.child,
   });
 
