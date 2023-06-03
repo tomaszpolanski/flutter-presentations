@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_pages/src/images.dart';
 
 class BigWidget extends StatefulWidget {
   const BigWidget(
@@ -72,17 +73,20 @@ class _BigWidgetState extends State<BigWidget> {
               itemBuilder: (BuildContext context, int index) {
                 if (index == 0) {
                   return Image.asset(
-                    'assets/start.png',
+                    Images.start,
+                    package: Images.package,
                     fit: BoxFit.fitWidth,
                   );
                 } else if (index == 499) {
                   return Image.asset(
-                    'assets/end.png',
+                    Images.end,
+                    package: Images.package,
                     fit: BoxFit.fitWidth,
                   );
                 } else {
                   return Image.asset(
-                    'assets/mid.png',
+                    Images.mid,
+                    package: Images.package,
                     fit: BoxFit.fitWidth,
                   );
                 }

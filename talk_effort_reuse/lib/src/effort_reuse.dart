@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:talk_effort_reuse/src/images.dart';
 import 'package:talk_effort_reuse/src/pages/application.dart';
 import 'package:talk_effort_reuse/src/pages/ci.dart';
 import 'package:talk_effort_reuse/src/pages/composable.dart';
@@ -58,7 +59,8 @@ class _CodeReuseState extends State<CodeReuse> {
           fit: StackFit.expand,
           children: [
             const AnimatedParallaxImage(
-              asset: 'assets/blueprint_wide.jpg',
+              asset: Images.blueprint,
+              package: Images.package,
               opacity: 0.1,
             ),
             Presentation(

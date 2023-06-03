@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:talk_effort_reuse/src/images.dart';
 
 class GrouponApp extends StatefulWidget {
   const GrouponApp({super.key});
+
   @override
   _GrouponAppState createState() => _GrouponAppState();
 }
@@ -34,7 +36,10 @@ class _GrouponAppState extends State<GrouponApp> {
                         color: Colors.transparent,
                         child: Center(
                           child: Image(
-                            image: AssetImage('assets/image7.png'),
+                            image: AssetImage(
+                              Images.groupon_logo,
+                              package: Images.package,
+                            ),
                             height: 100,
                           ),
                         ),

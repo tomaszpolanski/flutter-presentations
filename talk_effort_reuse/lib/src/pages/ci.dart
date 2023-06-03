@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:talk_effort_reuse/src/images.dart';
 
 class CI extends StatelessWidget {
   const CI({
@@ -13,7 +14,10 @@ class CI extends StatelessWidget {
         children: [
           const Text('CI'),
           Expanded(
-            child: Image.asset('assets/pipeline.png'),
+            child: Image.asset(
+              Images.pipeline,
+              package: Images.package,
+            ),
           )
         ],
       ),
