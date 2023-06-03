@@ -44,15 +44,16 @@ class CustomerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
         Expanded(
-          child: Image(
-            image: AssetImage('assets/image13.png'),
+          child: Image.asset(
+            'assets/image13.png',
+            package: Images.package,
             height: 250,
           ),
         ),
-        Expanded(
+        const Expanded(
           child: ParallaxWidget(
             child: Text('Customer', style: GTheme.big),
           ),
@@ -67,15 +68,16 @@ class MerchantPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
         Expanded(
-          child: Image(
-            image: AssetImage('assets/image7.png'),
+          child: Image.asset(
+            'assets/image7.png',
+            package: Images.package,
             height: 250,
           ),
         ),
-        Expanded(
+        const Expanded(
           child: ParallaxWidget(
             child: Text('Merchant', style: GTheme.big),
           ),

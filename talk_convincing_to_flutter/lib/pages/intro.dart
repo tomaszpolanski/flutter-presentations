@@ -234,28 +234,36 @@ class _PlatformsPageState extends State<PlatformsPage>
                   AnimatedOpacity(
                     duration: const Duration(milliseconds: 200),
                     opacity: _uiq,
-                    child: const Image(
-                      image: AssetImage('assets/image8.png'),
+                    child: Image.asset(
+                      'assets/image8.png',
+                      package: Images.package,
                       height: 140,
                     ),
                   ),
                   AnimatedOpacity(
                     duration: const Duration(milliseconds: 200),
                     opacity: _symbian,
-                    child: const Image(image: AssetImage('assets/S60.png')),
+                    child: Image.asset(
+                      'assets/S60.png',
+                      package: Images.package,
+                    ),
                   ),
                   AnimatedOpacity(
                     duration: const Duration(milliseconds: 200),
                     opacity: _blackberry,
-                    child: const Image(
-                      image: AssetImage('assets/blackberry.png'),
+                    child: Image.asset(
+                      'assets/blackberry.png',
+                      package: Images.package,
                       height: 140,
                     ),
                   ),
                   AnimatedOpacity(
                     duration: const Duration(milliseconds: 200),
                     opacity: _qt,
-                    child: const Image(image: AssetImage('assets/qt.png')),
+                    child: Image.asset(
+                      'assets/qt.png',
+                      package: Images.package,
+                    ),
                   ),
                 ],
               ),
@@ -267,33 +275,36 @@ class _PlatformsPageState extends State<PlatformsPage>
                   AnimatedOpacity(
                     duration: const Duration(milliseconds: 200),
                     opacity: _windows,
-                    child: const Image(
-                      image: AssetImage('assets/windows.png'),
+                    child: Image.asset(
+                      'assets/windows.png',
+                      package: Images.package,
                       height: 140,
                     ),
                   ),
                   AnimatedOpacity(
                     duration: const Duration(milliseconds: 200),
                     opacity: _apple,
-                    child: const Image(
-                      image: AssetImage('assets/apple.png'),
+                    child: Image.asset(
+                      'assets/apple.png',
+                      package: Images.package,
                       height: 140,
                     ),
                   ),
                   AnimatedOpacity(
                     duration: const Duration(milliseconds: 200),
                     opacity: _android,
-                    child: const Image(
-                      image: AssetImage('assets/image9.png'),
+                    child: Image.asset(
+                      'assets/image9.png',
+                      package: Images.package,
                       height: 140,
                     ),
                   ),
                   AnimatedOpacity(
                     duration: const Duration(milliseconds: 200),
                     opacity: _fuchsia,
-                    child: const Image(
-                      color: Colors.grey,
-                      image: AssetImage('assets/fusia.png'),
+                    child: Image.asset(
+                      'assets/fusia.png',
+                      package: Images.package,
                     ),
                   ),
                 ],
