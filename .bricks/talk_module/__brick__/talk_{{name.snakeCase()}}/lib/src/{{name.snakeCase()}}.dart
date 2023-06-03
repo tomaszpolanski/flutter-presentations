@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
 import 'package:flutter_presentations/shared/logo.dart';
-import 'package:flutter_presentations/shared/themes.dart';
+import 'package:shared_theme/shared_theme.dart';
 import 'package:presentation/presentation.dart';
 
 class {{name.pascalCase()}} extends StatefulWidget {
