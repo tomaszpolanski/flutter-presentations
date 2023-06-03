@@ -60,7 +60,7 @@ class _CodeReuseState extends State<CodeReuse> {
           children: [
             const AnimatedParallaxImage(
               asset: Images.blueprint,
-package: Images.package,
+              package: Images.package,
               opacity: 0.1,
             ),
             Presentation(

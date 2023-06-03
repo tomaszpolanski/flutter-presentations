@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
 import 'package:shared_theme/shared_theme.dart';
+import 'package:talk_effort_reuse/src/images.dart';
 
 class Reark extends StatefulWidget {
   const Reark({super.key, required this.controller});
+
   final PresentationController controller;
 
   @override
@@ -60,7 +62,10 @@ class _RearkState extends State<Reark> with SingleTickerProviderStateMixin {
         image: DecorationImage(
           fit: BoxFit.fitHeight,
           alignment: Alignment.centerRight,
-          image: AssetImage('assets/reark.png'),
+          image: AssetImage(
+            Images.reark,
+            package: Images.package,
+          ),
         ),
       ),
       child: AnimatedBuilder(

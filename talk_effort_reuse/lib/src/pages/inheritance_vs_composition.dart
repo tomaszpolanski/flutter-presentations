@@ -103,6 +103,7 @@ class _InheritanceVsCompositionState extends State<InheritanceVsComposition> {
 
 class _Inheritance extends StatefulWidget {
   const _Inheritance({super.key, required this.controller});
+
   final _Controller controller;
 
   @override
@@ -190,17 +191,22 @@ class _InheritanceState extends State<_Inheritance>
 }
 
 class _AnimatedInheritance extends StatelessWidget {
-  const _AnimatedInheritance({super.key, this.animation, this.child});
-  final Animation<double>? animation;
+  const _AnimatedInheritance({
+    super.key,
+   required this.animation,
+    this.child,
+  });
+
+  final Animation<double> animation;
   final Widget? child;
 
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: animation!,
+      animation: animation,
       builder: (_, child) {
         return FadeTransition(
-          opacity: animation!,
+          opacity: animation,
           child: child,
         );
       },
@@ -211,6 +217,7 @@ class _AnimatedInheritance extends StatelessWidget {
 
 class _Composition extends StatefulWidget {
   const _Composition({super.key, required this.controller});
+
   final _Controller controller;
 
   @override
@@ -327,6 +334,7 @@ class _CompositionState extends State<_Composition>
 
 class _AnimatedPosition extends StatelessWidget {
   const _AnimatedPosition({super.key, required this.animation, this.child});
+
   final Animation<double> animation;
   final Widget? child;
 

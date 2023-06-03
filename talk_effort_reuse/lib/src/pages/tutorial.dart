@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 import 'package:shared_ui/shared_ui.dart';
+import 'package:talk_effort_reuse/src/images.dart';
 
 class TutorialGoal extends StatefulWidget {
   const TutorialGoal(
     this.controller, {
     super.key,
   });
+
   final PresentationController controller;
 
   @override
@@ -73,7 +75,10 @@ class _TutorialGoalState extends State<TutorialGoal>
           child: ParallaxWidget(
             child: Center(
               child: _showTutorial
-                  ? Image.asset('assets/new.png')
+                  ? Image.asset(
+                      Images.newImage,
+                      package: Images.package,
+                    )
                   : Text(
                       'Feature Reveal',
                       textAlign: TextAlign.center,
@@ -99,7 +104,10 @@ class _TutorialGoalState extends State<TutorialGoal>
                 child: child,
               );
             },
-            child: Image.asset('assets/dashboard.png'),
+            child: Image.asset(
+              Images.dashboard,
+              package: Images.package,
+            ),
           ),
         ),
       ],
@@ -112,6 +120,7 @@ class TutorialResult extends StatefulWidget {
     this.controller, {
     super.key,
   });
+
   final PresentationController controller;
 
   @override
@@ -183,7 +192,8 @@ class _TutorialResultState extends State<TutorialResult>
                   opacity: _showImage ? 1 : 0,
                   duration: const Duration(milliseconds: 100),
                   child: Image.asset(
-                    'assets/performance.png',
+                    Images.performance,
+                    package: Images.package,
                     width: 245,
                   ),
                 ),

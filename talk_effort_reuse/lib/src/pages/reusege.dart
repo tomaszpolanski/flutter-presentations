@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:presentation/presentation.dart';
+import 'package:talk_effort_reuse/src/images.dart';
 
 class BigWidget extends StatefulWidget {
   const BigWidget({super.key, required this.controller});
+
   final PresentationController controller;
 
   @override
@@ -67,17 +69,20 @@ class _BigWidgetState extends State<BigWidget> {
         itemBuilder: (BuildContext context, int index) {
           if (index == 0) {
             return Image.asset(
-              'assets/start.png',
+              Images.start,
+              package: Images.package,
               fit: BoxFit.fitWidth,
             );
           } else if (index == 499) {
             return Image.asset(
-              'assets/end.png',
+              Images.end,
+              package: Images.package,
               fit: BoxFit.fitWidth,
             );
           } else {
             return Image.asset(
-              'assets/mid.png',
+              Images.mid,
+              package: Images.package,
               fit: BoxFit.fitWidth,
             );
           }
