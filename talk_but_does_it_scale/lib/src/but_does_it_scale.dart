@@ -59,7 +59,17 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
                   left: 50,
                   child: PresentationLogo(
                     controller: controller,
-                    child: const SizedBox(),
+                    child: PresentationLogo(
+                      controller: controller,
+                      child: SvgPicture.asset(
+                        'assets/fluttercon.svg',
+                        height: 25,
+                        colorFilter: const ColorFilter.mode(
+                          Colors.blue,
+                          BlendMode.srcIn,
+                        ),
+                      ),
+                    ),
                   ),
                 )
               ],

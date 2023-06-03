@@ -11,12 +11,13 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_svg: ^2.0.5
   presentation: ^2.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+    
   shared_lints:
     path: ../shared_lints
 
