@@ -36,6 +36,9 @@ dev_dependencies:
   fast_flutter_driver: ^3.0.0+1
   mockito: ^5.4.0
 
+  shared_lints:
+    path: ./shared_lints
+
 flutter:
 
   uses-material-design: true
