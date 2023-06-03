@@ -599,6 +599,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.1.6"
+  shared_lints:
+    dependency: "direct dev"
+    description:
+      path: shared_lints
+      relative: true
+    source: path
+    version: "1.0.0"
   shelf:
     dependency: transitive
     description:
