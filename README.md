@@ -27,32 +27,53 @@ flutter run -d chrome -v
 Enter `flutter-presentations` folder in your terminal and run `flutter run`. 
 You might need to use `-d` to pick desktop if you have any other device connected.
 
-OR
 
-Open in your ide `flutter-presentations` 
-In IntelliJ/VS Code select appropriate device via device picker and run tha app
+### Melos
 
-## Running on Docker
-1) Install `docker`
-2) Build docker image (will take a couple of minutes)
-```
-./build_docker.sh 3.10.0 ./
-```
-3) Run docker container
-```
-docker run -d tomek/flutter:latest
-```
-4) Start X11 UI
-```
-docker exec -d <containerId> sh -c "Xvfb :0 -screen 0 1920x1920x24"
-```
-5) Execute Flutter tests with screenshots (in case you don't believe that actual application is being run ;))
+[Melos](https://melos.invertase.dev/) is a CLI tool used to help manage Dart projects with multiple packages.
+It simplifies the selection of modules for testing and building.
 
-```
-docker exec <containerId> sh -c "cd /home/user/flutter-presentations/ && fastdriver --dart-args --no-sound-null-safety --flutter-args --no-sound-null-safety -r 1600x1200 -s"
-```
-6) Copy screenshots to local `screenshots` folder so you can preview them
-```
-docker cp <containerId>:/home/user/flutter-presentations/screenshots screenshots
+To run use `melos` please activate it:
+
+```bash
+dart pub global activate melos 2.7.1
 ```
 
+To get access to all available scripts for the project please run:
+
+```bash
+melos run
+```
+
+It will show the list of available scripts with the ability to select desired through the command line.
+
+You can also run favorite scripts directly by their names:
+
+```bash
+melos run pr_prepare_and_check:changed
+```
+
+### Mason
+
+[Mason](https://pub.dev/packages/mason_cli) is a template generator which helps teams generate files quickly and consistently.
+
+We store our bricks in `.bricks` directory in the root of the project.
+It needs to be a private (`.`) directory to not be considered when we perform `dart format`.
+
+Please refer to the [documentation](https://pub.dev/packages/mason_cli) for the usage description.
+
+Example usage:
+
+```bash
+dart pub global activate mason_cli
+
+mason upgrade
+
+mason make screen_plus_cubit
+```
+
+Listing all registered bricks:
+
+```bash
+mason list
+```
