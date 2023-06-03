@@ -17,8 +17,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:presentation/presentation.dart';
 import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_theme/shared_theme.dart';
-
-import '../../../shared_ui/lib/src/logo.dart';
+import 'package:shared_ui/shared_ui.dart';
 
 class BigApplications extends StatefulWidget {
   const BigApplications({super.key});
