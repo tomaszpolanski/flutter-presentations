@@ -17,8 +17,8 @@ import 'package:flutter_presentations/features/code_reuse/pages/solid.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/tests.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/tutorial.dart';
-import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_theme/shared_theme.dart';
 
 class CodeReuse extends StatefulWidget {
   const CodeReuse({super.key});

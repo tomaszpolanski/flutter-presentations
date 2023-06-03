@@ -20,6 +20,9 @@ dev_dependencies:
   shared_lints:
     path: ../shared_lints
 
+  shared_theme:
+    path: ../shared_theme
+
 dependency_overrides:
   win32: ^5.0.0
 

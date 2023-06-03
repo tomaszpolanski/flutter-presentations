@@ -4,13 +4,13 @@ import 'package:flutter_presentations/features/convincing_for_flutter/pages/conv
 import 'package:flutter_presentations/features/convincing_for_flutter/pages/groupon_intro.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/pages/intro.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/pages/summary.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
-import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_theme/shared_theme.dart';
 
 class Convincing extends StatefulWidget {
   const Convincing({super.key});
+
   static const String title = 'Convincing your company to Flutter';
   static const String subtitle = '(Groupon)';
 

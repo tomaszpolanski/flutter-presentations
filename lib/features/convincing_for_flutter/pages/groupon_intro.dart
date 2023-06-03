@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:presentation/effects.dart';
+import 'package:shared_theme/shared_theme.dart';
 
 class PuppyPage extends StatelessWidget {
   const PuppyPage({super.key});

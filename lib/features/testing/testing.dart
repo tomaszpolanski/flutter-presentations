@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/testing/pages/speed_comparison.dart';
-import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_theme/shared_theme.dart';
 
 class Testing extends StatefulWidget {
   const Testing({super.key});

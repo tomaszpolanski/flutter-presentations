@@ -15,9 +15,9 @@ import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
 import 'package:flutter_presentations/shared/logo.dart';
 import 'package:flutter_presentations/shared/stacked_page.dart';
-import 'package:flutter_presentations/shared/themes.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_theme/shared_theme.dart';
 
 class BigApplications extends StatefulWidget {
   const BigApplications({super.key});

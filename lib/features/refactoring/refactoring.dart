@@ -9,8 +9,8 @@ import 'package:flutter_presentations/features/refactoring/pages/context.dart';
 import 'package:flutter_presentations/features/refactoring/pages/null_safety.dart';
 import 'package:flutter_presentations/features/refactoring/pages/refactoring_title.dart';
 import 'package:flutter_presentations/features/refactoring/pages/refactoring_widget.dart';
-import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_theme/shared_theme.dart';
 
 class Refactoring extends StatefulWidget {
   const Refactoring({super.key});

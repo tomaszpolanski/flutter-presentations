@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/coding/pages/editor_test.dart';
 import 'package:flutter_presentations/features/coding/pages/qr_code.dart';
-import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_theme/shared_theme.dart';
 
 class Coding extends StatefulWidget {
   const Coding({super.key});
