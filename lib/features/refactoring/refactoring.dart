@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/big_widget.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
 import 'package:flutter_presentations/features/refactoring/pages/architecture.dart';
 import 'package:flutter_presentations/features/refactoring/pages/bad_slivers.dart';
 import 'package:flutter_presentations/features/refactoring/pages/container.dart';

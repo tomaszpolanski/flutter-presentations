@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/big_applications/pages/arch_vs_tool.dart';
-import 'package:flutter_presentations/features/big_applications/pages/architectures.dart';
-import 'package:flutter_presentations/features/big_applications/pages/big_intro.dart';
-import 'package:flutter_presentations/features/big_applications/pages/crashes.dart';
-import 'package:flutter_presentations/features/big_applications/pages/dart_issues.dart';
-import 'package:flutter_presentations/features/big_applications/pages/flutter_is_fun.dart';
-import 'package:flutter_presentations/features/big_applications/pages/pride.dart';
-import 'package:flutter_presentations/features/big_applications/pages/the_app.dart';
-import 'package:flutter_presentations/features/big_applications/pages/widget_is_function.dart';
-import 'package:flutter_presentations/features/big_applications/pages/you_can_make.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/everythigs_widget.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/tests.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
-import 'package:flutter_presentations/shared/stacked_page.dart';
+import 'package:talk_big_applications/src/images.dart';
+import 'package:talk_big_applications/src/pages/arch_vs_tool.dart';
+import 'package:talk_big_applications/src/pages/architectures.dart';
+import 'package:talk_big_applications/src/pages/big_intro.dart';
+import 'package:talk_big_applications/src/pages/crashes.dart';
+import 'package:talk_big_applications/src/pages/dart_issues.dart';
+import 'package:talk_big_applications/src/pages/flutter_is_fun.dart';
+import 'package:talk_big_applications/src/pages/pride.dart';
+import 'package:talk_big_applications/src/pages/the_app.dart';
+import 'package:talk_big_applications/src/pages/widget_is_function.dart';
+import 'package:talk_big_applications/src/pages/you_can_make.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:presentation/presentation.dart';
 import 'package:shared_pages/shared_pages.dart';
@@ -177,7 +174,11 @@ class _BigApplicationsState extends State<BigApplications> {
                         visible: (page * 1000).floor() % 1000 == 0,
                         child: Row(
                           children: [
-                            Image.asset('assets/gdg.png', height: 110),
+                            Image.asset(
+                              Images.gdg,
+                              package: Images.package,
+                              height: 110,
+                            ),
                             Text(
                               'GDG Jeddah',
                               style: GoogleFonts.poppins(

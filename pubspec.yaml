@@ -38,6 +38,9 @@ dependencies:
   talk_but_does_it_scale:
     path: ./talk_but_does_it_scale
 
+  talk_big_applications:
+    path: ./talk_big_applications
+
 dev_dependencies:
   flutter_driver:
     sdk: flutter

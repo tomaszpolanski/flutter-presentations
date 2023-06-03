@@ -1,9 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
 import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_theme/shared_theme.dart';
 
 class SurveyPage extends StatelessWidget {

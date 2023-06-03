@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
 import 'package:presentation/effects.dart';
+import 'package:shared_pages/shared_pages.dart';
 
 class DesignersPage extends StatelessWidget {
   const DesignersPage({super.key});

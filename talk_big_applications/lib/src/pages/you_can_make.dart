@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/shared/revolving_widget.dart';
 import 'package:presentation/presentation.dart';
 import 'package:shared_theme/shared_theme.dart';
+import 'package:shared_ui/shared_ui.dart';
 
 class YouCanMake extends StatefulWidget {
   const YouCanMake({
     this.controller,
     super.key,
   });
+
   final PresentationController? controller;
 
   @override
