@@ -3,5 +3,7 @@ class Images {
 
   static const package = 'talk_slivers';
 
-  // static const logo = 'assets/logo.svg';
+   static const code = 'assets/code.png';
+   static const google = 'assets/google.png';
+   static const demo = 'assets/demo.png';
 }
