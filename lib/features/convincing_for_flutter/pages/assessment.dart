@@ -251,6 +251,7 @@ class MyPainter extends CustomPainter {
     this.completePercent,
     this.width,
   });
+
   final Color? lineColor;
   final Color? completeColor;
   final double? completePercent;
@@ -350,6 +351,7 @@ class GrouponPlus extends StatelessWidget {
 
 class AppiumPage extends StatelessWidget {
   const AppiumPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ParallaxWidget(child: Image.asset('assets/image37.png'));
@@ -450,7 +452,7 @@ class FlutterDartPage extends StatelessWidget {
             height: 200,
             child: Row(
               children: [
-                Expanded(child: Image.asset('assets/image4.png')),
+                const Expanded(child: FlutterLogo()),
                 Expanded(child: Image.asset('assets/image25.png')),
               ],
             ),
