@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart' hide Image;
-import 'package:flutter_presentations/features/refactoring/src/special_image.dart';
+import 'package:talk_refactoring/src/images.dart';
+
+import 'package:talk_refactoring/src/utils/special_image.dart';
 
 class RefactoringWidget extends StatelessWidget {
   const RefactoringWidget({super.key});
@@ -92,7 +94,8 @@ class MyApp extends StatelessWidget {
       body: ListView(
         children: [
           Image.asset(
-            'assets/allison-louise-YI3fRBut9PM-unsplash.jpg',
+            Images.background,
+            package: Images.package,
             width: 600,
             height: 240,
             fit: BoxFit.cover,
@@ -139,7 +142,8 @@ class MyAppRefactored extends StatelessWidget {
       body: ListView(
         children: [
           Image.asset(
-            'assets/allison-louise-YI3fRBut9PM-unsplash.jpg',
+            Images.background,
+            package: Images.package,
             width: 600,
             height: 240,
             fit: BoxFit.cover,

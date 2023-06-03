@@ -7,12 +7,14 @@ class Image extends StatelessWidget {
   Image.asset(
     this.name, {
     super.key,
+    required this.package,
     this.width,
     this.height,
     this.fit,
   });
 
   final String name;
+  final String package;
   final double? width;
   final double? height;
   final BoxFit? fit;
@@ -23,6 +25,7 @@ class Image extends StatelessWidget {
     final bernie = index > 3;
     return material.Image.asset(
       name.replaceAll('.jpg', bernie ? '-bernie.jpg' : '.jpg'),
+      package: package,
       width: width,
       height: height,
       fit: fit,

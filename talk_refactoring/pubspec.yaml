@@ -1,5 +1,5 @@
-name: talk_big_applications
-description: "With flutter"
+name: talk_refactoring
+description: "Changing legacy code"
 version: 0.0.1
 publish_to: "none"
 
@@ -13,7 +13,15 @@ dependencies:
 
   flutter_svg: ^2.0.5
   presentation: ^2.0.1
+  flutter_bloc: ^7.0.0
   google_fonts: ^4.0.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  shared_lints:
+    path: ../shared_lints
 
   shared_theme:
     path: ../shared_theme
@@ -23,13 +31,6 @@ dependencies:
 
   shared_ui:
     path: ../shared_ui
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-
-  shared_lints:
-    path: ../shared_lints
 
 
 

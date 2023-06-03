@@ -247,7 +247,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_bloc:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: flutter_bloc
       sha256: cdd1351ced09eeb46cfa7946e095b7679344af927415ca9cd972928fa6d5b23f
@@ -747,6 +747,13 @@ packages:
     dependency: "direct main"
     description:
       path: talk_but_does_it_scale
+      relative: true
+    source: path
+    version: "0.0.1"
+  talk_refactoring:
+    dependency: "direct main"
+    description:
+      path: talk_refactoring
       relative: true
     source: path
     version: "0.0.1"

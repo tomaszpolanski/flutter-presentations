@@ -30,8 +30,7 @@ dev_dependencies:
   shared_ui:
     path: ../shared_ui
 
-dependency_overrides:
-  win32: ^5.0.0
+
 
 flutter:
   uses-material-design: true
