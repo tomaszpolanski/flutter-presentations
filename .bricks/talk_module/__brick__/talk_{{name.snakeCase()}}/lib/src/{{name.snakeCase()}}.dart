@@ -5,17 +5,17 @@ import 'package:flutter_presentations/shared/themes.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:presentation/presentation.dart';
 
-class {{mixin.pascalCase()}} extends StatefulWidget {
-  const {{mixin.pascalCase()}}({super.key});
+class {{name.pascalCase()}} extends StatefulWidget {
+  const {{name.pascalCase()}}({super.key});
 
   static const String title = '{{name.titleCase()}}';
   static const String subtitle = '{{description.sentenceCase()}}';
 
   @override
-  _{{mixin.pascalCase()}}State createState() => _{{mixin.pascalCase()}}State();
+  _{{name.pascalCase()}}State createState() => _{{name.pascalCase()}}State();
 }
 
-class _{{mixin.pascalCase()}}State extends State<{{mixin.pascalCase()}}> {
+class _{{name.pascalCase()}}State extends State<{{name.pascalCase()}}> {
   late PageController controller;
   late PresentationController presentationController;
 
