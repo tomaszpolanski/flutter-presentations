@@ -1,0 +1,64 @@
+name: feature_{{name.snakeCase()}}_example
+description: Testing and development playground for the feature.
+version: 0.0.1
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  feature_{{name.snakeCase()}}:
+    # See https://dart.dev/tools/pub/dependencies#version-constraints
+    # The example app is bundled with the plugin so we use a path dependency on
+    # the parent directory to use the current plugin's version.
+    path: ../
+
+  klar_test_app_base:
+    path: ../../klar_test_app_base
+
+  klar_translations:
+    path: ../../klar_translations
+
+  klar_debug:
+    path: ../../klar_debug
+
+  klar_remote_config:
+    path: ../../klar_remote_config
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+
+  test: ^1.23.0
+  json_serializable: ^6.5.4
+
+  klar_dart_lints:
+    git:
+      url: git@github.com:klar-mx/klar-dart-lints.git
+      ref: 1.10.0
+
+  klar_gherkin:
+    path: ../../klar_gherkin
+
+  klar_l10n_test_utils:
+    path: ../../klar_l10n/test_utils
+
+  klar_clock_test:
+    path: ../../klar_clock_test
+
+  {{name.snakeCase()}}_page_objects:
+    path: ../page_objects
+
+dependency_overrides:
+  win32: ^5.0.0
+
+flutter:
+  uses-material-design: true

@@ -1,0 +1,29 @@
+name: klar_{{name.snakeCase()}}
+description: "{{description.sentenceCase()}}"
+version: 0.0.1
+publish_to: "none"
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.10.2"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  equatable: ^2.0.0
+
+  klar_dependencies_base:
+    path: ../klar_dependencies_base
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  klar_dart_lints:
+    git:
+      url: git@github.com:klar-mx/klar-dart-lints.git
+      ref: 1.10.0
+
+flutter:
+  uses-material-design: true

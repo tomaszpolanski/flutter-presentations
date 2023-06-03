@@ -1,0 +1,4 @@
+bricks:
+  talk_module:
+    path: .bricks/talk_module
+

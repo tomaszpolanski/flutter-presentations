@@ -1,0 +1,22 @@
+name: {{root.snakeCase()}}_test_utils
+description: Set of test utilities for {{root.titleCase()}}
+version: 0.0.1
+publish_to: "none"
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  mocktail: ^0.2.0
+
+  {{root.snakeCase()}}:
+    path: ../
+
+dev_dependencies:
+  # test_api 0.5.0 version has a breaking change
+  test: ^1.23.0
+
+  klar_dart_lints:
+    git:
+      url: git@github.com:klar-mx/klar-dart-lints.git
+      ref: 1.10.0

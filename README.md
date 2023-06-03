@@ -30,6 +30,7 @@ You might need to use `-d` to pick desktop if you have any other device connecte
 
 ### Melos
 
+<<<<<<< Updated upstream
 [Melos](https://melos.invertase.dev/) is a CLI tool used to help manage Dart projects with multiple packages.
 It simplifies the selection of modules for testing and building.
 
@@ -70,6 +71,25 @@ dart pub global activate mason_cli
 mason upgrade
 
 mason make talk_module
+```
+=======
+### Mason
+
+[Mason](https://pub.dev/packages/mason_cli) is a template generator which helps teams generate files quickly and consistently.
+
+We store our bricks in `.bricks` directory in the root of the project.
+It needs to be a private (`.`) directory to not be considered when we perform `dart format`.
+
+Please refer to the [documentation](https://pub.dev/packages/mason_cli) for the usage description.
+
+Example usage:
+
+```bash
+dart pub global activate mason_cli
+
+mason upgrade
+
+mason make screen_plus_cubit
 ```
 
 Listing all registered bricks:

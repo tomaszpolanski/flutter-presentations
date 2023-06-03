@@ -44,6 +44,10 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
         body: Builder(
           builder: (_) {
             final children = [
+              /// Intro slide - nice animation
+              ///
+              /// What do I mean by scale?
+              /// Not everythi
               const ThatsAll(thanks: 'Thank you!'),
               const ThatsAll(thanks: 'Thank you!'),
             ];

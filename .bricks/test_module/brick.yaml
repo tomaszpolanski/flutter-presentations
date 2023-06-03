@@ -1,0 +1,16 @@
+name: test_module
+description: Brick to create testing module inside already existing dart module
+
+
+version: 0.1.0+1
+
+environment:
+  mason: ">=0.1.0-dev.49 <0.1.0"
+
+vars:
+  mixin:
+    type: string
+    description: Class used for builder mixin
+    default: UserRepository
+    prompt: What is the class that builder mixin will be created for
+
