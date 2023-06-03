@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/code_reuse/pages/big_widget.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
 import 'package:flutter_presentations/features/convincing_for_flutter/shared/pages.dart';
 import 'package:flutter_presentations/features/refactoring/pages/architecture.dart';
 import 'package:flutter_presentations/features/refactoring/pages/bad_slivers.dart';
@@ -9,8 +8,9 @@ import 'package:flutter_presentations/features/refactoring/pages/context.dart';
 import 'package:flutter_presentations/features/refactoring/pages/null_safety.dart';
 import 'package:flutter_presentations/features/refactoring/pages/refactoring_title.dart';
 import 'package:flutter_presentations/features/refactoring/pages/refactoring_widget.dart';
-import 'package:flutter_presentations/shared/themes.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_pages/shared_pages.dart';
+import 'package:shared_theme/shared_theme.dart';
 
 class Refactoring extends StatefulWidget {
   const Refactoring({super.key});

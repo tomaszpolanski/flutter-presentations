@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
+import 'package:shared_theme/src/groupon_theme.dart';
 
 ThemeData blueLight() {
   return ThemeData.light().copyWith(

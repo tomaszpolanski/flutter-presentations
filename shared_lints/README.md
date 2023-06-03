@@ -1,3 +1,3 @@
-# Klar Lints
+# Lints
 
 Recommended Dart lints for projects

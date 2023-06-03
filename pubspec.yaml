@@ -26,6 +26,17 @@ dependencies:
   window_manager: ^0.3.2
   flutter_svg: ^2.0.5
 
+  shared_theme:
+    path: ./shared_theme
+
+  shared_pages:
+    path: ./shared_pages
+
+  shared_ui:
+    path: ./shared_ui
+
+  talk_but_does_it_scale:
+    path: ./talk_but_does_it_scale
 
 dev_dependencies:
   flutter_driver:

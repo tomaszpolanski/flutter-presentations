@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/features/big_applications/pages/big_intro.dart';
-import 'package:flutter_presentations/features/convincing_for_flutter/shared/groupon_theme.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_theme/shared_theme.dart';
 
 class RefactoringTitle extends StatelessWidget {
   const RefactoringTitle({super.key});

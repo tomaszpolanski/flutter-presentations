@@ -28,3 +28,5 @@ macos/Flutter/GeneratedPluginRegistrant.swift
 linux/flutter/generated_plugins.cmake
 lib/generated_plugin_registrant.dart
 dependencies/presentation/pubspec.lock
+.mason/bricks.json
+mason-lock.json

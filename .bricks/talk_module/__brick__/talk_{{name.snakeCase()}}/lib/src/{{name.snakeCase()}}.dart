@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentations/features/code_reuse/pages/thats_all.dart';
-import 'package:flutter_presentations/shared/logo.dart';
-import 'package:flutter_presentations/shared/themes.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_theme/shared_theme.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_pages/shared_pages.dart';
+import 'package:shared_ui/shared_ui.dart';
 
-class ButDoesItScale extends StatefulWidget {
-  const ButDoesItScale({super.key});
+class {{name.pascalCase()}} extends StatefulWidget {
+  const {{name.pascalCase()}}({super.key});
 
-  static const String title = 'But does it scale?';
-  static const String subtitle = 'Yes!';
+  static const String title = '{{name.titleCase()}}';
+  static const String subtitle = '{{description.sentenceCase()}}';
 
   @override
-  _ButDoesItScaleState createState() => _ButDoesItScaleState();
+  _{{name.pascalCase()}}State createState() => _{{name.pascalCase()}}State();
 }
 
-class _ButDoesItScaleState extends State<ButDoesItScale> {
+class _{{name.pascalCase()}}State extends State<{{name.pascalCase()}}> {
   late PageController controller;
   late PresentationController presentationController;
 
@@ -45,7 +44,6 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
           builder: (_) {
             final children = [
               const ThatsAll(thanks: 'Thank you!'),
-              const ThatsAll(thanks: 'Thank you!'),
             ];
             return Stack(
               fit: StackFit.expand,
@@ -60,14 +58,7 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
                   left: 50,
                   child: PresentationLogo(
                     controller: controller,
-                    child: SvgPicture.asset(
-                      'assets/fluttercon.svg',
-                      height: 25,
-                      colorFilter: const ColorFilter.mode(
-                        Colors.blue,
-                        BlendMode.srcIn,
-                      ),
-                    ),
+                    child: const SizedBox(),
                   ),
                 )
               ],
