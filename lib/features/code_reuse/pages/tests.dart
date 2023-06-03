@@ -34,9 +34,11 @@ class _TestsState extends State<Tests> {
         fromStep: _Step.init,
         toStep: _Step.highlighted,
         forward: () => setState(
-            () => _style = _style.copyWith(fontWeight: FontWeight.bold),),
+          () => _style = _style.copyWith(fontWeight: FontWeight.bold),
+        ),
         reverse: () => setState(
-            () => _style = _style.copyWith(fontWeight: FontWeight.normal),),
+          () => _style = _style.copyWith(fontWeight: FontWeight.normal),
+        ),
       )
       ..add(
         fromStep: _Step.highlighted,
@@ -99,10 +101,12 @@ class _TestsState extends State<Tests> {
               Text('Widget', style: description),
               Text('Integration', style: description),
             ]
-                .map((widget) => Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 30),
-                      child: widget,
-                    ),)
+                .map(
+                  (widget) => Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 30),
+                    child: widget,
+                  ),
+                )
                 .toList(),
           ),
           TableRow(
@@ -116,10 +120,12 @@ class _TestsState extends State<Tests> {
               Text('Higher', style: medium),
               Text('Highest', style: good),
             ]
-                .map((widget) => Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 30),
-                      child: widget,
-                    ),)
+                .map(
+                  (widget) => Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 30),
+                    child: widget,
+                  ),
+                )
                 .toList(),
           ),
           TableRow(
@@ -130,10 +136,12 @@ class _TestsState extends State<Tests> {
               Text('Higher', style: medium),
               Text('Highest', style: bad),
             ]
-                .map((widget) => Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 30),
-                      child: widget,
-                    ),)
+                .map(
+                  (widget) => Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 30),
+                    child: widget,
+                  ),
+                )
                 .toList(),
           ),
           TableRow(
@@ -146,14 +154,17 @@ class _TestsState extends State<Tests> {
               Text('Quick', style: good),
               Text('Slower', style: medium),
               AnimatedDefaultTextStyle(
-                  style: _style,
-                  duration: const Duration(milliseconds: 400),
-                  child: const Text('Slowest'),),
+                style: _style,
+                duration: const Duration(milliseconds: 400),
+                child: const Text('Slowest'),
+              ),
             ]
-                .map((widget) => Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 30),
-                      child: widget,
-                    ),)
+                .map(
+                  (widget) => Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 30),
+                    child: widget,
+                  ),
+                )
                 .toList(),
           ),
         ],

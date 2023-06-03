@@ -15,9 +15,12 @@ jobs:
         with:
           channel: ${{ matrix.channel }}
 
+      - name: Install melos
+        run: dart pub global activate melos 2.7.1
+
       - name: Install dependencies
-        run: flutter packages get
+        run: melos run pub_get:all
 
       - name: Analyze
-        run: dart analyze
+        run: melos run pr_check:all
 

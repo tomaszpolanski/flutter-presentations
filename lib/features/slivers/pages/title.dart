@@ -17,8 +17,9 @@ class TitlePage extends StatelessWidget {
                 Text(
                   'Slivers!',
                   style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                      color: const Color(0xFF6AA84F),
-                      fontWeight: FontWeight.bold,),
+                        color: const Color(0xFF6AA84F),
+                        fontWeight: FontWeight.bold,
+                      ),
                 ),
                 Row(
                   textBaseline: TextBaseline.alphabetic,

@@ -122,7 +122,9 @@ class _ConversationState extends State<Conversation>
                       Text(
                         '“don’t necessarily need state management besides stateful widgets”',
                         style: TextStyle(
-                            fontStyle: FontStyle.italic, color: Colors.grey,),
+                          fontStyle: FontStyle.italic,
+                          color: Colors.grey,
+                        ),
                       ),
                       Text('heresy! (joke)'),
                     ],
@@ -172,10 +174,11 @@ class _SlideIn extends StatelessWidget {
           opacity: animation,
           child: Transform.translate(
             offset: Offset(
-                (slideInDirection == TextDirection.ltr ? -1 : 1) *
-                    40 *
-                    (1 - animation.value),
-                0,),
+              (slideInDirection == TextDirection.ltr ? -1 : 1) *
+                  40 *
+                  (1 - animation.value),
+              0,
+            ),
             child: child,
           ),
         );

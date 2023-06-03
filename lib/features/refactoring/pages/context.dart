@@ -46,11 +46,13 @@ class _RebuildDemo extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Builder(builder: (context) {
-          // ignore: avoid_print
-          print('Rebuilding Hi!');
-          return Text('Hi! ${MediaQuery.of(context).textScaleFactor}');
-        },),
+        Builder(
+          builder: (context) {
+            // ignore: avoid_print
+            print('Rebuilding Hi!');
+            return Text('Hi! ${MediaQuery.of(context).textScaleFactor}');
+          },
+        ),
         Builder(
           builder: (context) {
             // ignore: avoid_print

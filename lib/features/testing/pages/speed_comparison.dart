@@ -127,15 +127,18 @@ class _SpeedComparisonState extends State<SpeedComparison>
     required TextEditingController controller,
   }) async {
     final output = StreamController<List<int>>();
-    output.stream.transform(utf8.decoder).listen((data) {
-      setState(() {
-        controller.text = '${controller.text}\n$data';
-      });
-    }, onError: (error) {
-      setState(() {
-        controller.text = '${controller.text}\n$error';
-      });
-    },);
+    output.stream.transform(utf8.decoder).listen(
+      (data) {
+        setState(() {
+          controller.text = '${controller.text}\n$data';
+        });
+      },
+      onError: (error) {
+        setState(() {
+          controller.text = '${controller.text}\n$error';
+        });
+      },
+    );
     final start = DateTime.now();
     await Shell(stdout: output).run(command);
     final duration = DateTime.now().difference(start);

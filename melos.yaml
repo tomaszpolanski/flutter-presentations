@@ -1,0 +1,139 @@
+name: flutter-presentations
+
+command:
+  bootstrap:
+    # Uses the pubspec_overrides.yaml instead of having Melos modifying the lock file.
+    usePubspecOverrides: true
+
+packages:
+  - "shared_*/*"
+  - "talk_*/*"
+  - "."
+
+scripts:
+  bootstrap: echo !!! Do not use melos boostrap as it ruins the pubspec.lock files !!! && exit 1
+  postclean: |
+    melos exec --dir-exists coverage -- "rm -fr coverage" && \
+    melos exec --dir-exists screenshots -- "rm -fr screenshots" && \
+    melos exec -c 1 --flutter -- "flutter clean"
+
+  reinit:
+    description: Reinitialises the project
+    run: |
+      melos clean && \
+      melos run pub_get:all
+
+  pr_check:changed:
+    description: Runs a PR check for packages that have changes compared to the remote main branch
+    run: |
+      melos run packages:changed --no-select && \
+      melos run pub_get_offline:all --no-select && \
+      melos run analyze:all && \
+      melos run verify_format:changed --no-select && \
+      melos run test:changed --no-select
+
+  pr_check:all:
+    description: Runs a PR check for all packages
+    run: |
+      melos run packages:all --no-select && \
+      melos run pub_get_offline:all --no-select && \
+      melos run analyze:all && \
+      melos run verify_format:all --no-select && \
+      melos run test:all --no-select
+
+  flutter_run_linux:
+    description: Runs flutter package(s) as Linux application(s)
+    exec: flutter run --flavor development --device-id linux
+    select-package:
+      dir-exists:
+        - linux
+
+  packages:all:
+    description: Prints all packages
+    exec: pwd
+
+  packages:changed:
+    description: Prints which packages has been changed since origin/main
+    exec: pwd
+    select-package:
+      since: origin/master
+
+  pub_get_offline:all:
+    description: |
+      Run `flutter pub get --offline` in all packages.
+      This action can be performed by several workers are they will not block one another when creating files.
+    run: melos exec -c 5 -- "flutter pub get --offline || flutter pub get" || melos exec -c 1 -- "flutter pub get"
+
+  pub_get_online:all:
+    description: Run `flutter pub get --no-offline` in all packages
+    run: melos exec -c 1 -- "dart pub get --no-offline"
+
+  pub_get:all:
+    description: Run `flutter pub get` in all packages
+    run: melos exec -c 5 -- "flutter pub get --offline || flutter pub get" || melos exec -c 1 -- "flutter pub get"
+
+  pub_get:changed:
+    description: Run `flutter pub get` in packages that have changes compared to the remote main branch
+    run: melos exec -c 5 -- "flutter pub get --offline || flutter pub get"
+    select-package:
+      since: origin/master
+
+  pub_get:select:
+    description: Run `flutter pub get` in selected package
+    exec: flutter pub get
+    select-package:
+      scope: "*"
+
+  analyze:all:
+    description: Run `dart analyze . --fatal-infos` in all packages and in the main app
+    run: |
+      dart analyze . --fatal-infos
+
+  format:all:
+    description: Run `dart format .` in all packages
+    exec: dart format .
+
+  format:changed:
+    description: Run `dart format .` in packages that have changes compared to the remote main branch
+    exec: dart format .
+    select-package:
+      since: origin/master
+
+  format:select:
+    description: Run `dart format .` in a selected package
+    exec: dart format .
+    select-package:
+      scope: "*"
+
+  verify_format:all:
+    description: Verifies that all packages are formatted
+    exec: dart format --set-exit-if-changed .
+
+  verify_format:select:
+    description: Run `dart format --set-exit-if-changed .` in packages that have changes compared to main
+    exec: dart format --set-exit-if-changed .
+    select-package:
+      scope: "*"
+
+  test:all:
+    description: Test all packages that have no flutter dependency
+    exec: |
+      flutter test . --reporter github
+    select-package:
+      dir-exists:
+        - test
+
+  test:changed:
+    description: Test all packages that have no flutter dependency
+    exec: |
+      flutter test . --reporter github
+    select-package:
+      since: origin/master
+
+  test:select:
+    description: Test selected package
+    exec: |
+      flutter test . --reporter github
+    select-package:
+      dir-exists:
+        - test
