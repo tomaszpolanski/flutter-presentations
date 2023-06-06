@@ -84,7 +84,7 @@ class _WhatIsScaleState extends State<WhatIsScale>
                     style: const TextStyle(color: GTheme.flutter3),
                     child: RevolvingWidget(
                       firstChild: const Text('users'),
-                      secondChild: const Text('devs'),
+                      secondChild: const Text(' devs'),
                       state: _revolvingState,
                     ),
                   ),
