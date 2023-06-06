@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_ui/shared_ui.dart';
 
 class TimelinePage extends StatefulWidget {
   const TimelinePage(
@@ -73,20 +74,34 @@ class _TimelinePageState extends State<TimelinePage>
         ? widget.current
         : next != null && _controller.status == AnimationStatus.completed
             ? next
-            : '';
+            : null;
     return Stack(
       children: [
-        Text(text),
-        Align(
-          child: ClipRect(
-            child: CustomPaint(
-              size: Size(double.infinity, 300),
-              painter: TimelinePainter(
-                count: 20,
-                progress: _controller.value,
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 60, left: 80, bottom: 20),
+              child: text != null //
+                  ? FadeInWidget(child: Text(text))
+                  : Text(''),
+            ),
+            ClipRect(
+              child: CustomPaint(
+                painter: TimelinePainter(
+                  count: 20,
+                  progress: _controller.value,
+                ),
+                child: Container(
+                  height: 300,
+                ),
               ),
             ),
-          ),
+          ],
+        ),
+        CustomPaint(
+          painter: TrianglePainter(),
+          child: Container(),
         ),
       ],
     );
@@ -135,5 +150,24 @@ class TimelinePainter extends CustomPainter {
   @override
   bool shouldRepaint(TimelinePainter oldDelegate) {
     return progress != oldDelegate.progress;
+  }
+}
+
+class TrianglePainter extends CustomPainter {
+  const TrianglePainter();
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    var path = Path();
+    path.moveTo(0, 0);
+    path.lineTo(0, size.height);
+    path.lineTo(size.width * 0.2, size.height);
+    path.close();
+    canvas.drawPath(path, Paint()..color = Colors.white);
+  }
+
+  @override
+  bool shouldRepaint(TrianglePainter oldDelegate) {
+    return false;
   }
 }

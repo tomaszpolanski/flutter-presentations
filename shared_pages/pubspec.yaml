@@ -16,6 +16,9 @@ dependencies:
   shared_theme:
     path: ../shared_theme
 
+  shared_ui:
+    path: ../shared_ui
+
 flutter:
   assets:
     - assets/
