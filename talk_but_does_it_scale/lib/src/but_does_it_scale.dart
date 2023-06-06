@@ -46,6 +46,20 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
         body: Builder(
           builder: (_) {
             final children = [
+              TimelinePage(
+                presentationController,
+                current: 'First Day',
+              ),
+              TimelinePage(
+                presentationController,
+                current: 'First Day',
+                next: 'Test All',
+              ),
+              TimelinePage(
+                presentationController,
+                current: 'Test All',
+                next: '...',
+              ),
               const ThatsAll(thanks: 'Thank you!'),
             ];
             return Stack(
