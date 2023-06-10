@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_presentations/shared/shortcuts.dart';
+import 'package:shared_theme/shared_theme.dart';
 import 'package:talk_big_applications/talk_big_applications.dart';
 import 'package:talk_but_does_it_scale/talk_but_does_it_scale.dart';
 import 'package:talk_convincing_to_flutter/talk_convincing_to_flutter.dart';
@@ -14,15 +15,19 @@ class FlutterPresentations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      navigatorKey: gKey,
-      theme: ThemeData(fontFamily: 'Montserrat'),
-      builder: (context, child) => PresentationShortcuts(
-        navigator: () => gKey.currentState,
-        child: child!,
-      ),
-      home: const _PresentationList(),
+    return ThemeSwitcherWidget(
+      builder: (context) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          navigatorKey: gKey,
+          theme: ThemeSwitcher.maybeOf(context)?.date,
+          builder: (context, child) => PresentationShortcuts(
+            navigator: () => gKey.currentState,
+            child: child!,
+          ),
+          home: const _PresentationList(),
+        );
+      },
     );
   }
 }
@@ -33,9 +38,6 @@ class _PresentationList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Presentations'),
-      ),
       body: ListView(
         children: [
           ListTile(
