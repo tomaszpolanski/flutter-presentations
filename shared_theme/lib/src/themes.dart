@@ -17,6 +17,7 @@ ThemeData blueLight() {
 ThemeData blueDark() {
   return ThemeData.dark().copyWith(
     primaryColor: Colors.white,
+    scaffoldBackgroundColor: Colors.black,
     appBarTheme: const AppBarTheme(
       color: Colors.black,
     ),
