@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/serviceackage:window_manager/window_manager.dart';
+import 'package:flutter/services.dart';
+import 'package:shared_theme/shared_theme.dart';
+import 'package:window_manager/window_manager.dart';
 
 class PresentationShortcuts extends StatelessWidget {
   const PresentationShortcuts({
