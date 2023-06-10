@@ -4,8 +4,9 @@ import 'package:shared_theme/src/groupon_theme.dart';
 ThemeData blueLight() {
   return ThemeData.light().copyWith(
     scaffoldBackgroundColor: Colors.white,
+    primaryColor: GTheme.flutter3,
     textTheme: TextTheme(
-      headlineSmall: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 140),
+      headlineSmall: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 40),
       titleLarge: GTheme.big.copyWith(color: GTheme.flutter2, fontSize: 80),
       bodyMedium: GTheme.big.copyWith(color: GTheme.flutter2),
       bodySmall: GTheme.smaller.copyWith(color: GTheme.flutter1),
@@ -16,6 +17,7 @@ ThemeData blueLight() {
 ThemeData blueDark() {
   return ThemeData.dark().copyWith(
     primaryColor: Colors.white,
+    scaffoldBackgroundColor: Colors.black,
     appBarTheme: const AppBarTheme(
       color: Colors.black,
     ),

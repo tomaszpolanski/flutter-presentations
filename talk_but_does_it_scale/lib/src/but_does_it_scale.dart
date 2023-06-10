@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:presentation/presentation.dart';
 import 'package:shared_pages/shared_pages.dart';
-import 'package:shared_theme/shared_theme.dart';
 import 'package:shared_ui/shared_ui.dart';
 import 'package:talk_but_does_it_scale/src/images.dart';
 import 'package:talk_but_does_it_scale/src/pages/what_is_scale.dart';
@@ -41,60 +40,57 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: blueLight(),
-      child: Scaffold(
-        body: Builder(
-          builder: (_) {
-            final children = [
-              WhatIsScale(presentationController),
-              TimelinePage(
-                presentationController,
-                current: 'First Day',
+    return Scaffold(
+      body: Builder(
+        builder: (_) {
+          final children = [
+            WhatIsScale(presentationController),
+            TimelinePage(
+              presentationController,
+              current: 'First Day',
+            ),
+            TimelinePage(
+              presentationController,
+              current: 'First Day',
+              next: 'Test All',
+            ),
+            TimelinePage(
+              presentationController,
+              current: 'Test All',
+              next: '...',
+            ),
+            const ThatsAll(thanks: 'Thank you!'),
+          ];
+          return Stack(
+            fit: StackFit.expand,
+            children: [
+              Presentation(
+                controller: controller,
+                presentationController: presentationController,
+                children: children,
               ),
-              TimelinePage(
-                presentationController,
-                current: 'First Day',
-                next: 'Test All',
-              ),
-              TimelinePage(
-                presentationController,
-                current: 'Test All',
-                next: '...',
-              ),
-              const ThatsAll(thanks: 'Thank you!'),
-            ];
-            return Stack(
-              fit: StackFit.expand,
-              children: [
-                Presentation(
+              Positioned(
+                bottom: 50,
+                left: 50,
+                child: PresentationLogo(
                   controller: controller,
-                  presentationController: presentationController,
-                  children: children,
-                ),
-                Positioned(
-                  bottom: 50,
-                  left: 50,
                   child: PresentationLogo(
                     controller: controller,
-                    child: PresentationLogo(
-                      controller: controller,
-                      child: SvgPicture.asset(
-                        Images.flutterCon,
-                        package: Images.package,
-                        height: 25,
-                        colorFilter: const ColorFilter.mode(
-                          Colors.blue,
-                          BlendMode.srcIn,
-                        ),
+                    child: SvgPicture.asset(
+                      Images.flutterCon,
+                      package: Images.package,
+                      height: 25,
+                      colorFilter: const ColorFilter.mode(
+                        Colors.blue,
+                        BlendMode.srcIn,
                       ),
                     ),
                   ),
-                )
-              ],
-            );
-          },
-        ),
+                ),
+              )
+            ],
+          );
+        },
       ),
     );
   }

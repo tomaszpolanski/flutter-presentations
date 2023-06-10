@@ -91,6 +91,7 @@ class _TimelinePageState extends State<TimelinePage>
                 painter: TimelinePainter(
                   count: 20,
                   progress: _controller.value,
+                  color: Theme.of(context).primaryColor,
                 ),
                 child: Container(
                   height: 300,
@@ -100,7 +101,9 @@ class _TimelinePageState extends State<TimelinePage>
           ],
         ),
         CustomPaint(
-          painter: TrianglePainter(),
+          painter: TrianglePainter(
+            color: Theme.of(context).scaffoldBackgroundColor,
+          ),
           child: Container(),
         ),
       ],
@@ -112,15 +115,17 @@ class TimelinePainter extends CustomPainter {
   const TimelinePainter({
     required this.count,
     required this.progress,
+    required this.color,
   });
 
   final int count;
   final double progress;
+  final Color color;
 
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
-      ..color = Colors.black
+      ..color = color
       ..strokeWidth = 5
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
@@ -149,12 +154,13 @@ class TimelinePainter extends CustomPainter {
 
   @override
   bool shouldRepaint(TimelinePainter oldDelegate) {
-    return progress != oldDelegate.progress;
+    return progress != oldDelegate.progress || color != oldDelegate.color;
   }
 }
 
 class TrianglePainter extends CustomPainter {
-  const TrianglePainter();
+  const TrianglePainter({required this.color});
+  final Color color;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -163,11 +169,11 @@ class TrianglePainter extends CustomPainter {
     path.lineTo(0, size.height);
     path.lineTo(size.width * 0.2, size.height);
     path.close();
-    canvas.drawPath(path, Paint()..color = Colors.white);
+    canvas.drawPath(path, Paint()..color = color);
   }
 
   @override
   bool shouldRepaint(TrianglePainter oldDelegate) {
-    return false;
+    return color != oldDelegate.color;
   }
 }

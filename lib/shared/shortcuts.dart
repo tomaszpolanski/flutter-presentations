@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_theme/shared_theme.dart';
 import 'package:window_manager/window_manager.dart';
 
 class PresentationShortcuts extends StatelessWidget {
@@ -18,11 +19,18 @@ class PresentationShortcuts extends StatelessWidget {
       shortcuts: const <ShortcutActivator, Intent>{
         SingleActivator(LogicalKeyboardKey.f11): ToggleFullScreenIntent(),
         SingleActivator(LogicalKeyboardKey.escape): GoBackIntent(),
+        SingleActivator(LogicalKeyboardKey.f12): ToggleTheme(),
       },
       child: Builder(
         builder: (context) {
           return Actions(
             actions: <Type, Action<Intent>>{
+              ToggleTheme: CallbackAction(
+                onInvoke: (_) async {
+                  ThemeSwitcher.maybeOf(context)?.date = blueDark();
+                  return null;
+                },
+              ),
               ToggleFullScreenIntent: CallbackAction(
                 onInvoke: (_) async {
                   final isFullScreen =
@@ -60,4 +68,8 @@ class ToggleFullScreenIntent extends Intent {
 
 class GoBackIntent extends Intent {
   const GoBackIntent();
+}
+
+class ToggleTheme extends Intent {
+  const ToggleTheme();
 }
