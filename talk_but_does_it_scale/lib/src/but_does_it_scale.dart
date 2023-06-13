@@ -5,6 +5,7 @@ import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_ui/shared_ui.dart';
 import 'package:talk_but_does_it_scale/src/images.dart';
 import 'package:talk_but_does_it_scale/src/pages/speakers_intro.dart';
+import 'package:talk_but_does_it_scale/src/pages/test.dart';
 import 'package:talk_but_does_it_scale/src/pages/what_is_scale.dart';
 
 class ButDoesItScale extends StatefulWidget {
@@ -45,6 +46,7 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
       body: Builder(
         builder: (_) {
           final children = [
+            Tesssssst(),
             SpeakersIntro(presentationController),
             WhatIsScale(presentationController),
             TimelinePage(
