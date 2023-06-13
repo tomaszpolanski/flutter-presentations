@@ -61,6 +61,19 @@ class _Windows extends StatelessWidget {
                       ),
                     ),
                   ),
+                  const SizedBox(width: 12),
+                  _WindowsButton(
+                    child: Container(
+                      width: 20,
+                      height: 20,
+                      child: CustomPaint(
+                        painter: _CrossDrawPaint(
+                          color: Theme.of(context).colorScheme.onBackground,
+                        ),
+                        child: Container(),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -83,6 +96,29 @@ class _WindowsButton extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: child,
     );
+  }
+}
+
+class _CrossDrawPaint extends CustomPainter {
+  const _CrossDrawPaint({required this.color});
+
+  final Color color;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint crossBrush = Paint()
+      ..color = color
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2;
+    canvas.drawLine(Offset(size.width, size.height),
+        Offset(size.width - size.width, size.height - size.height), crossBrush);
+    canvas.drawLine(Offset(size.width - size.width, size.height),
+        Offset(size.width, size.height - size.height), crossBrush);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
   }
 }
 
