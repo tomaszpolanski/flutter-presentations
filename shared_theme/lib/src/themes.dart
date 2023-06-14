@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:shared_theme/src/groupon_theme.dart';
 
 ThemeData blueLight() {
-  return ThemeData.light().copyWith(
+  final t = ThemeData.light().copyWith(
     scaffoldBackgroundColor: Colors.white,
     primaryColor: GTheme.flutter3,
+    colorScheme: ThemeData.light().colorScheme.copyWith(
+          background: Colors.black,
+          onBackground: Colors.white,
+        ),
     textTheme: TextTheme(
       headlineSmall: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 40),
       titleLarge: GTheme.big.copyWith(color: GTheme.flutter2, fontSize: 80),
@@ -12,12 +16,24 @@ ThemeData blueLight() {
       bodySmall: GTheme.smaller.copyWith(color: GTheme.flutter1),
     ),
   );
+  return t.copyWith(
+    colorScheme: t.colorScheme.copyWith(
+      background: Colors.white,
+      onBackground: Colors.black,
+      primaryContainer: GTheme.flutter2,
+      onPrimaryContainer: Colors.white,
+    ),
+  );
 }
 
 ThemeData blueDark() {
-  return ThemeData.dark().copyWith(
+  final t = ThemeData.dark().copyWith(
     primaryColor: Colors.white,
     scaffoldBackgroundColor: Colors.black,
+    colorScheme: ThemeData.light().colorScheme.copyWith(
+          background: Colors.black,
+          onBackground: Colors.white,
+        ),
     appBarTheme: const AppBarTheme(
       color: Colors.black,
     ),
@@ -26,6 +42,14 @@ ThemeData blueDark() {
       titleLarge: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 80),
       bodyMedium: GTheme.big.copyWith(color: GTheme.flutter2),
       bodySmall: GTheme.smaller.copyWith(color: GTheme.flutter3),
+    ),
+  );
+  return t.copyWith(
+    colorScheme: t.colorScheme.copyWith(
+      background: Colors.black,
+      onBackground: Colors.white,
+      primaryContainer: GTheme.flutter3,
+      onPrimaryContainer: Colors.white,
     ),
   );
 }
