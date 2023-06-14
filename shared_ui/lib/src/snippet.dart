@@ -1,16 +1,28 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter/material.dart';
+
+enum Platform {
+  windows,
+  macos,
+}
 
 class Snippet extends StatelessWidget {
   const Snippet({
     super.key,
+    this.platform = Platform.windows,
     required this.child,
   });
 
+  final Platform platform;
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    return _Windows(child: child);
+    return switch (platform) {
+      Platform.windows => _Windows(child: child),
+      Platform.macos => _MacOs(child: child),
+    };
   }
 }
 
@@ -28,58 +40,67 @@ class _Windows extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(20)),
         border: Border.all(
-          width: 2,
-          color: Theme.of(context).disabledColor,
+          width: 3,
+          color: Theme.of(context).colorScheme.primaryContainer,
         ),
       ),
-      clipBehavior: Clip.antiAlias,
-      child: Stack(
-        children: [
-          Positioned(
-            right: 0,
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Row(
-                children: [
-                  _WindowsButton(
-                    child: Container(
-                      width: 20,
-                      height: 2,
-                      color: Theme.of(context).colorScheme.onBackground,
+      child: ClipRRect(
+        borderRadius: const BorderRadius.all(Radius.circular(16)),
+        child: Stack(
+          children: [
+            child,
+            Positioned(
+              right: 0,
+              left: 0,
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                color: Theme.of(context).colorScheme.primaryContainer,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    _WindowsButton(
+                      child: Container(
+                        width: 20,
+                        height: 2,
+                        color: Theme.of(context).colorScheme.onPrimaryContainer,
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 12),
-                  _WindowsButton(
-                    child: Container(
-                      width: 20,
-                      height: 20,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          width: 2,
-                          color: Theme.of(context).colorScheme.onBackground,
+                    const SizedBox(width: 12),
+                    _WindowsButton(
+                      child: Container(
+                        width: 20,
+                        height: 20,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 2,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimaryContainer,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(width: 12),
-                  _WindowsButton(
-                    child: Container(
-                      width: 20,
-                      height: 20,
-                      child: CustomPaint(
-                        painter: _CrossDrawPaint(
-                          color: Theme.of(context).colorScheme.onBackground,
+                    const SizedBox(width: 12),
+                    _WindowsButton(
+                      child: Container(
+                        width: 20,
+                        height: 20,
+                        child: CustomPaint(
+                          painter: _CrossDrawPaint(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onPrimaryContainer,
+                          ),
+                          child: Container(),
                         ),
-                        child: Container(),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-          child,
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -132,30 +153,39 @@ class _MacOs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: const BorderRadius.all(Radius.circular(20)),
-      child: Stack(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Row(
-              children: [
-                _MacOsButton(
-                  color: const Color(0xffff5f57),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
+      ),
+      child: ClipRRect(
+        borderRadius: const BorderRadius.all(Radius.circular(16)),
+        child: Stack(
+          children: [
+            child,
+            Positioned(
+              right: 0,
+              left: 0,
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  children: [
+                    _MacOsButton(
+                      color: const Color(0xffff5f57),
+                    ),
+                    const SizedBox(width: 12),
+                    _MacOsButton(
+                      color: const Color(0xfffebc2e),
+                    ),
+                    const SizedBox(width: 12),
+                    _MacOsButton(
+                      color: const Color(0xff27c840),
+                    ),
+                  ],
                 ),
-                const SizedBox(width: 12),
-                _MacOsButton(
-                  color: const Color(0xfffebc2e),
-                ),
-                const SizedBox(width: 12),
-                _MacOsButton(
-                  color: const Color(0xff27c840),
-                ),
-              ],
+              ),
             ),
-          ),
-          child,
-        ],
+          ],
+        ),
       ),
     );
   }

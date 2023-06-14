@@ -46,7 +46,6 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
       body: Builder(
         builder: (_) {
           final children = [
-            Tesssssst(),
             SpeakersIntro(presentationController),
             WhatIsScale(presentationController),
             TimelinePage(

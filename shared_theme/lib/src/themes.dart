@@ -20,6 +20,8 @@ ThemeData blueLight() {
     colorScheme: t.colorScheme.copyWith(
       background: Colors.white,
       onBackground: Colors.black,
+      primaryContainer: GTheme.flutter2,
+      onPrimaryContainer: Colors.white,
     ),
   );
 }
@@ -46,6 +48,8 @@ ThemeData blueDark() {
     colorScheme: t.colorScheme.copyWith(
       background: Colors.black,
       onBackground: Colors.white,
+      primaryContainer: GTheme.flutter3,
+      onPrimaryContainer: Colors.white,
     ),
   );
 }
