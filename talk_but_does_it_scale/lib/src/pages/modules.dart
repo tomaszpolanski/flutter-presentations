@@ -10,13 +10,11 @@ class Modules extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const encoder = JsonEncoder.withIndent('  ');
     return FutureBuilder<String>(
       future: DefaultAssetBundle.of(context)
           .loadString('packages/talk_but_does_it_scale/assets/modules.json'),
       builder: (context, snapshot) {
         final _json = snapshot.data;
-        print('Snapshot ${snapshot.error}');
         if (_json == null) {
           return const SizedBox();
         }

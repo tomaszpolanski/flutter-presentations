@@ -47,7 +47,7 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
       body: Builder(
         builder: (_) {
           final children = [
-            Modules(),
+            const Modules(),
             EmbraceChange(presentationController),
             SpeakersIntro(presentationController),
             WhatIsScale(presentationController),
