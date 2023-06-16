@@ -22,15 +22,11 @@ void main() {
       .toList()
     ..sort((d1, d2) => d1.path.compareTo(d2.path));
 
-  for (final m in modules) {
-    print(m.path);
-  }
-  print('Count ${modules.length}');
+  stdout.writeln('Module Count ${modules.length}');
   final root = from(modules);
 
-  const encoder = JsonEncoder();
-  final prettyprint = encoder.convert(root.toJson());
-  print(prettyprint);
+  final _json = json.encode(root.toJson());
+  stdout.writeln(_json);
 }
 
 Module from(List<Directory> modules) {
