@@ -1,0 +1,657 @@
+{
+  "name": "klar",
+  "modules": [
+    {
+      "name": "app"
+    },
+    {
+      "name": "app_signup"
+    },
+    {
+      "name": "feature_bill_pay",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_cards",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_credit",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_credit_onboarding"
+    },
+    {
+      "name": "feature_debit",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_debt_renegotiation",
+      "modules": [
+        {
+          "name": "example"
+        }
+      ]
+    },
+    {
+      "name": "feature_education",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_kyc",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_mfa",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_persistent_notifications",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_profile_settings",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_salary_advance",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_savings",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_secured_card_activation",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_security_settings",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_settings",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_signature",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_signup",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_sofipo_migration",
+      "modules": [
+        {
+          "name": "example"
+        }
+      ]
+    },
+    {
+      "name": "feature_support",
+      "modules": [
+        {
+          "name": "example"
+        }
+      ]
+    },
+    {
+      "name": "feature_tipping",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_top_up",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_transaction",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_transfer",
+      "modules": [
+        {
+          "name": "example"
+        },
+        {
+          "name": "page_objects"
+        }
+      ]
+    },
+    {
+      "name": "feature_upgrader",
+      "modules": [
+        {
+          "name": "example"
+        }
+      ]
+    },
+    {
+      "name": "klar_account_statement_repository"
+    },
+    {
+      "name": "klar_adjust"
+    },
+    {
+      "name": "klar_agreement_consent_api"
+    },
+    {
+      "name": "klar_analytics",
+      "modules": [
+        {
+          "name": "test_utils"
+        }
+      ]
+    },
+    {
+      "name": "klar_api_client"
+    },
+    {
+      "name": "klar_api_json"
+    },
+    {
+      "name": "klar_authentication_api"
+    },
+    {
+      "name": "klar_authentication_repository"
+    },
+    {
+      "name": "klar_balance_repository",
+      "modules": [
+        {
+          "name": "test_utils"
+        }
+      ]
+    },
+    {
+      "name": "klar_biometrics",
+      "modules": [
+        {
+          "name": "example"
+        }
+      ]
+    },
+    {
+      "name": "klar_bloc_base"
+    },
+    {
+      "name": "klar_bloc_test_bed"
+    },
+    {
+      "name": "klar_charts",
+      "modules": [
+        {
+          "name": "example"
+        }
+      ]
+    },
+    {
+      "name": "klar_clock",
+      "modules": [
+        {
+          "name": "test_utils"
+        }
+      ]
+    },
+    {
+      "name": "klar_common"
+    },
+    {
+      "name": "klar_credit_entities"
+    },
+    {
+      "name": "klar_credit_line_repository"
+    },
+    {
+      "name": "klar_credit_onboarding_state_repository",
+      "modules": [
+        {
+          "name": "test_utils"
+        }
+      ]
+    },
+    {
+      "name": "klar_credit_statement_repository"
+    },
+    {
+      "name": "klar_cryptography"
+    },
+    {
+      "name": "klar_customer_io"
+    },
+    {
+      "name": "klar_data_result"
+    },
+    {
+      "name": "klar_debit_credit_toggle_repository"
+    },
+    {
+      "name": "klar_debug"
+    },
+    {
+      "name": "klar_deep_links"
+    },
+    {
+      "name": "klar_dependencies"
+    },
+    {
+      "name": "klar_dependencies_base"
+    },
+    {
+      "name": "klar_deprecated_design_system"
+    },
+    {
+      "name": "klar_design_system",
+      "modules": [
+        {
+          "name": "example"
+        }
+      ]
+    },
+    {
+      "name": "klar_disposable"
+    },
+    {
+      "name": "klar_entities"
+    },
+    {
+      "name": "klar_environment"
+    },
+    {
+      "name": "klar_error_reporting",
+      "modules": [
+        {
+          "name": "test_utils"
+        }
+      ]
+    },
+    {
+      "name": "klar_file_downloader",
+      "modules": [
+        {
+          "name": "example"
+        }
+      ]
+    },
+    {
+      "name": "klar_firebase_analytics"
+    },
+    {
+      "name": "klar_flutter_error_reporting"
+    },
+    {
+      "name": "klar_galileo_card_data"
+    },
+    {
+      "name": "klar_generated_models"
+    },
+    {
+      "name": "klar_gherkin"
+    },
+    {
+      "name": "klar_homescreen"
+    },
+    {
+      "name": "klar_icons",
+      "modules": [
+        {
+          "name": "example"
+        }
+      ]
+    },
+    {
+      "name": "klar_in_app_review"
+    },
+    {
+      "name": "klar_kyc_tiers_repository"
+    },
+    {
+      "name": "klar_l10n",
+      "modules": [
+        {
+          "name": "test_utils"
+        }
+      ]
+    },
+    {
+      "name": "klar_loan_api"
+    },
+    {
+      "name": "klar_loan_repository",
+      "modules": [
+        {
+          "name": "test_utils"
+        }
+      ]
+    },
+    {
+      "name": "klar_mfa"
+    },
+    {
+      "name": "klar_navigation",
+      "modules": [
+        {
+          "name": "test_utils"
+        }
+      ]
+    },
+    {
+      "name": "klar_pagination"
+    },
+    {
+      "name": "klar_pdf",
+      "modules": [
+        {
+          "name": "example"
+        }
+      ]
+    },
+    {
+      "name": "klar_performance_monitor"
+    },
+    {
+      "name": "klar_persistence",
+      "modules": [
+        {
+          "name": "test_utils"
+        }
+      ]
+    },
+    {
+      "name": "klar_persistent_notifications_repository",
+      "modules": [
+        {
+          "name": "test_utils"
+        }
+      ]
+    },
+    {
+      "name": "klar_platform"
+    },
+    {
+      "name": "klar_privacy",
+      "modules": [
+        {
+          "name": "example"
+        }
+      ]
+    },
+    {
+      "name": "klar_product_onboarding_shared",
+      "modules": [
+        {
+          "name": "example"
+        }
+      ]
+    },
+    {
+      "name": "klar_provider_entities",
+      "modules": [
+        {
+          "name": "test_utils"
+        }
+      ]
+    },
+    {
+      "name": "klar_pushes"
+    },
+    {
+      "name": "klar_remote_config",
+      "modules": [
+        {
+          "name": "test_utils"
+        }
+      ]
+    },
+    {
+      "name": "klar_remote_config_generator"
+    },
+    {
+      "name": "klar_report_generator"
+    },
+    {
+      "name": "klar_repository_base"
+    },
+    {
+      "name": "klar_rewards_repository"
+    },
+    {
+      "name": "klar_savings_repository",
+      "modules": [
+        {
+          "name": "test_utils"
+        }
+      ]
+    },
+    {
+      "name": "klar_sentry"
+    },
+    {
+      "name": "klar_seon"
+    },
+    {
+      "name": "klar_services"
+    },
+    {
+      "name": "klar_shared_ui"
+    },
+    {
+      "name": "klar_story_player"
+    },
+    {
+      "name": "klar_support",
+      "modules": [
+        {
+          "name": "example"
+        }
+      ]
+    },
+    {
+      "name": "klar_support_base"
+    },
+    {
+      "name": "klar_test_app_base"
+    },
+    {
+      "name": "klar_test_bed"
+    },
+    {
+      "name": "klar_theme"
+    },
+    {
+      "name": "klar_tools"
+    },
+    {
+      "name": "klar_tooltip",
+      "modules": [
+        {
+          "name": "example"
+        }
+      ]
+    },
+    {
+      "name": "klar_transaction_api"
+    },
+    {
+      "name": "klar_transaction_repository",
+      "modules": [
+        {
+          "name": "test_utils"
+        }
+      ]
+    },
+    {
+      "name": "klar_transactions",
+      "modules": [
+        {
+          "name": "example"
+        }
+      ]
+    },
+    {
+      "name": "klar_transactions_receipt_api"
+    },
+    {
+      "name": "klar_transfer"
+    },
+    {
+      "name": "klar_transfer_repository"
+    },
+    {
+      "name": "klar_translations"
+    },
+    {
+      "name": "klar_ui_tests"
+    },
+    {
+      "name": "klar_user_repository",
+      "modules": [
+        {
+          "name": "test_utils"
+        }
+      ]
+    },
+    {
+      "name": "klar_user_scope_data"
+    },
+    {
+      "name": "klar_widget_test"
+    }
+  ]
+}
