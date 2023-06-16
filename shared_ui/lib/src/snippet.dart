@@ -48,7 +48,10 @@ class _Windows extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(16)),
         child: Stack(
           children: [
-            child,
+            Padding(
+              padding: const EdgeInsets.only(top: 60),
+              child: child,
+            ),
             Positioned(
               right: 0,
               left: 0,

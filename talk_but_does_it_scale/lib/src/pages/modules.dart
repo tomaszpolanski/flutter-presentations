@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:shared_ui/shared_ui.dart';
 import 'package:talk_but_does_it_scale/src/data/module.dart';
 
 class Modules extends StatelessWidget {
@@ -20,8 +21,19 @@ class Modules extends StatelessWidget {
           return const SizedBox();
         }
         final m = Module.fromJson(json.decode(_json));
-        return _Modules(
-          modules: m.modules,
+        return Center(
+          child: SizedBox(
+            width: 500,
+            height: 700,
+            child: Snippet(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: _Modules(
+                  modules: m.modules,
+                ),
+              ),
+            ),
+          ),
         );
       },
     );
@@ -65,44 +77,51 @@ class _SingleModuleState extends State<_SingleModule> {
 
   @override
   Widget build(BuildContext context) {
-    final chevron = widget.module.modules.isNotEmpty
-        ? Transform.rotate(
-            angle: _expanded ? math.pi / 2 : 0,
-            child: const Icon(Icons.chevron_right_sharp),
-          )
-        : null;
+    final chevron = FadeInVisibility(
+      visible: widget.module.modules.isNotEmpty,
+      child: Transform.rotate(
+        angle: _expanded ? math.pi / 2 : 0,
+        child: const Icon(Icons.chevron_right_sharp),
+      ),
+    );
 
     return GestureDetector(
+      onTap: widget.module.modules.isNotEmpty
+          ? () {
+              setState(() {
+                _expanded = !_expanded;
+              });
+            }
+          : null,
       child: ColoredBox(
         color: Colors.transparent,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (chevron != null) chevron,
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  widget.module.name,
-                  style: const TextStyle(fontSize: 18),
-                ),
-                if (_expanded)
-                  ...widget.module.modules.map(_SingleModule.new).map(
-                        (s) => Padding(
-                          padding: const EdgeInsets.only(left: 8),
-                          child: s,
-                        ),
-                      ),
-              ],
+            chevron,
+            FadeInVisibility(
+              visible: widget.module.type == Type.ui,
+              child: const FlutterLogo(),
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.module.name,
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Theme.of(context).colorScheme.onBackground,
+                    ),
+                  ),
+                  if (_expanded)
+                    ...widget.module.modules.map(_SingleModule.new),
+                ],
+              ),
             ),
           ],
         ),
       ),
-      onTap: () {
-        setState(() {
-          _expanded = !_expanded;
-        });
-      },
     );
   }
 }
