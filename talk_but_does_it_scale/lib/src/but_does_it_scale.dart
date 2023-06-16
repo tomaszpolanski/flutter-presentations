@@ -4,6 +4,7 @@ import 'package:presentation/presentation.dart';
 import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_ui/shared_ui.dart';
 import 'package:talk_but_does_it_scale/src/images.dart';
+import 'package:talk_but_does_it_scale/src/pages/embrace_change.dart';
 import 'package:talk_but_does_it_scale/src/pages/speakers_intro.dart';
 import 'package:talk_but_does_it_scale/src/pages/what_is_scale.dart';
 
@@ -45,6 +46,7 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
       body: Builder(
         builder: (_) {
           final children = [
+            EmbraceChange(presentationController),
             SpeakersIntro(presentationController),
             WhatIsScale(presentationController),
             TimelinePage(

@@ -14,11 +14,13 @@ class RevolvingWidget extends StatefulWidget {
     required this.firstChild,
     required this.secondChild,
     required this.state,
+    this.alignment = AlignmentDirectional.topStart,
   });
 
   final Widget firstChild;
   final Widget secondChild;
   final RevolvingState state;
+  final AlignmentDirectional alignment;
 
   @override
   _RevolvingWidgetState createState() => _RevolvingWidgetState();
@@ -61,6 +63,7 @@ class _RevolvingWidgetState extends State<RevolvingWidget>
   @override
   Widget build(BuildContext context) {
     return Stack(
+      alignment: widget.alignment,
       children: [
         WrappedAnimatedBuilder<double>(
           animation: _controller,
