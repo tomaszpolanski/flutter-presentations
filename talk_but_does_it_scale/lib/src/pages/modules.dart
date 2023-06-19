@@ -28,7 +28,7 @@ class Modules extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 12),
                   child: ProjectStructure(
-                    modules: m.modules,
+                    module: m,
                   ),
                 ),
               ),

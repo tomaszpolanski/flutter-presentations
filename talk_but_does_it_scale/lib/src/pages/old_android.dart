@@ -91,13 +91,13 @@ class _OldAndroidState extends State<OldAndroid>
                 visible: _showOld,
                 child: SizedBox(
                   width: 500,
-                  height: 300,
+                  height: 350,
                   child: Snippet(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12),
                       child: ProjectStructure(
                         expanded: true,
-                        modules: oldAndroid.modules,
+                        module: oldAndroid,
                       ),
                     ),
                   ),
@@ -107,13 +107,13 @@ class _OldAndroidState extends State<OldAndroid>
                 visible: _showNew,
                 child: SizedBox(
                   width: 500,
-                  height: 300,
+                  height: 350,
                   child: Snippet(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12),
                       child: ProjectStructure(
                         expanded: true,
-                        modules: newAndroid.modules,
+                        module: newAndroid,
                       ),
                     ),
                   ),

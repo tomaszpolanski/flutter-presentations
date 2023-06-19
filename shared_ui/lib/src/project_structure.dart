@@ -7,11 +7,11 @@ class ProjectStructure extends StatefulWidget {
   const ProjectStructure({
     super.key,
     this.expanded = false,
-    required this.modules,
+    required this.module,
   });
 
   final bool expanded;
-  final List<Module> modules;
+  final Module module;
 
   @override
   State<ProjectStructure> createState() => _ProjectStructureState();
@@ -20,15 +20,11 @@ class ProjectStructure extends StatefulWidget {
 class _ProjectStructureState extends State<ProjectStructure> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        ...widget.modules.map(
-          (m) => _SingleModule(
-            m,
-            expanded: widget.expanded,
-          ),
-        ),
-      ],
+    return SingleChildScrollView(
+      child: _SingleModule(
+        widget.module,
+        expanded: widget.expanded,
+      ),
     );
   }
 }
