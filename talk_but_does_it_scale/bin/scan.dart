@@ -2,7 +2,9 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:path/path.dart' as path;
-import 'package:talk_but_does_it_scale/src/data/module.dart';
+
+// ignore: avoid_relative_lib_imports
+import '../../shared_ui/lib/src/data/module.dart';
 
 void main() {
   final rootFolder = Directory('.');
