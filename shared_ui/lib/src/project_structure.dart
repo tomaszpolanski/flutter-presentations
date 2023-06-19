@@ -37,6 +37,7 @@ class _SingleModule extends StatefulWidget {
   const _SingleModule(
     this.module, {
     required this.expanded,
+    // ignore: unused_element
     super.key,
   });
 
