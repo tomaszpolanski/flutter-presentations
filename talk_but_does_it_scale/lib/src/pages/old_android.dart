@@ -32,6 +32,7 @@ class OldAndroid extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 12),
                   child: ProjectStructure(
+                    expanded: true,
                     modules: oldAndroid.modules,
                   ),
                 ),
@@ -44,6 +45,7 @@ class OldAndroid extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 12),
                   child: ProjectStructure(
+                    expanded: true,
                     modules: newAndroid.modules,
                   ),
                 ),

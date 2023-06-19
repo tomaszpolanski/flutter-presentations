@@ -6,9 +6,11 @@ import 'package:shared_ui/shared_ui.dart';
 class ProjectStructure extends StatefulWidget {
   const ProjectStructure({
     super.key,
+    this.expanded = false,
     required this.modules,
   });
 
+  final bool expanded;
   final List<Module> modules;
 
   @override
@@ -20,23 +22,33 @@ class _ProjectStructureState extends State<ProjectStructure> {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        ...widget.modules.map(_SingleModule.new),
+        ...widget.modules.map(
+          (m) => _SingleModule(
+            m,
+            expanded: widget.expanded,
+          ),
+        ),
       ],
     );
   }
 }
 
 class _SingleModule extends StatefulWidget {
-  const _SingleModule(this.module, {super.key});
+  const _SingleModule(
+    this.module, {
+    required this.expanded,
+    super.key,
+  });
 
   final Module module;
+  final bool expanded;
 
   @override
   State<_SingleModule> createState() => _SingleModuleState();
 }
 
 class _SingleModuleState extends State<_SingleModule> {
-  bool _expanded = false;
+  late bool _expanded = widget.expanded;
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +90,12 @@ class _SingleModuleState extends State<_SingleModule> {
                     ),
                   ),
                   if (_expanded)
-                    ...widget.module.modules.map(_SingleModule.new),
+                    ...widget.module.modules.map(
+                      (m) => _SingleModule(
+                        m,
+                        expanded: widget.expanded,
+                      ),
+                    ),
                 ],
               ),
             ),
