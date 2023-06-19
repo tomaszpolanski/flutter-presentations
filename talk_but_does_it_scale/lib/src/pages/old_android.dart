@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_ui/shared_ui.dart';
 
 class OldAndroid extends StatefulWidget {
@@ -67,58 +68,61 @@ class _OldAndroidState extends State<OldAndroid>
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<String>>(
-      future: Future.wait(
-        [
-          'packages/talk_but_does_it_scale/assets/old_android.json',
-          'packages/talk_but_does_it_scale/assets/new_android.json',
-        ].map((p) => DefaultAssetBundle.of(context).loadString(p)),
+    return TiteledPage(
+      title: const Text('Structure'),
+      child: FutureBuilder<List<String>>(
+        future: Future.wait(
+          [
+            'packages/talk_but_does_it_scale/assets/old_android.json',
+            'packages/talk_but_does_it_scale/assets/new_android.json',
+          ].map((p) => DefaultAssetBundle.of(context).loadString(p)),
+        ),
+        builder: (context, snapshot) {
+          final _jsons = snapshot.data;
+          if (_jsons == null) {
+            return const SizedBox();
+          }
+          final oldAndroid = Module.fromJson(json.decode(_jsons[0]));
+          final newAndroid = Module.fromJson(json.decode(_jsons[1]));
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              FadeInVisibility(
+                visible: _showOld,
+                child: SizedBox(
+                  width: 500,
+                  height: 300,
+                  child: Snippet(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      child: ProjectStructure(
+                        expanded: true,
+                        modules: oldAndroid.modules,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              FadeInVisibility(
+                visible: _showNew,
+                child: SizedBox(
+                  width: 500,
+                  height: 300,
+                  child: Snippet(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      child: ProjectStructure(
+                        expanded: true,
+                        modules: newAndroid.modules,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
       ),
-      builder: (context, snapshot) {
-        final _jsons = snapshot.data;
-        if (_jsons == null) {
-          return const SizedBox();
-        }
-        final oldAndroid = Module.fromJson(json.decode(_jsons[0]));
-        final newAndroid = Module.fromJson(json.decode(_jsons[1]));
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            FadeInVisibility(
-              visible: _showOld,
-              child: SizedBox(
-                width: 500,
-                height: 300,
-                child: Snippet(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: ProjectStructure(
-                      expanded: true,
-                      modules: oldAndroid.modules,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            FadeInVisibility(
-              visible: _showNew,
-              child: SizedBox(
-                width: 500,
-                height: 300,
-                child: Snippet(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: ProjectStructure(
-                      expanded: true,
-                      modules: newAndroid.modules,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        );
-      },
     );
   }
 }
