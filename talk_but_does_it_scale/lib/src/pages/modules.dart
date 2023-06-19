@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:shared_ui/shared_ui.dart';
-import 'package:talk_but_does_it_scale/src/data/module.dart';
 
 class Modules extends StatelessWidget {
   const Modules({super.key});

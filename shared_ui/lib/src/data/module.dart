@@ -1,6 +1,9 @@
+import 'package:path/path.dart' as path;
+
 enum Type {
   ui,
   logic,
+  file,
 }
 
 class Module {
@@ -26,11 +29,15 @@ class Module {
   }
 
   Type get type {
-    return name == 'example' ||
-            name.startsWith('app') ||
-            name.startsWith('feature')
-        ? Type.ui
-        : Type.logic;
+    if (path.extension(name).isNotEmpty) {
+      return Type.file;
+    } else if (name == 'example' ||
+        name.startsWith('app') ||
+        name.startsWith('feature')) {
+      return Type.ui;
+    } else {
+      return Type.logic;
+    }
   }
 
   Map<String, dynamic> toJson() {

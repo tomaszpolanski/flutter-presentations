@@ -1,0 +1,33 @@
+{
+  "name": "android_application",
+  "modules": [
+    {
+      "name": "login",
+      "modules": [
+        {
+          "name": "LoginActivity.java"
+        },
+        {
+          "name": "LoginController.java"
+        },
+        {
+          "name": "LoginModel.java"
+        }
+      ]
+    },
+    {
+      "name": "home",
+      "modules": [
+        {
+          "name": "HomeActivity.java"
+        },
+        {
+          "name": "HomeController.java"
+        },
+        {
+          "name": "HomeModel.java"
+        }
+      ]
+    }
+  ]
+}

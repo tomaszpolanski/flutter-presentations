@@ -10,6 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  path: ^1.8.2
   presentation: ^2.2.0
 
   shared_theme:
