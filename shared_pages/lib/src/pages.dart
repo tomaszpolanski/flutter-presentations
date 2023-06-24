@@ -56,6 +56,7 @@ class ImagePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _child = child;
     return Stack(
       fit: StackFit.expand,
       children: [
@@ -63,14 +64,14 @@ class ImagePage extends StatelessWidget {
           asset,
           package: package,
         ),
-        if (child != null)
+        if (_child != null)
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(18),
               child: Align(
                 alignment: alignment,
                 child: ParallaxWidget(
-                  child: child!,
+                  child: _child,
                 ),
               ),
             ),
