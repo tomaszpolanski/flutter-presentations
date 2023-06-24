@@ -48,10 +48,18 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
       body: Builder(
         builder: (_) {
           final children = [
+            SpeakersIntro(presentationController),
+            const SummaryPage(
+              title: 'Test',
+              subtitle: '✅ All ✅',
+            ),
+            const SummaryPage(
+              title: 'Test',
+              subtitle: '⚡ Fast ⚡',
+            ),
             OldAndroid(presentationController),
             const Modules(),
             EmbraceChange(presentationController),
-            SpeakersIntro(presentationController),
             WhatIsScale(presentationController),
             TimelinePage(
               presentationController,
