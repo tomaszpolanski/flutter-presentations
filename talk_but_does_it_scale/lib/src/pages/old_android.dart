@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
 import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_ui/shared_ui.dart';
-
-import '../assets.dart';
+import 'package:talk_but_does_it_scale/src/assets.dart';
 
 class OldAndroid extends StatefulWidget {
   const OldAndroid(
