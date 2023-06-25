@@ -49,7 +49,7 @@ class _Windows extends StatelessWidget {
         child: Stack(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 60),
+              padding: const EdgeInsets.only(top: 56),
               child: child,
             ),
             Positioned(

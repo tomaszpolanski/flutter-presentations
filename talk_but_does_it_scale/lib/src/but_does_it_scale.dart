@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
 import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_ui/shared_ui.dart';
+import 'package:talk_but_does_it_scale/src/assets.dart';
 import 'package:talk_but_does_it_scale/src/images.dart';
 import 'package:talk_but_does_it_scale/src/pages/embrace_change.dart';
+import 'package:talk_but_does_it_scale/src/pages/golden_tests.dart';
 import 'package:talk_but_does_it_scale/src/pages/modules.dart';
 import 'package:talk_but_does_it_scale/src/pages/old_android.dart';
 import 'package:talk_but_does_it_scale/src/pages/speakers_intro.dart';
@@ -59,11 +62,20 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
                 child: Placeholder(),
               ),
             ),
-            const TiteledPage(
-              title: Text('Golder Tests'),
+            const GoldenTestPage(
+              title: Text('Golder Tests ❌'),
               // Should be only used for graphs
-              child: Snippet(
-                child: Placeholder(),
+              child: ParallaxImage(
+                Assets.simpleGolden,
+                package: Assets.package,
+              ),
+            ),
+            const GoldenTestPage(
+              title: Text('Golder Tests ✅'),
+              // Should be only used for graphs
+              child: ParallaxImage(
+                Assets.advanceGolden,
+                package: Assets.package,
               ),
             ),
             const SummaryPage(
@@ -92,7 +104,11 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               current: 'Test All',
               next: '...',
             ),
-            const ThatsAll(thanks: 'Thank you!'),
+            const ThatsAll(
+              thanks: 'Thank you!',
+              author: 'Pawel & Tomek Polanski',
+              contact: '@jaggernod / @tpolansk',
+            ),
           ];
           return Stack(
             fit: StackFit.expand,

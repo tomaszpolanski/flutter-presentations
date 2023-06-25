@@ -41,9 +41,13 @@ class ThatsAll extends StatefulWidget {
   const ThatsAll({
     super.key,
     required this.thanks,
+    this.author = 'Tomek Polanski',
+    this.contact = '@tpolansk',
   });
 
   final String thanks;
+  final String author;
+  final String contact;
 
   @override
   _ThatsAllState createState() => _ThatsAllState();
@@ -157,14 +161,14 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
               opacity: _showQuestions ? 1 : 0,
               child: DefaultTextStyle.merge(
                 style: const TextStyle(fontSize: 30),
-                child: const Padding(
-                  padding: EdgeInsets.all(8),
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text('Tomek Polanski'),
-                      Text('@tpolansk'),
+                      Text(widget.author),
+                      Text(widget.contact),
                     ],
                   ),
                 ),

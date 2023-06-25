@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
 import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_ui/shared_ui.dart';
+import 'package:talk_but_does_it_scale/src/assets.dart';
 
 class OldAndroid extends StatefulWidget {
   const OldAndroid(
@@ -73,8 +74,8 @@ class _OldAndroidState extends State<OldAndroid>
       child: FutureBuilder<List<String>>(
         future: Future.wait(
           [
-            'packages/talk_but_does_it_scale/assets/old_android.json',
-            'packages/talk_but_does_it_scale/assets/new_android.json',
+            Assets.oldAndroid,
+            Assets.newAndroid,
           ].map((p) => DefaultAssetBundle.of(context).loadString(p)),
         ),
         builder: (context, snapshot) {
