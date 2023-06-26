@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 class AssetPaths {
   static const package = 'shared_ui';
 
