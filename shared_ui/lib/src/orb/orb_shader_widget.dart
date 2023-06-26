@@ -8,7 +8,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_ui/src/orb/assets.dart';
 
 import 'reactive_widget.dart';
@@ -61,8 +60,10 @@ class OrbShaderWidgetState extends State<OrbShaderWidget>
       AnimationController(vsync: this, duration: 3000.ms)..repeat();
 
   @override
-  Widget build(BuildContext context) => Consumer<FragmentPrograms?>(
-        builder: (context, fragmentPrograms, _) {
+  Widget build(BuildContext context) => FutureBuilder<FragmentPrograms>(
+        future: loadFragmentPrograms(),
+        builder: (context, snapshot) {
+          final fragmentPrograms = snapshot.data;
           if (fragmentPrograms == null) return const SizedBox.expand();
           return ListenableBuilder(
             listenable: _heartbeatAnim,

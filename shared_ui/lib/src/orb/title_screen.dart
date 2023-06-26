@@ -7,7 +7,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_ui/src/orb/assets.dart';
 
 import 'orb_shader_config.dart';
@@ -18,11 +17,7 @@ class Orb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureProvider<FragmentPrograms?>(
-      create: (context) => loadFragmentPrograms(),
-      initialData: null,
-      child: const TitleScreen(),
-    );
+    return TitleScreen();
   }
 }
 
