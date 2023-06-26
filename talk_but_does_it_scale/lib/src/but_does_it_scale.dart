@@ -8,6 +8,7 @@ import 'package:talk_but_does_it_scale/src/assets.dart';
 import 'package:talk_but_does_it_scale/src/images.dart';
 import 'package:talk_but_does_it_scale/src/pages/embrace_change.dart';
 import 'package:talk_but_does_it_scale/src/pages/golden_tests.dart';
+import 'package:talk_but_does_it_scale/src/pages/intro.dart';
 import 'package:talk_but_does_it_scale/src/pages/modules.dart';
 import 'package:talk_but_does_it_scale/src/pages/old_android.dart';
 import 'package:talk_but_does_it_scale/src/pages/speakers_intro.dart';
@@ -51,6 +52,7 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
       body: Builder(
         builder: (_) {
           final children = [
+            const Intro(),
             SpeakersIntro(presentationController),
             const SummaryPage(
               title: 'Test',
