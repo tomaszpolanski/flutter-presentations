@@ -41,8 +41,6 @@ class _TitleScreenState extends State<TitleScreen>
   Color get _emitColor => Color(0xFF96FF33);
   Color get _orbColor => Color(0xFF71FDBF);
 
-  int _difficulty = 0;
-  double _orbEnergy = 0;
   double _minOrbEnergy = 0;
 
   late final _pulseEffect = AnimationController(
@@ -53,12 +51,6 @@ class _TitleScreenState extends State<TitleScreen>
   );
 
   Duration _getRndPulseDuration() => 100.ms + 200.ms * Random().nextDouble();
-
-  double _getMinEnergyForDifficulty(int difficulty) => switch (difficulty) {
-        1 => 0.3,
-        2 => 0.6,
-        _ => 0,
-      };
 
   @override
   void initState() {
@@ -75,33 +67,6 @@ class _TitleScreenState extends State<TitleScreen>
       _pulseEffect.duration = _getRndPulseDuration();
       _pulseEffect.forward();
     }
-  }
-
-  void _handleDifficultyPressed(int value) {
-    setState(() => _difficulty = value);
-    _bumpMinEnergy();
-  }
-
-  Future<void> _bumpMinEnergy([double amount = 0.1]) async {
-    setState(() {
-      _minOrbEnergy = _getMinEnergyForDifficulty(_difficulty) + amount;
-    });
-    await Future<void>.delayed(.2.seconds);
-    setState(() {
-      _minOrbEnergy = _getMinEnergyForDifficulty(_difficulty);
-    });
-  }
-
-  void _handleStartPressed() => _bumpMinEnergy(0.3);
-
-  void _handleDifficultyFocused(int? value) {
-    setState(() {
-      if (value == null) {
-        _minOrbEnergy = _getMinEnergyForDifficulty(_difficulty);
-      } else {
-        _minOrbEnergy = _getMinEnergyForDifficulty(value);
-      }
-    });
   }
 
   /// Update mouse position so the orbWidget can use it, doing it here prevents
@@ -128,9 +93,6 @@ class _TitleScreenState extends State<TitleScreen>
               materialColor: orbColor,
               lightColor: orbColor,
             ),
-            onUpdate: (energy) => setState(() {
-              _orbEnergy = energy;
-            }),
           );
         },
       ),
