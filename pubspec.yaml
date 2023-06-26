@@ -95,3 +95,7 @@ flutter:
           weight: 400
         - asset: fonts/AnonymouPro/AnonymousPro-Bold.ttf
           weight: 700
+
+  shaders:
+    - assets/shaders/orb_shader.frag
+    - assets/shaders/ui_glitch.frag

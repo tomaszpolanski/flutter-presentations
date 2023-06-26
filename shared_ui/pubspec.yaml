@@ -13,7 +13,15 @@ dependencies:
 
   path: ^1.8.2
   presentation: ^2.2.0
+  flutter_animate: ^4.2.0
+  provider: ^6.0.5
 
   shared_theme:
     path: ../shared_theme
-    
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/

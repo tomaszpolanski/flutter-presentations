@@ -8,3 +8,4 @@ export 'src/logo.dart';
 export 'src/project_structure.dart';
 export 'src/revolving_widget.dart';
 export 'src/snippet.dart';
+export 'src/orb/title_screen.dart';
