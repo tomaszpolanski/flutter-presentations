@@ -8,7 +8,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:shared_ui/src/orb/assets.dart';
+import 'package:shared_ui/src/assets.dart';
 
 import 'reactive_widget.dart';
 import 'orb_shader_config.dart';
