@@ -7,33 +7,24 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:shared_ui/src/orb/assets.dart';
 
 import 'orb_shader_config.dart';
 import 'orb_shader_widget.dart';
 
-class Orb extends StatelessWidget {
+/// Shameless copy pasta ;) from https://github.com/flutter/codelabs/tree/main/next-gen-ui
+class Orb extends StatefulWidget {
   const Orb({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return TitleScreen();
-  }
+  State<Orb> createState() => _OrbState();
 }
 
-class TitleScreen extends StatefulWidget {
-  const TitleScreen({super.key});
-
-  @override
-  State<TitleScreen> createState() => _TitleScreenState();
-}
-
-class _TitleScreenState extends State<TitleScreen>
-    with SingleTickerProviderStateMixin {
+class _OrbState extends State<Orb> with SingleTickerProviderStateMixin {
   /// Internal
   var _mousePos = Offset.zero;
 
   Color get _emitColor => Color(0xFF96FF33);
+
   Color get _orbColor => Color(0xFF71FDBF);
 
   double _minOrbEnergy = 0;
@@ -105,12 +96,15 @@ class _AnimatedColors extends StatelessWidget {
   final Color emitColor;
   final Color orbColor;
 
-  final Widget Function(BuildContext context, Color orbColor, Color emitColor)
-      builder;
+  final Widget Function(
+    BuildContext context,
+    Color orbColor,
+    Color emitColor,
+  ) builder;
 
   @override
   Widget build(BuildContext context) {
-    final duration = .5.seconds;
+    final duration = 0.5.seconds;
     return TweenAnimationBuilder(
       tween: ColorTween(begin: emitColor, end: emitColor),
       duration: duration,
