@@ -60,11 +60,11 @@ class OrbShaderWidgetState extends State<OrbShaderWidget>
       AnimationController(vsync: this, duration: 3000.ms)..repeat();
 
   @override
-  Widget build(BuildContext context) => FutureBuilder<FragmentPrograms>(
-        future: loadFragmentPrograms(),
+  Widget build(BuildContext context) => FutureBuilder<FragmentProgram>(
+        future: FragmentProgram.fromAsset(AssetPaths.orbShader),
         builder: (context, snapshot) {
-          final fragmentPrograms = snapshot.data;
-          if (fragmentPrograms == null) return const SizedBox.expand();
+          final orb = snapshot.data;
+          if (orb == null) return const SizedBox.expand();
           return ListenableBuilder(
             listenable: _heartbeatAnim,
             builder: (_, __) {
@@ -94,7 +94,7 @@ class OrbShaderWidgetState extends State<OrbShaderWidget>
                       return CustomPaint(
                         size: size,
                         painter: OrbShaderPainter(
-                          fragmentPrograms.orb.fragmentShader(),
+                          orb.fragmentShader(),
                           config: widget.config,
                           time: time,
                           mousePos: widget.mousePos,

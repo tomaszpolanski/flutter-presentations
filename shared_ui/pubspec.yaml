@@ -24,4 +24,3 @@ flutter:
 
   shaders:
     - assets/shaders/orb_shader.frag
-    - assets/shaders/ui_glitch.frag
