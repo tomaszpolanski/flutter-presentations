@@ -113,9 +113,8 @@ class _AnimatedColors extends StatelessWidget {
         return TweenAnimationBuilder(
           tween: ColorTween(begin: orbColor, end: orbColor),
           duration: duration,
-          builder: (context, orbColor, __) {
-            return builder(context, orbColor!, emitColor!);
-          },
+          builder: (context, orbColor, __) =>
+              builder(context, orbColor!, emitColor!),
         );
       },
     );
