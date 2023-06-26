@@ -11,7 +11,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'orb_shader_config.dart';
 import 'orb_shader_widget.dart';
 
-/// Shameless copy pasta ;) from https://github.com/flutter/codelabs/tree/main/next-gen-ui
+/// Shameless copy pasta from https://github.com/flutter/codelabs/tree/main/next-gen-ui
+/// because shaders are hard ;)
 class Orb extends StatefulWidget {
   const Orb({super.key});
 
