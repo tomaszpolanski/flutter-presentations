@@ -56,10 +56,13 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               title: 'Test',
               subtitle: '✅ All ✅',
             ),
-            const TiteledPage(
+            const GoldenTestPage(
               title: Text('Screenshots for UI Tests'),
-              child: Snippet(
-                child: Placeholder(),
+              child: SingleChildScrollView(
+                child: ParallaxImage(
+                  Assets.screenshots,
+                  package: Assets.package,
+                ),
               ),
             ),
             const GoldenTestPage(
