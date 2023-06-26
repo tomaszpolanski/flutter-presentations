@@ -18,8 +18,10 @@ class PresentationShortcuts extends StatelessWidget {
     return Shortcuts(
       shortcuts: const <ShortcutActivator, Intent>{
         SingleActivator(LogicalKeyboardKey.f11): ToggleFullScreenIntent(),
+        SingleActivator(LogicalKeyboardKey.enter): ToggleFullScreenIntent(),
         SingleActivator(LogicalKeyboardKey.escape): GoBackIntent(),
         SingleActivator(LogicalKeyboardKey.f12): ToggleTheme(),
+        SingleActivator(LogicalKeyboardKey.tab): ToggleTheme(),
       },
       child: Builder(
         builder: (context) {
