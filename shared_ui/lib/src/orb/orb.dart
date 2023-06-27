@@ -24,9 +24,9 @@ class _OrbState extends State<Orb> with SingleTickerProviderStateMixin {
   /// Internal
   var _mousePos = Offset.zero;
 
-  Color get _emitColor => Color(0xFF96FF33);
+  Color get _emitColor => Color(0xFF40CCE7);
 
-  Color get _orbColor => Color(0xFF35A1B4);
+  Color get _orbColor => Color(0xFF00C1F5);
 
   double _minOrbEnergy = 0;
 
