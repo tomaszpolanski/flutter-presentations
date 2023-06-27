@@ -26,7 +26,7 @@ class _OrbState extends State<Orb> with SingleTickerProviderStateMixin {
 
   Color get _emitColor => Color(0xFF96FF33);
 
-  Color get _orbColor => Color(0xFF71FDBF);
+  Color get _orbColor => Color(0xFF35A1B4);
 
   double _minOrbEnergy = 0;
 
