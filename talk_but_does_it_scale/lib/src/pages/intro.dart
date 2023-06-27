@@ -50,11 +50,12 @@ class Intro extends StatelessWidget {
               Transform.translate(
                 offset: const Offset(0, -110),
                 child: const ClipRect(
-                    clipper: ClipperRect(Rect.fromLTRB(0, 0, 1, 0.6)),
-                    child: Text(
-                      '?',
-                      style: TextStyle(fontSize: 400),
-                    )),
+                  clipper: ClipperRect(Rect.fromLTRB(0, 0, 1, 0.6)),
+                  child: Text(
+                    '?',
+                    style: TextStyle(fontSize: 400),
+                  ),
+                ),
               ),
               Transform.scale(
                 scale: 1,
