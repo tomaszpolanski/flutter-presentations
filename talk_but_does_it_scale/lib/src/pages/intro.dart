@@ -8,7 +8,7 @@ class Intro extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
+        const Expanded(
           flex: 2,
           child: Column(
             children: [
@@ -17,15 +17,15 @@ class Intro extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 120, right: 30),
+                      padding: EdgeInsets.only(bottom: 120, right: 30),
                       child: Text('But', style: TextStyle(fontSize: 180)),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 50, right: 30),
+                      padding: EdgeInsets.only(top: 50, right: 30),
                       child: Text('does', style: TextStyle(fontSize: 90)),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 120),
+                      padding: EdgeInsets.only(top: 120),
                       child: Text('it', style: TextStyle(fontSize: 50)),
                     ),
                   ],
@@ -35,7 +35,7 @@ class Intro extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.only(),
+                    padding: EdgeInsets.only(),
                     child: Text('Scale', style: TextStyle(fontSize: 180)),
                   ),
                 ),
@@ -44,17 +44,16 @@ class Intro extends StatelessWidget {
           ),
         ),
         Expanded(
-          flex: 1,
           child: Stack(
             alignment: Alignment.center,
             children: [
               Transform.translate(
-                offset: Offset(0, -70),
-                child: Text('?', style: TextStyle(fontSize: 240)),
+                offset: const Offset(0, -70),
+                child: const Text('?', style: TextStyle(fontSize: 240)),
               ),
               Transform.scale(
                 scale: 1,
-                child: Orb(),
+                child: const Orb(),
               ),
             ],
           ),
