@@ -7,9 +7,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-
-import 'orb_shader_config.dart';
-import 'orb_shader_widget.dart';
+import 'package:shared_ui/src/orb/orb_shader_config.dart';
+import 'package:shared_ui/src/orb/orb_shader_widget.dart';
 
 /// Shameless copy pasta from https://github.com/flutter/codelabs/tree/main/next-gen-ui
 /// because shaders are hard ;)
@@ -24,35 +23,41 @@ class _OrbState extends State<Orb> with SingleTickerProviderStateMixin {
   /// Internal
   var _mousePos = Offset.zero;
 
-  Color get _emitColor => Color(0xFF40CCE7);
+  Color get _emitColor => const Color(0xFF40CCE7);
 
-  Color get _orbColor => Color(0xFF00C1F5);
+  Color get _orbColor => const Color(0xFF00C1F5);
 
-  double _minOrbEnergy = 0;
-
-  late final _pulseEffect = AnimationController(
-    vsync: this,
-    duration: _getRndPulseDuration(),
-    lowerBound: -1,
-    upperBound: 1,
-  );
+  late AnimationController _pulseEffect;
 
   Duration _getRndPulseDuration() => 100.ms + 200.ms * Random().nextDouble();
 
   @override
   void initState() {
     super.initState();
-    _pulseEffect.forward();
-    _pulseEffect.addListener(_handlePulseEffectUpdate);
+    _pulseEffect = AnimationController(
+      vsync: this,
+      duration: _getRndPulseDuration(),
+      lowerBound: -1,
+    )
+      ..forward()
+      ..addListener(_handlePulseEffectUpdate);
+  }
+
+  @override
+  void dispose() {
+    _pulseEffect.dispose();
+    super.dispose();
   }
 
   void _handlePulseEffectUpdate() {
     if (_pulseEffect.status == AnimationStatus.completed) {
-      _pulseEffect.reverse();
-      _pulseEffect.duration = _getRndPulseDuration();
+      _pulseEffect
+        ..reverse()
+        ..duration = _getRndPulseDuration();
     } else if (_pulseEffect.status == AnimationStatus.dismissed) {
-      _pulseEffect.duration = _getRndPulseDuration();
-      _pulseEffect.forward();
+      _pulseEffect
+        ..duration = _getRndPulseDuration()
+        ..forward();
     }
   }
 
@@ -74,7 +79,7 @@ class _OrbState extends State<Orb> with SingleTickerProviderStateMixin {
         builder: (_, orbColor, emitColor) {
           return OrbShaderWidget(
             mousePos: _mousePos,
-            minEnergy: _minOrbEnergy,
+            minEnergy: 0,
             config: OrbShaderConfig(
               ambientLightColor: orbColor,
               materialColor: orbColor,
