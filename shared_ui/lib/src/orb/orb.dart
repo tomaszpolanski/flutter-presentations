@@ -30,20 +30,27 @@ class _OrbState extends State<Orb> with SingleTickerProviderStateMixin {
 
   double _minOrbEnergy = 0;
 
-  late final _pulseEffect = AnimationController(
-    vsync: this,
-    duration: _getRndPulseDuration(),
-    lowerBound: -1,
-    upperBound: 1,
-  );
+  late AnimationController _pulseEffect;
 
   Duration _getRndPulseDuration() => 100.ms + 200.ms * Random().nextDouble();
 
   @override
   void initState() {
     super.initState();
+    _pulseEffect = AnimationController(
+      vsync: this,
+      duration: _getRndPulseDuration(),
+      lowerBound: -1,
+      upperBound: 1,
+    );
     _pulseEffect.forward();
     _pulseEffect.addListener(_handlePulseEffectUpdate);
+  }
+
+  @override
+  void dispose() {
+    _pulseEffect.dispose();
+    super.dispose();
   }
 
   void _handlePulseEffectUpdate() {
