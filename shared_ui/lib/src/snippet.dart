@@ -36,7 +36,7 @@ class _Windows extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(20)),
         border: Border.all(
@@ -85,7 +85,7 @@ class _Windows extends StatelessWidget {
                     ),
                     const SizedBox(width: 12),
                     _WindowsButton(
-                      child: Container(
+                      child: SizedBox(
                         width: 20,
                         height: 20,
                         child: CustomPaint(
@@ -130,14 +130,21 @@ class _CrossDrawPaint extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    Paint crossBrush = Paint()
+    final crossBrush = Paint()
       ..color = color
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2;
-    canvas.drawLine(Offset(size.width, size.height),
-        Offset(size.width - size.width, size.height - size.height), crossBrush);
-    canvas.drawLine(Offset(size.width - size.width, size.height),
-        Offset(size.width, size.height - size.height), crossBrush);
+    canvas
+      ..drawLine(
+        Offset(size.width, size.height),
+        Offset(size.width - size.width, size.height - size.height),
+        crossBrush,
+      )
+      ..drawLine(
+        Offset(size.width - size.width, size.height),
+        Offset(size.width, size.height - size.height),
+        crossBrush,
+      );
   }
 
   @override
@@ -156,32 +163,32 @@ class _MacOs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(20)),
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(20)),
       ),
       child: ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular(16)),
         child: Stack(
           children: [
             child,
-            Positioned(
+            const Positioned(
               right: 0,
               left: 0,
               child: Padding(
-                padding: const EdgeInsets.all(16),
+                padding: EdgeInsets.all(16),
                 child: Row(
                   children: [
                     _MacOsButton(
-                      color: const Color(0xffff5f57),
+                      color: Color(0xffff5f57),
                     ),
-                    const SizedBox(width: 12),
+                    SizedBox(width: 12),
                     _MacOsButton(
-                      color: const Color(0xfffebc2e),
+                      color: Color(0xfffebc2e),
                     ),
-                    const SizedBox(width: 12),
+                    SizedBox(width: 12),
                     _MacOsButton(
-                      color: const Color(0xff27c840),
+                      color: Color(0xff27c840),
                     ),
                   ],
                 ),
