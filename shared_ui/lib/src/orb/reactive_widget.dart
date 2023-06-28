@@ -3,18 +3,22 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-
-import 'ticking_builder.dart';
+import 'package:shared_ui/src/orb/ticking_builder.dart';
 
 typedef ReactiveWidgetBuilder = Widget Function(
-    BuildContext context, double time, Size bounds);
+  BuildContext context,
+  double time,
+  Size bounds,
+);
 
 class ReactiveWidget extends StatefulWidget {
   const ReactiveWidget({
     super.key,
     required this.builder,
   });
+
   final ReactiveWidgetBuilder builder;
+
   @override
   State<ReactiveWidget> createState() => _ReactiveWidgetState();
 }
