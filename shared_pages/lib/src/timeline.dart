@@ -34,7 +34,7 @@ class _TimelinePageState extends State<TimelinePage>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1200),
+      duration: const Duration(milliseconds: 1200),
     )..addListener(() {
         setState(() {});
       });
@@ -84,7 +84,7 @@ class _TimelinePageState extends State<TimelinePage>
               padding: const EdgeInsets.only(top: 60, left: 80, bottom: 20),
               child: text != null //
                   ? FadeInWidget(child: Text(text))
-                  : Text(''),
+                  : const Text(''),
             ),
             ClipRect(
               child: CustomPaint(
@@ -124,30 +124,30 @@ class TimelinePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    var paint = Paint()
+    final paint = Paint()
       ..color = color
       ..strokeWidth = 5
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
 
-    var path = Path();
-    path.moveTo(0, size.height / 2);
-    path.lineTo(size.width, size.height / 2);
+    var path = Path()
+      ..moveTo(0, size.height / 2)
+      ..lineTo(size.width, size.height / 2);
     canvas.drawPath(path, paint);
     final distance = (2 * size.width) / count;
     final offset = 200 - size.width * progress;
 
     for (var i = 0; i < count; i++) {
       final isBig = i % (count / 2) == 0;
-      path = Path();
-      path.moveTo(
-        offset + i * distance,
-        isBig ? 0 : size.height * (4 / 10),
-      );
-      path.lineTo(
-        offset + i * distance,
-        isBig ? size.height : size.height * (6 / 10),
-      );
+      path = Path()
+        ..moveTo(
+          offset + i * distance,
+          isBig ? 0 : size.height * (4 / 10),
+        )
+        ..lineTo(
+          offset + i * distance,
+          isBig ? size.height : size.height * (6 / 10),
+        );
       canvas.drawPath(path, paint);
     }
   }
@@ -160,15 +160,16 @@ class TimelinePainter extends CustomPainter {
 
 class TrianglePainter extends CustomPainter {
   const TrianglePainter({required this.color});
+
   final Color color;
 
   @override
   void paint(Canvas canvas, Size size) {
-    var path = Path();
-    path.moveTo(0, 0);
-    path.lineTo(0, size.height);
-    path.lineTo(size.width * 0.2, size.height);
-    path.close();
+    final path = Path()
+      ..moveTo(0, 0)
+      ..lineTo(0, size.height)
+      ..lineTo(size.width * 0.2, size.height)
+      ..close();
     canvas.drawPath(path, Paint()..color = color);
   }
 
