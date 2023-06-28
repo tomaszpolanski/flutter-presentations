@@ -18,11 +18,6 @@ dependencies:
   shared_theme:
     path: ../shared_theme
 
-dependency_overrides:
-  shared_lints:
-    path: ../shared_lints
-
-
 flutter:
   uses-material-design: true
 
