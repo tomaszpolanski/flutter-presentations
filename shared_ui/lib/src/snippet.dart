@@ -12,15 +12,20 @@ class Snippet extends StatelessWidget {
     super.key,
     this.platform = Platform.windows,
     required this.child,
+    this.icon,
   });
 
   final Platform platform;
   final Widget child;
+  final Widget? icon;
 
   @override
   Widget build(BuildContext context) {
     return switch (platform) {
-      Platform.windows => _Windows(child: child),
+      Platform.windows => _Windows(
+          icon: icon,
+          child: child,
+        ),
       Platform.macos => _MacOs(child: child),
     };
   }
@@ -30,12 +35,15 @@ class _Windows extends StatelessWidget {
   const _Windows({
     super.key,
     required this.child,
+    this.icon,
   });
 
   final Widget child;
+  final Widget? icon;
 
   @override
   Widget build(BuildContext context) {
+    final _icon = icon;
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(20)),
@@ -61,6 +69,12 @@ class _Windows extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
+                    if (_icon != null)
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8),
+                        child: _icon,
+                      ),
+                    const Spacer(),
                     _WindowsButton(
                       child: Container(
                         width: 20,

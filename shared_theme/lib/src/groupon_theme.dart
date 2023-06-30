@@ -5,7 +5,7 @@ class GTheme {
   static const Color teal = Color(0xFF64c7c0);
   static const Color flutter1 = Color(0xFF55cffb);
   static const Color flutter2 = Color(0xFF3cb7fb);
-  static const Color flutter3 = Color(0xFF06589c);
+  static const Color flutter3 = Color(0xff0476cb);
   static const TextStyle big = TextStyle(
     fontSize: 60,
     color: green,
