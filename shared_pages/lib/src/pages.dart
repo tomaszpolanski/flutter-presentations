@@ -117,49 +117,50 @@ class SummaryWidgetPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: background ?? Theme.of(context).scaffoldBackgroundColor,
-      body: Padding(
-        padding: const EdgeInsets.all(30),
-        child: Stack(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Expanded(
-                  flex: 2,
-                  child: ParallaxWidget(
-                    translationFactor: 150,
-                    child: Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Container(
-                        color: Theme.of(context).textTheme.titleLarge!.color,
-                        height: 8,
-                        width: 100,
-                      ),
+    final child = Padding(
+      padding: const EdgeInsets.all(30),
+      child: Stack(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Expanded(
+                flex: 2,
+                child: ParallaxWidget(
+                  translationFactor: 150,
+                  child: Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Container(
+                      color: Theme.of(context).textTheme.titleLarge!.color,
+                      height: 8,
+                      width: 100,
                     ),
                   ),
                 ),
-                Expanded(
-                  flex: 7,
-                  child: DefaultTextStyle.merge(
-                    style: Theme.of(context).textTheme.titleLarge,
-                    child: title,
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: DefaultTextStyle.merge(
-                style: Theme.of(context).textTheme.titleLarge,
-                textAlign: TextAlign.end,
-                child: subtitle,
               ),
-            )
-          ],
-        ),
+              Expanded(
+                flex: 7,
+                child: DefaultTextStyle.merge(
+                  style: Theme.of(context).textTheme.titleLarge,
+                  child: title,
+                ),
+              ),
+            ],
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: DefaultTextStyle.merge(
+              style: Theme.of(context).textTheme.titleLarge,
+              textAlign: TextAlign.end,
+              child: subtitle,
+            ),
+          )
+        ],
       ),
     );
+    final _background = background;
+    return _background != null
+        ? Scaffold(backgroundColor: _background, body: child)
+        : child;
   }
 }

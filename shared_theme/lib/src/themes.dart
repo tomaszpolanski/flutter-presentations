@@ -29,13 +29,13 @@ ThemeData blueLight() {
 ThemeData blueDark() {
   final t = ThemeData.dark().copyWith(
     primaryColor: Colors.white,
-    scaffoldBackgroundColor: Colors.black,
+    scaffoldBackgroundColor: Colors.black12,
     colorScheme: ThemeData.light().colorScheme.copyWith(
-          background: Colors.black,
+          background: Colors.black12,
           onBackground: Colors.white,
         ),
     appBarTheme: const AppBarTheme(
-      color: Colors.black,
+      color: Colors.black12,
     ),
     textTheme: TextTheme(
       headlineSmall: GTheme.big.copyWith(color: GTheme.flutter3, fontSize: 140),
@@ -46,7 +46,7 @@ ThemeData blueDark() {
   );
   return t.copyWith(
     colorScheme: t.colorScheme.copyWith(
-      background: Colors.black,
+      background: Colors.black12,
       onBackground: Colors.white,
       primaryContainer: GTheme.flutter3,
       onPrimaryContainer: Colors.white,

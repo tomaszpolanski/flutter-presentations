@@ -54,6 +54,7 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
           final children = [
             const Intro(),
             SpeakersIntro(presentationController),
+            WhatIsScale(presentationController),
             const SummaryPage(
               title: 'Test',
               subtitle: '✅ All ✅',
@@ -94,21 +95,6 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
             OldAndroid(presentationController),
             const Modules(),
             EmbraceChange(presentationController),
-            WhatIsScale(presentationController),
-            TimelinePage(
-              presentationController,
-              current: 'First Day',
-            ),
-            TimelinePage(
-              presentationController,
-              current: 'First Day',
-              next: 'Test All',
-            ),
-            TimelinePage(
-              presentationController,
-              current: 'Test All',
-              next: '...',
-            ),
             const ThatsAll(
               thanks: 'Thank you!',
               author: 'Pawel & Tomek Polanski',
