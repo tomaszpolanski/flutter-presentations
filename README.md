@@ -29,8 +29,6 @@ You might need to use `-d` to pick desktop if you have any other device connecte
 
 
 ### Melos
-
-<<<<<<< Updated upstream
 [Melos](https://melos.invertase.dev/) is a CLI tool used to help manage Dart projects with multiple packages.
 It simplifies the selection of modules for testing and building.
 
