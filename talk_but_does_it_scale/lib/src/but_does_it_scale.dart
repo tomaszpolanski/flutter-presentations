@@ -97,6 +97,10 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
             ),
             OldAndroid(presentationController),
             const Modules(),
+            const SummaryPage(
+              title: 'Melos 📦',
+              subtitle: '& Mason 🧱',
+            ),
             const ThatsAll(
               thanks: 'Thank you!',
               author: 'Pawel & Tomek Polanski',
