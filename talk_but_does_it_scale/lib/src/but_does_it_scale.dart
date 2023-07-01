@@ -10,6 +10,7 @@ import 'package:talk_but_does_it_scale/src/pages/embrace_change.dart';
 import 'package:talk_but_does_it_scale/src/pages/golden_tests.dart';
 import 'package:talk_but_does_it_scale/src/pages/intro.dart';
 import 'package:talk_but_does_it_scale/src/pages/modules.dart';
+import 'package:talk_but_does_it_scale/src/pages/more_devs_more_problems.dart';
 import 'package:talk_but_does_it_scale/src/pages/old_android.dart';
 import 'package:talk_but_does_it_scale/src/pages/speakers_intro.dart';
 import 'package:talk_but_does_it_scale/src/pages/what_is_scale.dart';
@@ -55,6 +56,8 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
             const Intro(),
             SpeakersIntro(presentationController),
             WhatIsScale(presentationController),
+            MoreCodeMoreProblems(presentationController),
+            EmbraceChange(presentationController),
             const SummaryPage(
               title: 'Test',
               subtitle: '✅ All ✅',
@@ -94,7 +97,6 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
             ),
             OldAndroid(presentationController),
             const Modules(),
-            EmbraceChange(presentationController),
             const ThatsAll(
               thanks: 'Thank you!',
               author: 'Pawel & Tomek Polanski',
