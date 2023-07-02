@@ -12,6 +12,7 @@ import 'package:talk_but_does_it_scale/src/pages/intro.dart';
 import 'package:talk_but_does_it_scale/src/pages/modules.dart';
 import 'package:talk_but_does_it_scale/src/pages/more_devs_more_problems.dart';
 import 'package:talk_but_does_it_scale/src/pages/old_android.dart';
+import 'package:talk_but_does_it_scale/src/pages/scale_vs_change.dart';
 import 'package:talk_but_does_it_scale/src/pages/speakers_intro.dart';
 import 'package:talk_but_does_it_scale/src/pages/what_is_scale.dart';
 
@@ -55,8 +56,17 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
           final children = [
             const Intro(),
             SpeakersIntro(presentationController),
+            const SummaryPage(
+              title: 'What is',
+              subtitle: 'Scale?',
+            ),
             WhatIsScale(presentationController),
             MoreCodeMoreProblems(presentationController),
+            const SummaryPage(
+              title: 'Who should',
+              subtitle: 'Scale?',
+            ),
+            ScaleVsChange(presentationController),
             EmbraceChange(presentationController),
             const SummaryPage(
               title: 'Test',
