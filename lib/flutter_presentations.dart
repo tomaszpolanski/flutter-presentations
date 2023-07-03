@@ -82,7 +82,8 @@ class _PresentationList extends StatelessWidget {
               title: const Text(Slivers.title),
               subtitle: const Text(Slivers.subtitle),
               onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute<void>(builder: (_) => const Slivers())),
+                MaterialPageRoute<void>(builder: (_) => const Slivers()),
+              ),
             ),
             ListTile(
               title: const Text(Convincing.title),
