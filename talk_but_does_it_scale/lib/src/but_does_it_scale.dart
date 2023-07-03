@@ -129,8 +129,8 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               subtitle: 'Tests/CI',
             ),
             const SummaryPage(
-              title: 'You Make It',
-              subtitle: 'You Ship It',
+              title: 'You Build It',
+              subtitle: 'You Run It',
             ),
             const SectionPage('Embrace The Change!'),
             const ThatsAll(
