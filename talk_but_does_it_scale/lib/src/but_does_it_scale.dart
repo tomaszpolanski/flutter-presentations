@@ -111,6 +111,28 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               title: 'Melos 📦',
               subtitle: '& Mason 🧱',
             ),
+            const SectionPage('Issues'),
+            StackedPage(
+              controller: presentationController,
+              children: const [
+                Text('Modules and OOM'),
+                Text('Analyzer'),
+              ],
+            ),
+            const SectionPage('Conclusion'),
+            const SummaryPage(
+              title: 'Scales,',
+              subtitle: 'so far...',
+            ),
+            const SummaryPage(
+              title: 'Must Have,',
+              subtitle: 'Tests/CI',
+            ),
+            const SummaryPage(
+              title: 'You Make It',
+              subtitle: 'You Ship It',
+            ),
+            const SectionPage('Embrace The Change!'),
             const ThatsAll(
               thanks: 'Thank you!',
               author: 'Pawel & Tomek Polanski',
