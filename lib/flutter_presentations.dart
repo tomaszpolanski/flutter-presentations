@@ -37,57 +37,69 @@ class _PresentationList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
-      body: ListView(
-        children: [
-          ListTile(
-            title: const Text(ButDoesItScale.title),
-            subtitle: const Text(ButDoesItScale.subtitle),
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(
-                builder: (_) => const ButDoesItScale(),
+      body: Theme(
+        data: theme.copyWith(
+          listTileTheme: ListTileThemeData(
+            tileColor: theme.colorScheme.background,
+            textColor: theme.colorScheme.onBackground,
+            iconColor: theme.colorScheme.onBackground,
+            titleTextStyle: const TextStyle(fontSize: 30),
+            subtitleTextStyle: const TextStyle(fontSize: 20),
+          ),
+        ),
+        child: ListView(
+          children: [
+            ListTile(
+              title: const Text(ButDoesItScale.title),
+              subtitle: const Text(ButDoesItScale.subtitle),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => const ButDoesItScale(),
+                ),
               ),
             ),
-          ),
-          ListTile(
-            title: const Text(Refactoring.title),
-            subtitle: const Text(Refactoring.subtitle),
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(
-                builder: (_) => const Refactoring(),
+            ListTile(
+              title: const Text(Refactoring.title),
+              subtitle: const Text(Refactoring.subtitle),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => const Refactoring(),
+                ),
               ),
             ),
-          ),
-          ListTile(
-            title: const Text(BigApplications.title),
-            subtitle: const Text(BigApplications.subtitle),
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(
-                builder: (_) => const BigApplications(),
+            ListTile(
+              title: const Text(BigApplications.title),
+              subtitle: const Text(BigApplications.subtitle),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => const BigApplications(),
+                ),
               ),
             ),
-          ),
-          ListTile(
-            title: const Text(Slivers.title),
-            subtitle: const Text(Slivers.subtitle),
-            onTap: () => Navigator.of(context)
-                .push(MaterialPageRoute<void>(builder: (_) => const Slivers())),
-          ),
-          ListTile(
-            title: const Text(Convincing.title),
-            subtitle: const Text(Convincing.subtitle),
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(builder: (_) => const Convincing()),
+            ListTile(
+              title: const Text(Slivers.title),
+              subtitle: const Text(Slivers.subtitle),
+              onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(builder: (_) => const Slivers())),
             ),
-          ),
-          ListTile(
-            title: const Text(CodeReuse.title),
-            subtitle: const Text(CodeReuse.subtitle),
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(builder: (_) => const CodeReuse()),
+            ListTile(
+              title: const Text(Convincing.title),
+              subtitle: const Text(Convincing.subtitle),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(builder: (_) => const Convincing()),
+              ),
             ),
-          ),
-        ],
+            ListTile(
+              title: const Text(CodeReuse.title),
+              subtitle: const Text(CodeReuse.subtitle),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(builder: (_) => const CodeReuse()),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
