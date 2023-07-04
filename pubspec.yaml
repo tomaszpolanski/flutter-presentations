@@ -1,9 +1,8 @@
 name: flutter_presentations
 description: Presentations made with Flutter
 
-publish_to: 'none'
+publish_to: "none"
 version: 1.0.0
-
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -65,7 +64,6 @@ dev_dependencies:
     path: ./shared_lints
 
 flutter:
-
   uses-material-design: true
 
   fonts:

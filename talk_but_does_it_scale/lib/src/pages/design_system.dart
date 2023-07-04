@@ -19,7 +19,7 @@ class DesignSystems extends StatelessWidget {
               return Wrap(
                 children: List.generate(
                   9,
-                  (index) => colorWidget(color, index),
+                  (index) => _colorWidget(color, index),
                 ),
               );
             }).toList(),
@@ -45,34 +45,12 @@ class DesignSystems extends StatelessWidget {
               ),
             ],
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text('Button'),
-              ),
-              Switch(value: true, onChanged: (_) {}),
-              const CircularProgressIndicator(),
-              FloatingActionButton(
-                onPressed: () {},
-                child: const Icon(Icons.add),
-              ),
-            ]
-                .map(
-                  (e) => Transform.scale(
-                    scale: 2.0,
-                    child: e,
-                  ),
-                )
-                .toList(),
-          )
         ],
       ),
     );
   }
 
-  Widget colorWidget(MaterialColor color, int index) {
+  Widget _colorWidget(MaterialColor color, int index) {
     return Container(
       width: 30,
       height: 30,
