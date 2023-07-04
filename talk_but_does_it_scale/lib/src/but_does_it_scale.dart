@@ -15,6 +15,7 @@ import 'package:talk_but_does_it_scale/src/pages/scale_vs_change.dart';
 import 'package:talk_but_does_it_scale/src/pages/snippet_page.dart';
 import 'package:talk_but_does_it_scale/src/pages/speakers_intro.dart';
 import 'package:talk_but_does_it_scale/src/pages/what_is_scale.dart';
+import 'package:talk_but_does_it_scale/src/pages/year_2021.dart';
 
 class ButDoesItScale extends StatefulWidget {
   const ButDoesItScale({super.key});
@@ -68,6 +69,11 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
             ),
             ScaleVsChange(presentationController),
             EmbraceChange(presentationController),
+            const SummaryPage(
+              title: 'Some Brief History',
+              subtitle: 'of sKlar',
+            ),
+            Year2021(presentationController),
             const SummaryPage(
               title: 'Test',
               subtitle: '✅ All ✅',
