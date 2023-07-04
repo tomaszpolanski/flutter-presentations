@@ -6,6 +6,8 @@ import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_ui/shared_ui.dart';
 import 'package:talk_but_does_it_scale/src/assets.dart';
 import 'package:talk_but_does_it_scale/src/images.dart';
+import 'package:talk_but_does_it_scale/src/pages/design_system.dart';
+import 'package:talk_but_does_it_scale/src/pages/design_system_tips.dart';
 import 'package:talk_but_does_it_scale/src/pages/embrace_change.dart';
 import 'package:talk_but_does_it_scale/src/pages/history_year.dart';
 import 'package:talk_but_does_it_scale/src/pages/intro.dart';
@@ -71,10 +73,11 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
             EmbraceChange(presentationController),
             const SummaryPage(
               title: 'Some Brief History',
-              subtitle: '2021',
+              subtitle: 'of Klar',
             ),
             YearStats(
               presentationController,
+              date: DateTime(2021),
               developerCount: 4,
               dartFileCount: 430,
               testFileCount: 14,
@@ -101,12 +104,9 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
                 ),
               ),
             ),
-            const SummaryPage(
-              title: 'This year',
-              subtitle: '2023',
-            ),
             YearStats(
               presentationController,
+              date: DateTime(2023),
               developerCount: 19,
               dartFileCount: 4800,
               testFileCount: 1700,
@@ -125,7 +125,7 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               ),
             ),
             const SnippetPage(
-              title: Text('Golder Tests ❌'),
+              title: Text('Golden Tests ❌'),
               // Should be only used for graphs
               child: ParallaxImage(
                 Assets.simpleGolden,
@@ -133,7 +133,7 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               ),
             ),
             const SnippetPage(
-              title: Text('Golder Tests ✅'),
+              title: Text('Golden Tests ✅'),
               // Should be only used for graphs
               child: ParallaxImage(
                 Assets.advanceGolden,
@@ -148,6 +148,12 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               title: 'Test',
               subtitle: '⚡ Fast ⚡',
             ),
+            const SummaryPage(
+              title: 'Design System',
+              subtitle: 'UI',
+            ),
+            const DesignSystems(),
+            DesignSystemTips(presentationController),
             OldAndroid(presentationController),
             const Modules(),
             const SummaryPage(
