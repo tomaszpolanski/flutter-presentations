@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_theme/shared_theme.dart';
 import 'package:shared_ui/shared_ui.dart';
 
@@ -10,6 +11,7 @@ class YearStats extends StatefulWidget {
     required this.developerCount,
     required this.dartFileCount,
     required this.testFileCount,
+    required this.date,
   })  : assert(developerCount >= 0),
         assert(dartFileCount >= 0),
         assert(testFileCount >= 0);
@@ -17,6 +19,7 @@ class YearStats extends StatefulWidget {
   final int developerCount;
   final int dartFileCount;
   final int testFileCount;
+  final DateTime date;
 
   final PresentationController controller;
 
@@ -75,15 +78,24 @@ class _YearStatsState extends State<YearStats>
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTextStyle.merge(
-      style: GTheme.big.copyWith(fontSize: 80),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          _Stage('${widget.developerCount} 👨‍💻', visible: true),
-          _Stage('${widget.dartFileCount} dart files', visible: _showDartFiles),
-          _Stage('${widget.testFileCount} test files', visible: _showTestFiles),
-        ],
+    return TitledPage(
+      title: Text('${widget.date.year}'),
+      child: DefaultTextStyle.merge(
+        style: GTheme.big.copyWith(fontSize: 80),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            _Stage('${widget.developerCount} 👨‍💻', visible: true),
+            _Stage(
+              '${widget.dartFileCount} dart files',
+              visible: _showDartFiles,
+            ),
+            _Stage(
+              '${widget.testFileCount} test files',
+              visible: _showTestFiles,
+            ),
+          ],
+        ),
       ),
     );
   }

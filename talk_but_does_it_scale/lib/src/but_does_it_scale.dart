@@ -71,10 +71,11 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
             EmbraceChange(presentationController),
             const SummaryPage(
               title: 'Some Brief History',
-              subtitle: '2021',
+              subtitle: 'of Klar',
             ),
             YearStats(
               presentationController,
+              date: DateTime(2021),
               developerCount: 4,
               dartFileCount: 430,
               testFileCount: 14,
@@ -101,12 +102,9 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
                 ),
               ),
             ),
-            const SummaryPage(
-              title: 'This year',
-              subtitle: '2023',
-            ),
             YearStats(
               presentationController,
+              date: DateTime(2023),
               developerCount: 19,
               dartFileCount: 4800,
               testFileCount: 1700,
@@ -125,7 +123,7 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               ),
             ),
             const SnippetPage(
-              title: Text('Golder Tests ❌'),
+              title: Text('Golden Tests ❌'),
               // Should be only used for graphs
               child: ParallaxImage(
                 Assets.simpleGolden,
@@ -133,7 +131,7 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               ),
             ),
             const SnippetPage(
-              title: Text('Golder Tests ✅'),
+              title: Text('Golden Tests ✅'),
               // Should be only used for graphs
               child: ParallaxImage(
                 Assets.advanceGolden,
