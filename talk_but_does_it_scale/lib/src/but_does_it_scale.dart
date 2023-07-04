@@ -7,6 +7,7 @@ import 'package:shared_ui/shared_ui.dart';
 import 'package:talk_but_does_it_scale/src/assets.dart';
 import 'package:talk_but_does_it_scale/src/images.dart';
 import 'package:talk_but_does_it_scale/src/pages/embrace_change.dart';
+import 'package:talk_but_does_it_scale/src/pages/history_year.dart';
 import 'package:talk_but_does_it_scale/src/pages/intro.dart';
 import 'package:talk_but_does_it_scale/src/pages/modules.dart';
 import 'package:talk_but_does_it_scale/src/pages/more_devs_more_problems.dart';
@@ -68,6 +69,48 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
             ),
             ScaleVsChange(presentationController),
             EmbraceChange(presentationController),
+            const SummaryPage(
+              title: 'Some Brief History',
+              subtitle: '2021',
+            ),
+            YearStats(
+              presentationController,
+              developerCount: 4,
+              dartFileCount: 430,
+              testFileCount: 14,
+            ),
+            const SummaryPage(
+              title: 'Velocity',
+              subtitle: 'Problem',
+            ),
+            const SnippetPage(
+              title: Text('Velocity?'),
+              child: SingleChildScrollView(
+                child: ParallaxImage(
+                  Assets.velocity_linear,
+                  package: Assets.package,
+                ),
+              ),
+            ),
+            const SnippetPage(
+              title: Text('Velocity!'),
+              child: SingleChildScrollView(
+                child: ParallaxImage(
+                  Assets.velocity_log,
+                  package: Assets.package,
+                ),
+              ),
+            ),
+            const SummaryPage(
+              title: 'This year',
+              subtitle: '2023',
+            ),
+            YearStats(
+              presentationController,
+              developerCount: 19,
+              dartFileCount: 4800,
+              testFileCount: 1700,
+            ),
             const SummaryPage(
               title: 'Test',
               subtitle: '✅ All ✅',

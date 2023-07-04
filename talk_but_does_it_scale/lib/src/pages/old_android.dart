@@ -69,7 +69,7 @@ class _OldAndroidState extends State<OldAndroid>
 
   @override
   Widget build(BuildContext context) {
-    return TiteledPage(
+    return TitledPage(
       title: const Text('Structure'),
       child: FutureBuilder<List<String>>(
         future: Future.wait(

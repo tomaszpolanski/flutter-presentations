@@ -15,7 +15,7 @@ class SnippetPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TiteledPage(
+    return TitledPage(
       title: title,
       // Should be only used for graphs
       child: Center(

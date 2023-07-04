@@ -5,4 +5,4 @@ export 'src/stacked_page.dart';
 export 'src/tests.dart';
 export 'src/thats_all.dart';
 export 'src/timeline.dart';
-export 'src/titeled_page.dart';
+export 'src/titled_page.dart';
