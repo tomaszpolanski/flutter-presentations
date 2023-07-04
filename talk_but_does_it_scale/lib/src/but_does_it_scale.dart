@@ -111,13 +111,9 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               title: 'Melos 📦',
               subtitle: '& Mason 🧱',
             ),
-            const SectionPage('Issues'),
-            StackedPage(
-              controller: presentationController,
-              children: const [
-                Text('Modules and OOM'),
-                Text('Analyzer'),
-              ],
+            const SummaryPage(
+              title: 'Issues,',
+              subtitle: 'Analyzer',
             ),
             const SectionPage('Conclusion'),
             const SummaryPage(
@@ -125,8 +121,8 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               subtitle: 'so far...',
             ),
             const SummaryPage(
-              title: 'Must Have,',
-              subtitle: 'Tests/CI',
+              title: 'Must Have!',
+              subtitle: 'CI',
             ),
             const SummaryPage(
               title: 'You Build It',
