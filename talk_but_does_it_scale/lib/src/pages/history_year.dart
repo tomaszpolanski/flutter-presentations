@@ -3,21 +3,30 @@ import 'package:presentation/presentation.dart';
 import 'package:shared_theme/shared_theme.dart';
 import 'package:shared_ui/shared_ui.dart';
 
-class Year2021 extends StatefulWidget {
-  const Year2021(
+class YearStats extends StatefulWidget {
+  const YearStats(
     this.controller, {
     super.key,
-  });
+    required this.developerCount,
+    required this.dartFileCount,
+    required this.testFileCount,
+  })  : assert(developerCount >= 0),
+        assert(dartFileCount >= 0),
+        assert(testFileCount >= 0);
+
+  final int developerCount;
+  final int dartFileCount;
+  final int testFileCount;
 
   final PresentationController controller;
 
   @override
-  State<Year2021> createState() => _Year2021State();
+  State<YearStats> createState() => _YearStatsState();
 }
 
 enum _Step { devs, files, tests, next }
 
-class _Year2021State extends State<Year2021>
+class _YearStatsState extends State<YearStats>
     with SingleTickerProviderStateMixin {
   late PageStepper<_Step> _stateController;
   bool _showDartFiles = false;
@@ -71,9 +80,9 @@ class _Year2021State extends State<Year2021>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          const _Stage('4 👨‍💻', visible: true),
-          _Stage('430 dart files', visible: _showDartFiles),
-          _Stage('14 test files', visible: _showTestFiles),
+          _Stage('${widget.developerCount} 👨‍💻', visible: true),
+          _Stage('${widget.dartFileCount} dart files', visible: _showDartFiles),
+          _Stage('${widget.testFileCount} test files', visible: _showTestFiles),
         ],
       ),
     );

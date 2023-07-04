@@ -7,6 +7,7 @@ import 'package:shared_ui/shared_ui.dart';
 import 'package:talk_but_does_it_scale/src/assets.dart';
 import 'package:talk_but_does_it_scale/src/images.dart';
 import 'package:talk_but_does_it_scale/src/pages/embrace_change.dart';
+import 'package:talk_but_does_it_scale/src/pages/history_year.dart';
 import 'package:talk_but_does_it_scale/src/pages/intro.dart';
 import 'package:talk_but_does_it_scale/src/pages/modules.dart';
 import 'package:talk_but_does_it_scale/src/pages/more_devs_more_problems.dart';
@@ -15,7 +16,6 @@ import 'package:talk_but_does_it_scale/src/pages/scale_vs_change.dart';
 import 'package:talk_but_does_it_scale/src/pages/snippet_page.dart';
 import 'package:talk_but_does_it_scale/src/pages/speakers_intro.dart';
 import 'package:talk_but_does_it_scale/src/pages/what_is_scale.dart';
-import 'package:talk_but_does_it_scale/src/pages/year_2021.dart';
 
 class ButDoesItScale extends StatefulWidget {
   const ButDoesItScale({super.key});
@@ -71,9 +71,14 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
             EmbraceChange(presentationController),
             const SummaryPage(
               title: 'Some Brief History',
-              subtitle: 'of Klar',
+              subtitle: '2021',
             ),
-            Year2021(presentationController),
+            YearStats(
+              presentationController,
+              developerCount: 4,
+              dartFileCount: 430,
+              testFileCount: 14,
+            ),
             const SummaryPage(
               title: 'Velocity',
               subtitle: 'Problem',
@@ -95,6 +100,16 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
                   package: Assets.package,
                 ),
               ),
+            ),
+            const SummaryPage(
+              title: 'This year',
+              subtitle: '2023',
+            ),
+            YearStats(
+              presentationController,
+              developerCount: 19,
+              dartFileCount: 4800,
+              testFileCount: 1700,
             ),
             const SummaryPage(
               title: 'Test',
