@@ -7,6 +7,7 @@ abstract class Assets {
   static const simpleGolden = 'assets/simple_golden.png';
   static const screenshots = 'assets/screenshots.png';
   static const debug = 'assets/debug.png';
+  static const failedDebug = 'assets/failed_debug.png';
   static const velocity_linear = 'assets/velocity-linear.png';
   static const velocity_log = 'assets/velocity-log.png';
 }

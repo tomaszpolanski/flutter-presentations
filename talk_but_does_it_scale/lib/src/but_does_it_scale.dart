@@ -6,11 +6,14 @@ import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_ui/shared_ui.dart';
 import 'package:talk_but_does_it_scale/src/assets.dart';
 import 'package:talk_but_does_it_scale/src/images.dart';
+import 'package:talk_but_does_it_scale/src/pages/ci_definition.dart';
+import 'package:talk_but_does_it_scale/src/pages/code_iteration.dart';
 import 'package:talk_but_does_it_scale/src/pages/design_system.dart';
 import 'package:talk_but_does_it_scale/src/pages/design_system_tips.dart';
 import 'package:talk_but_does_it_scale/src/pages/embrace_change.dart';
 import 'package:talk_but_does_it_scale/src/pages/history_year.dart';
 import 'package:talk_but_does_it_scale/src/pages/intro.dart';
+import 'package:talk_but_does_it_scale/src/pages/machine_work.dart';
 import 'package:talk_but_does_it_scale/src/pages/modules.dart';
 import 'package:talk_but_does_it_scale/src/pages/more_devs_more_problems.dart';
 import 'package:talk_but_does_it_scale/src/pages/old_android.dart';
@@ -160,14 +163,58 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               title: 'Melos 📦',
               subtitle: '& Mason 🧱',
             ),
+            const SummaryPage(
+              title: 'Automation 🤖',
+              subtitle: '',
+            ),
+            const WorkForMachine(),
+            const SummaryPage(
+              title: 'Automate releases',
+              subtitle: '🚀',
+            ),
+            const SummaryPage(
+              title: 'Identify your challenges',
+              subtitle: '',
+            ),
             const SnippetPage(
-              title: Text('Debug'),
+              title: Text('Orange 🍊'),
               child: SingleChildScrollView(
                 child: ParallaxImage(
                   Assets.debug,
                   package: Assets.package,
                 ),
               ),
+            ),
+            const SnippetPage(
+              title: Text('! 🍊'),
+              child: SingleChildScrollView(
+                child: ParallaxImage(
+                  Assets.failedDebug,
+                  package: Assets.package,
+                ),
+              ),
+            ),
+            const SummaryPage(
+              title: 'Custom tools',
+              subtitle: '🛠️',
+            ),
+            CodeIteration(presentationController),
+            const SummaryPage(
+              title: 'Continuous Integration',
+              subtitle: '',
+            ),
+            const ContinuousIntegrationDefinition(),
+            const SummaryPage(
+              title: '20 * 1',
+              subtitle: '',
+            ),
+            const SummaryPage(
+              title: '20 * 10',
+              subtitle: '',
+            ),
+            const SummaryPage(
+              title: 'You Build It',
+              subtitle: 'You Run It',
             ),
             const SectionPage('Issues'),
             const SummaryPage(
@@ -182,10 +229,6 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
             const SummaryPage(
               title: 'Must Have!',
               subtitle: 'CI',
-            ),
-            const SummaryPage(
-              title: 'You Build It',
-              subtitle: 'You Run It',
             ),
             const SectionPage('Embrace The Change!'),
             const ThatsAll(
