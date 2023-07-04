@@ -7,12 +7,12 @@ import 'package:shared_ui/shared_ui.dart';
 import 'package:talk_but_does_it_scale/src/assets.dart';
 import 'package:talk_but_does_it_scale/src/images.dart';
 import 'package:talk_but_does_it_scale/src/pages/embrace_change.dart';
-import 'package:talk_but_does_it_scale/src/pages/golden_tests.dart';
 import 'package:talk_but_does_it_scale/src/pages/intro.dart';
 import 'package:talk_but_does_it_scale/src/pages/modules.dart';
 import 'package:talk_but_does_it_scale/src/pages/more_devs_more_problems.dart';
 import 'package:talk_but_does_it_scale/src/pages/old_android.dart';
 import 'package:talk_but_does_it_scale/src/pages/scale_vs_change.dart';
+import 'package:talk_but_does_it_scale/src/pages/snippet_page.dart';
 import 'package:talk_but_does_it_scale/src/pages/speakers_intro.dart';
 import 'package:talk_but_does_it_scale/src/pages/what_is_scale.dart';
 
@@ -72,7 +72,7 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               title: 'Test',
               subtitle: '✅ All ✅',
             ),
-            const GoldenTestPage(
+            const SnippetPage(
               title: Text('Screenshots for UI Tests'),
               child: SingleChildScrollView(
                 child: ParallaxImage(
@@ -81,7 +81,7 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
                 ),
               ),
             ),
-            const GoldenTestPage(
+            const SnippetPage(
               title: Text('Golder Tests ❌'),
               // Should be only used for graphs
               child: ParallaxImage(
@@ -89,7 +89,7 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
                 package: Assets.package,
               ),
             ),
-            const GoldenTestPage(
+            const SnippetPage(
               title: Text('Golder Tests ✅'),
               // Should be only used for graphs
               child: ParallaxImage(
@@ -111,6 +111,16 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               title: 'Melos 📦',
               subtitle: '& Mason 🧱',
             ),
+            const SnippetPage(
+              title: Text('Debug'),
+              child: SingleChildScrollView(
+                child: ParallaxImage(
+                  Assets.debug,
+                  package: Assets.package,
+                ),
+              ),
+            ),
+            const SectionPage('Issues'),
             const SummaryPage(
               title: 'Issues,',
               subtitle: 'Analyzer',

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_ui/shared_ui.dart';
 import 'package:shared_pages/shared_pages.dart';
 
-class GoldenTestPage extends StatelessWidget {
-  const GoldenTestPage({
+class SnippetPage extends StatelessWidget {
+  const SnippetPage({
     super.key,
     required this.title,
     required this.child,
