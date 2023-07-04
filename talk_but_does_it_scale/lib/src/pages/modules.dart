@@ -11,7 +11,7 @@ class Modules extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TiteledPage(
+    return TitledPage(
       title: const Text('Flutter Structure'),
       child: FutureBuilder<String>(
         future: DefaultAssetBundle.of(context)

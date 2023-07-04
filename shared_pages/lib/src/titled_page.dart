@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:presentation/effects.dart';
 
-class TiteledPage extends StatelessWidget {
-  const TiteledPage({
+class TitledPage extends StatelessWidget {
+  const TitledPage({
     super.key,
     required this.title,
     required this.child,
