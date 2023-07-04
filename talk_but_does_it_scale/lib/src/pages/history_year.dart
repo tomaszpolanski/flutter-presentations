@@ -82,19 +82,21 @@ class _YearStatsState extends State<YearStats>
       title: Text('${widget.date.year}'),
       child: DefaultTextStyle.merge(
         style: GTheme.big.copyWith(fontSize: 80),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            _Stage('${widget.developerCount} 👨‍💻', visible: true),
-            _Stage(
-              '${widget.dartFileCount} dart files',
-              visible: _showDartFiles,
-            ),
-            _Stage(
-              '${widget.testFileCount} test files',
-              visible: _showTestFiles,
-            ),
-          ],
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _Stage('${widget.developerCount} 👨‍💻', visible: true),
+              _Stage(
+                '${widget.dartFileCount} dart files',
+                visible: _showDartFiles,
+              ),
+              _Stage(
+                '${widget.testFileCount} test files',
+                visible: _showTestFiles,
+              ),
+            ],
+          ),
         ),
       ),
     );
