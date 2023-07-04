@@ -6,4 +6,5 @@ abstract class Assets {
   static const advanceGolden = 'assets/advance_golden.png';
   static const simpleGolden = 'assets/simple_golden.png';
   static const screenshots = 'assets/screenshots.png';
+  static const debug = 'assets/debug.png';
 }
