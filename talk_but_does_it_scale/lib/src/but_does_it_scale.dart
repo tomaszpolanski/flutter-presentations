@@ -152,7 +152,7 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               title: 'Design System',
               subtitle: 'UI',
             ),
-            DesignSystems(),
+            const DesignSystems(),
             DesignSystemTips(presentationController),
             OldAndroid(presentationController),
             const Modules(),
