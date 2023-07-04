@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_presentations/shared/font_switcher.dart';
 import 'package:shared_theme/shared_theme.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -21,12 +22,27 @@ class PresentationShortcuts extends StatelessWidget {
         SingleActivator(LogicalKeyboardKey.enter): ToggleFullScreenIntent(),
         SingleActivator(LogicalKeyboardKey.escape): GoBackIntent(),
         SingleActivator(LogicalKeyboardKey.f12): ToggleTheme(),
-        SingleActivator(LogicalKeyboardKey.tab): ToggleTheme(),
+        SingleActivator(LogicalKeyboardKey.minus, control: true):
+            FontDecreaseIntent(),
+        SingleActivator(LogicalKeyboardKey.equal, control: true):
+            FontIncreaseIntent(),
       },
       child: Builder(
         builder: (context) {
           return Actions(
             actions: <Type, Action<Intent>>{
+              FontIncreaseIntent: CallbackAction(
+                onInvoke: (_) async {
+                  FontSwitcher.maybeOf(context)?.increase();
+                  return null;
+                },
+              ),
+              FontDecreaseIntent: CallbackAction(
+                onInvoke: (_) async {
+                  FontSwitcher.maybeOf(context)?.decrease();
+                  return null;
+                },
+              ),
               ToggleTheme: CallbackAction(
                 onInvoke: (_) async {
                   ThemeSwitcher.maybeOf(context)?.date = blueDark();
@@ -74,4 +90,12 @@ class GoBackIntent extends Intent {
 
 class ToggleTheme extends Intent {
   const ToggleTheme();
+}
+
+class FontIncreaseIntent extends Intent {
+  const FontIncreaseIntent();
+}
+
+class FontDecreaseIntent extends Intent {
+  const FontDecreaseIntent();
 }

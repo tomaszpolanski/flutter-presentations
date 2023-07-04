@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_presentations/shared/font_switcher.dart';
 import 'package:flutter_presentations/shared/shortcuts.dart';
 import 'package:shared_theme/shared_theme.dart';
 import 'package:talk_big_applications/talk_big_applications.dart';
@@ -15,19 +16,21 @@ class FlutterPresentations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ThemeSwitcherWidget(
-      builder: (context) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          navigatorKey: gKey,
-          theme: ThemeSwitcher.maybeOf(context)?.date,
-          builder: (context, child) => PresentationShortcuts(
-            navigator: () => gKey.currentState,
-            child: child!,
-          ),
-          home: const _PresentationList(),
-        );
-      },
+    return FontSwitcherWidget(
+      builder: (context) => ThemeSwitcherWidget(
+        builder: (context) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            navigatorKey: gKey,
+            theme: ThemeSwitcher.maybeOf(context)?.date,
+            builder: (context, child) => PresentationShortcuts(
+              navigator: () => gKey.currentState,
+              child: child!,
+            ),
+            home: const _PresentationList(),
+          );
+        },
+      ),
     );
   }
 }
