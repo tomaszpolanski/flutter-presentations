@@ -71,9 +71,31 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
             EmbraceChange(presentationController),
             const SummaryPage(
               title: 'Some Brief History',
-              subtitle: 'of sKlar',
+              subtitle: 'of Klar',
             ),
             Year2021(presentationController),
+            const SummaryPage(
+              title: 'Velocity',
+              subtitle: 'Problem',
+            ),
+            const SnippetPage(
+              title: Text('Velocity?'),
+              child: SingleChildScrollView(
+                child: ParallaxImage(
+                  Assets.velocity_linear,
+                  package: Assets.package,
+                ),
+              ),
+            ),
+            const SnippetPage(
+              title: Text('Velocity!'),
+              child: SingleChildScrollView(
+                child: ParallaxImage(
+                  Assets.velocity_log,
+                  package: Assets.package,
+                ),
+              ),
+            ),
             const SummaryPage(
               title: 'Test',
               subtitle: '✅ All ✅',
