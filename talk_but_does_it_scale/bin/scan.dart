@@ -41,7 +41,7 @@ Module from(List<Directory> modules) {
   for (final n in names) {
     _fromPath(n, m);
   }
-  return _from('klar', m);
+  return _from('klar (${names.length})', m);
 }
 
 void _fromPath(List<String> modules, Map<String, dynamic> map) {
