@@ -9,3 +9,4 @@ export 'src/project_structure.dart';
 export 'src/revolving_widget.dart';
 export 'src/snippet.dart';
 export 'src/orb/orb.dart';
+export 'src/qr_code.dart';

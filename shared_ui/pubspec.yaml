@@ -14,6 +14,7 @@ dependencies:
   path: ^1.8.2
   presentation: ^2.2.0
   flutter_animate: ^4.2.0
+  qr_flutter: ^4.1.0
 
   shared_theme:
     path: ../shared_theme
