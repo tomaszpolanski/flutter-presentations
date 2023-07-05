@@ -24,7 +24,7 @@ class Modules extends StatelessWidget {
           final m = Module.fromJson(json.decode(_json));
           return Center(
             child: SizedBox(
-              width: 500,
+              width: 600,
               height: 700,
               child: Snippet(
                 icon: SvgPicture.asset(
