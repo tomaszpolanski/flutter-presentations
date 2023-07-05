@@ -10,6 +10,6 @@ abstract class Assets {
   static const failedDebug = 'assets/failed_debug.png';
   // Image from https://www.davefarley.net/?p=285
   static const continuousDeliveryExample = 'assets/cd_pipeline_example_df.png';
-  static const velocity_linear = 'assets/velocity-linear.png';
-  static const velocity_log = 'assets/velocity-log.png';
+  static const velocity_linear = 'assets/velocity_linear.png';
+  static const velocity_log = 'assets/velocity_log.png';
 }

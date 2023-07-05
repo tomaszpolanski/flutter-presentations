@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_theme/shared_theme.dart';
 import 'package:shared_ui/shared_ui.dart';
 
@@ -66,24 +67,27 @@ class _CiTricksState extends State<CiTricks>
 
   @override
   Widget build(BuildContext context) {
-    return FadeInVisibility(
-      visible: true,
-      child: DefaultTextStyle.merge(
-        style: const TextStyle(color: GTheme.flutter3),
-        textAlign: TextAlign.center,
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _Stage(
-                'Selective builds',
-                visible: _showSelectiveBuild,
-              ),
-              _Stage(
-                'Sharding',
-                visible: _showSharding,
-              ),
-            ],
+    return TitledPage(
+      title: const Text('Necessary "tricks"'),
+      child: FadeInVisibility(
+        visible: true,
+        child: DefaultTextStyle.merge(
+          style: const TextStyle(color: GTheme.flutter3),
+          textAlign: TextAlign.center,
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                _Stage(
+                  '🏗️ Selective builds',
+                  visible: _showSelectiveBuild,
+                ),
+                _Stage(
+                  '💎 Sharding 💎',
+                  visible: _showSharding,
+                ),
+              ],
+            ),
           ),
         ),
       ),
