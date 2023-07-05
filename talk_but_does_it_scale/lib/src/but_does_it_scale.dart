@@ -63,7 +63,7 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Builder(
-        builder: (_) {
+        builder: (context) {
           final children = [
             const Intro(),
             SpeakersIntro(presentationController),
@@ -224,6 +224,14 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
                   child: QrImageView(
                     data: 'https://www.youtube.com/c/ContinuousDelivery',
                     size: 400.0,
+                    eyeStyle: QrEyeStyle(
+                      eyeShape: QrEyeShape.circle,
+                      color: Theme.of(context).colorScheme.onBackground,
+                    ),
+                    dataModuleStyle: QrDataModuleStyle(
+                      dataModuleShape: QrDataModuleShape.circle,
+                      color: Theme.of(context).colorScheme.onBackground,
+                    ),
                   ),
                 ),
               ),
