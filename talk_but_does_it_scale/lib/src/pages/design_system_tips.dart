@@ -134,6 +134,7 @@ class _Stage extends StatelessWidget {
       child: Text(
         data,
         style: style ?? const TextStyle(color: GTheme.flutter3),
+        textAlign: TextAlign.center,
       ),
     );
   }

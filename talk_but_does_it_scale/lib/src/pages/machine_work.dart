@@ -63,10 +63,10 @@ class _BigEmoji extends StatelessWidget {
     return SizedBox(
       height: 400,
       width: 400,
-      child: Transform.scale(
-        scale: 4,
-        child: Center(
-          child: Text(emoji),
+      child: Center(
+        child: Text(
+          emoji,
+          style: const TextStyle(fontSize: 200),
         ),
       ),
     );

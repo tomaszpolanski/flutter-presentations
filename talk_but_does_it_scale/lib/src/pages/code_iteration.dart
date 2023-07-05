@@ -72,7 +72,10 @@ class _CodeIterationState extends State<CodeIteration>
       child: FadeInVisibility(
         visible: _revolvingState != null,
         child: DefaultTextStyle.merge(
-          style: const TextStyle(color: GTheme.flutter3),
+          style: const TextStyle(
+            color: GTheme.flutter3,
+            fontStyle: FontStyle.italic,
+          ),
           textAlign: TextAlign.left,
           child: Center(
             child: Column(
@@ -81,20 +84,22 @@ class _CodeIterationState extends State<CodeIteration>
               children: [
                 RevolvingWidget(
                   alignment: AlignmentDirectional.centerStart,
-                  firstChild: const Text(r'for i in $TEXTS; do '),
-                  secondChild: const Text(r'for(final i in texts)'),
+                  firstChild: const Text(
+                    r'for t in $TEXTS; do',
+                  ),
+                  secondChild: const Text(r'for (t in texts) {'),
                   state: state,
                 ),
                 RevolvingWidget(
                   alignment: AlignmentDirectional.centerStart,
-                  firstChild: const Text(r'  echo "Text is $i"'),
-                  secondChild: const Text(r"  print('Text is $i');"),
+                  firstChild: const Text(r'  echo "Text is $t"'),
+                  secondChild: const Text(r"  print('Text is $t');"),
                   state: state,
                 ),
                 RevolvingWidget(
                   alignment: AlignmentDirectional.centerStart,
                   firstChild: const Text('done'),
-                  secondChild: const Text(''),
+                  secondChild: const Text('}'),
                   state: state,
                 ),
               ],
