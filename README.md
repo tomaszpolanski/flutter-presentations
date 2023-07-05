@@ -19,7 +19,6 @@ flutter run -d chrome -v
 ```
 
 ## Building for Desktop
-* Run `flutter config --enable-linux-desktop --enable-macos-desktop --enable-windows-desktop`
 * Check what desktop components are missing by running `flutter doctor`
 * Install missing components that you can see under Flutter doctor's  `Linux`/`Window`/`MacOS` section
 
