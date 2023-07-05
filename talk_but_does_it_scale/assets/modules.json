@@ -1,8 +1,13 @@
 {
-  "name": "klar",
+  "name": "klar (187)",
   "modules": [
     {
-      "name": "app"
+      "name": "app",
+      "modules": [
+        {
+          "name": "page_objects"
+        }
+      ]
     },
     {
       "name": "app_signup"
@@ -529,6 +534,9 @@
       ]
     },
     {
+      "name": "klar_provider_spei_repository"
+    },
+    {
       "name": "klar_pushes"
     },
     {
@@ -549,7 +557,12 @@
       "name": "klar_repository_base"
     },
     {
-      "name": "klar_rewards_repository"
+      "name": "klar_rewards_repository",
+      "modules": [
+        {
+          "name": "test_utils"
+        }
+      ]
     },
     {
       "name": "klar_savings_repository",
