@@ -2,17 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_ui/shared_ui.dart';
 import 'package:talk_but_does_it_scale/src/assets.dart';
 import 'package:talk_but_does_it_scale/src/images.dart';
 import 'package:talk_but_does_it_scale/src/pages/ci_definition.dart';
+import 'package:talk_but_does_it_scale/src/pages/ci_tricks.dart';
 import 'package:talk_but_does_it_scale/src/pages/code_iteration.dart';
 import 'package:talk_but_does_it_scale/src/pages/design_system.dart';
 import 'package:talk_but_does_it_scale/src/pages/design_system_tips.dart';
 import 'package:talk_but_does_it_scale/src/pages/embrace_change.dart';
+import 'package:talk_but_does_it_scale/src/pages/fast_pr_checks.dart';
 import 'package:talk_but_does_it_scale/src/pages/history_year.dart';
 import 'package:talk_but_does_it_scale/src/pages/intro.dart';
+import 'package:talk_but_does_it_scale/src/pages/issues.dart';
 import 'package:talk_but_does_it_scale/src/pages/machine_work.dart';
 import 'package:talk_but_does_it_scale/src/pages/modules.dart';
 import 'package:talk_but_does_it_scale/src/pages/more_devs_more_problems.dart';
@@ -21,6 +25,7 @@ import 'package:talk_but_does_it_scale/src/pages/scale_vs_change.dart';
 import 'package:talk_but_does_it_scale/src/pages/snippet_page.dart';
 import 'package:talk_but_does_it_scale/src/pages/speakers_intro.dart';
 import 'package:talk_but_does_it_scale/src/pages/what_is_scale.dart';
+import 'package:talk_but_does_it_scale/src/pages/you_build_it.dart';
 
 class ButDoesItScale extends StatefulWidget {
   const ButDoesItScale({super.key});
@@ -163,18 +168,15 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               title: 'Melos 📦',
               subtitle: '& Mason 🧱',
             ),
-            const SummaryPage(
-              title: 'Automation 🤖',
-              subtitle: '',
+            const SectionPage(
+              'Automation 🤖',
             ),
             const WorkForMachine(),
-            const SummaryPage(
-              title: 'Automate releases',
-              subtitle: '🚀',
+            const SectionPage(
+              'Automate releases 🚀',
             ),
-            const SummaryPage(
-              title: 'Identify your challenges',
-              subtitle: '',
+            const SectionPage(
+              'Identify your challenges',
             ),
             const SnippetPage(
               title: Text('Orange 🍊'),
@@ -204,23 +206,30 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               subtitle: '',
             ),
             const ContinuousIntegrationDefinition(),
-            const SummaryPage(
-              title: '20 * 1',
-              subtitle: '',
+            FastPrChecks(presentationController),
+            CiTricks(presentationController),
+            const SnippetPage(
+              title: Text('Continuous Delivery'),
+              child: SingleChildScrollView(
+                child: ParallaxImage(
+                  Assets.continuousDeliveryExample,
+                  package: Assets.package,
+                ),
+              ),
             ),
-            const SummaryPage(
-              title: '20 * 10',
-              subtitle: '',
+            TitledPage(
+              title: const Text('Continuous Delivery by Dave Farley'),
+              child: Center(
+                child: SingleChildScrollView(
+                  child: QrImageView(
+                    data: 'https://www.youtube.com/c/ContinuousDelivery',
+                    size: 400.0,
+                  ),
+                ),
+              ),
             ),
-            const SummaryPage(
-              title: 'You Build It',
-              subtitle: 'You Run It',
-            ),
-            const SectionPage('Issues'),
-            const SummaryPage(
-              title: 'Issues,',
-              subtitle: 'Analyzer',
-            ),
+            YouBuildIt(presentationController),
+            Issues(presentationController),
             const SectionPage('Conclusion'),
             const SummaryPage(
               title: 'Scales,',

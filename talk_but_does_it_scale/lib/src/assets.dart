@@ -8,6 +8,8 @@ abstract class Assets {
   static const screenshots = 'assets/screenshots.png';
   static const debug = 'assets/debug.png';
   static const failedDebug = 'assets/failed_debug.png';
+  // Image from https://www.davefarley.net/?p=285
+  static const continuousDeliveryExample = 'assets/cd_pipeline_example_df.png';
   static const velocity_linear = 'assets/velocity-linear.png';
   static const velocity_log = 'assets/velocity-log.png';
 }
