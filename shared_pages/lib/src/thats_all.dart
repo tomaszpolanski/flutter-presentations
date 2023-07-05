@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:presentation/presentation.dart';
+import 'package:shared_ui/shared_ui.dart';
 
 class GradientContainer extends StatelessWidget {
   const GradientContainer({
@@ -9,6 +10,7 @@ class GradientContainer extends StatelessWidget {
     this.fraction,
     this.beat = 0,
   });
+
   final double? fraction;
   final double beat;
 
@@ -145,9 +147,11 @@ class _ThatsAllState extends State<ThatsAll> with TickerProviderStateMixin {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: _format(widget.thanks).toList(),
                     ),
-                    secondChild: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: _format('Questions?').toList(),
+                    secondChild: QrCode(
+                      Uri.parse(
+                        'https://github.com/tomaszpolanski/flutter-presentations',
+                      ),
+                      color: Colors.white,
                     ),
                   ),
                 ),

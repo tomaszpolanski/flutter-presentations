@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:presentation/effects.dart';
 import 'package:presentation/presentation.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 import 'package:shared_pages/shared_pages.dart';
 import 'package:shared_ui/shared_ui.dart';
 import 'package:talk_but_does_it_scale/src/assets.dart';
@@ -221,17 +220,8 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               title: const Text('Continuous Delivery by Dave Farley'),
               child: Center(
                 child: SingleChildScrollView(
-                  child: QrImageView(
-                    data: 'https://www.youtube.com/c/ContinuousDelivery',
-                    size: 400.0,
-                    eyeStyle: QrEyeStyle(
-                      eyeShape: QrEyeShape.circle,
-                      color: Theme.of(context).colorScheme.onBackground,
-                    ),
-                    dataModuleStyle: QrDataModuleStyle(
-                      dataModuleShape: QrDataModuleShape.circle,
-                      color: Theme.of(context).colorScheme.onBackground,
-                    ),
+                  child: QrCode(
+                    Uri.parse('https://www.youtube.com/c/ContinuousDelivery'),
                   ),
                 ),
               ),
