@@ -124,7 +124,7 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               subtitle: '✅ All ✅',
             ),
             const SnippetPage(
-              title: Text('Screenshots for UI Tests'),
+              title: Text('UI Tests ❤️ Screenshots '),
               child: SingleChildScrollView(
                 child: ParallaxImage(
                   Assets.screenshots,

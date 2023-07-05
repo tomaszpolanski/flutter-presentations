@@ -44,13 +44,14 @@ class _Windows extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _icon = icon;
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(20)),
-        border: Border.all(
+    return Material(
+      elevation: 6,
+      shape: RoundedRectangleBorder(
+        side: BorderSide(
           width: 3,
           color: Theme.of(context).colorScheme.primaryContainer,
         ),
+        borderRadius: const BorderRadius.all(Radius.circular(16)),
       ),
       child: ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular(16)),
