@@ -233,10 +233,7 @@ class _ButDoesItScaleState extends State<ButDoesItScale> {
               title: 'Scales,',
               subtitle: 'so far...',
             ),
-            const SummaryPage(
-              title: 'Must Have!',
-              subtitle: 'CI',
-            ),
+            const SectionPage('Must Have!: CI'),
             const SectionPage('Embrace The Change!'),
             const ThatsAll(
               thanks: 'Thank you!',
