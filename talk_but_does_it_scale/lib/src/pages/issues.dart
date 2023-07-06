@@ -67,7 +67,7 @@ class _IssuesState extends State<Issues> with SingleTickerProviderStateMixin {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 _Stage(
-                  'Analyzer OOM',
+                  'Analyzer',
                   visible: _showIssues,
                 ),
               ],
