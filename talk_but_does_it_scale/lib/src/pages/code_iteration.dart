@@ -84,10 +84,16 @@ class _CodeIterationState extends State<CodeIteration>
               children: [
                 RevolvingWidget(
                   alignment: AlignmentDirectional.centerStart,
+                  firstChild: const Text('# Bash'),
+                  secondChild: const Text('// Dart'),
+                  state: state,
+                ),
+                RevolvingWidget(
+                  alignment: AlignmentDirectional.centerStart,
                   firstChild: const Text(
-                    r'for t in $TEXTS; do',
+                    r'for t in $TEXTS; do        ',
                   ),
-                  secondChild: const Text(r'for (t in texts) {'),
+                  secondChild: const Text(r'for (final t in texts) {'),
                   state: state,
                 ),
                 RevolvingWidget(
